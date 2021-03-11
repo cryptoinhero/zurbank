@@ -12,15 +12,7 @@
     </context>
 <context>
     <name>AddressTableModel</name>
-    <message>
-        <source>Address</source>
-        <translation>Дарек</translation>
-    </message>
-    <message>
-        <source>(no label)</source>
-        <translation>(аты жок)</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>AskPassphraseDialog</name>
     </context>
@@ -40,6 +32,10 @@
     <message>
         <source>Zurcoin</source>
         <translation>Zurcoin</translation>
+    </message>
+    <message>
+        <source>Wallet</source>
+        <translation>Капчык</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -65,20 +61,12 @@
         <source>Up to date</source>
         <translation>Жаңыланган</translation>
     </message>
-    <message>
-        <source>&amp;Window</source>
-        <translation>&amp;Терезе</translation>
-    </message>
     </context>
 <context>
     <name>CoinControlDialog</name>
     <message>
         <source>Date</source>
         <translation>Дата</translation>
-    </message>
-    <message>
-        <source>(no label)</source>
-        <translation>(аты жок)</translation>
     </message>
     </context>
 <context>
@@ -101,22 +89,19 @@
 <context>
     <name>Intro</name>
     <message>
-        <source>Zurcoin</source>
-        <translation>Zurcoin</translation>
-    </message>
-    <message>
         <source>Error</source>
         <translation>Ката</translation>
     </message>
-    </context>
-<context>
-    <name>ModalOverlay</name>
     </context>
 <context>
     <name>OpenURIDialog</name>
     </context>
 <context>
     <name>OptionsDialog</name>
+    <message>
+        <source>MB</source>
+        <translation>МБ</translation>
+    </message>
     <message>
         <source>&amp;Network</source>
         <translation>&amp;Тармак</translation>
@@ -149,10 +134,6 @@
         <source>none</source>
         <translation>жок</translation>
     </message>
-    <message>
-        <source>Error</source>
-        <translation>Ката</translation>
-    </message>
     </context>
 <context>
     <name>OverviewPage</name>
@@ -165,9 +146,6 @@
     </context>
 <context>
     <name>QObject</name>
-    </context>
-<context>
-    <name>QObject::QObject</name>
     </context>
 <context>
     <name>QRImageWidget</name>
@@ -212,33 +190,9 @@
     </context>
 <context>
     <name>ReceiveRequestDialog</name>
-    <message>
-        <source>Address</source>
-        <translation>Дарек</translation>
-    </message>
-    <message>
-        <source>Message</source>
-        <translation>Билдирүү</translation>
-    </message>
-    <message>
-        <source>Wallet</source>
-        <translation>Капчык</translation>
-    </message>
     </context>
 <context>
     <name>RecentRequestsTableModel</name>
-    <message>
-        <source>Date</source>
-        <translation>Дата</translation>
-    </message>
-    <message>
-        <source>Message</source>
-        <translation>Билдирүү</translation>
-    </message>
-    <message>
-        <source>(no label)</source>
-        <translation>(аты жок)</translation>
-    </message>
     </context>
 <context>
     <name>SendCoinsDialog</name>
@@ -250,11 +204,7 @@
         <source>S&amp;end</source>
         <translation>&amp;Жөнөтүү</translation>
     </message>
-    <message>
-        <source>(no label)</source>
-        <translation>(аты жок)</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>SendCoinsEntry</name>
     <message>
@@ -291,45 +241,18 @@
     </context>
 <context>
     <name>TransactionDesc</name>
-    <message>
-        <source>Date</source>
-        <translation>Дата</translation>
-    </message>
-    <message>
-        <source>Message</source>
-        <translation>Билдирүү</translation>
-    </message>
     </context>
 <context>
     <name>TransactionDescDialog</name>
     </context>
 <context>
     <name>TransactionTableModel</name>
-    <message>
-        <source>Date</source>
-        <translation>Дата</translation>
-    </message>
-    <message>
-        <source>(no label)</source>
-        <translation>(аты жок)</translation>
-    </message>
     </context>
 <context>
     <name>TransactionView</name>
-    <message>
-        <source>Date</source>
-        <translation>Дата</translation>
-    </message>
-    <message>
-        <source>Address</source>
-        <translation>Дарек</translation>
-    </message>
     </context>
 <context>
     <name>UnitDisplayStatusBarControl</name>
-    </context>
-<context>
-    <name>WalletController</name>
     </context>
 <context>
     <name>WalletFrame</name>
@@ -341,7 +264,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>zurcoin-core</name>
     <message>
         <source>Information</source>
         <translation>Маалымат</translation>

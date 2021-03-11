@@ -15,7 +15,7 @@ How to Upgrade
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), uninstall all
 earlier versions of Zurcoin, then run the installer (on Windows) or just copy
-over /Applications/Zurcoin-Qt (on Mac) or bitcoind/bitcoin-qt (on Linux).
+over /Applications/Zurcoin-Qt (on Mac) or zurcoind/zurcoin-qt (on Linux).
 
 If you are upgrading from version 0.7.2 or earlier, the first time you run
 0.9.0 your blockchain files will be re-indexed, which will take anywhere from 
@@ -74,7 +74,7 @@ blockchain.  This change is not an endorsement of storing data in the
 blockchain.  The OP_RETURN change creates a provably-prunable output,
 to avoid data storage schemes -- some of which were already deployed --
 that were storing arbitrary data such as images as forever-unspendable
-TX outputs, bloating bitcoin's UTXO database.
+TX outputs, bloating zurcoin's UTXO database.
 
 Storing arbitrary data in the blockchain is still a bad idea; it is less
 costly and far more efficient to store non-currency data elsewhere.
@@ -86,7 +86,7 @@ For 0.9.0 we switched to an autotools-based build system instead of individual
 (q)makefiles.
 
 Using the standard "./autogen.sh; ./configure; make" to build Zurcoin-Qt and
-bitcoind makes it easier for experienced open source developers to contribute 
+zurcoind makes it easier for experienced open source developers to contribute 
 to the project.
 
 Be sure to check doc/build-*.md for your platform before building from source.
@@ -94,11 +94,11 @@ Be sure to check doc/build-*.md for your platform before building from source.
 Zurcoin-cli
 -------------
 
-Another change in the 0.9 release is moving away from the bitcoind executable
+Another change in the 0.9 release is moving away from the zurcoind executable
 functioning both as a server and as a RPC client. The RPC client functionality
-("tell the running bitcoin daemon to do THIS") was split into a separate
-executable, 'bitcoin-cli'. The RPC client code will eventually be removed from
-bitcoind, but will be kept for backwards compatibility for a release or two.
+("tell the running zurcoin daemon to do THIS") was split into a separate
+executable, 'zurcoin-cli'. The RPC client code will eventually be removed from
+zurcoind, but will be kept for backwards compatibility for a release or two.
 
 `walletpassphrase` RPC
 -----------------------
@@ -143,7 +143,7 @@ Transaction Fees
 
 This release drops the default fee required to relay transactions across the
 network and for miners to consider the transaction in their blocks to
-0.01mBTC per kilobyte.
+0.01mZUR per kilobyte.
 
 Note that getting a transaction relayed across the network does NOT guarantee
 that the transaction will be accepted by a miner; by default, miners fill
@@ -156,7 +156,7 @@ the mintxfee setting to determine which low-priority transactions should
 be considered for inclusion in blocks.
 
 The wallet code still uses a default fee for low-priority transactions of
-0.1mBTC per kilobyte. During periods of heavy transaction volume, even this
+0.1mZUR per kilobyte. During periods of heavy transaction volume, even this
 fee may not be enough to get transactions confirmed quickly; the mintxfee
 option may be used to override the default.
 
@@ -197,13 +197,13 @@ Command-line options:
 - New option: -nospendzeroconfchange to never spend unconfirmed change outputs
 - New option: -zapwallettxes to rebuild the wallet's transaction information
 - Rename option '-tor' to '-onion' to better reflect what it does
-- Add '-disablewallet' mode to let bitcoind run entirely without wallet (when
+- Add '-disablewallet' mode to let zurcoind run entirely without wallet (when
   built with wallet)
 - Update default '-rpcsslciphers' to include TLSv1.2
 - make '-logtimestamps' default on and rework help-message
 - RPC client option: '-rpcwait', to wait for server start
 - Remove '-logtodebugger'
-- Allow `-noserver` with bitcoind
+- Allow `-noserver` with zurcoind
 
 Block-chain handling and storage:
 
@@ -239,7 +239,7 @@ Mining:
 
 Protocol and network:
 
-- Drop the fee required to relay a transaction to 0.01mBTC per kilobyte
+- Drop the fee required to relay a transaction to 0.01mZUR per kilobyte
 - Send tx relay flag with version
 - New 'reject' P2P message (BIP 0061, see
   https://gist.github.com/gavinandresen/7079034 for draft)
@@ -299,14 +299,14 @@ GUI:
 - Move initialization/shutdown to a thread. This prevents "Not responding"
   messages during startup. Also show a window during shutdown.
 - Don't regenerate autostart link on every client startup
-- Show and store message of normal bitcoin:URI
+- Show and store message of normal zurcoin:URI
 - Fix richtext detection hang issue on very old Qt versions
 - OS X: Make use of the 10.8+ user notification center to display Growl-like 
   notifications
 - OS X: Added NSHighResolutionCapable flag to Info.plist for better font
   rendering on Retina displays.
-- OS X: Fix bitcoin-qt startup crash when clicking dock icon
-- Linux: Fix Gnome bitcoin: URI handler
+- OS X: Fix zurcoin-qt startup crash when clicking dock icon
+- Linux: Fix Gnome zurcoin: URI handler
 
 Miscellaneous:
 
@@ -314,7 +314,7 @@ Miscellaneous:
 - Add '-regtest' mode, similar to testnet but private with instant block
   generation with 'setgenerate' RPC.
 - Add 'linearize.py' script to contrib, for creating bootstrap.dat
-- Add separate bitcoin-cli client
+- Add separate zurcoin-cli client
 
 Credits
 --------

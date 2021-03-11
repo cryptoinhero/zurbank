@@ -1,4 +1,4 @@
-// Copyright (c) 2009-2018 The Bitcoin Core developers
+// Copyright (c) 2009-2015 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -6,13 +6,29 @@
 #define BITCOIN_CLIENTVERSION_H
 
 #if defined(HAVE_CONFIG_H)
-#include <config/bitcoin-config.h>
-#endif //HAVE_CONFIG_H
+#include "config/bitcoin-config.h"
+#else
 
-// Check that required client information is defined
-#if !defined(CLIENT_VERSION_MAJOR) || !defined(CLIENT_VERSION_MINOR) || !defined(CLIENT_VERSION_REVISION) || !defined(CLIENT_VERSION_BUILD) || !defined(CLIENT_VERSION_IS_RELEASE) || !defined(COPYRIGHT_YEAR)
-#error Client version information missing: version is not defined by bitcoin-config.h or in any other way
-#endif
+/**
+ * client versioning and copyright year
+ */
+
+//! These need to be macros, as clientversion.cpp's and zurcoin*-res.rc's voodoo requires it
+#define CLIENT_VERSION_MAJOR 0
+#define CLIENT_VERSION_MINOR 13
+#define CLIENT_VERSION_REVISION 2
+#define CLIENT_VERSION_BUILD 0
+
+//! Set to true for release, false for prerelease or test build
+#define CLIENT_VERSION_IS_RELEASE true
+
+/**
+ * Copyright year (2009-this)
+ * Todo: update this when changing our copyright comments in the source
+ */
+#define COPYRIGHT_YEAR 2016
+
+#endif //HAVE_CONFIG_H
 
 /**
  * Converts the parameter X to a string after macro replacement on X has been performed.
@@ -25,7 +41,7 @@
 #define COPYRIGHT_STR "2009-" STRINGIZE(COPYRIGHT_YEAR) " " COPYRIGHT_HOLDERS_FINAL
 
 /**
- * bitcoind-res.rc includes this file, but it cannot cope with real c++ code.
+ * zurcoind-res.rc includes this file, but it cannot cope with real c++ code.
  * WINDRES_PREPROC is defined to indicate that its pre-processor is running.
  * Anything other than a define should be guarded below.
  */

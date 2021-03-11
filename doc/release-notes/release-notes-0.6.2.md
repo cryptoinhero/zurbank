@@ -1,5 +1,5 @@
 Zurcoin version 0.6.2 is now available for download at:
-http://sourceforge.net/projects/bitcoin/files/Zurcoin/bitcoin-0.6.2/
+http://sourceforge.net/projects/zurcoin/files/Zurcoin/zurcoin-0.6.2/
 
 This is a bug-fix and code-cleanup release, with no major new features.
 

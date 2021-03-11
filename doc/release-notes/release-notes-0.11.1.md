@@ -1,6 +1,6 @@
 Zurcoin Core version 0.11.1 is now available from:
 
-  <https://zurcoin.org/bin/bitcoin-core-0.11.1/>
+  <https://zurcoin.org/bin/zurcoin-core-0.11.1/>
 
 This is a new minor version release, bringing security fixes. It is recommended
 to upgrade to this version as soon as possible.
@@ -18,7 +18,7 @@ How to Upgrade
 If you are running an older version, shut it down. Wait until it has completely
 shut down (which might take a few minutes for older versions), then run the
 installer (on Windows) or just copy over /Applications/Zurcoin-Qt (on Mac) or
-bitcoind/bitcoin-qt (on Linux).
+zurcoind/zurcoin-qt (on Linux).
 
 Downgrade warning
 ------------------
@@ -76,7 +76,7 @@ for nuisance malleability on SIGHASH_ALL P2PKH transactions. On the down-side
 it will block most transactions made by sufficiently out of date software.
 
 Unlike the other avenues to change txids on transactions this
-one was randomly violated by all deployed bitcoin software prior to
+one was randomly violated by all deployed zurcoin software prior to
 its discovery. So, while other malleability vectors where made
 non-standard as soon as they were discovered, this one has remained
 permitted. Even BIP62 did not propose applying this rule to
@@ -95,7 +95,7 @@ only eliminates the cheap and irritating DOS attack.
 
 [1] On the Malleability of Zurcoin Transactions
 Marcin Andrychowicz, Stefan Dziembowski, Daniel Malinowski, Łukasz Mazurek
-http://fc15.ifca.ai/preproceedings/bitcoin/paper_9.pdf
+http://fc15.ifca.ai/preproceedings/zurcoin/paper_9.pdf
 
 Minimum relay fee default increase
 -----------------------------------
@@ -168,5 +168,5 @@ And those who contributed additional code review and/or security research:
 - timothy on IRC for reporting the issue
 - Vulnerability in miniupnp discovered by Aleksandar Nikolic of Cisco Talos
 
-As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/bitcoin/).
+As well as everyone that helped translating on [Transifex](https://www.transifex.com/projects/p/zurcoin/).
 

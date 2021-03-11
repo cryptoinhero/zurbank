@@ -1,5 +1,5 @@
 Zurcoin-Qt version 0.8.3 is now available from:
-  http://sourceforge.net/projects/bitcoin/files/Zurcoin/bitcoin-0.8.3/
+  http://sourceforge.net/projects/zurcoin/files/Zurcoin/zurcoin-0.8.3/
 
 This is a maintenance release to fix a denial-of-service attack that
 can cause nodes to crash.

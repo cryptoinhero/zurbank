@@ -1,5 +1,5 @@
 Zurcoin version 0.5.4 is now available for download at:
-http://sourceforge.net/projects/bitcoin/files/Zurcoin/bitcoin-0.5.4/
+http://sourceforge.net/projects/zurcoin/files/Zurcoin/zurcoin-0.5.4/
 NOTE: 0.5.4rc3 is being renamed to 0.5.4 final with no changes.
 
 This is a bugfix-only release in the 0.5.x series, plus a few protocol updates.

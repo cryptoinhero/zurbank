@@ -78,6 +78,10 @@
         <translation>&amp;Преглед</translation>
     </message>
     <message>
+        <source>Node</source>
+        <translation>Јазол</translation>
+    </message>
+    <message>
         <source>&amp;Transactions</source>
         <translation>&amp;Трансакции</translation>
     </message>
@@ -118,6 +122,14 @@
         <translation>&amp;Измени Тајна Фраза...</translation>
     </message>
     <message>
+        <source>&amp;Sending addresses...</source>
+        <translation>&amp;Адреси за Испраќање...</translation>
+    </message>
+    <message>
+        <source>&amp;Receiving addresses...</source>
+        <translation>&amp;Адреси за Примање...</translation>
+    </message>
+    <message>
         <source>Open &amp;URI...</source>
         <translation>Отвори &amp;URI...</translation>
     </message>
@@ -136,6 +148,10 @@
     <message>
         <source>Zurcoin</source>
         <translation>Биткоин</translation>
+    </message>
+    <message>
+        <source>Wallet</source>
+        <translation>Паричник</translation>
     </message>
     <message>
         <source>&amp;Send</source>
@@ -165,6 +181,26 @@
         <source>Processed %n block(s) of transaction history.</source>
         <translation><numerusform>Обработен %n блок од историјата на трансакции.</numerusform><numerusform>Обработени %n блокови од историјата на трансакции.</numerusform></translation>
     </message>
+    <message numerus="yes">
+        <source>%n hour(s)</source>
+        <translation><numerusform>%n час</numerusform><numerusform>%n часови</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n day(s)</source>
+        <translation><numerusform>%n ден</numerusform><numerusform>%n денови</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n week(s)</source>
+        <translation><numerusform>%n недела</numerusform><numerusform>%n недели</numerusform></translation>
+    </message>
+    <message>
+        <source>%1 and %2</source>
+        <translation>%1 и %2</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n year(s)</source>
+        <translation><numerusform>%n година</numerusform><numerusform>%n години</numerusform></translation>
+    </message>
     <message>
         <source>%1 behind</source>
         <translation>%1 позади</translation>
@@ -180,10 +216,6 @@
     <message>
         <source>Up to date</source>
         <translation>Во тек</translation>
-    </message>
-    <message>
-        <source>&amp;Window</source>
-        <translation>&amp;Прозорец</translation>
     </message>
     <message>
         <source>Date: %1
@@ -227,6 +259,10 @@
         <translation>Сума:</translation>
     </message>
     <message>
+        <source>Priority:</source>
+        <translation>Приоритет:</translation>
+    </message>
+    <message>
         <source>Fee:</source>
         <translation>Провизија:</translation>
     </message>
@@ -249,6 +285,10 @@
     <message>
         <source>Date</source>
         <translation>Дата</translation>
+    </message>
+    <message>
+        <source>Priority</source>
+        <translation>Приоритет</translation>
     </message>
     </context>
 <context>
@@ -287,16 +327,9 @@
 <context>
     <name>Intro</name>
     <message>
-        <source>Zurcoin</source>
-        <translation>Биткоин</translation>
-    </message>
-    <message>
         <source>Error</source>
         <translation>Грешка</translation>
     </message>
-    </context>
-<context>
-    <name>ModalOverlay</name>
     </context>
 <context>
     <name>OpenURIDialog</name>
@@ -314,6 +347,10 @@
     <message>
         <source>Options</source>
         <translation>Опции</translation>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation>МБ</translation>
     </message>
     <message>
         <source>&amp;Network</source>
@@ -339,10 +376,6 @@
         <source>none</source>
         <translation>нема</translation>
     </message>
-    <message>
-        <source>Error</source>
-        <translation>Грешка</translation>
-    </message>
     </context>
 <context>
     <name>OverviewPage</name>
@@ -356,10 +389,6 @@
     </context>
 <context>
     <name>PeerTableModel</name>
-    <message>
-        <source>Sent</source>
-        <translation>Испратени</translation>
-    </message>
     </context>
 <context>
     <name>QObject</name>
@@ -387,30 +416,7 @@
         <source>%1 ms</source>
         <translation>%1 мс</translation>
     </message>
-    <message>
-        <source>%1 and %2</source>
-        <translation>%1 и %2</translation>
-    </message>
-    <message>
-        <source>%1 B</source>
-        <translation>%1 Б</translation>
-    </message>
-    <message>
-        <source>%1 KB</source>
-        <translation>%1 КБ</translation>
-    </message>
-    <message>
-        <source>%1 MB</source>
-        <translation>%1 МБ</translation>
-    </message>
-    <message>
-        <source>%1 GB</source>
-        <translation>%1 ГБ</translation>
-    </message>
-    </context>
-<context>
-    <name>QObject::QObject</name>
-    </context>
+</context>
 <context>
     <name>QRImageWidget</name>
     </context>
@@ -443,6 +449,22 @@
     <message>
         <source>&amp;Console</source>
         <translation>&amp;Конзола</translation>
+    </message>
+    <message>
+        <source>%1 B</source>
+        <translation>%1 Б</translation>
+    </message>
+    <message>
+        <source>%1 KB</source>
+        <translation>%1 КБ</translation>
+    </message>
+    <message>
+        <source>%1 MB</source>
+        <translation>%1 МБ</translation>
+    </message>
+    <message>
+        <source>%1 GB</source>
+        <translation>%1 ГБ</translation>
     </message>
     </context>
 <context>
@@ -482,10 +504,6 @@
         <source>&amp;Save Image...</source>
         <translation>&amp;Сними Слика...</translation>
     </message>
-    <message>
-        <source>Wallet</source>
-        <translation>Паричник</translation>
-    </message>
     </context>
 <context>
     <name>RecentRequestsTableModel</name>
@@ -499,6 +517,10 @@
     <message>
         <source>Amount:</source>
         <translation>Сума:</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Приоритет:</translation>
     </message>
     <message>
         <source>Fee:</source>
@@ -563,9 +585,6 @@
     <name>UnitDisplayStatusBarControl</name>
     </context>
 <context>
-    <name>WalletController</name>
-    </context>
-<context>
     <name>WalletFrame</name>
     </context>
 <context>
@@ -575,7 +594,11 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>zurcoin-core</name>
+    <message>
+        <source>Options:</source>
+        <translation>Опции:</translation>
+    </message>
     <message>
         <source>Zurcoin Core</source>
         <translation>Биткоин Core</translation>

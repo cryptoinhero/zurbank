@@ -1,5 +1,5 @@
 Zurcoin-Qt version 0.8.2 is now available from:
-  http://sourceforge.net/projects/bitcoin/files/Zurcoin/bitcoin-0.8.2/
+  http://sourceforge.net/projects/zurcoin/files/Zurcoin/zurcoin-0.8.2/
 
 This is a maintenance release that fixes many bugs and includes
 a few small new features.
@@ -13,7 +13,7 @@ How to Upgrade
 If you are running an older version, shut it down. Wait
 until it has completely shut down (which might take a few minutes for older
 versions), then run the installer (on Windows) or just copy over
-/Applications/Zurcoin-Qt (on Mac) or bitcoind/bitcoin-qt (on Linux).
+/Applications/Zurcoin-Qt (on Mac) or zurcoind/zurcoin-qt (on Linux).
 
 If you are upgrading from version 0.7.2 or earlier, the first time you
 run 0.8.2 your blockchain files will be re-indexed, which will take
@@ -24,12 +24,12 @@ your machine.
 
 Fee Policy changes
 
-The default fee for low-priority transactions is lowered from 0.0005 BTC 
+The default fee for low-priority transactions is lowered from 0.0005 ZUR 
 (for each 1,000 bytes in the transaction; an average transaction is
-about 500 bytes) to 0.0001 BTC.
+about 500 bytes) to 0.0001 ZUR.
 
 Payments (transaction outputs) of 0.543 times the minimum relay fee
-(0.00005430 BTC) are now considered 'non-standard', because storing them
+(0.00005430 ZUR) are now considered 'non-standard', because storing them
 costs the network more than they are worth and spending them will usually
 cost their owner more in transaction fees than they are worth.
 
@@ -58,7 +58,7 @@ Zurcoin-Qt changes
   to current translations
 
 MacOSX:
-* OSX support for click-to-pay (bitcoin:) links
+* OSX support for click-to-pay (zurcoin:) links
 * Fix GUI disappearing problem on MacOSX (issue #1522)
 
 Linux/Unix:

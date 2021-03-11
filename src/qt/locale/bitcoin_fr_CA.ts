@@ -70,9 +70,6 @@
     </message>
     </context>
 <context>
-    <name>ModalOverlay</name>
-    </context>
-<context>
     <name>OpenURIDialog</name>
     </context>
 <context>
@@ -89,9 +86,6 @@
     </context>
 <context>
     <name>QObject</name>
-    </context>
-<context>
-    <name>QObject::QObject</name>
     </context>
 <context>
     <name>QRImageWidget</name>
@@ -137,39 +131,12 @@
     </context>
 <context>
     <name>TransactionTableModel</name>
-    <message>
-        <source>Label</source>
-        <translation>Record</translation>
-    </message>
-    <message>
-        <source>(no label)</source>
-        <translation>(pas de record)</translation>
-    </message>
     </context>
 <context>
     <name>TransactionView</name>
-    <message>
-        <source>Copy address</source>
-        <translation>copier l'adresse </translation>
-    </message>
-    <message>
-        <source>Comma separated file (*.csv)</source>
-        <translation>Fichier séparé par une virgule (*.csv)</translation>
-    </message>
-    <message>
-        <source>Label</source>
-        <translation>Record</translation>
-    </message>
-    <message>
-        <source>Address</source>
-        <translation>Addresse</translation>
-    </message>
     </context>
 <context>
     <name>UnitDisplayStatusBarControl</name>
-    </context>
-<context>
-    <name>WalletController</name>
     </context>
 <context>
     <name>WalletFrame</name>
@@ -181,6 +148,6 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>bitcoin-core</name>
+    <name>zurcoin-core</name>
     </context>
 </TS>

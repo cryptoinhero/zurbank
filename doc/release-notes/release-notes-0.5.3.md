@@ -1,5 +1,5 @@
 Zurcoin version 0.5.3 is now available for download at:
-http://sourceforge.net/projects/bitcoin/files/Zurcoin/bitcoin-0.5.3/
+http://sourceforge.net/projects/zurcoin/files/Zurcoin/zurcoin-0.5.3/
 
 This is a bugfix-only release based on 0.5.1.
 It also includes a few protocol updates.
@@ -27,13 +27,13 @@ Skip splash screen when -min is used, and fix Minimize to Tray function.
 Do not blank "label" in Zurcoin-Qt "Send" tab, if the user has already entered something.
 Correct various labels and messages.
 Various memory leaks and potential null pointer deferences have been fixed.
-Handle invalid Zurcoin URIs using "bitcoin://" instead of "bitcoin:".
+Handle invalid Zurcoin URIs using "zurcoin://" instead of "zurcoin:".
 Several shutdown issues have been fixed.
 Revert to "global progress indication", as starting from zero every time was considered too confusing for many users.
 Check that keys stored in the wallet are valid at startup, and if not, report corruption.
 Enable accessible widgets on Windows, so that people with screen readers such as NVDA can make sense of it.
 Various build fixes.
-If no password is specified to bitcoind, recommend a secure password.
+If no password is specified to zurcoind, recommend a secure password.
 Automatically focus and scroll to new "Send coins" entries in Zurcoin-Qt.
 Show a message box for --help on Windows, for Zurcoin-Qt.
 Add missing "About Qt" menu option to show built-in Qt About dialog.

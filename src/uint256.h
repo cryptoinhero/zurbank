@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2018 The Bitcoin Core developers
+// Copyright (c) 2009-2015 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,13 +12,14 @@
 #include <stdint.h>
 #include <string>
 #include <vector>
+#include "crypto/common.h"
 
 /** Template base class for fixed-sized opaque blobs. */
 template<unsigned int BITS>
 class base_blob
 {
 protected:
-    static constexpr int WIDTH = BITS / 8;
+    enum { WIDTH=BITS/8 };
     uint8_t data[WIDTH];
 public:
     base_blob()
@@ -93,6 +94,11 @@ public:
         return sizeof(data);
     }
 
+    unsigned int GetSerializeSize(int nType, int nVersion) const
+    {
+        return sizeof(data);
+    }
+
     uint64_t GetUint64(int pos) const
     {
         const uint8_t* ptr = data + pos * 8;
@@ -107,13 +113,13 @@ public:
     }
 
     template<typename Stream>
-    void Serialize(Stream& s) const
+    void Serialize(Stream& s, int nType, int nVersion) const
     {
         s.write((char*)data, sizeof(data));
     }
 
     template<typename Stream>
-    void Unserialize(Stream& s)
+    void Unserialize(Stream& s, int nType, int nVersion)
     {
         s.read((char*)data, sizeof(data));
     }
@@ -126,6 +132,7 @@ public:
 class uint160 : public base_blob<160> {
 public:
     uint160() {}
+    uint160(const base_blob<160>& b) : base_blob<160>(b) {}
     explicit uint160(const std::vector<unsigned char>& vch) : base_blob<160>(vch) {}
 };
 
@@ -137,7 +144,18 @@ public:
 class uint256 : public base_blob<256> {
 public:
     uint256() {}
+    uint256(const base_blob<256>& b) : base_blob<256>(b) {}
     explicit uint256(const std::vector<unsigned char>& vch) : base_blob<256>(vch) {}
+
+    /** A cheap hash function that just returns 64 bits from the result, it can be
+     * used when the contents are considered uniformly random. It is not appropriate
+     * when the value can easily be influenced from outside as e.g. a network adversary could
+     * provide values to trigger worst-case behavior.
+     */
+    uint64_t GetCheapHash() const
+    {
+        return ReadLE64(data);
+    }
 };
 
 /* uint256 from const char *.

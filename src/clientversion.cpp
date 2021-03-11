@@ -1,15 +1,16 @@
-// Copyright (c) 2012-2018 The Bitcoin Core developers
+// Copyright (c) 2012-2014 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include <clientversion.h>
+#include "clientversion.h"
 
-#include <tinyformat.h>
+#include "tinyformat.h"
 
+#include <string>
 
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both bitcoind and bitcoin-qt, to make it harder for attackers to
+ * for both zurcoind and zurcoin-core, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
 const std::string CLIENT_NAME("Satoshi");
@@ -38,14 +39,14 @@ const std::string CLIENT_NAME("Satoshi");
 
 //! First, include build.h if requested
 #ifdef HAVE_BUILD_INFO
-#include <obj/build.h>
+#include "build.h"
 #endif
 
 //! git will put "#define GIT_ARCHIVE 1" on the next line inside archives. 
 #define GIT_ARCHIVE 1
 #ifdef GIT_ARCHIVE
-#define GIT_COMMIT_ID "fa27a0760792b251585f2a70eccdd547f915b7e4"
-#define GIT_COMMIT_DATE "Fri, 2 Aug 2019 22:33:05 +0200"
+#define GIT_COMMIT_ID "b6548420291d"
+#define GIT_COMMIT_DATE "Mon, 22 May 2017 12:57:52 +0200"
 #endif
 
 #define BUILD_DESC_WITH_SUFFIX(maj, min, rev, build, suffix) \
@@ -82,8 +83,8 @@ std::string FormatFullVersion()
     return CLIENT_BUILD;
 }
 
-/**
- * Format the subversion field according to BIP 14 spec (https://github.com/bitcoin/bips/blob/master/bip-0014.mediawiki)
+/** 
+ * Format the subversion field according to BIP 14 spec (https://github.com/zurcoin/bips/blob/master/bip-0014.mediawiki) 
  */
 std::string FormatSubVersion(const std::string& name, int nClientVersion, const std::vector<std::string>& comments)
 {
