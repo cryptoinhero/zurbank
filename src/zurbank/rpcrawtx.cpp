@@ -33,7 +33,7 @@ UniValue omni_decodetransaction(const UniValue& params, bool fHelp)
         throw std::runtime_error(
             "omni_decodetransaction \"rawtx\" ( \"prevtxs\" height )\n"
 
-            "\nDecodes an Omni transaction.\n"
+            "\nDecodes an Zus transaction.\n"
 
             "\nIf the inputs of the transaction are not in the chain, then they must be provided, because "
             "the transaction inputs are used to identify the sender of a transaction.\n"
@@ -58,8 +58,8 @@ UniValue omni_decodetransaction(const UniValue& params, bool fHelp)
             "{\n"
             "  \"txid\" : \"hash\",                  (string) the hex-encoded hash of the transaction\n"
             "  \"fee\" : \"n.nnnnnnnn\",             (string) the transaction fee in zurcoins\n"
-            "  \"sendingaddress\" : \"address\",     (string) the Bitcoin address of the sender\n"
-            "  \"referenceaddress\" : \"address\",   (string) a Bitcoin address used as reference (if any)\n"
+            "  \"sendingaddress\" : \"address\",     (string) the Zurcoin address of the sender\n"
+            "  \"referenceaddress\" : \"address\",   (string) a Zurcoin address used as reference (if any)\n"
             "  \"ismine\" : true|false,            (boolean) whether the transaction involes an address in the wallet\n"
             "  \"version\" : n,                    (number) the transaction version\n"
             "  \"type_int\" : n,                   (number) the transaction type as number\n"

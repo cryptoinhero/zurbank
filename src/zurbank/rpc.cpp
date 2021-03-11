@@ -80,7 +80,7 @@ void PopulateFailure(int error)
         case MP_INVALID_TX_IN_DB_FOUND:
             throw JSONRPCError(RPC_INTERNAL_ERROR, "Potential database corruption: Invalid transaction found");
         case MP_TX_IS_NOT_OMNI_PROTOCOL:
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "No Omni Layer Protocol transaction");
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "No Zus Layer Protocol transaction");
     }
     throw JSONRPCError(RPC_INTERNAL_ERROR, "Generic transaction population failure");
 }
@@ -400,7 +400,7 @@ UniValue omni_getfeeshare(const UniValue& params, bool fHelp)
         if (addObj) {
             UniValue feeShareObj(UniValue::VOBJ);
             // NOTE: using float here as this is a display value only which isn't an exact percentage and
-            //       changes block to block (due to dev Omni) so high precision not required(?)
+            //       changes block to block (due to dev Zus) so high precision not required(?)
             double feeShare = (double(it->first) / double(COIN)) * (double)100;
             std::string strFeeShare = strprintf("%.4f", feeShare);
             strFeeShare += "%";
@@ -473,11 +473,11 @@ UniValue omni_getseedblocks(const UniValue& params, bool fHelp)
     if (fHelp || params.size() != 2)
         throw runtime_error(
             "omni_getseedblocks startblock endblock\n"
-            "\nReturns a list of blocks containing Omni transactions for use in seed block filtering.\n"
+            "\nReturns a list of blocks containing Zus transactions for use in seed block filtering.\n"
             "\nWARNING: The Exodus crowdsale is not stored in LevelDB, thus this is currently only safe to use to generate seed blocks after block 255365."
             "\nArguments:\n"
-            "1. startblock           (number, required) the first block to look for Omni transactions (inclusive)\n"
-            "2. endblock             (number, required) the last block to look for Omni transactions (inclusive)\n"
+            "1. startblock           (number, required) the first block to look for Zus transactions (inclusive)\n"
+            "2. endblock             (number, required) the last block to look for Zus transactions (inclusive)\n"
             "\nResult:\n"
             "[                     (array of numbers) a list of seed blocks\n"
             "   nnnnnn,              (number) the block height of the seed block\n"
@@ -513,12 +513,12 @@ UniValue omni_getpayload(const UniValue& params, bool fHelp)
     if (fHelp || params.size() != 1)
         throw runtime_error(
             "omni_getpayload \"txid\"\n"
-            "\nGet the payload for an Omni transaction.\n"
+            "\nGet the payload for an Zus transaction.\n"
             "\nArguments:\n"
             "1. txid                 (string, required) the hash of the transaction to retrieve payload\n"
             "\nResult:\n"
             "{\n"
-            "  \"payload\" : \"payloadmessage\",       (string) the decoded Omni payload message\n"
+            "  \"payload\" : \"payloadmessage\",       (string) the decoded Zus payload message\n"
             "  \"payloadsize\" : n                     (number) the size of the payload\n"
             "}\n"
             "\nExamples:\n"
@@ -1122,7 +1122,7 @@ UniValue omni_getproperty(const UniValue& params, bool fHelp)
             "  \"data\" : \"information\",          (string) additional information or a description\n"
             "  \"url\" : \"uri\",                   (string) an URI, for example pointing to a website\n"
             "  \"divisible\" : true|false,        (boolean) whether the tokens are divisible\n"
-            "  \"issuer\" : \"address\",            (string) the Bitcoin address of the issuer on record\n"
+            "  \"issuer\" : \"address\",            (string) the Zurcoin address of the issuer on record\n"
             "  \"creationtxid\" : \"hash\",         (string) the hex-encoded creation transaction hash\n"
             "  \"fixedissuance\" : true|false,    (boolean) whether the token supply is fixed\n"
             "  \"managedissuance\" : true|false,    (boolean) whether the token supply is managed\n"
@@ -1234,7 +1234,7 @@ UniValue omni_getcrowdsale(const UniValue& params, bool fHelp)
             "  \"propertyid\" : n,                     (number) the identifier of the crowdsale\n"
             "  \"name\" : \"name\",                      (string) the name of the tokens issued via the crowdsale\n"
             "  \"active\" : true|false,                (boolean) whether the crowdsale is still active\n"
-            "  \"issuer\" : \"address\",                 (string) the Bitcoin address of the issuer on record\n"
+            "  \"issuer\" : \"address\",                 (string) the Zurcoin address of the issuer on record\n"
             "  \"propertyiddesired\" : n,              (number) the identifier of the tokens eligible to participate in the crowdsale\n"
             "  \"tokensperunit\" : \"n.nnnnnnnn\",       (string) the amount of tokens granted per unit invested in the crowdsale\n"
             "  \"earlybonus\" : n,                     (number) an early bird bonus for participants in percent per week\n"
@@ -1379,7 +1379,7 @@ UniValue omni_getactivecrowdsales(const UniValue& params, bool fHelp)
             "  {\n"
             "    \"propertyid\" : n,                 (number) the identifier of the crowdsale\n"
             "    \"name\" : \"name\",                  (string) the name of the tokens issued via the crowdsale\n"
-            "    \"issuer\" : \"address\",             (string) the Bitcoin address of the issuer on record\n"
+            "    \"issuer\" : \"address\",             (string) the Zurcoin address of the issuer on record\n"
             "    \"propertyiddesired\" : n,          (number) the identifier of the tokens eligible to participate in the crowdsale\n"
             "    \"tokensperunit\" : \"n.nnnnnnnn\",   (string) the amount of tokens granted per unit invested in the crowdsale\n"
             "    \"earlybonus\" : n,                 (number) an early bird bonus for participants in percent per week\n"
@@ -1448,7 +1448,7 @@ UniValue omni_getgrants(const UniValue& params, bool fHelp)
             "{\n"
             "  \"propertyid\" : n,               (number) the identifier of the managed tokens\n"
             "  \"name\" : \"name\",                (string) the name of the tokens\n"
-            "  \"issuer\" : \"address\",           (string) the Bitcoin address of the issuer on record\n"
+            "  \"issuer\" : \"address\",           (string) the Zurcoin address of the issuer on record\n"
             "  \"creationtxid\" : \"hash\",        (string) the hex-encoded creation transaction hash\n"
             "  \"totaltokens\" : \"n.nnnnnnnn\",   (string) the total number of tokens in existence\n"
             "  \"issuances\": [                  (array of JSON objects) a list of the granted and revoked tokens\n"
@@ -1530,7 +1530,7 @@ UniValue omni_getorderbook(const UniValue& params, bool fHelp)
             "\nResult:\n"
             "[                                              (array of JSON objects)\n"
             "  {\n"
-            "    \"address\" : \"address\",                         (string) the Bitcoin address of the trader\n"
+            "    \"address\" : \"address\",                         (string) the Zurcoin address of the trader\n"
             "    \"txid\" : \"hash\",                               (string) the hex-encoded hash of the transaction of the order\n"
             "    \"ecosystem\" : \"main\"|\"test\",                   (string) the ecosytem in which the order was made (if \"cancel-ecosystem\")\n"
             "    \"propertyidforsale\" : n,                       (number) the identifier of the tokens put up for sale\n"
@@ -1601,7 +1601,7 @@ UniValue omni_gettradehistoryforaddress(const UniValue& params, bool fHelp)
             "[                                              (array of JSON objects)\n"
             "  {\n"
             "    \"txid\" : \"hash\",                               (string) the hex-encoded hash of the transaction of the order\n"
-            "    \"sendingaddress\" : \"address\",                  (string) the Bitcoin address of the trader\n"
+            "    \"sendingaddress\" : \"address\",                  (string) the Zurcoin address of the trader\n"
             "    \"ismine\" : true|false,                         (boolean) whether the order involes an address in the wallet\n"
             "    \"confirmations\" : nnnnnnnnnn,                  (number) the number of transaction confirmations\n"
             "    \"fee\" : \"n.nnnnnnnn\",                          (string) the transaction fee in zurcoins\n"
@@ -1623,7 +1623,7 @@ UniValue omni_gettradehistoryforaddress(const UniValue& params, bool fHelp)
             "      {\n"
             "        \"txid\" : \"hash\",                               (string) the hash of the transaction that was matched against\n"
             "        \"block\" : nnnnnn,                              (number) the index of the block that contains this transaction\n"
-            "        \"address\" : \"address\",                         (string) the Bitcoin address of the other trader\n"
+            "        \"address\" : \"address\",                         (string) the Zurcoin address of the other trader\n"
             "        \"amountsold\" : \"n.nnnnnnnn\",                   (string) the number of tokens sold in this trade\n"
             "        \"amountreceived\" : \"n.nnnnnnnn\"                (string) the number of tokens traded in exchange\n"
             "      },\n"
@@ -1688,11 +1688,11 @@ UniValue omni_gettradehistoryforpair(const UniValue& params, bool fHelp)
             "    \"unitprice\" : \"n.nnnnnnnnnnn...\" ,     (string) the unit price used to execute this trade (received/sold)\n"
             "    \"inverseprice\" : \"n.nnnnnnnnnnn...\",   (string) the inverse unit price (sold/received)\n"
             "    \"sellertxid\" : \"hash\",                 (string) the hash of the transaction of the seller\n"
-            "    \"address\" : \"address\",                 (string) the Bitcoin address of the seller\n"
+            "    \"address\" : \"address\",                 (string) the Zurcoin address of the seller\n"
             "    \"amountsold\" : \"n.nnnnnnnn\",           (string) the number of tokens sold in this trade\n"
             "    \"amountreceived\" : \"n.nnnnnnnn\",       (string) the number of tokens traded in exchange\n"
             "    \"matchingtxid\" : \"hash\",               (string) the hash of the transaction that was matched against\n"
-            "    \"matchingaddress\" : \"address\"          (string) the Bitcoin address of the other party of this trade\n"
+            "    \"matchingaddress\" : \"address\"          (string) the Zurcoin address of the other party of this trade\n"
             "  },\n"
             "  ...\n"
             "]\n"
@@ -1731,7 +1731,7 @@ UniValue omni_getactivedexsells(const UniValue& params, bool fHelp)
             "  {\n"
             "    \"txid\" : \"hash\",                    (string) the hash of the transaction of this offer\n"
             "    \"propertyid\" : n,                   (number) the identifier of the tokens for sale\n"
-            "    \"seller\" : \"address\",               (string) the Bitcoin address of the seller\n"
+            "    \"seller\" : \"address\",               (string) the Zurcoin address of the seller\n"
             "    \"amountavailable\" : \"n.nnnnnnnn\",   (string) the number of tokens still listed for sale and currently available\n"
             "    \"zurcoindesired\" : \"n.nnnnnnnn\",    (string) the number of zurcoins desired in exchange\n"
             "    \"unitprice\" : \"n.nnnnnnnn\" ,        (string) the unit price (ZUR/token)\n"
@@ -1740,7 +1740,7 @@ UniValue omni_getactivedexsells(const UniValue& params, bool fHelp)
             "    \"amountaccepted\" : \"n.nnnnnnnn\",    (string) the number of tokens currently reserved for pending \"accept\" orders\n"
             "    \"accepts\": [                        (array of JSON objects) a list of pending \"accept\" orders\n"
             "      {\n"
-            "        \"buyer\" : \"address\",                (string) the Bitcoin address of the buyer\n"
+            "        \"buyer\" : \"address\",                (string) the Zurcoin address of the buyer\n"
             "        \"block\" : nnnnnn,                   (number) the index of the block that contains the \"accept\" order\n"
             "        \"blocksleft\" : nn,                  (number) the number of blocks left to pay\n"
             "        \"amount\" : \"n.nnnnnnnn\"             (string) the amount of tokens accepted and reserved\n"
@@ -1846,7 +1846,7 @@ UniValue omni_listblocktransactions(const UniValue& params, bool fHelp)
     if (fHelp || params.size() != 1)
         throw runtime_error(
             "omni_listblocktransactions index\n"
-            "\nLists all Omni transactions in a block.\n"
+            "\nLists all Zus transactions in a block.\n"
             "\nArguments:\n"
             "1. index                (number, required) the block height or block index\n"
             "\nResult:\n"
@@ -1898,7 +1898,7 @@ UniValue omni_listblockstransactions(const UniValue& params, bool fHelp)
     if (fHelp || params.size() != 2)
         throw runtime_error(
             "omni_listblocktransactions firstblock lastblock\n"
-            "\nLists all Omni transactions in a given range of blocks.\n"
+            "\nLists all Zus transactions in a given range of blocks.\n"
             "\nNote: the list of transactions is unordered and can contain invalid transactions!\n"
             "\nArguments:\n"
             "1. firstblock           (number, required) the index of the first block to consider\n"
@@ -1937,14 +1937,14 @@ UniValue omni_gettransaction(const UniValue& params, bool fHelp)
     if (fHelp || params.size() != 1)
         throw runtime_error(
             "omni_gettransaction \"txid\"\n"
-            "\nGet detailed information about an Omni transaction.\n"
+            "\nGet detailed information about an Zus transaction.\n"
             "\nArguments:\n"
             "1. txid                 (string, required) the hash of the transaction to lookup\n"
             "\nResult:\n"
             "{\n"
             "  \"txid\" : \"hash\",                  (string) the hex-encoded hash of the transaction\n"
-            "  \"sendingaddress\" : \"address\",     (string) the Bitcoin address of the sender\n"
-            "  \"referenceaddress\" : \"address\",   (string) a Bitcoin address used as reference (if any)\n"
+            "  \"sendingaddress\" : \"address\",     (string) the Zurcoin address of the sender\n"
+            "  \"referenceaddress\" : \"address\",   (string) a Zurcoin address used as reference (if any)\n"
             "  \"ismine\" : true|false,            (boolean) whether the transaction involes an address in the wallet\n"
             "  \"confirmations\" : nnnnnnnnnn,     (number) the number of transaction confirmations\n"
             "  \"fee\" : \"n.nnnnnnnn\",             (string) the transaction fee in zurcoins\n"
@@ -1986,8 +1986,8 @@ UniValue omni_listtransactions(const UniValue& params, bool fHelp)
             "[                                 (array of JSON objects)\n"
             "  {\n"
             "    \"txid\" : \"hash\",                  (string) the hex-encoded hash of the transaction\n"
-            "    \"sendingaddress\" : \"address\",     (string) the Bitcoin address of the sender\n"
-            "    \"referenceaddress\" : \"address\",   (string) a Bitcoin address used as reference (if any)\n"
+            "    \"sendingaddress\" : \"address\",     (string) the Zurcoin address of the sender\n"
+            "    \"referenceaddress\" : \"address\",   (string) a Zurcoin address used as reference (if any)\n"
             "    \"ismine\" : true|false,            (boolean) whether the transaction involes an address in the wallet\n"
             "    \"confirmations\" : nnnnnnnnnn,     (number) the number of transaction confirmations\n"
             "    \"fee\" : \"n.nnnnnnnn\",             (string) the transaction fee in zurcoins\n"
@@ -2023,7 +2023,7 @@ UniValue omni_listtransactions(const UniValue& params, bool fHelp)
     if (params.size() > 4) nEndBlock = params[4].get_int64();
     if (nEndBlock < 0) throw JSONRPCError(RPC_INVALID_PARAMETER, "Negative end block");
 
-    // obtain a sorted list of Omni layer wallet transactions (including STO receipts and pending)
+    // obtain a sorted list of Zus layer wallet transactions (including STO receipts and pending)
     std::map<std::string,uint256> walletTransactions = FetchWalletOmniTransactions(nFrom+nCount, nStartBlock, nEndBlock);
 
     // reverse iterate over (now ordered) transactions and populate RPC objects for each one
@@ -2049,7 +2049,7 @@ UniValue omni_listpendingtransactions(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "omni_listpendingtransactions ( \"address\" )\n"
-            "\nReturns a list of unconfirmed Omni transactions, pending in the memory pool.\n"
+            "\nReturns a list of unconfirmed Zus transactions, pending in the memory pool.\n"
             "\nAn optional filter can be provided to only include transactions which involve the given address.\n"
             "\nNote: the validity of pending transactions is uncertain, and the state of the memory pool may "
             "change at any moment. It is recommended to check transactions after confirmation, and pending "
@@ -2060,8 +2060,8 @@ UniValue omni_listpendingtransactions(const UniValue& params, bool fHelp)
             "[                                 (array of JSON objects)\n"
             "  {\n"
             "    \"txid\" : \"hash\",                  (string) the hex-encoded hash of the transaction\n"
-            "    \"sendingaddress\" : \"address\",     (string) the Bitcoin address of the sender\n"
-            "    \"referenceaddress\" : \"address\",   (string) a Bitcoin address used as reference (if any)\n"
+            "    \"sendingaddress\" : \"address\",     (string) the Zurcoin address of the sender\n"
+            "    \"referenceaddress\" : \"address\",   (string) a Zurcoin address used as reference (if any)\n"
             "    \"ismine\" : true|false,            (boolean) whether the transaction involes an address in the wallet\n"
             "    \"fee\" : \"n.nnnnnnnn\",             (string) the transaction fee in zurcoins\n"
             "    \"version\" : n,                    (number) the transaction version\n"
@@ -2110,11 +2110,11 @@ UniValue omni_getinfo(const UniValue& params, bool fHelp)
             "  \"zurbankversion_int\" : xxxxxxx,       (number) client version as integer\n"
             "  \"zurbankversion\" : \"x.x.x.x-xxx\",     (string) client version\n"
             "  \"mastercoreversion\" : \"x.x.x.x-xxx\",   (string) client version (DEPRECIATED)\n"
-            "  \"zurcoincoreversion\" : \"x.x.x\",        (string) Bitcoin Core version\n"
+            "  \"zurcoincoreversion\" : \"x.x.x\",        (string) Zurcoin Core version\n"
             "  \"block\" : nnnnnn,                      (number) index of the last processed block\n"
             "  \"blocktime\" : nnnnnnnnnn,              (number) timestamp of the last processed block\n"
-            "  \"blocktransactions\" : nnnn,            (number) Omni transactions found in the last processed block\n"
-            "  \"totaltransactions\" : nnnnnnnn,        (number) Omni transactions processed in total\n"
+            "  \"blocktransactions\" : nnnn,            (number) Zus transactions found in the last processed block\n"
+            "  \"totaltransactions\" : nnnnnnnn,        (number) Zus transactions processed in total\n"
             "  \"alerts\" : [                           (array of JSON objects) active protocol alert (if any)\n"
             "    {\n"
             "      \"alerttypeint\" : n,                    (number) alert type as integer\n"
@@ -2259,7 +2259,7 @@ UniValue omni_getsto(const UniValue& params, bool fHelp)
             "\nResult:\n"
             "{\n"
             "  \"txid\" : \"hash\",                (string) the hex-encoded hash of the transaction\n"
-            "  \"sendingaddress\" : \"address\",   (string) the Bitcoin address of the sender\n"
+            "  \"sendingaddress\" : \"address\",   (string) the Zurcoin address of the sender\n"
             "  \"ismine\" : true|false,          (boolean) whether the transaction involes an address in the wallet\n"
             "  \"confirmations\" : nnnnnnnnnn,   (number) the number of transaction confirmations\n"
             "  \"fee\" : \"n.nnnnnnnn\",           (string) the transaction fee in zurcoins\n"
@@ -2271,10 +2271,10 @@ UniValue omni_getsto(const UniValue& params, bool fHelp)
             "  \"propertyid\" : n,               (number) the identifier of sent tokens\n"
             "  \"divisible\" : true|false,       (boolean) whether the sent tokens are divisible\n"
             "  \"amount\" : \"n.nnnnnnnn\",        (string) the number of tokens sent to owners\n"
-            "  \"totalstofee\" : \"n.nnnnnnnn\",   (string) the fee paid by the sender, nominated in OMN or TOMN\n"
+            "  \"totalstofee\" : \"n.nnnnnnnn\",   (string) the fee paid by the sender, nominated in ZUS or TZUS\n"
             "  \"recipients\": [                 (array of JSON objects) a list of recipients\n"
             "    {\n"
-            "      \"address\" : \"address\",          (string) the Bitcoin address of the recipient\n"
+            "      \"address\" : \"address\",          (string) the Zurcoin address of the recipient\n"
             "      \"amount\" : \"n.nnnnnnnn\"         (string) the number of tokens sent to this recipient\n"
             "    },\n"
             "    ...\n"
@@ -2307,7 +2307,7 @@ UniValue omni_gettrade(const UniValue& params, bool fHelp)
             "\nResult:\n"
             "{\n"
             "  \"txid\" : \"hash\",                               (string) the hex-encoded hash of the transaction of the order\n"
-            "  \"sendingaddress\" : \"address\",                  (string) the Bitcoin address of the trader\n"
+            "  \"sendingaddress\" : \"address\",                  (string) the Zurcoin address of the trader\n"
             "  \"ismine\" : true|false,                         (boolean) whether the order involes an address in the wallet\n"
             "  \"confirmations\" : nnnnnnnnnn,                  (number) the number of transaction confirmations\n"
             "  \"fee\" : \"n.nnnnnnnn\",                          (string) the transaction fee in zurcoins\n"
@@ -2329,7 +2329,7 @@ UniValue omni_gettrade(const UniValue& params, bool fHelp)
             "    {\n"
             "      \"txid\" : \"hash\",                               (string) the hash of the transaction that was matched against\n"
             "      \"block\" : nnnnnn,                              (number) the index of the block that contains this transaction\n"
-            "      \"address\" : \"address\",                         (string) the Bitcoin address of the other trader\n"
+            "      \"address\" : \"address\",                         (string) the Zurcoin address of the other trader\n"
             "      \"amountsold\" : \"n.nnnnnnnn\",                   (string) the number of tokens sold in this trade\n"
             "      \"amountreceived\" : \"n.nnnnnnnn\"                (string) the number of tokens traded in exchange\n"
             "    },\n"

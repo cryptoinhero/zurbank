@@ -3,7 +3,7 @@ ZURBank v0.0.12
 
 v0.0.12 greatly improves ZURBank's performance during the initial parsing, and it includes new logic for the fee distribution system, as well as for cross-property send-to-owner transactions.
 
-v0.0.12 is a major release and consensus critical in terms of the Omni Layer protocol rules. An upgrade is mandatory, and highly recommended. Prior releases will not be compatible with new behavior in this release.
+v0.0.12 is a major release and consensus critical in terms of the Zus Layer protocol rules. An upgrade is mandatory, and highly recommended. Prior releases will not be compatible with new behavior in this release.
 
 Please report bugs using the issue tracker on GitHub:
 
@@ -33,7 +33,7 @@ How to upgrade
 
 If you are running Bitcoin Core or an older version of ZURBank, shut it down. Wait until it has completely shut down, then copy the new version of `zurbankd`, `zurbank-cli` and `zurbank-qt`. On Microsoft Windows the setup routine can be used to automate these steps.
 
-During the first startup historical Omni transactions are reprocessed and ZURBank will not be usable for approximately 15 minutes up to two hours. The progress of the initial scan is reported on the console, the GUI and written to the `debug.log`. The scan may be interrupted, but can not be resumed, and then needs to start from the beginning.
+During the first startup historical Zus transactions are reprocessed and ZURBank will not be usable for approximately 15 minutes up to two hours. The progress of the initial scan is reported on the console, the GUI and written to the `debug.log`. The scan may be interrupted, but can not be resumed, and then needs to start from the beginning.
 
 Downgrading
 -----------
@@ -59,11 +59,11 @@ It follows an overview and a description of the consensus rule changes:
 Fee distribution system on the Distributed Exchange
 ---------------------------------------------------
 
-ZURBank 0.0.12 contains a fee caching and distribution system.  This system collects small amounts of tokens in a cache until a distribution threshold is reached.  Once this distribution threshold (trigger) is reached for a property, the fees in the cache will be distributed proportionally to holders of the Omni (#1) and Test-Omni (#2) tokens based on the percentage of the total Omni tokens owned.
+ZURBank 0.0.12 contains a fee caching and distribution system.  This system collects small amounts of tokens in a cache until a distribution threshold is reached.  Once this distribution threshold (trigger) is reached for a property, the fees in the cache will be distributed proportionally to holders of the Zus (#1) and Test-Omni (#2) tokens based on the percentage of the total Zus tokens owned.
 
-Once activated fees will be collected from trading of non-Omni pairs on the Distributed Exchange (there is no fee for trading Omni pairs).  The party removing liquidity from the market will incur a 0.05% fee which will be transferred to the fee cache, and subsequently distributed to holders of the Omni token.
+Once activated fees will be collected from trading of non-Omni pairs on the Distributed Exchange (there is no fee for trading Zus pairs).  The party removing liquidity from the market will incur a 0.05% fee which will be transferred to the fee cache, and subsequently distributed to holders of the Zus token.
 
-- Placing a trade where one side of the pair is Omni (#1) or Test-Omni (#2) incurs no fee
+- Placing a trade where one side of the pair is Zus (#1) or Test-Omni (#2) incurs no fee
 - Placing a trade where liquidity is added to the market (i.e. the trade does not immediately execute an existing trade) incurs no fee
 - Placing a trade where liquidity is removed from the market (i.e. the trade immediately executes an existing trade) the liquidity taker incurs a 0.05% fee
 

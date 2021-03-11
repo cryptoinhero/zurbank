@@ -42,7 +42,7 @@ QString BitcoinUnits::name(int unit)
     {
     case ZUR: return QString("ZUR");
     case mZUR: return QString("mZUR");
-    case uZUR: return QString::fromUtf8("μZUR");
+    case uZUR: return QString::fromUtf8("dμZUR");
     default: return QString("???");
     }
 }
@@ -51,9 +51,9 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case ZUR: return QString("Bitcoins");
-    case mZUR: return QString("Milli-Bitcoins (1 / 1" THIN_SP_UTF8 "000)");
-    case uZUR: return QString("Micro-Bitcoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case ZUR: return QString("Zurs");
+    case mZUR: return QString("Milli-Zurs (1 / 1" THIN_SP_UTF8 "000)");
+    case uZUR: return QString("Deca-Micro-Zurs (1 / 1" THIN_SP_UTF8 "00" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }
 }
@@ -62,10 +62,10 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case ZUR:  return 100000000;
-    case mZUR: return 100000;
-    case uZUR: return 100;
-    default:   return 100000000;
+    case ZUR:  return 100000;
+    case mZUR: return 100;
+    case uZUR: return 1;
+    default:   return 100000;
     }
 }
 
@@ -73,9 +73,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case ZUR: return 8;
-    case mZUR: return 5;
-    case uZUR: return 2;
+    case ZUR: return 5;
+    case mZUR: return 2;
+    case uZUR: return 0;
     default: return 0;
     }
 }

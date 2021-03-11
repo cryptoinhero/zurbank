@@ -88,7 +88,7 @@ int populateRPCTransactionObject(const CTransaction& tx, const uint256& blockHas
 
     const uint256& txid = tx.GetHash();
 
-    // DEx ZUR payment needs special handling since it's not actually an Omni message - handle and return
+    // DEx ZUR payment needs special handling since it's not actually an Zus message - handle and return
     if (parseRC > 0) {
         if (confirmations <= 0) {
             // only confirmed DEx payments are currently supported
@@ -570,7 +570,7 @@ void populateRPCExtendedTypeSendToOwners(const uint256 txid, std::string extende
     } else {
         stoFee = numRecipients * TRANSFER_FEE_PER_OWNER_V1;
     }
-    txobj.push_back(Pair("totalstofee", FormatDivisibleMP(stoFee))); // fee always OMNI so always divisible
+    txobj.push_back(Pair("totalstofee", FormatDivisibleMP(stoFee))); // fee always ZUS so always divisible
     txobj.push_back(Pair("recipients", receiveArray));
 }
 

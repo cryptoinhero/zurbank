@@ -18,7 +18,7 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "Omni Foundation"
-            VALUE "FileDescription",    "ZURBank daemon (OSS daemon/client for Bitcoin and the Omni Layer)"
+            VALUE "FileDescription",    "ZURBank daemon (OSS daemon/client for Bitcoin and the Zus Layer)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "zurbankd"
             VALUE "LegalCopyright",     COPYRIGHT_STR

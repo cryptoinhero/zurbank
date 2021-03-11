@@ -326,7 +326,7 @@ qa/pull-tester/rpc-tests.py -extended
 getent group zurcoin >/dev/null || groupadd -r zurcoin
 getent passwd zurcoin >/dev/null ||
 	useradd -r -g zurcoin -d /var/lib/zurcoin -s /sbin/nologin \
-	-c "Bitcoin wallet server" zurcoin
+	-c "Zurcoin wallet server" zurcoin
 exit 0
 
 %post server

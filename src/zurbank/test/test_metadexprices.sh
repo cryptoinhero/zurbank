@@ -17,7 +17,7 @@ ADDR=$($SRCDIR/zurbank-cli --regtest getnewaddress OMNIAccount)
 printf "   * Funding the address with some testnet ZUR for fees\n"
 $SRCDIR/zurbank-cli --regtest sendtoaddress $ADDR 20 >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
-printf "   * Participating in the Exodus crowdsale to obtain some OMNI\n"
+printf "   * Participating in the Exodus crowdsale to obtain some ZUS\n"
 JSON="{\"pxELuroPRgD7Di8hQikT4fqdK7xoYKdrZy\":10,\""$ADDR"\":4}"
 $SRCDIR/zurbank-cli --regtest sendmany OMNIAccount $JSON >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
@@ -30,7 +30,7 @@ $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
 printf "   * Creating another indivisible test property\n"
 $SRCDIR/zurbank-cli --regtest omni_sendissuancefixed $ADDR 1 1 0 "Z_TestCat" "Z_TestSubCat" "Z_IndivisTestProperty" "Z_TestURL" "Z_TestData" 10000000 >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
-printf "\nTesting a trade against self that uses divisible / divisible (10.0 OMNI for 100.0 #4)\n"
+printf "\nTesting a trade against self that uses divisible / divisible (10.0 ZUS for 100.0 #4)\n"
 printf "   * Executing the trade\n"
 TXID=$($SRCDIR/zurbank-cli --regtest omni_sendtrade $ADDR 1 10.0 4 100.0)
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
@@ -45,7 +45,7 @@ if [ $RESULT == "10.00000000000000000000000000000000000000000000000000" ]
     printf "FAIL (result:%s)\n" $RESULT
     FAIL=$((FAIL+1))
 fi
-printf "\nTesting a trade against self that uses divisible / indivisible (10.0 OMNI for 100 #3)\n"
+printf "\nTesting a trade against self that uses divisible / indivisible (10.0 ZUS for 100 #3)\n"
 printf "   * Executing the trade\n"
 TXID=$($SRCDIR/zurbank-cli --regtest omni_sendtrade $ADDR 1 10.0 3 100)
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
@@ -60,7 +60,7 @@ if [ $RESULT == "10.00000000000000000000000000000000000000000000000000" ]
     printf "FAIL (result:%s)\n" $RESULT
     FAIL=$((FAIL+1))
 fi
-printf "\nTesting a trade against self that uses indivisible / divisible (10 #3 for 100.0 OMNI)\n"
+printf "\nTesting a trade against self that uses indivisible / divisible (10 #3 for 100.0 ZUS)\n"
 printf "   * Executing the trade\n"
 TXID=$($SRCDIR/zurbank-cli --regtest omni_sendtrade $ADDR 3 10 1 100.0)
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL

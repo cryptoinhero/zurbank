@@ -1,11 +1,11 @@
 #!/bin/bash
 
 ################################################################################################
-## PLEASE DISABLE DEV OMNI FOR THESE TESTS!!!                                                 ##
+## PLEASE DISABLE DEV ZUS FOR THESE TESTS!!!                                                 ##
 ##                                                                                            ##
-## The fee distribution tests require an exact amount of Omni in each address.  Dev Omni will ##
-## skew these tests by increasing the amount of Omni in the Exodus Address.                   ##
-## To use this script in regtest mode, temporarily disable Dev Omni and recompile by adding:  ##
+## The fee distribution tests require an exact amount of Zus in each address.  Dev Zus will ##
+## skew these tests by increasing the amount of Zus in the Exodus Address.                   ##
+## To use this script in regtest mode, temporarily disable Dev Zus and recompile by adding:  ##
 ##    return 0;                                                                               ##
 ## as the first line of the function calculate_and_update_devmsc in zurbank.cpp.  This line  ##
 ## must be removed and ZURBank recompiled to use on mainnet.                                ##
@@ -28,7 +28,7 @@ ADDR=$($SRCDIR/zurbank-cli --regtest getnewaddress OMNIAccount)
 printf "   * Funding the address with some testnet ZUR for fees\n"
 $SRCDIR/zurbank-cli --regtest sendtoaddress $ADDR 20 >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
-printf "   * Participating in the Exodus crowdsale to obtain some OMNI\n"
+printf "   * Participating in the Exodus crowdsale to obtain some ZUS\n"
 JSON="{\"pxELuroPRgD7Di8hQikT4fqdK7xoYKdrZy\":10,\""$ADDR"\":4}"
 $SRCDIR/zurbank-cli --regtest sendmany OMNIAccount $JSON >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
@@ -50,23 +50,23 @@ $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
 printf "   * Creating a divisible test property in the test ecosystem\n"
 $SRCDIR/zurbank-cli --regtest omni_sendissuancefixed $ADDR 2 2 0 "Z_TestCat" "Z_TestSubCat" "Z_DivisTestProperty" "Z_TestURL" "Z_TestData" 10000000 >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
-printf "   * Generating addresses to use as fee recipients (OMN holders)\n"
+printf "   * Generating addresses to use as fee recipients (ZUS holders)\n"
 ADDRESS=()
 for i in {1..6}
 do
    ADDRESS=("${ADDRESS[@]}" $($SRCDIR/zurbank-cli --regtest getnewaddress))
 done
-printf "   * Using a total of 1000 OMNI\n"
-printf "   * Seeding %s with 50.00 OMNI\n" ${ADDRESS[1]}
+printf "   * Using a total of 1000 ZUS\n"
+printf "   * Seeding %s with 50.00 ZUS\n" ${ADDRESS[1]}
 $SRCDIR/zurbank-cli --regtest omni_send $ADDR ${ADDRESS[1]} 1 50.0 >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
-printf "   * Seeding %s with 100.00 OMNI\n" ${ADDRESS[2]}
+printf "   * Seeding %s with 100.00 ZUS\n" ${ADDRESS[2]}
 $SRCDIR/zurbank-cli --regtest omni_send $ADDR ${ADDRESS[2]} 1 100.0 >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
-printf "   * Seeding %s with 150.00 OMNI\n" ${ADDRESS[3]}
+printf "   * Seeding %s with 150.00 ZUS\n" ${ADDRESS[3]}
 $SRCDIR/zurbank-cli --regtest omni_send $ADDR ${ADDRESS[3]} 1 150.0 >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
-printf "   * Seeding %s with 200.00 OMNI\n" ${ADDRESS[4]}
+printf "   * Seeding %s with 200.00 ZUS\n" ${ADDRESS[4]}
 $SRCDIR/zurbank-cli --regtest omni_send $ADDR ${ADDRESS[4]} 1 200.0 >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
 printf "\nActivating the fee system...\n"
@@ -157,7 +157,7 @@ if [ $FEESHARE == "100.0000%" ]
     printf "FAIL (result:%s)\n" $FEESHARE
     FAIL=$((FAIL+1))
 fi
-printf "\nTesting a trade against self where the first token is OMNI\n"
+printf "\nTesting a trade against self where the first token is ZUS\n"
 printf "   * Executing the trade\n"
 TXIDA=$($SRCDIR/zurbank-cli --regtest omni_sendtrade $ADDR 3 2000 1 1.0)
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL

@@ -126,10 +126,10 @@ protected:
 };
 
 /**
- * Builder to create Omni transactions.
+ * Builder to create Zus transactions.
  *
  * The OmniTxBuilder class is an extension of the TxBuilder, with additional
- * methods to build Omni transactions. Payloads can be embedded with class B
+ * methods to build Zus transactions. Payloads can be embedded with class B
  * (bare-multisig) or class C (op-return) encoding.
  *
  * The output values are based on the dust threshold, but may optionally be
@@ -148,12 +148,12 @@ class OmniTxBuilder: public TxBuilder
 {
 public:
     /**
-     * Creates a new Omni transaction builder.
+     * Creates a new Zus transaction builder.
      */
     OmniTxBuilder();
 
     /**
-     * Creates a new Omni transaction builder to extend a transaction.
+     * Creates a new Zus transaction builder to extend a transaction.
      *
      * @param transactionIn The transaction used to build upon
      */

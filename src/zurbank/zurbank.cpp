@@ -106,7 +106,7 @@ static int nWaterlineBlock = 0;
  */
 bool autoCommit = true;
 
-//! Number of "Dev Omni" of the last processed block
+//! Number of "Dev Zus" of the last processed block
 int64_t exodus_prev = 0;
 
 //! Path for file based persistence
@@ -128,7 +128,7 @@ CMPTxList* mastercore::pDbTransactionList;
 CMPTradeList* mastercore::pDbTradeList;
 //! LevelDB based storage for STO recipients
 CMPSTOList* mastercore::pDbStoList;
-//! LevelDB based storage for storing Omni transaction validation and position in block data
+//! LevelDB based storage for storing Zus transaction validation and position in block data
 COmniTransactionDB* mastercore::pDbTransaction;
 //! LevelDB based storage for the MetaDEx fee cache
 COmniFeeCache* mastercore::pDbFeeCache;
@@ -170,9 +170,9 @@ std::string mastercore::strMPProperty(uint32_t propertyId)
         switch (propertyId) {
             case OMNI_PROPERTY_ZUR: str = "ZUR";
                 break;
-            case OMNI_PROPERTY_MSC: str = "OMN";
+            case OMNI_PROPERTY_MSC: str = "ZUS";
                 break;
-            case OMNI_PROPERTY_TMSC: str = "TOMN";
+            case OMNI_PROPERTY_TMSC: str = "TZUS";
                 break;
             default:
                 str = strprintf("SP token: %d", propertyId);
@@ -418,7 +418,7 @@ std::string mastercore::getTokenLabel(uint32_t propertyId)
     std::string tokenStr;
     if (propertyId < 3) {
         if (propertyId == 1) {
-            tokenStr = " OMNI";
+            tokenStr = " ZUS";
         } else {
             tokenStr = " TOMNI";
         }
@@ -564,7 +564,7 @@ static int64_t calculate_and_update_devmsc(unsigned int nTime, int block)
 
     // sanity check that devmsc isn't an impossible value
     if (devmsc > all_reward || 0 > devmsc) {
-        PrintToLog("%s(): ERROR: insane number of Dev OMNI (nTime=%d, exodus_prev=%d, devmsc=%d)\n", __func__, nTime, exodus_prev, devmsc);
+        PrintToLog("%s(): ERROR: insane number of Dev ZUS (nTime=%d, exodus_prev=%d, devmsc=%d)\n", __func__, nTime, exodus_prev, devmsc);
         return 0;
     }
 
@@ -609,7 +609,7 @@ void CheckWalletUpdate(bool forceUpdate)
     }
 
     if (!WalletCacheUpdate()) {
-        // no balance changes were detected that affect wallet addresses, signal a generic change to overall Omni state
+        // no balance changes were detected that affect wallet addresses, signal a generic change to overall Zus state
         if (!forceUpdate) {
             uiInterface.OmniStateChanged();
             return;
@@ -618,7 +618,7 @@ void CheckWalletUpdate(bool forceUpdate)
 #ifdef ENABLE_WALLET
     LOCK(cs_tally);
 
-    // balance changes were found in the wallet, update the global totals and signal a Omni balance change
+    // balance changes were found in the wallet, update the global totals and signal a Zus balance change
     global_balance_money.clear();
     global_balance_reserved.clear();
 
@@ -643,7 +643,7 @@ void CheckWalletUpdate(bool forceUpdate)
             global_balance_reserved[propertyId] += GetTokenBalance(address, propertyId, ACCEPT_RESERVE);
         }
     }
-    // signal an Omni balance change
+    // signal an Zus balance change
     uiInterface.OmniBalanceChanged();
 #endif
 }
@@ -677,16 +677,16 @@ static bool TXExodusFundraiser(const CTransaction& tx, const std::string& sender
     return false;
 }
 
-//! Cache for potential Omni Layer transactions
+//! Cache for potential Zus Layer transactions
 static std::set<uint256> setMarkerCache;
 
 //! Guards marker cache
 static CCriticalSection cs_marker_cache;
 
 /**
- * Checks, if transaction has any Omni marker.
+ * Checks, if transaction has any Zus marker.
  *
- * Note: this may include invalid or malformed Omni Layer transactions!
+ * Note: this may include invalid or malformed Zus Layer transactions!
  *
  * MUST NOT BE USED FOR CONSENSUS CRITICAL STUFF!
  */
@@ -922,7 +922,7 @@ static int parseTransaction(bool bRPConly, const CTransaction& wtx, int nBlock, 
     int omniClass = GetEncodingClass(wtx, nBlock);
 
     if (omniClass == NO_MARKER) {
-        return -1; // No Exodus/Omni marker, thus not a valid Omni transaction
+        return -1; // No Exodus/Omni marker, thus not a valid Zus transaction
     }
 
     if (!bRPConly || msc_debug_parser_readonly) {
@@ -1670,7 +1670,7 @@ int mastercore_init()
     // check for --autocommit option and set transaction commit flag accordingly
     if (!GetBoolArg("-autocommit", true)) {
         PrintToLog("Process was started with --autocommit set to false. "
-                "Created Omni transactions will not be committed to wallet or broadcast.\n");
+                "Created Zus transactions will not be committed to wallet or broadcast.\n");
         autoCommit = false;
     }
 
@@ -1748,7 +1748,7 @@ int mastercore_init()
         if (inconsistentDb) strReason = "INCONSISTENT DB DETECTED!\n"
                 "\n!!! WARNING !!!\n\n"
                 "IF YOU ARE USING AN OVERLAY DB, YOU MAY NEED TO REPROCESS\n"
-                "ALL OMNI LAYER TRANSACTIONS TO AVOID INCONSISTENCIES!\n"
+                "ALL ZUS LAYER TRANSACTIONS TO AVOID INCONSISTENCIES!\n"
                 "\n!!! WARNING !!!";
         PrintToConsole("Loading persistent state: NONE (%s)\n", strReason);
     }
@@ -1760,7 +1760,7 @@ int mastercore_init()
 
     if (inconsistentDb) {
         std::string strAlert("INCONSISTENT DB DETECTED! IF YOU ARE USING AN OVERLAY DB, YOU MAY NEED TO REPROCESS"
-                "ALL OMNI LAYER TRANSACTIONS TO AVOID INCONSISTENCIES!");
+                "ALL ZUS LAYER TRANSACTIONS TO AVOID INCONSISTENCIES!");
         AddAlert("zurbank", ALERT_CLIENT_VERSION_EXPIRY, std::numeric_limits<uint32_t>::max(), strAlert);
         AlertNotify(strAlert);
     }
@@ -1864,7 +1864,7 @@ int mastercore_shutdown()
 /**
  * This handler is called for every new transaction that comes in (actually in block parsing loop).
  *
- * @return True, if the transaction was an Exodus purchase, DEx payment or a valid Omni transaction
+ * @return True, if the transaction was an Exodus purchase, DEx payment or a valid Zus transaction
  */
 bool mastercore_handler_tx(const CTransaction& tx, int nBlock, unsigned int idx, const CBlockIndex* pBlockIndex)
 {

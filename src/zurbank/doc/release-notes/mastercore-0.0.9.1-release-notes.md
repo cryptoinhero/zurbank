@@ -11,10 +11,10 @@ Please report bugs using the issue tracker at GitHub:
 IMPORTANT
 =========
 
-- This is the first experimental release of Omni Layer support in the QT UI, please be vigilant with testing and do not risk large amounts of Bitcoin and Omni Layer tokens.
+- This is the first experimental release of Zus Layer support in the QT UI, please be vigilant with testing and do not risk large amounts of Bitcoin and Zus Layer tokens.
 - The transaction index is no longer defaulted to enabled.  You will need to ensure you have "txindex=1" (without the quotes) in your configuration file.
 - If you are upgrading from a version earlier than 0.0.9-rel you must start with the --startclean parameter at least once to refresh your persistence files.
-- The first time ZURBank is run the startup process may take an hour or more as existing Omni Layer transactions are parsed.  This is normal and should only be required the first time ZURBank is run.
+- The first time ZURBank is run the startup process may take an hour or more as existing Zus Layer transactions are parsed.  This is normal and should only be required the first time ZURBank is run.
 
 Upgrading and downgrading
 ==========================
@@ -49,7 +49,7 @@ General
 UI
 --
 
-- New signal added for changes to Omni state (emitted from block handler for blocks containing Omni transactions)
+- New signal added for changes to Zus state (emitted from block handler for blocks containing Zus transactions)
 - Fix double clicking a transaction in overview does not activate the Bitcoin history tab
 - Splash screen updated to reflect new branding
 - Fix frame alignment in overview page
@@ -57,9 +57,9 @@ UI
 - Fix column resizing on balances tab
 - Right align amounts in balances tab
 - Various rebranding to ZURBank
-- Rewritten Omni transaction history tab
+- Rewritten Zus transaction history tab
 - Add protection against long labels growing the UI size to ridiculous proportions
-- Update signalling to all Omni pages to ensure up to date info
+- Update signalling to all Zus pages to ensure up to date info
 - Override display of Mastercoin metadata for rebrand (RPC unchanged)
 - Acknowledgement of disclaimer will now be remembered
 - Ecosystem display fixed in property lookup

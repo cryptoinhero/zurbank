@@ -36,7 +36,7 @@ public:
     bool getSendAllDetails(const uint256& txid, int subSend, uint32_t& propertyId, int64_t& amount);
     int getMPTransactionCountTotal();
     int getMPTransactionCountBlock(int block);
-    /** Returns a list of all Omni transactions in the given block range. */
+    /** Returns a list of all Zus transactions in the given block range. */
     int GetOmniTxsInBlockRange(int blockFirst, int blockLast, std::set<uint256>& retTxs);
 
     int getDBVersion();

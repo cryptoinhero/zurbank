@@ -80,7 +80,7 @@ void SwapByteOrder64(uint64_t& ull)
 }
 
 /**
- * Determines the Bitcoin address associated with a given hash and version.
+ * Determines the Zurcoin address associated with a given hash and version.
  */
 std::string HashToAddress(unsigned char version, const uint160& hash)
 {

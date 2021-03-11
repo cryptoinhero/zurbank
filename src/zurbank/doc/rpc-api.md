@@ -1,7 +1,7 @@
 JSON-RPC API
 ============
 
-ZURBank is a fork of Bitcoin Core, with Omni Protocol feature support added as a new layer of functionality on top. As such interacting with the API is done in the same manner (JSON-RPC) as Bitcoin Core, simply with additional RPCs available for utilizing Omni Protocol features.
+ZURBank is a fork of Bitcoin Core, with Zus Protocol feature support added as a new layer of functionality on top. As such interacting with the API is done in the same manner (JSON-RPC) as Bitcoin Core, simply with additional RPCs available for utilizing Zus Protocol features.
 
 As all existing Bitcoin Core functionality is inherent to ZURBank, the RPC port by default remains as `8372` as per Bitcoin Core.  If you wish to run ZURBank in tandem with Bitcoin Core (eg. via a separate datadir) you may utilize the `-rpcport<port>` option to nominate an alternative port number.
 
@@ -104,7 +104,7 @@ All available commands can be listed with `"help"`, and information about a spec
 
 ## Transaction creation
 
-The RPCs for transaction creation can be used to create and broadcast Omni Protocol transactions.
+The RPCs for transaction creation can be used to create and broadcast Zus Protocol transactions.
 
 A hash of the broadcasted transaction is returned as result.
 
@@ -138,14 +138,14 @@ $ zurbank-cli "omni_send" "3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY" "37FaKponF7zqoMLU
 
 ### omni_senddexsell
 
-Place, update or cancel a sell offer on the traditional distributed OMNI/ZUR exchange.
+Place, update or cancel a sell offer on the traditional distributed ZUS/ZUR exchange.
 
 **Arguments:**
 
 | Name                | Type    | Presence | Description                                                                                  |
 |---------------------|---------|----------|----------------------------------------------------------------------------------------------|
 | `fromaddress`       | string  | required | the address to send from                                                                     |
-| `propertyidforsale` | number  | required | the identifier of the tokens to list for sale (must be `1` for `OMN` or `2`for `TOMN`)       |
+| `propertyidforsale` | number  | required | the identifier of the tokens to list for sale (must be `1` for `ZUS` or `2`for `TZUS`)       |
 | `amountforsale`     | string  | required | the amount of tokens to list for sale                                                        |
 | `amountdesired`     | string  | required | the amount of zurcoins desired                                                               |
 | `paymentwindow`     | number  | required | a time limit in blocks a buyer has to pay following a successful accepting order             |
@@ -225,7 +225,7 @@ Create new tokens as crowdsale.
 
 ```bash
 $ zurbank-cli "omni_sendissuancecrowdsale" \
-    "3JYd75REX3HXn1vAU83YuGfmiPXW7BpYXo" 2 1 0 "Companies" "Bitcoin Mining" \
+    "3JYd75REX3HXn1vAU83YuGfmiPXW7BpYXo" 2 1 0 "Companies" "Zurcoin Mining" \
     "Quantum Miner" "" "" 2 "100" 1483228800 30 2
 ```
 
@@ -259,7 +259,7 @@ Create new tokens with fixed supply.
 
 ```bash
 $ zurbank-cli "omni_sendissuancefixed" \
-    "3Ck2kEGLJtZw9ENj2tameMCtS3HB7uRar3" 2 1 0 "Companies" "Bitcoin Mining" \
+    "3Ck2kEGLJtZw9ENj2tameMCtS3HB7uRar3" 2 1 0 "Companies" "Zurcoin Mining" \
     "Quantum Miner" "" "" "1000000"
 ```
 
@@ -292,7 +292,7 @@ Create new tokens with manageable supply.
 
 ```bash
 $ zurbank-cli "omni_sendissuancemanaged" \
-    "3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH" 2 1 0 "Companies" "Bitcoin Mining" "Quantum Miner" "" ""
+    "3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH" 2 1 0 "Companies" "Zurcoin Mining" "Quantum Miner" "" ""
 ```
 
 ---
@@ -666,7 +666,7 @@ $ zurbank-cli "omni_sendunfreeze" "3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY" "3HTHRxu3
 
 ### omni_sendrawtx
 
-Broadcasts a raw Omni Layer transaction.
+Broadcasts a raw Zus Layer transaction.
 
 **Arguments:**
 
@@ -756,7 +756,7 @@ $ zurbank-cli "omni_funded_sendall" "1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH" \
 
 ## Data retrieval
 
-The RPCs for data retrieval can be used to get information about the state of the Omni ecosystem.
+The RPCs for data retrieval can be used to get information about the state of the Zus ecosystem.
 
 ### omni_getinfo
 
@@ -777,8 +777,8 @@ Result:
   "commitinfo" : "xxxxxxx",             // (string) build commit identifier
   "block" : nnnnnn,                     // (number) index of the last processed block
   "blocktime" : nnnnnnnnnn,             // (number) timestamp of the last processed block
-  "blocktransactions" : nnnn,           // (number) Omni transactions found in the last processed block
-  "totaltransactions" : nnnnnnnn,       // (number) Omni transactions processed in total
+  "blocktransactions" : nnnn,           // (number) Zus transactions found in the last processed block
+  "totaltransactions" : nnnnnnnn,       // (number) Zus transactions processed in total
   "alerts" : [                          // (array of JSON objects) active protocol alert (if any)
     {
       "alerttype" : n                       // (number) alert type as integer
@@ -963,7 +963,7 @@ $ zurbank-cli "omni_getwalletaddressbalances"
 
 ### omni_gettransaction
 
-Get detailed information about an Omni transaction.
+Get detailed information about an Zus transaction.
 
 **Arguments:**
 
@@ -975,8 +975,8 @@ Get detailed information about an Omni transaction.
 ```js
 {
   "txid" : "hash",                 // (string) the hex-encoded hash of the transaction
-  "sendingaddress" : "address",    // (string) the Bitcoin address of the sender
-  "referenceaddress" : "address",  // (string) a Bitcoin address used as reference (if any)
+  "sendingaddress" : "address",    // (string) the Zurcoin address of the sender
+  "referenceaddress" : "address",  // (string) a Zurcoin address used as reference (if any)
   "ismine" : true|false,           // (boolean) whether the transaction involes an address in the wallet
   "confirmations" : nnnnnnnnnn,    // (number) the number of transaction confirmations
   "fee" : "n.nnnnnnnn",            // (string) the transaction fee in zurcoins
@@ -1017,8 +1017,8 @@ List wallet transactions, optionally filtered by an address and block boundaries
 [                                // (array of JSON objects)
   {
     "txid" : "hash",                 // (string) the hex-encoded hash of the transaction
-    "sendingaddress" : "address",    // (string) the Bitcoin address of the sender
-    "referenceaddress" : "address",  // (string) a Bitcoin address used as reference (if any)
+    "sendingaddress" : "address",    // (string) the Zurcoin address of the sender
+    "referenceaddress" : "address",  // (string) a Zurcoin address used as reference (if any)
     "ismine" : true|false,           // (boolean) whether the transaction involves an address in the wallet
     "confirmations" : nnnnnnnnnn,    // (number) the number of transaction confirmations
     "fee" : "n.nnnnnnnn",            // (string) the transaction fee in zurcoins
@@ -1044,7 +1044,7 @@ $ zurbank-cli "omni_listtransactions"
 
 ### omni_listblocktransactions
 
-Lists all Omni transactions in a block.
+Lists all Zus transactions in a block.
 
 **Arguments:**
 
@@ -1070,7 +1070,7 @@ $ zurbank-cli "omni_listblocktransactions" 279007
 
 ### omni_listblockstransactions
 
-Lists all Omni transactions in a given range of blocks.
+Lists all Zus transactions in a given range of blocks.
 
 Note: the list of transactions is unordered and can contain invalid transactions!
 
@@ -1099,7 +1099,7 @@ $ zurbank-cli "omni_omni_listblocktransactions" 279007 300000
 
 ### omni_listpendingtransactions
 
-Returns a list of unconfirmed Omni transactions, pending in the memory pool.
+Returns a list of unconfirmed Zus transactions, pending in the memory pool.
 
 Note: the validity of pending transactions is uncertain, and the state of the memory pool may change at any moment. It is recommended to check transactions after confirmation, and pending transactions should be considered as invalid.
 
@@ -1114,8 +1114,8 @@ Note: the validity of pending transactions is uncertain, and the state of the me
 [                                // (array of JSON objects)
   {
     "txid" : "hash",                 // (string) the hex-encoded hash of the transaction
-    "sendingaddress" : "address",    // (string) the Bitcoin address of the sender
-    "referenceaddress" : "address",  // (string) a Bitcoin address used as reference (if any)
+    "sendingaddress" : "address",    // (string) the Zurcoin address of the sender
+    "referenceaddress" : "address",  // (string) a Zurcoin address used as reference (if any)
     "ismine" : true|false,           // (boolean) whether the transaction involes an address in the wallet
     "fee" : "n.nnnnnnnn",            // (string) the transaction fee in zurcoins
     "version" : n,                   // (number) the transaction version
@@ -1151,7 +1151,7 @@ Returns currently active offers on the distributed exchange.
   {
     "txid" : "hash",                   // (string) the hash of the transaction of this offer
     "propertyid" : n,                  // (number) the identifier of the tokens for sale
-    "seller" : "address",              // (string) the Bitcoin address of the seller
+    "seller" : "address",              // (string) the Zurcoin address of the seller
     "amountavailable" : "n.nnnnnnnn",  // (string) the number of tokens still listed for sale and currently available
     "zurcoindesired" : "n.nnnnnnnn",   // (string) the number of zurcoins desired in exchange
     "unitprice" : "n.nnnnnnnn" ,       // (string) the unit price (ZUR/token)
@@ -1160,7 +1160,7 @@ Returns currently active offers on the distributed exchange.
     "amountaccepted" : "n.nnnnnnnn",   // (string) the number of tokens currently reserved for pending "accept" orders
     "accepts": [                       // (array of JSON objects) a list of pending "accept" orders
       {
-        "buyer" : "address",               // (string) the Bitcoin address of the buyer
+        "buyer" : "address",               // (string) the Zurcoin address of the buyer
         "block" : nnnnnn,                  // (number) the index of the block that contains the "accept" order
         "blocksleft" : nn,                 // (number) the number of blocks left to pay
         "amount" : "n.nnnnnnnn"            // (string) the amount of tokens accepted and reserved
@@ -1233,7 +1233,7 @@ Returns details for about the tokens or smart property to lookup.
   "data" : "information",         // (string) additional information or a description
   "url" : "uri",                  // (string) an URI, for example pointing to a website
   "divisible" : true|false,       // (boolean) whether the tokens are divisible
-  "issuer" : "address",           // (string) the Bitcoin address of the issuer on record
+  "issuer" : "address",           // (string) the Zurcoin address of the issuer on record
   "creationtxid" : "hash",        // (string) the hex-encoded creation transaction hash
   "fixedissuance" : true|false,   // (boolean) whether the token supply is fixed
   "managedissuance" : true|false, // (boolean) whether the token supply is managed by the issuer
@@ -1264,7 +1264,7 @@ Lists currently active crowdsales.
   {
     "propertyid" : n,                // (number) the identifier of the crowdsale
     "name" : "name",                 // (string) the name of the tokens issued via the crowdsale
-    "issuer" : "address",            // (string) the Bitcoin address of the issuer on record
+    "issuer" : "address",            // (string) the Zurcoin address of the issuer on record
     "propertyiddesired" : n,         // (number) the identifier of the tokens eligible to participate in the crowdsale
     "tokensperunit" : "n.nnnnnnnn",  // (string) the amount of tokens granted per unit invested in the crowdsale
     "earlybonus" : n,                // (number) an early bird bonus for participants in percent per week
@@ -1301,7 +1301,7 @@ Returns information about a crowdsale.
   "propertyid" : n,                    // (number) the identifier of the crowdsale
   "name" : "name",                     // (string) the name of the tokens issued via the crowdsale
   "active" : true|false,               // (boolean) whether the crowdsale is still active
-  "issuer" : "address",                // (string) the Bitcoin address of the issuer on record
+  "issuer" : "address",                // (string) the Zurcoin address of the issuer on record
   "propertyiddesired" : n,             // (number) the identifier of the tokens eligible to participate in the crowdsale
   "tokensperunit" : "n.nnnnnnnn",      // (string) the amount of tokens granted per unit invested in the crowdsale
   "earlybonus" : n,                    // (number) an early bird bonus for participants in percent per week
@@ -1349,7 +1349,7 @@ Returns information about granted and revoked units of managed tokens.
 {
   "propertyid" : n,              // (number) the identifier of the managed tokens
   "name" : "name",               // (string) the name of the tokens
-  "issuer" : "address",          // (string) the Bitcoin address of the issuer on record
+  "issuer" : "address",          // (string) the Zurcoin address of the issuer on record
   "creationtxid" : "hash",       // (string) the hex-encoded creation transaction hash
   "totaltokens" : "n.nnnnnnnn",  // (string) the total number of tokens in existence
   "issuances": [                 // (array of JSON objects) a list of the granted and revoked tokens
@@ -1395,7 +1395,7 @@ Get information and recipients of a send-to-owners transaction.
 ```js
 {
   "txid" : "hash",               // (string) the hex-encoded hash of the transaction
-  "sendingaddress" : "address",  // (string) the Bitcoin address of the sender
+  "sendingaddress" : "address",  // (string) the Zurcoin address of the sender
   "ismine" : true|false,         // (boolean) whether the transaction involes an address in the wallet
   "confirmations" : nnnnnnnnnn,  // (number) the number of transaction confirmations
   "fee" : "n.nnnnnnnn",          // (string) the transaction fee in zurcoins
@@ -1408,10 +1408,10 @@ Get information and recipients of a send-to-owners transaction.
   "propertyid" : n,              // (number) the identifier of sent tokens
   "divisible" : true|false,      // (boolean) whether the sent tokens are divisible
   "amount" : "n.nnnnnnnn",       // (string) the number of tokens sent to owners
-  "totalstofee" : "n.nnnnnnnn",  // (string) the fee paid by the sender, nominated in OMN or TOMN
+  "totalstofee" : "n.nnnnnnnn",  // (string) the fee paid by the sender, nominated in ZUS or TZUS
   "recipients": [                // (array of JSON objects) a list of recipients
     {
-      "address" : "address",         // (string) the Bitcoin address of the recipient
+      "address" : "address",         // (string) the Zurcoin address of the recipient
       "amount" : "n.nnnnnnnn"        // (string) the number of tokens sent to this recipient
     },
     ...
@@ -1441,7 +1441,7 @@ Get detailed information and trade matches for orders on the distributed token e
 ```js
 {
   "txid" : "hash",                              // (string) the hex-encoded hash of the transaction of the order
-  "sendingaddress" : "address",                 // (string) the Bitcoin address of the trader
+  "sendingaddress" : "address",                 // (string) the Zurcoin address of the trader
   "ismine" : true|false,                        // (boolean) whether the order involes an address in the wallet
   "confirmations" : nnnnnnnnnn,                 // (number) the number of transaction confirmations
   "fee" : "n.nnnnnnnn",                         // (string) the transaction fee in zurcoins
@@ -1464,7 +1464,7 @@ Get detailed information and trade matches for orders on the distributed token e
     {
       "txid" : "hash",                              // (string) the hash of the transaction that was matched against
       "block" : nnnnnn,                             // (number) the index of the block that contains this transaction
-      "address" : "address",                        // (string) the Bitcoin address of the other trader
+      "address" : "address",                        // (string) the Zurcoin address of the other trader
       "amountsold" : "n.nnnnnnnn",                  // (string) the number of tokens sold in this trade
       "amountreceived" : "n.nnnnnnnn"               // (string) the number of tokens traded in exchange
     },
@@ -1496,7 +1496,7 @@ List active offers on the distributed token exchange.
 ```js
 [                                             // (array of JSON objects)
   {
-    "address" : "address",                        // (string) the Bitcoin address of the trader
+    "address" : "address",                        // (string) the Zurcoin address of the trader
     "txid" : "hash",                              // (string) the hex-encoded hash of the transaction of the order
     "ecosystem" : "main"|"test",                  // (string) the ecosytem in which the order was made (if "cancel-ecosystem")
     "propertyidforsale" : n,                      // (number) the identifier of the tokens put up for sale
@@ -1543,11 +1543,11 @@ Retrieves the history of trades on the distributed token exchange for the specif
     "unitprice" : "n.nnnnnnnnnnn..." ,    // (string) the unit price used to execute this trade (received/sold)
     "inverseprice" : "n.nnnnnnnnnnn...",  // (string) the inverse unit price (sold/received)
     "sellertxid" : "hash",                // (string) the hash of the transaction of the seller
-    "address" : "address",                // (string) the Bitcoin address of the seller
+    "address" : "address",                // (string) the Zurcoin address of the seller
     "amountsold" : "n.nnnnnnnn",          // (string) the number of tokens sold in this trade
     "amountreceived" : "n.nnnnnnnn",      // (string) the number of tokens traded in exchange
     "matchingtxid" : "hash",              // (string) the hash of the transaction that was matched against
-    "matchingaddress" : "address"         // (string) the Bitcoin address of the other party of this trade
+    "matchingaddress" : "address"         // (string) the Zurcoin address of the other party of this trade
   },
   ...
 ]
@@ -1578,7 +1578,7 @@ Retrieves the history of orders on the distributed exchange for the supplied add
 [                                             // (array of JSON objects)
   {
     "txid" : "hash",                              // (string) the hex-encoded hash of the transaction of the order
-    "sendingaddress" : "address",                 // (string) the Bitcoin address of the trader
+    "sendingaddress" : "address",                 // (string) the Zurcoin address of the trader
     "ismine" : true|false,                        // (boolean) whether the order involes an address in the wallet
     "confirmations" : nnnnnnnnnn,                 // (number) the number of transaction confirmations
     "fee" : "n.nnnnnnnn",                         // (string) the transaction fee in zurcoins
@@ -1601,7 +1601,7 @@ Retrieves the history of orders on the distributed exchange for the supplied add
       {
         "txid" : "hash",                              // (string) the hash of the transaction that was matched against
         "block" : nnnnnn,                             // (number) the index of the block that contains this transaction
-        "address" : "address",                        // (string) the Bitcoin address of the other trader
+        "address" : "address",                        // (string) the Zurcoin address of the other trader
         "amountsold" : "n.nnnnnnnn",                  // (string) the number of tokens sold in this trade
         "amountreceived" : "n.nnnnnnnn"               // (string) the number of tokens traded in exchange
       },
@@ -1658,7 +1658,7 @@ $ zurbank-cli "omni_getactivations"
 
 ### omni_getpayload
 
-Get the payload for an Omni transaction.
+Get the payload for an Zus transaction.
 
 **Arguments:**
 
@@ -1669,7 +1669,7 @@ Get the payload for an Omni transaction.
 **Result:**
 ```js
 {
-  "payload" : "payloadmessage",  // (string) the decoded Omni payload message
+  "payload" : "payloadmessage",  // (string) the decoded Zus payload message
   "payloadsize" : n              // (number) the size of the payload
 }
 ```
@@ -1684,7 +1684,7 @@ $ zurbank-cli "omni_getactivations" "1075db55d416d3ca199f55b6084e2115b9345e16c5c
 
 ### omni_getseedblocks
 
-Returns a list of blocks containing Omni transactions for use in seed block filtering.
+Returns a list of blocks containing Zus transactions for use in seed block filtering.
 
 WARNING: The Exodus crowdsale is not stored in LevelDB, thus this is currently only safe to use to generate seed blocks after block 255365.
 
@@ -1692,8 +1692,8 @@ WARNING: The Exodus crowdsale is not stored in LevelDB, thus this is currently o
 
 | Name                | Type    | Presence | Description                                                                                  |
 |---------------------|---------|----------|----------------------------------------------------------------------------------------------|
-| `startblock`        | number  | required | the first block to look for Omni transactions (inclusive)                                    |
-| `endblock`          | number  | required | the last block to look for Omni transactions (inclusive)                                     |
+| `startblock`        | number  | required | the first block to look for Zus transactions (inclusive)                                    |
+| `endblock`          | number  | required | the last block to look for Zus transactions (inclusive)                                     |
 
 **Result:**
 ```js
@@ -1738,13 +1738,13 @@ $ zurbank-cli "omni_getcurrentconsensushash"
 
 ## Raw transactions
 
-The RPCs for raw transactions/payloads can be used to decode or create raw Omni transactions.
+The RPCs for raw transactions/payloads can be used to decode or create raw Zus transactions.
 
 Raw transactions need to be signed with `"signrawtransaction"` and then broadcasted with `"sendrawtransaction"`.
 
 ### omni_decodetransaction
 
-Decodes an Omni transaction.
+Decodes an Zus transaction.
 
 If the inputs of the transaction are not in the chain, then they must be provided, because the transaction inputs are used to identify the sender of a transaction.
 
@@ -1777,8 +1777,8 @@ The format of `prevtxs` is as following:
 {
   "txid" : "hash",                 // (string) the hex-encoded hash of the transaction
   "fee" : "n.nnnnnnnn",            // (string) the transaction fee in zurcoins
-  "sendingaddress" : "address",    // (string) the Bitcoin address of the sender
-  "referenceaddress" : "address",  // (string) a Bitcoin address used as reference (if any)
+  "sendingaddress" : "address",    // (string) the Zurcoin address of the sender
+  "referenceaddress" : "address",  // (string) a Zurcoin address used as reference (if any)
   "ismine" : true|false,           // (boolean) whether the transaction involes an address in the wallet
   "version" : n,                   // (number) the transaction version
   "type_int" : n,                  // (number) the transaction type as number
@@ -2031,13 +2031,13 @@ $ zurbank-cli "omni_createpayload_sendall" 2
 
 ### omni_createpayload_dexsell
 
-Create a payload to place, update or cancel a sell offer on the traditional distributed OMNI/ZUR exchange.
+Create a payload to place, update or cancel a sell offer on the traditional distributed ZUS/ZUR exchange.
 
 **Arguments:**
 
 | Name                | Type    | Presence | Description                                                                                  |
 |---------------------|---------|----------|----------------------------------------------------------------------------------------------|
-| `propertyidforsale` | number  | required | the identifier of the tokens to list for sale (must be 1 for OMN or 2 for TOMN)              |
+| `propertyidforsale` | number  | required | the identifier of the tokens to list for sale (must be 1 for ZUS or 2 for TZUS)              |
 | `amountforsale`     | string  | required | the amount of tokens to list for sale                                                        |
 | `amountdesired`     | string  | required | the amount of zurcoins desired                                                               |
 | `paymentwindow`     | number  | required | a time limit in blocks a buyer has to pay following a successful accepting order             |
@@ -2136,7 +2136,7 @@ Creates the payload for a new tokens issuance with fixed supply.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_issuancefixed" 2 1 0 "Companies" "Bitcoin Mining" "Quantum Miner" "" "" "1000000"
+$ zurbank-cli "omni_createpayload_issuancefixed" 2 1 0 "Companies" "Zurcoin Mining" "Quantum Miner" "" "" "1000000"
 ```
 
 ---
@@ -2171,7 +2171,7 @@ Creates the payload for a new tokens issuance with crowdsale.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_issuancecrowdsale" 2 1 0 "Companies" "Bitcoin Mining" "Quantum Miner" "" "" 2 "100" 1483228800 30 2
+$ zurbank-cli "omni_createpayload_issuancecrowdsale" 2 1 0 "Companies" "Zurcoin Mining" "Quantum Miner" "" "" 2 "100" 1483228800 30 2
 ```
 
 ---
@@ -2201,7 +2201,7 @@ Creates the payload for a new tokens issuance with manageable supply.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_issuancemanaged" 2 1 0 "Companies" "Bitcoin Mining" "Quantum Miner" "" ""
+$ zurbank-cli "omni_createpayload_issuancemanaged" 2 1 0 "Companies" "Zurcoin Mining" "Quantum Miner" "" ""
 ```
 
 ---

@@ -20,13 +20,13 @@ void RegisterMiningRPCCommands(CRPCTable &tableRPC);
 /** Register raw transaction RPC commands */
 void RegisterRawTransactionRPCCommands(CRPCTable &tableRPC);
 
-/** Register Omni data retrieval RPC commands */
+/** Register Zus data retrieval RPC commands */
 void RegisterOmniDataRetrievalRPCCommands(CRPCTable &tableRPC);
-/** Register Omni transaction creation RPC commands */
+/** Register Zus transaction creation RPC commands */
 void RegisterOmniTransactionCreationRPCCommands(CRPCTable &tableRPC);
-/** Register Omni payload creation RPC commands */
+/** Register Zus payload creation RPC commands */
 void RegisterOmniPayloadCreationRPCCommands(CRPCTable &tableRPC);
-/** Register Omni raw transaction RPC commands */
+/** Register Zus raw transaction RPC commands */
 void RegisterOmniRawTransactionRPCCommands(CRPCTable &tableRPC);
 
 static inline void RegisterAllCoreRPCCommands(CRPCTable &tableRPC)

@@ -20,7 +20,7 @@
 namespace mastercore
 {
 
-//! Vector of currently active Omni alerts
+//! Vector of currently active Zus alerts
 std::vector<AlertData> currentOmniAlerts;
 
 /**

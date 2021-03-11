@@ -1,7 +1,7 @@
 ZURBank v0.3.1
 ================
 
-v0.3.1 is a minor release and not consensus critical in terms of the Omni Layer protocol rules. Besides other improvemens, this release provides two new RPCs to create funded transactions, two new RPCs to query token wallet balances, and signficant stability and performance gains of ZURBank.
+v0.3.1 is a minor release and not consensus critical in terms of the Zus Layer protocol rules. Besides other improvemens, this release provides two new RPCs to create funded transactions, two new RPCs to query token wallet balances, and signficant stability and performance gains of ZURBank.
 
 An upgrade is highly recommended, but not required, if you are using ZURBank 0.3.0.
 
@@ -19,8 +19,8 @@ Table of contents
   - [Compatibility with Bitcoin Core](#compatibility-with-zurcoin-core)
 - [Notable changes](#notable-changes)
   - [Wiki for guiding new users and developers](#wiki-for-guiding-new-users-and-developers)
-  - [Support for offline creation of raw Omni transactions](#support-for-offline-creation-of-raw-omni-transactions)
-  - [API to fund Omni Layer transactions from other sources](#api-to-fund-omni-layer-transactions-from-other-sources)
+  - [Support for offline creation of raw Zus transactions](#support-for-offline-creation-of-raw-omni-transactions)
+  - [API to fund Zus Layer transactions from other sources](#api-to-fund-omni-layer-transactions-from-other-sources)
   - [Two new RPCs to get and list all wallet balances](#two-new-rpcs-to-get-and-list-all-wallet-balances)
   - [Information about freeze transactions added to "omni_gettransaction"](#information-about-freeze-transactions-added-to-omni_gettransaction)
   - [Fix behavior of "omni_listtransactions"](#fix-behavior-of-omni_listtransactions)
@@ -46,7 +46,7 @@ How to upgrade
 
 If you are running Bitcoin Core or an older version of ZURBank, shut it down. Wait until it has completely shut down, then copy the new version of `zurbankd`, `zurbank-cli` and `zurbank-qt`. On Microsoft Windows the setup routine can be used to automate these steps.
 
-During the first startup historical Omni transactions are reprocessed and ZURBank will not be usable for approximately 15 minutes up to two hours. The progress of the initial scan is reported on the console, the GUI and written to the `debug.log`. The scan may be interrupted, but can not be resumed, and then needs to start from the beginning.
+During the first startup historical Zus transactions are reprocessed and ZURBank will not be usable for approximately 15 minutes up to two hours. The progress of the initial scan is reported on the console, the GUI and written to the `debug.log`. The scan may be interrupted, but can not be resumed, and then needs to start from the beginning.
 
 Downgrading
 -----------
@@ -74,17 +74,17 @@ To help and guide new users and developers, a wiki was created. The wiki include
 
 https://github.com/zurcoin/zurbank/wiki
 
-Support for offline creation of raw Omni transactions
+Support for offline creation of raw Zus transactions
 -----------------------------------------------------
 
-The raw transaction interface can be used to manually craft Omni Layer transactions. With this release, it is no longer necessary to use a fully synchronized client and an offline client can be used.
+The raw transaction interface can be used to manually craft Zus Layer transactions. With this release, it is no longer necessary to use a fully synchronized client and an offline client can be used.
 
 An overview of the JSON-RPC commands can be found [here](https://github.com/zurcoin/zurbank/blob/master/src/zurbank/doc/rpc-api.md#raw-transactions) and a guide for the manual creation of a Simple Send transaction is [available](https://github.com/zurcoin/zurbank/wiki/Use-the-raw-transaction-API-to-create-a-Simple-Send-transaction) in the new wiki.
 
-API to fund Omni Layer transactions from other sources
+API to fund Zus Layer transactions from other sources
 ------------------------------------------------------
 
-This release adds two new RPCs "omni_funded_send" and "omni_funded_sendall", which allow the creation of Omni Layer transactions, which are funded by a different source, other than the original sender.
+This release adds two new RPCs "omni_funded_send" and "omni_funded_sendall", which allow the creation of Zus Layer transactions, which are funded by a different source, other than the original sender.
 
 This can be used to pay for transaction fees, when the sender only has a tiny fraction of coins available, but not enough to cover whole fee of a transaction:
 
@@ -265,12 +265,12 @@ While token namens are by no way unique, or serve as identifier of a token, prov
 Massive performance improvements of zurbankd
 ---------------------------------------------
 
-Due to optimizations of zurbankd, the daemon of ZURBank, which serves as backend for exchanges and other integrators, the time to scan and parse new blocks for Omni Layer transactions was massively improved. On a regular machine, the time to process a full block could have taken up to 1.5 seconds, which was reduced in this release to about 300 ms.
+Due to optimizations of zurbankd, the daemon of ZURBank, which serves as backend for exchanges and other integrators, the time to scan and parse new blocks for Zus Layer transactions was massively improved. On a regular machine, the time to process a full block could have taken up to 1.5 seconds, which was reduced in this release to about 300 ms.
 
 Storage of state during initial scanning
 ----------------------------------------
 
-Currently the state of the Omni Layer is persisted for the last 50 blocks away from the chain tip.
+Currently the state of the Zus Layer is persisted for the last 50 blocks away from the chain tip.
 
 This is fine in most cases, but during a reparse, when the chain is fully synchronized, no state is stored until the chain tip is reached. This is an issue, if the client is shutdown during the reparse, because it must then start from the beginning.
 
@@ -278,12 +278,12 @@ To avoid this, the state is permanently stored every 10000 blocks. When there is
 
 ![image](https://user-images.githubusercontent.com/5836089/39111870-e8e0c2c6-46d6-11e8-9ef0-ca6184c41eed.png)
 
-Additionally state is no longer persisted before the first Omni Layer transaction was mined, which speeds up the initial synchronization up to this point.
+Additionally state is no longer persisted before the first Zus Layer transaction was mined, which speeds up the initial synchronization up to this point.
 
 Properly restore state, when rolling back blocks
 ------------------------------------------------
 
-There was an issue, which caused the client to reparse all Omni Layer transactions from the very first one, when blocks where rolled back, e.g. due to corrupted persistence files. This is a very time-consuming task and not necesary. In this release, the behavior was fixed and state is properly rolled back up to 50 blocks in the past, which significantly improves robustness of the client.
+There was an issue, which caused the client to reparse all Zus Layer transactions from the very first one, when blocks where rolled back, e.g. due to corrupted persistence files. This is a very time-consuming task and not necesary. In this release, the behavior was fixed and state is properly rolled back up to 50 blocks in the past, which significantly improves robustness of the client.
 
 Avoid deadlock, when parsing transactions
 -----------------------------------------
@@ -300,7 +300,7 @@ Two new consensus state checkpoints were added to this release, to ensure the us
 Internal preperations for native Segregated Witness support
 -----------------------------------------------------------
 
-ZURBank and the Omni Layer support Segregated Witness scripts wrapped as script hash since the beginning, which can provide a significant cost saving.
+ZURBank and the Zus Layer support Segregated Witness scripts wrapped as script hash since the beginning, which can provide a significant cost saving.
 
 However, there is no support for native Segregated Witness scripts, which are idenifiable by their bech32 encoding, yet.
 

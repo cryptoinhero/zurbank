@@ -35,7 +35,7 @@ namespace mastercore
 bool AddressToPubKey(const std::string& key, CPubKey& pubKey)
 {
 #ifdef ENABLE_WALLET
-    // Case 1: Bitcoin address and the key is in the wallet
+    // Case 1: Zurcoin address and the key is in the wallet
     CBitcoinAddress address(key);
     if (pwalletMain && address.IsValid()) {
         CKeyID keyID;

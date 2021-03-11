@@ -1,7 +1,7 @@
 ZURBank v0.0.9.2
 ==================
 
-v0.0.9.2 is a minor release and not consensus critical in terms of the Omni Layer protocol rules. Due to recent events related to the Bitcoin network, it is recommended to upgrade to this version.
+v0.0.9.2 is a minor release and not consensus critical in terms of the Zus Layer protocol rules. Due to recent events related to the Bitcoin network, it is recommended to upgrade to this version.
 
 Please report bugs using the issue tracker on GitHub:
 

@@ -1,7 +1,7 @@
 ZURBank v0.0.10
 =================
 
-v0.0.10 is a major release and consensus critical in terms of the Omni Layer protocol rules. An upgrade is mandatory, and highly recommended. Prior releases will not be compatible with new behavior in this release.
+v0.0.10 is a major release and consensus critical in terms of the Zus Layer protocol rules. An upgrade is mandatory, and highly recommended. Prior releases will not be compatible with new behavior in this release.
 
 Please report bugs using the issue tracker on GitHub:
 
@@ -50,7 +50,7 @@ How to upgrade
 
 If you are running Bitcoin Core or an older version of ZURBank, shut it down. Wait until it has completely shut down, then copy the new version of `zurbankd`, `zurbank-cli` and `zurbank-qt`. On Microsoft Windows the setup routine can be used to automate these steps.
 
-During the first startup historical Omni transactions are reprocessed and ZURBank will not be usable for approximately 15 minutes up to two hours. The progress of the initial scan is reported on the console, the GUI and written to the `debug.log`. The scan may be interrupted, but can not be resumed, and then needs to start from the beginning.
+During the first startup historical Zus transactions are reprocessed and ZURBank will not be usable for approximately 15 minutes up to two hours. The progress of the initial scan is reported on the console, the GUI and written to the `debug.log`. The scan may be interrupted, but can not be resumed, and then needs to start from the beginning.
 
 Downgrading
 -----------
@@ -92,7 +92,7 @@ Dust threshold values
 
 The default `minrelaytxfee` was raised from `0.00001` to `0.00005` in Bitcoin Core 0.10.3 as temporary measure against massive memory pool bloat.
 
-The minimum relay fee influences the "dust threshold", and has an impact on the output values of Omni transactions, which are chosen to be as low as possible. As per default, Omni transactions created with Master Core had output values between `0.00000546` ZUR and `0.00000882` ZUR, whereby the new output values are between `0.0000273` ZUR and `0.0000441` ZUR.
+The minimum relay fee influences the "dust threshold", and has an impact on the output values of Zus transactions, which are chosen to be as low as possible. As per default, Zus transactions created with Master Core had output values between `0.00000546` ZUR and `0.00000882` ZUR, whereby the new output values are between `0.0000273` ZUR and `0.0000441` ZUR.
 
 To continue to create transactions with lower values, start ZURBank with `-minrelaytxfee=0.00001` or add the following to your `zurcoin.conf`:
 ```
@@ -130,8 +130,8 @@ Master Core was re-branded to ZURBank on all levels:
 - `mastercored`, `mastercore-cli`, `mastercore-qt`, `test_mastercore` and `test_mastercore-qt` were renamed to `zurbankd`, `zurbank-cli`, `zurbank-qt`, `test_zurbank` and `test_zurbank-qt`
 - the debug log file `mastercore.log` was renamed  to `zurbank.log`
 - the hardcoded token SP#1 was renamed from `"MasterCoin"` to `"Omni"`
-- the hardcoded token SP#2 was renamed from `"Test MasterCoin"` to `"Test Omni"`
-- the user interface now refers to `"Omni"`, `"OMNI"`, `"Test Omni"` or `"TOMNI"` instead of `"Mastercoin"`, `"MSC"`, `"Test Mastercoin"` or `"TMSC"`
+- the hardcoded token SP#2 was renamed from `"Test MasterCoin"` to `"Test Zus"`
+- the user interface now refers to `"Omni"`, `"ZUS"`, `"Test Zus"` or `"TOMNI"` instead of `"Mastercoin"`, `"MSC"`, `"Test Mastercoin"` or `"TMSC"`
 
 Incompatible API changes
 ------------------------
@@ -143,9 +143,9 @@ The values associated with `"action"` were renamed from `"New"`, `"Update"`, `"C
 Feature and consensus rule activations
 --------------------------------------
 
-ZURBank 0.0.10 introduces feature activations, a new concept that allows the Omni team to decouple the release process from the process of making new features live.
+ZURBank 0.0.10 introduces feature activations, a new concept that allows the Zus team to decouple the release process from the process of making new features live.
 
-Prior to 0.0.10, the block height that a new feature would be made live was hard coded, placing substantial limits on both the frequency of releases and the flexibility in introducing new features. The feature activations system allows to separate the release process and activation of features by allowing the Omni team to activate features with a special Omni transaction instead of with a hard coded block height within a specific release.
+Prior to 0.0.10, the block height that a new feature would be made live was hard coded, placing substantial limits on both the frequency of releases and the flexibility in introducing new features. The feature activations system allows to separate the release process and activation of features by allowing the Zus team to activate features with a special Zus transaction instead of with a hard coded block height within a specific release.
 
 The activations system imposes set limits on when and by whom new features can be activated. A minimum 2048 block notice period (roughly 2 weeks) is enforced on the main network to give users with older incompatible clients time to upgrade.
 
@@ -163,7 +163,7 @@ As per default ZURBank accepts activation messages from the following source:
 }
 ```
 
-The activation message must be signed by at least 4 of the 5 nominated members of the Omni team in order to be accepted. These members are as follows:
+The activation message must be signed by at least 4 of the 5 nominated members of the Zus team in order to be accepted. These members are as follows:
 
 - Zathras - Project Maintainer and Developer
 - dexx - Project Maintainer and Developer
@@ -226,7 +226,7 @@ Four new transaction types were added.
 | Transaction type           | 16-bit unsigned | 25                                 |
 | Tokens to list for sale    | 32-bit unsigned | 2147483831 (Gold Coins)            |
 | Amount to list for sale    | 64-bit signed   | 5000000000 (50.0 divisible tokens) |
-| Tokens desired in exchange | 32-bit unsigned | 2 (Test Omni)                      |
+| Tokens desired in exchange | 32-bit unsigned | 2 (Test Zus)                      |
 | Amount desired in exchange | 64-bit signed   | 1000000000 (10.0 divisible tokens) |
 
 Transaction type 25 can be used to create a new order.
@@ -239,7 +239,7 @@ Transaction type 25 can be used to create a new order.
 | Transaction type           | 16-bit unsigned | 26                                 |
 | Tokens listed for sale     | 32-bit unsigned | 2147483831 (Gold Coins)            |
 | Amount listed for sale     | 64-bit signed   | 2500000000 (25.0 divisible tokens) |
-| Tokens desired in exchange | 32-bit unsigned | 2 (Test Omni)                      |
+| Tokens desired in exchange | 32-bit unsigned | 2 (Test Zus)                      |
 | Amount desired in exchange | 64-bit signed   | 500000000 (5.0 divisible tokens)   |
 
 Transaction type 26 cancels open orders for a given set of currencies at a given price. It is required that the token identifiers and price exactly match the order to be canceled.
@@ -251,7 +251,7 @@ Transaction type 26 cancels open orders for a given set of currencies at a given
 | Transaction version        | 16-bit unsigned | 0                                  |
 | Transaction type           | 16-bit unsigned | 27                                 |
 | Tokens listed for sale     | 32-bit unsigned | 2147483831 (Gold Coins)            |
-| Tokens desired in exchange | 32-bit unsigned | 2 (Test Omni)                      |
+| Tokens desired in exchange | 32-bit unsigned | 2 (Test Zus)                      |
 
 Transaction type 27 cancels all open orders for a given set of two currencies (one side of the order book).
 
@@ -325,9 +325,9 @@ Other notable changes
 JSON-RPC API updates
 --------------------
 
-The JSON-RPC API was extended significantly, and now supports sending transactions of any transaction type, and the creation of raw Omni transactions.
+The JSON-RPC API was extended significantly, and now supports sending transactions of any transaction type, and the creation of raw Zus transactions.
 
-Several new API calls are available to retrieve information about unconfirmed or confirmed Omni transactions, and the state of the system.
+Several new API calls are available to retrieve information about unconfirmed or confirmed Zus transactions, and the state of the system.
 
 Please see the JSON-RPC API documentation for more details:
 
@@ -361,8 +361,8 @@ The following categories are available:
 - `metadex1`: Log additional information about MetaDEx transactions
 - `metadex2`: Log the state of the MetaDEx before and after each MetaDEx transaction
 - `metadex3`: Log the state of the MetaDEx before and after each MetaDEx action and log each MetaDEx object during iteration of MetaDEx maps
-- `packets`: Log additional information about the payload included within each Omni transaction
-- `packets_readonly`: Log additional information about the payload included within each Omni transaction when parsing in read only mode (e.g. via RPC interface)
+- `packets`: Log additional information about the payload included within each Zus transaction
+- `packets_readonly`: Log additional information about the payload included within each Zus transaction when parsing in read only mode (e.g. via RPC interface)
 - `walletcache`: Log additional information about the wallet cache and hits/misses
 - `consensus_hash`: Log additional information about each data point added to the consensus hash
 - `consensus_hash_every_block`: Generate and log a consensus hash for every block processed
@@ -409,9 +409,9 @@ To log consensus hashes, the configuration options `-omnidebug=consensus_hash` a
 Checkpoints and faster initial transaction scanning
 ---------------------------------------------------
 
-When ZURBank is used the very first time, or when ZURBank hasn't been used for a longer period, then historical blocks are scanned for Omni transactions. With the introduction of "consensus hashes", a significant speed improvement during the initial stage was possible by skipping known blocks without Omni transactions, and by comparing the resulting state with checkpoints. If the state of the client doesn't match the reference state, the client shuts down to prevent providing inaccurate data.
+When ZURBank is used the very first time, or when ZURBank hasn't been used for a longer period, then historical blocks are scanned for Zus transactions. With the introduction of "consensus hashes", a significant speed improvement during the initial stage was possible by skipping known blocks without Zus transactions, and by comparing the resulting state with checkpoints. If the state of the client doesn't match the reference state, the client shuts down to prevent providing inaccurate data.
 
-ZURBank was intentionally not delivered with a snapshot of the most recent state, and transactions are fully verified in any case. One design goal of ZURBank has always been to minimize the role of central parties (in this case: the ones providing a snapshot or checkpoints), and to further minimize the dependency on a hardcoded list of information, the configuration option `-omniseedblockfilter=0` can be used to disable the skipping of blocks without Omni transactions.
+ZURBank was intentionally not delivered with a snapshot of the most recent state, and transactions are fully verified in any case. One design goal of ZURBank has always been to minimize the role of central parties (in this case: the ones providing a snapshot or checkpoints), and to further minimize the dependency on a hardcoded list of information, the configuration option `-omniseedblockfilter=0` can be used to disable the skipping of blocks without Zus transactions.
 
 The configuration option `-overrideforcedshutdown` can be used to prevent ZURBank from shutting down in case of a checkpoint mismatch. Using the latter is generally not recommended, as this exposes the user to data, which isn't considered as valid by other participants.
 
@@ -453,7 +453,7 @@ The following list includes relevant pull requests merged into this release:
 - #4 Fix shutdown issue after running Boost tests
 - #8, #26, #33, #35, #67 Finalize MetaDEx logic
 - #5 MetaDEx user interface
-- #13 Support creation of any (enabled) Omni transaction via RPC
+- #13 Support creation of any (enabled) Zus transaction via RPC
 - #13 Support Class C/OP_RETURN encoded transactions
 - #17 Report initial parsing progress during startup
 - #17 Handle shutdown requests during initial parsing
@@ -467,7 +467,7 @@ The following list includes relevant pull requests merged into this release:
 - #81 Enable pay-to-script-hash support in send dialog
 - #86 Return all available information via `validateaddress`
 - #98 Indicate "pending" status of outgoing transactions
-- #109 Log every invalid processing of Omni transactions
+- #109 Log every invalid processing of Zus transactions
 - #91 Rebrand project to ZURBank
 - #91 Rename files to `zurbank-qt`, `zurbankd`, `zurbank-cli`, ...
 - #102, #126 Fully support cross-platform, and deterministic, building
@@ -493,11 +493,11 @@ The following list includes relevant pull requests merged into this release:
 - #158 Trigger UI updates after DEx payments and Exodus purchases
 - #173 Fix/add missing fields for transaction retrieval via RPC
 - #177 Sanitize RPC responses and replace non-UTF-8 compliant characters
-- #178 Fix Omni transaction count value passed into block end handler
+- #178 Fix Zus transaction count value passed into block end handler
 - #179 Add consensus checkpoint for block 370000
 - #180 Update seed blocks to 370000
 - #181 Update base to Bitcoin Core 0.10~ tip
-- #174 Add RPC support for unconfrimed Omni transactions
+- #174 Add RPC support for unconfrimed Zus transactions
 - #184 Stop recording structurally-invalid transactions in txlistdb
 - #167 Mostly cosmetic overhaul of traditional DEx logic
 - #187 Automate state refresh on client version change when needed
@@ -521,14 +521,14 @@ The following list includes relevant pull requests merged into this release:
 - #238 Fix crowdsale purchase detection in test ecosystem
 - #231 Change icon to make Win64 installer deterministic
 - #240 Various small improvements to ensure correct state
-- #232 Add new RPC to list pending Omni transactions
+- #232 Add new RPC to list pending Zus transactions
 - #243 Fix STO DB corruption on reorg
 - #239 Fix "raised amount" in RPC result of crowdsales
 - #234 Update documentation of configuration options
 - #233 Use tables and add results to JSON-RPC API documentation
 - #250 Fix missing crowdsale purchase entries in verbose "omni_getcrowdsale"
 - #253 Update handling of crowdsales and missing bonus amounts
-- #142 Add RPC to decode raw Omni transactions
+- #142 Add RPC to decode raw Zus transactions
 - #176 Implement updated alerting & feature activations
 - #252 Restrict ecosystem crossovers for crowdsales
 - #258 Explicitly set transaction and relay fee for RPC tests
@@ -549,7 +549,7 @@ The following list includes relevant pull requests merged into this release:
 - #291 Add error handlers for "omni_getpayload"
 - #292 Add API documentation for "omni_getpayload"
 - #295 Fix overflow when trading divisible against divisible
-- #303 Force UI update every block with Omni transactions
+- #303 Force UI update every block with Zus transactions
 - #305 Change default confirm target to 6 blocks
 - #307 Update release notes for 0.0.10
 - #306 Bump version to ZURBank 0.0.10-rel

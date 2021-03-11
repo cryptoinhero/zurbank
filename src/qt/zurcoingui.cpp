@@ -224,7 +224,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle *n
     framePendingLayout->setSpacing(3);
     framePendingLayout->addStretch();
     labelOmniPendingIcon = new QLabel();
-    labelOmniPendingText = new QLabel("You have Omni transactions awaiting confirmation.");
+    labelOmniPendingText = new QLabel("You have Zus transactions awaiting confirmation.");
     framePendingLayout->addWidget(labelOmniPendingIcon);
     framePendingLayout->addWidget(labelOmniPendingText);
     framePendingLayout->addStretch();
@@ -290,14 +290,14 @@ void BitcoinGUI::createActions()
     tabGroup->addAction(overviewAction);
 
     balancesAction = new QAction(platformStyle->SingleColorIcon(":/icons/balances"), tr("&Balances"), this);
-    balancesAction->setStatusTip(tr("Show Omni Layer balances"));
+    balancesAction->setStatusTip(tr("Show Zus Layer balances"));
     balancesAction->setToolTip(balancesAction->statusTip());
     balancesAction->setCheckable(true);
     balancesAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_2));
     tabGroup->addAction(balancesAction);
 
     sendCoinsAction = new QAction(platformStyle->SingleColorIcon(":/icons/send"), tr("&Send"), this);
-    sendCoinsAction->setStatusTip(tr("Send Omni Layer and Bitcoin transactions"));
+    sendCoinsAction->setStatusTip(tr("Send Zus Layer and Bitcoin transactions"));
     sendCoinsAction->setToolTip(sendCoinsAction->statusTip());
     sendCoinsAction->setCheckable(true);
     sendCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_3));
@@ -335,7 +335,7 @@ void BitcoinGUI::createActions()
     tabGroup->addAction(historyAction);
 
     toolboxAction = new QAction(platformStyle->SingleColorIcon(":/icons/tools"), tr("&Toolbox"), this);
-    toolboxAction->setStatusTip(tr("Tools to obtain varions Omni Layer information and transaction information"));
+    toolboxAction->setStatusTip(tr("Tools to obtain varions Zus Layer information and transaction information"));
     toolboxAction->setToolTip(toolboxAction->statusTip());
     toolboxAction->setCheckable(true);
     toolboxAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_7));
@@ -393,9 +393,9 @@ void BitcoinGUI::createActions()
     changePassphraseAction = new QAction(platformStyle->TextColorIcon(":/icons/key"), tr("&Change Passphrase..."), this);
     changePassphraseAction->setStatusTip(tr("Change the passphrase used for wallet encryption"));
     signMessageAction = new QAction(platformStyle->TextColorIcon(":/icons/edit"), tr("Sign &message..."), this);
-    signMessageAction->setStatusTip(tr("Sign messages with your Bitcoin addresses to prove you own them"));
+    signMessageAction->setStatusTip(tr("Sign messages with your Zurcoin addresses to prove you own them"));
     verifyMessageAction = new QAction(platformStyle->TextColorIcon(":/icons/verify"), tr("&Verify message..."), this);
-    verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified Bitcoin addresses"));
+    verifyMessageAction->setStatusTip(tr("Verify messages to ensure they were signed with specified Zurcoin addresses"));
 
     openRPCConsoleAction = new QAction(platformStyle->TextColorIcon(":/icons/debugwindow"), tr("&Debug window"), this);
     openRPCConsoleAction->setStatusTip(tr("Open debugging and diagnostic console"));
@@ -527,7 +527,7 @@ void BitcoinGUI::setClientModel(ClientModel *clientModel)
         // Show progress dialog
         connect(clientModel, SIGNAL(showProgress(QString,int)), this, SLOT(showProgress(QString,int)));
 
-        // Update Omni pending status
+        // Update Zus pending status
         connect(clientModel, SIGNAL(refreshOmniPending(bool)), this, SLOT(setOmniPendingStatus(bool)));
 
         rpcConsole->setClientModel(clientModel);
@@ -946,7 +946,7 @@ void BitcoinGUI::message(const QString &title, const QString &message, unsigned 
             break;
         }
     }
-    // Append title to "Bitcoin - "
+    // Append title to "Zurcoin - "
     if (!msgType.isEmpty())
         strTitle += " - " + msgType;
 
@@ -1096,7 +1096,7 @@ void BitcoinGUI::setOmniPendingStatus(bool pending)
         labelOmniPendingIcon->show();
         labelOmniPendingText->show();
         labelOmniPendingIcon->setPixmap(QIcon(":/icons/omni_hourglass").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
-        labelOmniPendingIcon->setToolTip(tr("You have Omni transactions awaiting confirmation."));
+        labelOmniPendingIcon->setToolTip(tr("You have Zus transactions awaiting confirmation."));
     }
 }
 

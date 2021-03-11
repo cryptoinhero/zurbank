@@ -9,7 +9,7 @@
 #define UNUSED
 #endif
 static const char UNUSED *zurcoin_strings[] = {
-QT_TRANSLATE_NOOP("zurcoin-core", "Bitcoin Core"),
+QT_TRANSLATE_NOOP("zurcoin-core", "Zurcoin Core"),
 QT_TRANSLATE_NOOP("zurcoin-core", "The %s developers"),
 QT_TRANSLATE_NOOP("zurcoin-core", ""
 "(1 = keep tx meta data e.g. account owner and payment request information, 2 "

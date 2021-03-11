@@ -174,7 +174,7 @@ public Q_SLOTS:
     */
     void setEncryptionStatus(int status);
 
-    /** Set the Omni pending transactions label **/
+    /** Set the Zus pending transactions label **/
     void setOmniPendingStatus(bool pending);
 
     bool handlePaymentRequest(const SendCoinsRecipient& recipient);
@@ -191,7 +191,7 @@ private Q_SLOTS:
     void gotoBalancesPage();
     /** Switch to history (transactions) page */
     void gotoHistoryPage();
-    /** Switch directly to Omni history tab */
+    /** Switch directly to Zus history tab */
     void gotoOmniHistoryTab();
     /** Switch directly to zurcoin history tab */
     void gotoBitcoinHistoryTab();

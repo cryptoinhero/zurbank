@@ -77,11 +77,11 @@ UniValue omni_createpayload_dexsell(const UniValue& params, bool fHelp)
         throw runtime_error(
             "omni_createpayload_dexsell propertyidforsale \"amountforsale\" \"amountdesired\" paymentwindow minacceptfee action\n"
 
-            "\nCreate a payload to place, update or cancel a sell offer on the traditional distributed OMNI/ZUR exchange.\n"
+            "\nCreate a payload to place, update or cancel a sell offer on the traditional distributed ZUS/ZUR exchange.\n"
 
             "\nArguments:\n"
 
-            "1. propertyidforsale    (number, required) the identifier of the tokens to list for sale (must be 1 for OMN or 2 for TOMN)\n"
+            "1. propertyidforsale    (number, required) the identifier of the tokens to list for sale (must be 1 for ZUS or 2 for TZUS)\n"
             "2. amountforsale        (string, required) the amount of tokens to list for sale\n"
             "3. amountdesired        (string, required) the amount of zurcoins desired\n"
             "4. paymentwindow        (number, required) a time limit in blocks a buyer has to pay following a successful accepting order\n"
@@ -200,8 +200,8 @@ UniValue omni_createpayload_issuancefixed(const UniValue& params, bool fHelp)
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_issuancefixed", "2 1 0 \"Companies\" \"Bitcoin Mining\" \"Quantum Miner\" \"\" \"\" \"1000000\"")
-            + HelpExampleRpc("omni_createpayload_issuancefixed", "2, 1, 0, \"Companies\", \"Bitcoin Mining\", \"Quantum Miner\", \"\", \"\", \"1000000\"")
+            + HelpExampleCli("omni_createpayload_issuancefixed", "2 1 0 \"Companies\" \"Zurcoin Mining\" \"Quantum Miner\" \"\" \"\" \"1000000\"")
+            + HelpExampleRpc("omni_createpayload_issuancefixed", "2, 1, 0, \"Companies\", \"Zurcoin Mining\", \"Quantum Miner\", \"\", \"\", \"1000000\"")
         );
 
     uint8_t ecosystem = ParseEcosystem(params[0]);
@@ -248,8 +248,8 @@ UniValue omni_createpayload_issuancecrowdsale(const UniValue& params, bool fHelp
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_issuancecrowdsale", "2 1 0 \"Companies\" \"Bitcoin Mining\" \"Quantum Miner\" \"\" \"\" 2 \"100\" 1483228800 30 2")
-            + HelpExampleRpc("omni_createpayload_issuancecrowdsale", "2, 1, 0, \"Companies\", \"Bitcoin Mining\", \"Quantum Miner\", \"\", \"\", 2, \"100\", 1483228800, 30, 2")
+            + HelpExampleCli("omni_createpayload_issuancecrowdsale", "2 1 0 \"Companies\" \"Zurcoin Mining\" \"Quantum Miner\" \"\" \"\" 2 \"100\" 1483228800 30 2")
+            + HelpExampleRpc("omni_createpayload_issuancecrowdsale", "2, 1, 0, \"Companies\", \"Zurcoin Mining\", \"Quantum Miner\", \"\", \"\", 2, \"100\", 1483228800, 30, 2")
         );
 
     uint8_t ecosystem = ParseEcosystem(params[0]);
@@ -296,8 +296,8 @@ UniValue omni_createpayload_issuancemanaged(const UniValue& params, bool fHelp)
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_issuancemanaged", "2 1 0 \"Companies\" \"Bitcoin Mining\" \"Quantum Miner\" \"\" \"\"")
-            + HelpExampleRpc("omni_createpayload_issuancemanaged", "2, 1, 0, \"Companies\", \"Bitcoin Mining\", \"Quantum Miner\", \"\", \"\"")
+            + HelpExampleCli("omni_createpayload_issuancemanaged", "2 1 0 \"Companies\" \"Zurcoin Mining\" \"Quantum Miner\" \"\" \"\"")
+            + HelpExampleRpc("omni_createpayload_issuancemanaged", "2, 1, 0, \"Companies\", \"Zurcoin Mining\", \"Quantum Miner\", \"\", \"\"")
         );
 
     uint8_t ecosystem = ParseEcosystem(params[0]);

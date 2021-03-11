@@ -25,9 +25,9 @@ BOOST_AUTO_TEST_CASE(payload_send_to_owners)
 {
     // Send to owners [type 3, version 0] (same property)
     std::vector<unsigned char> vch = CreatePayload_SendToOwners(
-        static_cast<uint32_t>(1),          // property: OMNI
-        static_cast<int64_t>(100000000),   // amount to transfer: 1.0 OMNI (in willets)
-        static_cast<uint32_t>(1));         // property: OMNI
+        static_cast<uint32_t>(1),          // property: ZUS
+        static_cast<int64_t>(100000000),   // amount to transfer: 1.0 ZUS (in willets)
+        static_cast<uint32_t>(1));         // property: ZUS
 
     BOOST_CHECK_EQUAL(HexStr(vch), "00000003000000010000000005f5e100");
 }
@@ -36,8 +36,8 @@ BOOST_AUTO_TEST_CASE(payload_send_to_owners_v1)
 {
     // Send to owners [type 3, version 1] (cross property)
     std::vector<unsigned char> vch = CreatePayload_SendToOwners(
-        static_cast<uint32_t>(1),          // property: OMNI
-        static_cast<int64_t>(100000000),   // amount to transfer: 1.0 OMNI (in willets)
+        static_cast<uint32_t>(1),          // property: ZUS
+        static_cast<int64_t>(100000000),   // amount to transfer: 1.0 ZUS (in willets)
         static_cast<uint32_t>(3));         // property: SP#3
 
     BOOST_CHECK_EQUAL(HexStr(vch), "00010003000000010000000005f5e10000000003");
@@ -132,7 +132,7 @@ BOOST_AUTO_TEST_CASE(payload_create_property)
         static_cast<uint16_t>(1),            // property type: indivisible tokens
         static_cast<uint32_t>(0),            // previous property: none
         std::string("Companies"),            // category
-        std::string("Bitcoin Mining"),       // subcategory
+        std::string("Zurcoin Mining"),       // subcategory
         std::string("Quantum Miner"),        // label
         std::string("builder.bitwatch.co"),  // website
         std::string(""),                     // additional information
@@ -186,7 +186,7 @@ BOOST_AUTO_TEST_CASE(payload_create_crowdsale)
         static_cast<uint16_t>(1),            // property type: indivisible tokens
         static_cast<uint32_t>(0),            // previous property: none
         std::string("Companies"),            // category
-        std::string("Bitcoin Mining"),       // subcategory
+        std::string("Zurcoin Mining"),       // subcategory
         std::string("Quantum Miner"),        // label
         std::string("builder.bitwatch.co"),  // website
         std::string(""),                     // additional information
@@ -261,7 +261,7 @@ BOOST_AUTO_TEST_CASE(payload_create_managed_property)
         static_cast<uint16_t>(1),            // property type: indivisible tokens
         static_cast<uint32_t>(0),            // previous property: none
         std::string("Companies"),            // category
-        std::string("Bitcoin Mining"),       // subcategory
+        std::string("Zurcoin Mining"),       // subcategory
         std::string("Quantum Miner"),        // label
         std::string("builder.bitwatch.co"),  // website
         std::string(""));                    // additional information

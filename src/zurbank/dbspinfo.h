@@ -132,7 +132,7 @@ public:
     };
 
 private:
-    // implied version of OMN and TOMN so they don't hit the leveldb
+    // implied version of ZUS and TZUS so they don't hit the leveldb
     Entry implied_omni;
     Entry implied_tomni;
 

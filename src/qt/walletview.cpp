@@ -51,7 +51,7 @@ WalletView::WalletView(const PlatformStyle *platformStyle, QWidget *parent):
     // Create tabs
     overviewPage = new OverviewPage(platformStyle);
 
-    // Transactions page, Omni transactions in first tab, ZUR only transactions in second tab
+    // Transactions page, Zus transactions in first tab, ZUR only transactions in second tab
     transactionsPage = new QWidget(this);
     zurcoinTXTab = new QWidget(this);
     QVBoxLayout *vbox = new QVBoxLayout();
@@ -71,8 +71,8 @@ WalletView::WalletView(const PlatformStyle *platformStyle, QWidget *parent):
     transactionsPage = new QWidget(this);
     QVBoxLayout *txvbox = new QVBoxLayout();
     txTabHolder = new QTabWidget();
-    txTabHolder->addTab(mpTXTab,tr("Omni Layer"));
-    txTabHolder->addTab(zurcoinTXTab,tr("Bitcoin"));
+    txTabHolder->addTab(mpTXTab,tr("Zus Layer"));
+    txTabHolder->addTab(zurcoinTXTab,tr("Zurcoin"));
     txvbox->addWidget(txTabHolder);
     transactionsPage->setLayout(txvbox);
 
@@ -88,8 +88,8 @@ WalletView::WalletView(const PlatformStyle *platformStyle, QWidget *parent):
     sendCoinsTab = new SendCoinsDialog(platformStyle);
     sendMPTab = new SendMPDialog(platformStyle);
     sendTabHolder = new QTabWidget();
-    sendTabHolder->addTab(sendMPTab,tr("Omni Layer"));
-    sendTabHolder->addTab(sendCoinsTab,tr("Bitcoin"));
+    sendTabHolder->addTab(sendMPTab,tr("Zus Layer"));
+    sendTabHolder->addTab(sendCoinsTab,tr("Zurcoin"));
     svbox->addWidget(sendTabHolder);
     sendCoinsPage->setLayout(svbox);
 
@@ -103,7 +103,7 @@ WalletView::WalletView(const PlatformStyle *platformStyle, QWidget *parent):
     QTabWidget *exTabHolder = new QTabWidget();
     tradeHistoryTab = new TradeHistoryDialog;
     // exTabHolder->addTab(new QWidget(),tr("Trade Bitcoin/Mastercoin")); not yet implemented
-    exTabHolder->addTab(metaDExTab,tr("Trade Omni Layer Properties"));
+    exTabHolder->addTab(metaDExTab,tr("Trade Zus Layer Properties"));
     exTabHolder->addTab(tradeHistoryTab,tr("Trade History"));
     exTabHolder->addTab(cancelTab,tr("Cancel Orders"));
     exvbox->addWidget(exTabHolder);
@@ -155,7 +155,7 @@ void WalletView::setBitcoinGUI(BitcoinGUI *gui)
 {
     if (gui)
     {
-        // Clicking on a transaction on the overview page simply sends you to either Omni/Bitcoin history page
+        // Clicking on a transaction on the overview page simply sends you to either Zus/Bitcoin history page
         connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), gui, SLOT(gotoHistoryPage()));
         connect(overviewPage, SIGNAL(omniTransactionClicked(uint256)), gui, SLOT(gotoOmniHistoryTab()));
 

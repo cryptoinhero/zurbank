@@ -12,7 +12,7 @@
 #include <string>
 #include <vector>
 
-/** LevelDB based storage for storing Omni transaction validation and position in block data.
+/** LevelDB based storage for storing Zus transaction validation and position in block data.
  */
 class COmniTransactionDB : public CDBBase
 {
@@ -36,7 +36,7 @@ private:
 
 namespace mastercore
 {
-    //! LevelDB based storage for storing Omni transaction validation and position in block data
+    //! LevelDB based storage for storing Zus transaction validation and position in block data
     extern COmniTransactionDB* pDbTransaction;
 }
 

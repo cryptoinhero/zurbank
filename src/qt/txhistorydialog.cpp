@@ -191,7 +191,7 @@ int TXHistoryDialog::PopulateHistoryMap()
 
     int64_t nProcessed = 0; // counter for how many transactions we've added to history this time
 
-    // obtain a sorted list of Omni layer wallet transactions (including STO receipts and pending) - default last 65535
+    // obtain a sorted list of Zus layer wallet transactions (including STO receipts and pending) - default last 65535
     std::map<std::string,uint256> walletTransactions = FetchWalletOmniTransactions(GetArg("-omniuiwalletscope", 65535L));
 
     // reverse iterate over (now ordered) transactions and populate history map for each one
@@ -208,7 +208,7 @@ int TXHistoryDialog::PopulateHistoryMap()
                 if (pending_it != my_pending.end()) continue; // transaction is still pending, do nothing
             }
 
-            // pending transaction has confirmed, remove temp pending object from map and allow it to be readded as an Omni transaction
+            // pending transaction has confirmed, remove temp pending object from map and allow it to be readded as an Zus transaction
             txHistoryMap.erase(hIter);
             ui->txHistoryTable->setSortingEnabled(false); // disable sorting temporarily while we update the table (leaving enabled gives unexpected results)
             QAbstractItemModel* historyAbstractModel = ui->txHistoryTable->model(); // get a model to work with
@@ -296,7 +296,7 @@ int TXHistoryDialog::PopulateHistoryMap()
             continue;
         }
 
-        // handle Omni transaction
+        // handle Zus transaction
         if (0 != parseRC) continue;
         if (!mp_obj.interpret_Transaction()) continue;
         int64_t amount = mp_obj.getAmount();

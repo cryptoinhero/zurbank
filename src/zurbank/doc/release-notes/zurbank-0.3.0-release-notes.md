@@ -3,7 +3,7 @@ ZURBank v0.3.0
 
 v0.3.0 includes new logic for the freeze tokens functionality.
 
-v0.3.0 is a major release and consensus critical in terms of the Omni Layer protocol rules.  An upgrade is mandatory, and highly recommended.  Prior releases will not be compatible with new behaviour in this release.
+v0.3.0 is a major release and consensus critical in terms of the Zus Layer protocol rules.  An upgrade is mandatory, and highly recommended.  Prior releases will not be compatible with new behaviour in this release.
 
 Please report bugs using the issue tracker on GitHub:
 
@@ -32,7 +32,7 @@ How to upgrade
 
 If you are running Bitcoin Core or an older version of ZURBank, shut it down. Wait until it has completely shut down, then copy the new version of `zurbankd`, `zurbank-cli` and `zurbank-qt`. On Microsoft Windows the setup routine can be used to automate these steps.
 
-During the first startup historical Omni transactions are reprocessed and ZURBank will not be usable for approximately 15 minutes up to two hours. The progress of the initial scan is reported on the console, the GUI and written to the `debug.log`. The scan may be interrupted, but can not be resumed, and then needs to start from the beginning.
+During the first startup historical Zus transactions are reprocessed and ZURBank will not be usable for approximately 15 minutes up to two hours. The progress of the initial scan is reported on the console, the GUI and written to the `debug.log`. The scan may be interrupted, but can not be resumed, and then needs to start from the beginning.
 
 Downgrading
 -----------

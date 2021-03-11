@@ -336,7 +336,7 @@ int CMPTxList::getMPTransactionCountBlock(int block)
     return count;
 }
 
-/** Returns a list of all Omni transactions in the given block range. */
+/** Returns a list of all Zus transactions in the given block range. */
 int CMPTxList::GetOmniTxsInBlockRange(int blockFirst, int blockLast, std::set<uint256>& retTxs)
 {
     int count = 0;

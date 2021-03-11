@@ -17,7 +17,7 @@ ADDR=$($SRCDIR/zurbank-cli --regtest getnewaddress OMNIAccount)
 printf "   * Funding the address with some testnet ZUR for fees\n"
 $SRCDIR/zurbank-cli --regtest sendtoaddress $ADDR 20 >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
-printf "   * Participating in the Exodus crowdsale to obtain some OMNI\n"
+printf "   * Participating in the Exodus crowdsale to obtain some ZUS\n"
 JSON="{\"pxELuroPRgD7Di8hQikT4fqdK7xoYKdrZy\":10,\""$ADDR"\":4}"
 $SRCDIR/zurbank-cli --regtest sendmany OMNIAccount $JSON >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL

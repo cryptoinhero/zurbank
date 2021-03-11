@@ -138,7 +138,7 @@ void ClientModel::updateOmniState()
 
 bool ClientModel::tryLockOmniStateChanged()
 {
-    // Try to avoid Omni queuing too many messages for the UI
+    // Try to avoid Zus queuing too many messages for the UI
     if (lockedOmniStateChanged) {
         return false;
     }
@@ -155,7 +155,7 @@ void ClientModel::updateOmniBalance()
 
 bool ClientModel::tryLockOmniBalanceChanged()
 {
-    // Try to avoid Omni queuing too many messages for the UI
+    // Try to avoid Zus queuing too many messages for the UI
     if (lockedOmniBalanceChanged) {
         return false;
     }
@@ -250,7 +250,7 @@ static void OmniStateInvalidated(ClientModel *clientmodel)
 
 static void OmniStateChanged(ClientModel *clientmodel)
 {
-    // This will be triggered for each block that contains Omni layer transactions
+    // This will be triggered for each block that contains Zus layer transactions
     if (clientmodel->tryLockOmniStateChanged()) {
         QMetaObject::invokeMethod(clientmodel, "updateOmniState", Qt::QueuedConnection);
     }
@@ -266,7 +266,7 @@ static void OmniBalanceChanged(ClientModel *clientmodel)
 
 static void OmniPendingChanged(ClientModel *clientmodel, bool pending)
 {
-    // Triggered when Omni pending map adds/removes transactions
+    // Triggered when Zus pending map adds/removes transactions
     QMetaObject::invokeMethod(clientmodel, "updateOmniPending", Qt::QueuedConnection, Q_ARG(bool, pending));
 }
 
@@ -330,7 +330,7 @@ void ClientModel::subscribeToCoreSignals()
     uiInterface.NotifyBlockTip.connect(boost::bind(BlockTipChanged, this, _1, _2, false));
     uiInterface.NotifyHeaderTip.connect(boost::bind(BlockTipChanged, this, _1, _2, true));
 
-    // Connect Omni signals
+    // Connect Zus signals
     uiInterface.OmniStateChanged.connect(boost::bind(OmniStateChanged, this));
     uiInterface.OmniPendingChanged.connect(boost::bind(OmniPendingChanged, this, _1));
     uiInterface.OmniBalanceChanged.connect(boost::bind(OmniBalanceChanged, this));
@@ -347,7 +347,7 @@ void ClientModel::unsubscribeFromCoreSignals()
     uiInterface.NotifyBlockTip.disconnect(boost::bind(BlockTipChanged, this, _1, _2, false));
     uiInterface.NotifyHeaderTip.disconnect(boost::bind(BlockTipChanged, this, _1, _2, true));
 
-    // Disconnect Omni signals
+    // Disconnect Zus signals
     uiInterface.OmniStateChanged.disconnect(boost::bind(OmniStateChanged, this));
     uiInterface.OmniPendingChanged.disconnect(boost::bind(OmniPendingChanged, this, _1));
     uiInterface.OmniBalanceChanged.disconnect(boost::bind(OmniBalanceChanged, this));

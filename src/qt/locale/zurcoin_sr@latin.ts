@@ -158,7 +158,7 @@
         <translation>Otvori &amp;URI...</translation>
     </message>
     <message>
-        <source>Send coins to a Bitcoin address</source>
+        <source>Send coins to a Zurcoin address</source>
         <translation>Pošalji novčiće na Bitcoin adresu</translation>
     </message>
     <message>

@@ -1,9 +1,9 @@
 ZURBank v0.5.0
 ================
 
-v0.5.0 is a major release and consensus critical in terms of the Omni Layer protocol rules. An upgrade is mandatory, and highly recommended. Prior releases may not be compatible with new behaviour in this release.
+v0.5.0 is a major release and consensus critical in terms of the Zus Layer protocol rules. An upgrade is mandatory, and highly recommended. Prior releases may not be compatible with new behaviour in this release.
 
-**Note: the first time you run this version, all Omni Layer transactions are reprocessed due to an database update, which may take 30 minutes up to several hours.**
+**Note: the first time you run this version, all Zus Layer transactions are reprocessed due to an database update, which may take 30 minutes up to several hours.**
 
 Please report bugs using the issue tracker on GitHub:
 
@@ -21,7 +21,7 @@ Table of contents
 - [Notable changes](#notable-changes)
   - [Fix startup issue of ZURBank](#fix-startup-issue-of-omni-core)
   - [Speed up RPC omni_listpendingtransactions](#speed-up-rpc-omni_listpendingtransactions)
-  - [Rename OMNI and TOMNI to OMN and TOMN](#rename-omni-and-tomni-to-omn-and-tomn)
+  - [Rename ZUS and TOMNI to ZUS and TZUS](#rename-omni-and-tzus-to-omn-and-tomn)
 - [Change log](#change-log)
 - [Credits](#credits)
 
@@ -34,7 +34,7 @@ How to upgrade
 
 If you are running Bitcoin Core or an older version of ZURBank, shut it down. Wait until it has completely shut down, then copy the new version of `zurbankd`, `zurbank-cli` and `zurbank-qt`. On Microsoft Windows the setup routine can be used to automate these steps.
 
-During the first startup historical Omni transactions are reprocessed and ZURBank will not be usable for approximately 15 minutes up to two hours. The progress of the initial scan is reported on the console, the GUI and written to the `debug.log`. The scan may be interrupted, but can not be resumed, and then needs to start from the beginning.
+During the first startup historical Zus transactions are reprocessed and ZURBank will not be usable for approximately 15 minutes up to two hours. The progress of the initial scan is reported on the console, the GUI and written to the `debug.log`. The scan may be interrupted, but can not be resumed, and then needs to start from the beginning.
 
 Downgrading
 -----------
@@ -63,26 +63,26 @@ During startup, when reloading the effect of freeze transactions, it is checked,
 
 With this change, historical issuers are persisted and can be accessed for any given block. When there is an issuer check, it now checks against the issuer at that point, resolving the startup issue.
 
-Please note: the internal database of ZURBank is upgraded, which triggers a reparse of Omni Layer transactions the first time this version is started. This can take between 30 minutes and a few hours of processing time, during which ZURBank is unusable!
+Please note: the internal database of ZURBank is upgraded, which triggers a reparse of Zus Layer transactions the first time this version is started. This can take between 30 minutes and a few hours of processing time, during which ZURBank is unusable!
 
 Speed up RPC "omni_listpendingtransactions"
 -------------------------------------------
 
-When adding a transaction to the mempool, a quick and unsafe check for any Omni Layer markers is done without checking transaction validity or whether it's malformed, to identify potential Omni Layer transactions.
+When adding a transaction to the mempool, a quick and unsafe check for any Zus Layer markers is done without checking transaction validity or whether it's malformed, to identify potential Zus Layer transactions.
 
 If the transaction has a potential marker, then it's added to a new cache. If the transaction is removed from the mempool, it's also removed from the cache.
 
-This speeds up the RPC "omni_listpendingtransactions" significantly, which can be used to list pending Omni Layer transactions.
+This speeds up the RPC "omni_listpendingtransactions" significantly, which can be used to list pending Zus Layer transactions.
 
-Rename OMNI and TOMNI to OMN and TOMN
+Rename ZUS and TOMNI to ZUS and TZUS
 -------------------------------------
 
 To be more algined with other symbols and tickers the following changes in wording are made:
 
-- "Omni", referring to the native tokens of the Omni Layer protocol, becomes "Omni tokens"
-- "Test Omni", referring to the native test tokens of the Omni Layer protocol, becomes "Test Omni tokens"
-- "OMNI", referring to the symbol of Omni tokens, becomes "OMN"
-- "TOMNI", referring to the symbol of Test Omni tokens, becomes "TOMN"
+- "Omni", referring to the native tokens of the Zus Layer protocol, becomes "Omni tokens"
+- "Test Zus", referring to the native test tokens of the Zus Layer protocol, becomes "Test Zus tokens"
+- "ZUS", referring to the symbol of Zus tokens, becomes "ZUS"
+- "TOMNI", referring to the symbol of Test Zus tokens, becomes "TZUS"
 
 While this is change is mostly cosmetic - in particular it changes the code documentation, RPC help messages and RPC documentation - it also has an effect of the RPCS "omni_getproperty 1" and "omni_getproperty 2", which now return a text with the updated token and symbol names.
 
@@ -96,7 +96,7 @@ The following list includes relevant pull requests merged into this release:
 - #907 Update version to 0.4.0.99 to indicate development
 - #910 Add marker cache to speed up omni_listpendingtransactions
 - #925 Store historical issuers and use that data
-- #908 Rename OMNI and TOMNI to OMN and TOMN
+- #908 Rename ZUS and TOMNI to ZUS and TZUS
 - #931 Bump version to ZURBank 0.5.0
 - #932 Add release notes for ZURBank 0.5.0
 ```

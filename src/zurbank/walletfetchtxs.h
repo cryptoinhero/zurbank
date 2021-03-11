@@ -8,7 +8,7 @@ class uint256;
 
 namespace mastercore
 {
-/** Returns an ordered list of Omni transactions that are relevant to the wallet. */
+/** Returns an ordered list of Zus transactions that are relevant to the wallet. */
 std::map<std::string, uint256> FetchWalletOmniTransactions(unsigned int count, int startBlock = 0, int endBlock = 999999);
 }
 

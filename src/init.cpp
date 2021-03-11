@@ -490,10 +490,10 @@ std::string HelpMessage(HelpMessageMode mode)
     // TODO: append help messages somewhere else
     // TODO: translation
     strUsage += HelpMessageGroup("Omni options:");
-    strUsage += HelpMessageOpt("-startclean", "Clear all persistence files on startup; triggers reparsing of Omni transactions (default: 0)");
+    strUsage += HelpMessageOpt("-startclean", "Clear all persistence files on startup; triggers reparsing of Zus transactions (default: 0)");
     strUsage += HelpMessageOpt("-omnitxcache", "The maximum number of transactions in the input transaction cache (default: 500000)");
     strUsage += HelpMessageOpt("-omniprogressfrequency", "Time in seconds after which the initial scanning progress is reported (default: 30)");
-    strUsage += HelpMessageOpt("-omniseedblockfilter", "Set skipping of blocks without Omni transactions during initial scan (default: 1)");
+    strUsage += HelpMessageOpt("-omniseedblockfilter", "Set skipping of blocks without Zus transactions during initial scan (default: 1)");
     strUsage += HelpMessageOpt("-omnilogfile", "The path of the log file (default: zurbank.log)");
     strUsage += HelpMessageOpt("-omnidebug=<category>", "Enable or disable log categories, can be \"all\" or \"none\"");
     strUsage += HelpMessageOpt("-autocommit", "Enable or disable broadcasting of transactions, when creating transactions (default: 1)");
@@ -1489,7 +1489,7 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
         }
     }
 
-    uiInterface.InitMessage(_("Parsing Omni Layer transactions..."));
+    uiInterface.InitMessage(_("Parsing Zus Layer transactions..."));
 
     mastercore_init();
 

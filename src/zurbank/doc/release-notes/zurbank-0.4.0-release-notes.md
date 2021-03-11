@@ -1,7 +1,7 @@
 ZURBank v0.4.0
 ================
 
-v0.4.0 is a major release and consensus critical in terms of the Omni Layer protocol rules. An upgrade is mandatory, and highly recommended. Prior releases may not be compatible with new behaviour in this release.
+v0.4.0 is a major release and consensus critical in terms of the Zus Layer protocol rules. An upgrade is mandatory, and highly recommended. Prior releases may not be compatible with new behaviour in this release.
 
 Please report bugs using the issue tracker on GitHub:
 
@@ -34,7 +34,7 @@ How to upgrade
 
 If you are running Bitcoin Core or an older version of ZURBank, shut it down. Wait until it has completely shut down, then copy the new version of `zurbankd`, `zurbank-cli` and `zurbank-qt`. On Microsoft Windows the setup routine can be used to automate these steps.
 
-During the first startup historical Omni transactions are reprocessed and ZURBank will not be usable for approximately 15 minutes up to two hours. The progress of the initial scan is reported on the console, the GUI and written to the `debug.log`. The scan may be interrupted, but can not be resumed, and then needs to start from the beginning.
+During the first startup historical Zus transactions are reprocessed and ZURBank will not be usable for approximately 15 minutes up to two hours. The progress of the initial scan is reported on the console, the GUI and written to the `debug.log`. The scan may be interrupted, but can not be resumed, and then needs to start from the beginning.
 
 Downgrading
 -----------
@@ -58,13 +58,13 @@ Notable changes
 Add new RPC: "omni_listblockstransactions"
 -----------------------------------------
 
-The new RPC "omni_listblockstransactions" can be used to retrieve an unordered list of Omni transactions within a range of blocks:
+The new RPC "omni_listblockstransactions" can be used to retrieve an unordered list of Zus transactions within a range of blocks:
 
 ---
 
 ### omni_listblockstransactions
 
-Lists all Omni transactions in a given range of blocks.
+Lists all Zus transactions in a given range of blocks.
 
 Note: the list of transactions is unordered and can contain invalid transactions!
 
@@ -107,13 +107,13 @@ When moving all tokens with the "Send All" transaction and no specific ecosystem
 Log failures when trying to restore state
 -----------------------------------------
 
-When, due to whatever reason, a rescan of Omni Layer transactions is triggered during a start, the reason for the rescan is written to the log file.
+When, due to whatever reason, a rescan of Zus Layer transactions is triggered during a start, the reason for the rescan is written to the log file.
 
 
 Add system for random database consistency checks
 -----------------------------------------
 
-During startup, the existence of a collection of historical transactions is checked to detect DB inconsistencies. In this case, all Omni Layer transcations are rescaned during the start.
+During startup, the existence of a collection of historical transactions is checked to detect DB inconsistencies. In this case, all Zus Layer transcations are rescaned during the start.
 
 
 Add checkpoint for block 562708
@@ -154,7 +154,7 @@ The following list includes relevant pull requests merged into this release:
 - #881 Add consensus hash for block 562708
 - #882 Add system to check existence of historical transactions
 - #884 Remove two transactions from probing
-- #885 Rename Mastercoin to Omni Layer in error message
+- #885 Rename Mastercoin to Zus Layer in error message
 - #883 Add release notes for ZURBank 0.4.0
 ```
 

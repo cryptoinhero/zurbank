@@ -90,7 +90,7 @@ CMPSPInfo::CMPSPInfo(const boost::filesystem::path& path, bool fWipe)
     leveldb::Status status = Open(path, fWipe);
     PrintToConsole("Loading smart property database: %s\n", status.ToString());
 
-    // special cases for constant SPs OMN and TOMN
+    // special cases for constant SPs ZUS and TZUS
     implied_omni.issuer = ExodusAddress().ToString();
     implied_omni.updateIssuer(0, 0, implied_omni.issuer);
     implied_omni.prop_type = MSC_PROPERTY_TYPE_DIVISIBLE;
@@ -107,7 +107,7 @@ CMPSPInfo::CMPSPInfo(const boost::filesystem::path& path, bool fWipe)
     implied_tomni.num_tokens = 700000;
     implied_tomni.category = "N/A";
     implied_tomni.subcategory = "N/A";
-    implied_tomni.name = "Test Omni tokens";
+    implied_tomni.name = "Test Zurshares tokens";
     implied_tomni.url = "http://www.zurbank.org";
     implied_tomni.data = "Test Zurshares serve as the binding between Zurcoin, smart properties and contracts created on the Zurbank Layer.";
 

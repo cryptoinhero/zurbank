@@ -1,7 +1,7 @@
 /**
  * @file dbfees.cpp
  *
- * This file contains code for handling Omni fees.
+ * This file contains code for handling Zus fees.
  */
 
 #include "zurbank/dbfees.h"
@@ -212,7 +212,7 @@ void COmniFeeCache::DistributeCache(const uint32_t &propertyId, int block)
         receiversSet = STO_GetReceivers("FEEDISTRIBUTION", OMNI_PROPERTY_MSC, cachedAmount);
     }
 
-    uint64_t numberOfReceivers = receiversSet.size(); // there will always be addresses holding OMNI, so no need to check size>0
+    uint64_t numberOfReceivers = receiversSet.size(); // there will always be addresses holding ZUS, so no need to check size>0
     PrintToLog("Starting fee distribution for property %d to %d recipients...\n", propertyId, numberOfReceivers);
 
     int64_t sent_so_far = 0;

@@ -17,7 +17,7 @@ ADDR=$($SRCDIR/zurbank-cli --regtest getnewaddress OMNIAccount)
 printf "   * Funding the address with some testnet ZUR for fees\n"
 $SRCDIR/zurbank-cli --regtest sendtoaddress $ADDR 20 >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
-printf "   * Participating in the Exodus crowdsale to obtain some OMNI\n"
+printf "   * Participating in the Exodus crowdsale to obtain some ZUS\n"
 JSON="{\"pxELuroPRgD7Di8hQikT4fqdK7xoYKdrZy\":10,\""$ADDR"\":4}"
 $SRCDIR/zurbank-cli --regtest sendmany OMNIAccount $JSON >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
@@ -27,7 +27,7 @@ $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
 printf "   * Creating a divisible test property\n"
 $SRCDIR/zurbank-cli --regtest omni_sendissuancefixed $ADDR 1 2 0 "Z_TestCat" "Z_TestSubCat" "Z_DivisTestProperty" "Z_TestURL" "Z_TestData" 10000 >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
-printf "\nTesting a trade against self that uses Omni (1.1 OMNI for 20 #3)\n"
+printf "\nTesting a trade against self that uses Zus (1.1 ZUS for 20 #3)\n"
 printf "   * Executing the trade\n"
 TXID=$($SRCDIR/zurbank-cli --regtest omni_sendtrade $ADDR 3 20 1 1.1)
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
@@ -42,7 +42,7 @@ if [ $RESULT == "true," ]
     printf "FAIL (result:%s)\n" $RESULT
     FAIL=$((FAIL+1))
 fi
-printf "\nTesting a trade against self that doesn't use Omni to confirm non-Omni pairs are disabled (4.45 #4 for 20 #3)\n"
+printf "\nTesting a trade against self that doesn't use Zus to confirm non-Omni pairs are disabled (4.45 #4 for 20 #3)\n"
 printf "   * Executing the trade\n"
 TXID=$($SRCDIR/zurbank-cli --regtest omni_sendtrade $ADDR 3 20 4 4.45)
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
@@ -84,7 +84,7 @@ if [ $FEATUREID == "8" ]
     printf "FAIL (result:%s)\n" $FEATUREID
     FAIL=$((FAIL+1))
 fi
-printf "\nTesting a trade against self that doesn't use Omni to confirm non-Omni pairs are now enabled (4.45 #4 for 20 #3)\n"
+printf "\nTesting a trade against self that doesn't use Zus to confirm non-Omni pairs are now enabled (4.45 #4 for 20 #3)\n"
 printf "   * Executing the trade\n"
 TXID=$($SRCDIR/zurbank-cli --regtest omni_sendtrade $ADDR 3 20 4 4.45)
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL

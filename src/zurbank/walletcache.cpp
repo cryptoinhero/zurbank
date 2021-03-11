@@ -2,7 +2,7 @@
  * @file walletcache.cpp
  *
  * Provides a cache of wallet balances and functionality for determining whether
- * Omni state changes affected anything in the wallet.
+ * Zus state changes affected anything in the wallet.
  */
 
 #include "zurbank/walletcache.h"

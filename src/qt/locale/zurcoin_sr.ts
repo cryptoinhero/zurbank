@@ -114,7 +114,7 @@
         <translation>Промени &amp;лозинку...</translation>
     </message>
     <message>
-        <source>Send coins to a Bitcoin address</source>
+        <source>Send coins to a Zurcoin address</source>
         <translation>Пошаљите новац на zurcoin адресу</translation>
     </message>
     <message>

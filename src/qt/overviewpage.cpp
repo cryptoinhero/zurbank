@@ -114,7 +114,7 @@ public:
         QRect addressRect(mainRect.left() + xspace, mainRect.top()+ypad+halfheight, mainRect.width() - xspace, halfheight);
 
         // Rather ugly way to provide recent transaction display support - each time we paint a transaction we will check if
-        // it's Omni and override the values if so.  This will not scale at all, but since we're only ever doing 6 txns via the occasional
+        // it's Zus and override the values if so.  This will not scale at all, but since we're only ever doing 6 txns via the occasional
         // repaint performance should be a non-issue and it'll provide the functionality short term while a better approach is devised.
         uint256 hash;
         hash.SetHex(index.data(TransactionTableModel::TxIDRole).toString().toStdString());
@@ -350,7 +350,7 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
 
 void OverviewPage::handleTransactionClicked(const QModelIndex &index)
 {
-    // is this an Omni transaction that has been clicked?  Use pending & cache to find out quickly
+    // is this an Zus transaction that has been clicked?  Use pending & cache to find out quickly
     uint256 hash;
     hash.SetHex(index.data(TransactionTableModel::TxIDRole).toString().toStdString());
     bool omniTx = false;
@@ -363,7 +363,7 @@ void OverviewPage::handleTransactionClicked(const QModelIndex &index)
     std::map<uint256, OverviewCacheEntry>::iterator cacheIt = recentCache.find(hash);
     if (cacheIt != recentCache.end()) omniTx = true;
 
-    // override if it's an Omni transaction
+    // override if it's an Zus transaction
     if (omniTx) {
         // TODO emit omniTransactionClicked(hash);
     } else {
@@ -419,7 +419,7 @@ void OverviewPage::UpdatePropertyBalance(unsigned int propertyId, uint64_t avail
     // Left Panel
     QVBoxLayout *vlayoutleft = new QVBoxLayout();
     QLabel *balReservedLabel = new QLabel;
-    if(propertyId != 0) { balReservedLabel->setText("Reserved:"); } else { balReservedLabel->setText("Pending:"); propLabel->setText("Bitcoin"); } // override for zurcoin
+    if(propertyId != 0) { balReservedLabel->setText("Reserved:"); } else { balReservedLabel->setText("Pending:"); propLabel->setText("Zurcoin"); } // override for zurcoin
     QLabel *balAvailableLabel = new QLabel("Available:");
     QLabel *balTotalLabel = new QLabel("Total:");
     vlayoutleft->addWidget(balReservedLabel);
@@ -541,13 +541,13 @@ void OverviewPage::setClientModel(ClientModel *model)
         connect(model, SIGNAL(alertsChanged(QString)), this, SLOT(updateAlerts(QString)));
         updateAlerts(model->getStatusBarWarnings());
 
-        // Refresh Omni info if there have been Omni layer transactions with balances affecting wallet
+        // Refresh Zus info if there have been Zus layer transactions with balances affecting wallet
         connect(model, SIGNAL(refreshOmniBalance()), this, SLOT(updateOmni()));
 
-        // Reinit Omni info if there has been a chain reorg
+        // Reinit Zus info if there has been a chain reorg
         connect(model, SIGNAL(reinitOmniState()), this, SLOT(reinitOmni()));
 
-        // Refresh alerts when there has been a change to the Omni State
+        // Refresh alerts when there has been a change to the Zus State
         connect(model, SIGNAL(refreshOmniState()), this, SLOT(updateAlerts()));
     }
 }

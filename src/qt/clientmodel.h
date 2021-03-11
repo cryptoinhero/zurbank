@@ -76,7 +76,7 @@ public:
     QString formatClientStartupTime() const;
     QString dataDir() const;
 
-    // Try to avoid Omni queuing too many messages
+    // Try to avoid Zus queuing too many messages
     bool tryLockOmniStateChanged();
     bool tryLockOmniBalanceChanged();
 
@@ -90,7 +90,7 @@ private:
     void subscribeToCoreSignals();
     void unsubscribeFromCoreSignals();
 
-    // Locks for Omni state changes
+    // Locks for Zus state changes
     bool lockedOmniStateChanged;
     bool lockedOmniBalanceChanged;
 
@@ -101,7 +101,7 @@ Q_SIGNALS:
     void alertsChanged(const QString &warnings);
     void bytesChanged(quint64 totalBytesIn, quint64 totalBytesOut);
 
-    // Additional Omni signals
+    // Additional Zus signals
     void reinitOmniState();
     void refreshOmniState();
     void refreshOmniBalance();
@@ -119,7 +119,7 @@ public Q_SLOTS:
     void updateAlert();
     void updateBanlist();
 
-    // Additional Omni slots
+    // Additional Zus slots
     void invalidateOmniState();
     void updateOmniState();
     void updateOmniBalance();

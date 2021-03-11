@@ -38,7 +38,7 @@
 
 using namespace mastercore;
 
-//! Number of "Dev Omni" of the last processed block (needed to save global state)
+//! Number of "Dev Zus" of the last processed block (needed to save global state)
 extern int64_t exodus_prev;
 
 //! Path for file based persistence

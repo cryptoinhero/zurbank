@@ -105,13 +105,13 @@ CMutableTransaction TxBuilder::build()
     return transaction;
 }
 
-/** Creates a new Omni transaction builder. */
+/** Creates a new Zus transaction builder. */
 OmniTxBuilder::OmniTxBuilder()
   : TxBuilder()
 {
 }
 
-/** Creates a new Omni transaction builder to extend a transaction. */
+/** Creates a new Zus transaction builder to extend a transaction. */
 OmniTxBuilder::OmniTxBuilder(const CMutableTransaction& transactionIn)
   : TxBuilder(transactionIn)
 {
