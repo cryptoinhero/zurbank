@@ -20,8 +20,8 @@
 #include "wallet/wallet.h"
 #endif
 
-#include "omnicore/version.h"
-#include "omnicore/utilsbitcoin.h"
+#include "zurbank/version.h"
+#include "zurbank/utilsbitcoin.h"
 
 #include <QApplication>
 #include <QCloseEvent>

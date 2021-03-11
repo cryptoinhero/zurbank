@@ -5,11 +5,11 @@
 #include "lookuptxdialog.h"
 #include "ui_lookuptxdialog.h"
 
-#include "omnicore/errors.h"
-#include "omnicore/rpc.h"
-#include "omnicore/rpctxobject.h"
+#include "zurbank/errors.h"
+#include "zurbank/rpc.h"
+#include "zurbank/rpctxobject.h"
 
-#include "omnicore_qtutils.h"
+#include "zurbank_qtutils.h"
 
 #include "uint256.h"
 
@@ -82,7 +82,7 @@ void LookupTXDialog::searchTX()
 
             default:
                 strText += "of an unknown type.  If you are seeing this message please raise a bug report "
-                           "with the transaction hash at github.com/OmniLayer/omnicore/issues.";
+                           "with the transaction hash at github.com/OmniLayer/zurbank/issues.";
             break;
         }
         QString strQText = QString::fromStdString(strText);

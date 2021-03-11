@@ -710,8 +710,8 @@ boost::filesystem::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "omnicore.desktop";
-    return GetAutostartDir() / strprintf("omnicore-%s.lnk", chain);
+        return GetAutostartDir() / "zurbank.desktop";
+    return GetAutostartDir() / strprintf("zurbank-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()

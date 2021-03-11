@@ -494,7 +494,7 @@ std::string HelpMessage(HelpMessageMode mode)
     strUsage += HelpMessageOpt("-omnitxcache", "The maximum number of transactions in the input transaction cache (default: 500000)");
     strUsage += HelpMessageOpt("-omniprogressfrequency", "Time in seconds after which the initial scanning progress is reported (default: 30)");
     strUsage += HelpMessageOpt("-omniseedblockfilter", "Set skipping of blocks without Omni transactions during initial scan (default: 1)");
-    strUsage += HelpMessageOpt("-omnilogfile", "The path of the log file (default: omnicore.log)");
+    strUsage += HelpMessageOpt("-omnilogfile", "The path of the log file (default: zurbank.log)");
     strUsage += HelpMessageOpt("-omnidebug=<category>", "Enable or disable log categories, can be \"all\" or \"none\"");
     strUsage += HelpMessageOpt("-autocommit", "Enable or disable broadcasting of transactions, when creating transactions (default: 1)");
     strUsage += HelpMessageOpt("-overrideforcedshutdown", "Overwrite shutdown, triggered by an alert (default: 0)");
@@ -511,7 +511,7 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/OmniLayer/omnicore>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/OmniLayer/zurbank>";
     const std::string URL_WEBSITE = "<http://omnilayer.org>";
     // todo: remove urls from translations on next change
     return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2009, COPYRIGHT_YEAR) + " ") + "\n" +

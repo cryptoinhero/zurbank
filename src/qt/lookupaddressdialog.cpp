@@ -7,9 +7,9 @@
 
 #include "guiutil.h"
 
-#include "omnicore/omnicore.h"
-#include "omnicore/sp.h"
-#include "omnicore/walletutils.h"
+#include "zurbank/zurbank.h"
+#include "zurbank/sp.h"
+#include "zurbank/walletutils.h"
 
 #include "base58.h"
 

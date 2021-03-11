@@ -7,9 +7,9 @@
 
 #include "guiutil.h"
 
-#include "omnicore/dbspinfo.h"
-#include "omnicore/omnicore.h"
-#include "omnicore/sp.h"
+#include "zurbank/dbspinfo.h"
+#include "zurbank/zurbank.h"
+#include "zurbank/sp.h"
 
 #include "base58.h"
 

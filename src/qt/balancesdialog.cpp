@@ -7,10 +7,10 @@
 #include "walletmodel.h"
 #include "guiutil.h"
 
-#include "omnicore/omnicore.h"
-#include "omnicore/sp.h"
-#include "omnicore/tally.h"
-#include "omnicore/walletutils.h"
+#include "zurbank/zurbank.h"
+#include "zurbank/sp.h"
+#include "zurbank/tally.h"
+#include "zurbank/walletutils.h"
 
 #include "amount.h"
 #include "sync.h"

@@ -4,9 +4,9 @@
 CURDIR=$(cd $(dirname "$0"); pwd)
 . "${CURDIR}/tests_config.py"
 
-OMNICORED="$BUILDDIR/src/omnicored$EXEEXT"
-OMNICORECLI="$BUILDDIR/src/omnicore-cli$EXEEXT"
-TESTDIR="$BUILDDIR/qa/tmp/omnicore-rpc-tests"
+OMNICORED="$BUILDDIR/src/zurbankd$EXEEXT"
+OMNICORECLI="$BUILDDIR/src/zurbank-cli$EXEEXT"
+TESTDIR="$BUILDDIR/qa/tmp/zurbank-rpc-tests"
 DATADIR="$TESTDIR/.bitcoin"
 
 # Start clean
@@ -14,7 +14,7 @@ rm -rf "$TESTDIR"
 
 git clone https://github.com/OmniLayer/OmniJ.git $TESTDIR
 mkdir -p "$DATADIR/regtest"
-touch "$DATADIR/regtest/omnicore.log"
+touch "$DATADIR/regtest/zurbank.log"
 cd $TESTDIR
 echo "Omni Core RPC test dir: "$TESTDIR
 echo "Last OmniJ commit: "$(git log -n 1 --format="%H Author: %cn <%ce>")
@@ -32,7 +32,7 @@ STATUS=$?
 $OMNICORECLI -datadir="$DATADIR" -regtest -rpcuser=bitcoinrpc -rpcpassword=pass -rpcwait stop
 
 # If $STATUS is not 0, the test failed.
-if [ $STATUS -ne 0 ]; then tail -100 $DATADIR/regtest/omnicore.log; fi
+if [ $STATUS -ne 0 ]; then tail -100 $DATADIR/regtest/zurbank.log; fi
 
 
 exit $STATUS

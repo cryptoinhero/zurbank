@@ -1,7 +1,7 @@
 Omni Core (beta) integration/staging tree
 =========================================
 
-[![Build Status](https://travis-ci.org/OmniLayer/omnicore.svg?branch=omnicore-0.0.10)](https://travis-ci.org/OmniLayer/omnicore)
+[![Build Status](https://travis-ci.org/OmniLayer/zurbank.svg?branch=zurbank-0.0.10)](https://travis-ci.org/OmniLayer/zurbank)
 
 What is the Omni Layer
 ----------------------
@@ -57,8 +57,8 @@ sudo apt-get install pkg-config
 Clone the Omni Core repository:
 
 ```
-git clone https://github.com/OmniLayer/omnicore.git
-cd omnicore/
+git clone https://github.com/OmniLayer/zurbank.git
+cd zurbank/
 ```
 
 Then, run:
@@ -73,9 +73,9 @@ Once complete:
 ```
 cd src/
 ```
-And start Omni Core using `./omnicored` (or `./qt/omnicore-qt` if built with UI). The inital parse step for a first time run
+And start Omni Core using `./zurbankd` (or `./qt/zurbank-qt` if built with UI). The inital parse step for a first time run
 will take up to 60 minutes or more, during this time your client will scan the blockchain for Omni Layer transactions. You can view the
-output of the parsing at any time by viewing the log located in your datadir, by default: `~/.bitcoin/omnicore.log`.
+output of the parsing at any time by viewing the log located in your datadir, by default: `~/.bitcoin/zurbank.log`.
 
 Omni Core requires the transaction index to be enabled. Add an entry to your bitcoin.conf file for `txindex=1` to enable it or Omni Core will refuse to start.
 
@@ -88,29 +88,29 @@ In bitcoin.conf:
 server=1
 ```
 
-After this step completes, check that the installation went smoothly by issuing the following command `./omnicore-cli omni_getinfo` which should return the `omnicoreversion` as well as some
+After this step completes, check that the installation went smoothly by issuing the following command `./zurbank-cli omni_getinfo` which should return the `zurbankversion` as well as some
 additional information related to the client.
 
-The documentation for the RPC interface and command-line is located in [src/omnicore/doc/rpc-api.md] (src/omnicore/doc/rpc-api.md).
+The documentation for the RPC interface and command-line is located in [src/zurbank/doc/rpc-api.md] (src/zurbank/doc/rpc-api.md).
 
 Current feature set:
 --------------------
 
-* Broadcasting of simple send (tx 0) [doc] (src/omnicore/doc/rpc-api.md#omni_send), and send to owners (tx 3) [doc] (src/omnicore/doc/rpc-api.md#omni_sendsto)
+* Broadcasting of simple send (tx 0) [doc] (src/zurbank/doc/rpc-api.md#omni_send), and send to owners (tx 3) [doc] (src/zurbank/doc/rpc-api.md#omni_sendsto)
 
-* Obtaining a Omni Layer balance [doc] (src/omnicore/doc/rpc-api.md#omni_getbalance)
+* Obtaining a Omni Layer balance [doc] (src/zurbank/doc/rpc-api.md#omni_getbalance)
 
-* Obtaining all balances (including smart property) for an address [doc] (src/omnicore/doc/rpc-api.md#omni_getallbalancesforaddress)
+* Obtaining all balances (including smart property) for an address [doc] (src/zurbank/doc/rpc-api.md#omni_getallbalancesforaddress)
 
-* Obtaining all balances associated with a specific smart property [doc] (src/omnicore/doc/rpc-api.md#omni_getallbalancesforid)
+* Obtaining all balances associated with a specific smart property [doc] (src/zurbank/doc/rpc-api.md#omni_getallbalancesforid)
 
-* Retrieving information about any Omni Layer transaction [doc] (src/omnicore/doc/rpc-api.md#omni_gettransaction)
+* Retrieving information about any Omni Layer transaction [doc] (src/zurbank/doc/rpc-api.md#omni_gettransaction)
 
-* Listing historical transactions of addresses in the wallet [doc] (src/omnicore/doc/rpc-api.md#omni_listtransactions)
+* Listing historical transactions of addresses in the wallet [doc] (src/zurbank/doc/rpc-api.md#omni_listtransactions)
 
-* Retreiving detailed information about a smart property [doc] (src/omnicore/doc/rpc-api.md#omni_getproperty)
+* Retreiving detailed information about a smart property [doc] (src/zurbank/doc/rpc-api.md#omni_getproperty)
 
-* Retreiving active and expired crowdsale information [doc] (src/omnicore/doc/rpc-api.md#omni_getcrowdsale)
+* Retreiving active and expired crowdsale information [doc] (src/zurbank/doc/rpc-api.md#omni_getcrowdsale)
 
 * Sending a specific BTC amount to a receiver with referenceamount in `omni_send`
 
@@ -140,4 +140,4 @@ Related projects:
 Support:
 --------
 
-* Please open a [GitHub issue] (https://github.com/OmniLayer/omnicore/issues) to file a bug submission.
+* Please open a [GitHub issue] (https://github.com/OmniLayer/zurbank/issues) to file a bug submission.

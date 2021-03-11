@@ -18,7 +18,7 @@
 #include "httprpc.h"
 #include "utilstrencodings.h"
 
-#include "omnicore/utilsui.h"
+#include "zurbank/utilsui.h"
 
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/filesystem.hpp>
@@ -89,7 +89,7 @@ bool AppInit(int argc, char* argv[])
         else
         {
             strUsage += "\n" + _("Usage:") + "\n" +
-                  "  omnicored [options]                     " + strprintf(_("Start %s Daemon"), _(PACKAGE_NAME)) + "\n";
+                  "  zurbankd [options]                     " + strprintf(_("Start %s Daemon"), _(PACKAGE_NAME)) + "\n";
 
             strUsage += "\n" + HelpMessage(HMM_BITCOIND);
         }
@@ -128,7 +128,7 @@ bool AppInit(int argc, char* argv[])
 
         if (fCommandLine)
         {
-            fprintf(stderr, "Error: There is no RPC client functionality in omnicored anymore. Use the omnicore-cli utility instead.\n");
+            fprintf(stderr, "Error: There is no RPC client functionality in zurbankd anymore. Use the zurbank-cli utility instead.\n");
             exit(EXIT_FAILURE);
         }
 #ifndef WIN32

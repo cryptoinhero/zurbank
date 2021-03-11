@@ -1,4 +1,4 @@
-#include "omnicore_qtutils.h"
+#include "zurbank_qtutils.h"
 
 #include "guiutil.h"
 

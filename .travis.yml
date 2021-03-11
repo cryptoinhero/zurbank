@@ -24,7 +24,7 @@ env:
     - CCACHE_TEMPDIR=/tmp/.ccache-temp
     - CCACHE_COMPRESS=1
     - BASE_OUTDIR=$TRAVIS_BUILD_DIR/out
-    - SDK_URL=https://s3.amazonaws.com/ci.omnicore.private/depends-sources/sdks
+    - SDK_URL=https://s3.amazonaws.com/ci.zurbank.private/depends-sources/sdks
     - PYTHON_DEBUG=1
     - WINEDEBUG=fixme-all
     - RUN_OMNIJ_TESTS=false
@@ -72,7 +72,7 @@ script:
     - export LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/depends/$HOST/lib
     - if [ "$RUN_TESTS" = "true" ]; then make $MAKEJOBS check VERBOSE=1; fi
     - if [ "$RUN_RPC_TESTS" = "true" ]; then qa/pull-tester/rpc-tests.py --coverage; fi
-    - if [ "$RUN_OMNIJ_TESTS" = "true" ]; then qa/pull-tester/omnicore-rpc-tests.sh "$OMNIJ_VERBOSE_LOG"; fi
+    - if [ "$RUN_OMNIJ_TESTS" = "true" ]; then qa/pull-tester/zurbank-rpc-tests.sh "$OMNIJ_VERBOSE_LOG"; fi
 after_script:
     - echo $TRAVIS_COMMIT_RANGE
     - echo $TRAVIS_COMMIT_LOG

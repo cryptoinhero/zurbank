@@ -5,20 +5,20 @@
 #include "metadexcanceldialog.h"
 #include "ui_metadexcanceldialog.h"
 
-#include "omnicore_qtutils.h"
+#include "zurbank_qtutils.h"
 
 #include "clientmodel.h"
 #include "ui_interface.h"
 #include "walletmodel.h"
 
-#include "omnicore/createpayload.h"
-#include "omnicore/errors.h"
-#include "omnicore/mdex.h"
-#include "omnicore/omnicore.h"
-#include "omnicore/sp.h"
-#include "omnicore/pending.h"
-#include "omnicore/utilsbitcoin.h"
-#include "omnicore/walletutils.h"
+#include "zurbank/createpayload.h"
+#include "zurbank/errors.h"
+#include "zurbank/mdex.h"
+#include "zurbank/zurbank.h"
+#include "zurbank/sp.h"
+#include "zurbank/pending.h"
+#include "zurbank/utilsbitcoin.h"
+#include "zurbank/walletutils.h"
 
 #include <stdint.h>
 #include <map>

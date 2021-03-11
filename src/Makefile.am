@@ -65,11 +65,11 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += omnicored
+  bin_PROGRAMS += zurbankd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += omnicore-cli bitcoin-tx
+  bin_PROGRAMS += zurbank-cli bitcoin-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
@@ -350,16 +350,16 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-omnicored_SOURCES = bitcoind.cpp
-omnicored_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-omnicored_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-omnicored_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+zurbankd_SOURCES = bitcoind.cpp
+zurbankd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+zurbankd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+zurbankd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-omnicored_SOURCES += omnicore/res/omnicored-res.rc
+zurbankd_SOURCES += zurbank/res/zurbankd-res.rc
 endif
 
-omnicored_LDADD = \
+zurbankd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -372,25 +372,25 @@ omnicored_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-omnicored_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+zurbankd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
 # bitcoin-cli binary #
-omnicore_cli_SOURCES = bitcoin-cli.cpp
-omnicore_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-omnicore_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-omnicore_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+zurbank_cli_SOURCES = bitcoin-cli.cpp
+zurbank_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+zurbank_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+zurbank_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-omnicore_cli_SOURCES += omnicore/res/omnicore-cli-res.rc
+zurbank_cli_SOURCES += zurbank/res/zurbank-cli-res.rc
 endif
 
-omnicore_cli_LDADD = \
+zurbank_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO)
 
-omnicore_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+zurbank_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
 # bitcoin-tx binary #
@@ -509,5 +509,5 @@ include Makefile.qttest.include
 endif
 
 # Omni Core
-include Makefile.omnicore.include
+include Makefile.zurbank.include
 #

@@ -35,7 +35,7 @@
 #include "wallet/wallet.h"
 #endif
 
-#include "omnicore/utilsui.h"
+#include "zurbank/utilsui.h"
 
 #include <stdint.h>
 
