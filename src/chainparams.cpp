@@ -170,9 +170,9 @@ public:
         consensus.nMajorityWindow = 100;
         consensus.BIP34Height = 21111;
         consensus.BIP34Hash = uint256S("0x0000000023b3a96d3484e5abb3755c413e7d41500f8e2a5c3f0dd01299cd8ef8");
-        consensus.powLimit = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 10 * 60; // two weeks
-        consensus.nPowTargetSpacing = 30;
+        consensus.powLimit = uint256S("003fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.nPowTargetTimespan = 14 * 42; // ten minutes
+        consensus.nPowTargetSpacing = 42;                 // seconds30
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 1512; // 75% for testchains
@@ -192,7 +192,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1493596800; // May 1st 2017
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000007dbe94253893cbd463");
+        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000100010");
 
         pchMessageStart[0] = 0x01;
         pchMessageStart[1] = 0x1a;
@@ -201,10 +201,10 @@ public:
         nDefaultPort = 21973;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1373481000, 905523645, 0x1f3fffff, 112, 1 * COIN);
+        genesis = CreateGenesisBlock(1373481000, 905525223, 0x1f3fffff, 112, 1 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        //assert(consensus.hashGenesisBlock == uint256S("0x000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943"));
-        //assert(genesis.hashMerkleRoot == uint256S("0x16a894b2edb89eb12486bd9534f1a95d9e721c0a92f978d820ccff84354d3bf1"));
+        assert(consensus.hashGenesisBlock == uint256S("0x0019d68dfa877db5b969ca374a24f89b81f465995b8b6a6eb25c157ef660643a"));
+        assert(genesis.hashMerkleRoot == uint256S("0x16a894b2edb89eb12486bd9534f1a95d9e721c0a92f978d820ccff84354d3bf1"));
 
         vFixedSeeds.clear();
         vSeeds.clear();

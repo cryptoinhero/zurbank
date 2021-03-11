@@ -1,4 +1,4 @@
-Omni Core v0.0.9.2
+ZURBank v0.0.9.2
 ==================
 
 v0.0.9.2 is a minor release and not consensus critical in terms of the Omni Layer protocol rules. Due to recent events related to the Bitcoin network, it is recommended to upgrade to this version.
@@ -31,6 +31,6 @@ Downgrading is currently not supported as older versions will not provide accura
 Notable changes
 ---------------
 
-This release upgrades the underlying code base of Omni Core from Bitcoin Core 0.9.3 to Bitcoin Core 0.9.5.
+This release upgrades the underlying code base of ZURBank from Bitcoin Core 0.9.3 to Bitcoin Core 0.9.5.
 
-Please see the official release notes of [Bitcoin Core 0.9.5](release-notes.md), as well as the historical release notes of [Omni Core 0.0.9.1](release-notes/zurbank-0.0.9.1-release-notes.md) for details about recent changes.
+Please see the official release notes of [Bitcoin Core 0.9.5](release-notes.md), as well as the historical release notes of [ZURBank 0.0.9.1](release-notes/zurbank-0.0.9.1-release-notes.md) for details about recent changes.

@@ -39,7 +39,7 @@ src/config/stamp-h1
 share/setup.nsi
 share/qt/Info.plist
 
-# Omni Core Windows installer script
+# ZURBank Windows installer script
 src/zurbank/res/zurbank-setup-win.nsi
 
 src/univalue/gen

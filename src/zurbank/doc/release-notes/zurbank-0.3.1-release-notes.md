@@ -1,9 +1,9 @@
-Omni Core v0.3.1
+ZURBank v0.3.1
 ================
 
-v0.3.1 is a minor release and not consensus critical in terms of the Omni Layer protocol rules. Besides other improvemens, this release provides two new RPCs to create funded transactions, two new RPCs to query token wallet balances, and signficant stability and performance gains of Omni Core.
+v0.3.1 is a minor release and not consensus critical in terms of the Omni Layer protocol rules. Besides other improvemens, this release provides two new RPCs to create funded transactions, two new RPCs to query token wallet balances, and signficant stability and performance gains of ZURBank.
 
-An upgrade is highly recommended, but not required, if you are using Omni Core 0.3.0.
+An upgrade is highly recommended, but not required, if you are using ZURBank 0.3.0.
 
 Please report bugs using the issue tracker on GitHub:
 
@@ -12,7 +12,7 @@ Please report bugs using the issue tracker on GitHub:
 Table of contents
 =================
 
-- [Omni Core v0.3.1](#omni-core-v031)
+- [ZURBank v0.3.1](#omni-core-v031)
 - [Upgrading and downgrading](#upgrading-and-downgrading)
   - [How to upgrade](#how-to-upgrade)
   - [Downgrading](#downgrading)
@@ -44,23 +44,23 @@ Upgrading and downgrading
 How to upgrade
 --------------
 
-If you are running Bitcoin Core or an older version of Omni Core, shut it down. Wait until it has completely shut down, then copy the new version of `zurbankd`, `zurbank-cli` and `zurbank-qt`. On Microsoft Windows the setup routine can be used to automate these steps.
+If you are running Bitcoin Core or an older version of ZURBank, shut it down. Wait until it has completely shut down, then copy the new version of `zurbankd`, `zurbank-cli` and `zurbank-qt`. On Microsoft Windows the setup routine can be used to automate these steps.
 
-During the first startup historical Omni transactions are reprocessed and Omni Core will not be usable for approximately 15 minutes up to two hours. The progress of the initial scan is reported on the console, the GUI and written to the `debug.log`. The scan may be interrupted, but can not be resumed, and then needs to start from the beginning.
+During the first startup historical Omni transactions are reprocessed and ZURBank will not be usable for approximately 15 minutes up to two hours. The progress of the initial scan is reported on the console, the GUI and written to the `debug.log`. The scan may be interrupted, but can not be resumed, and then needs to start from the beginning.
 
 Downgrading
 -----------
 
-Downgrading to an Omni Core version prior to 0.3.0 is generally not supported as older versions will not provide accurate information due to the changes in consensus rules.
+Downgrading to an ZURBank version prior to 0.3.0 is generally not supported as older versions will not provide accurate information due to the changes in consensus rules.
 
 Compatibility with Bitcoin Core
 -------------------------------
 
-Omni Core is based on Bitcoin Core 0.13.2 and can be used as replacement for Bitcoin Core. Switching between Omni Core and Bitcoin Core may be supported.
+ZURBank is based on Bitcoin Core 0.13.2 and can be used as replacement for Bitcoin Core. Switching between ZURBank and Bitcoin Core may be supported.
 
-Upgrading to a higher Bitcoin Core version is generally supported, but when downgrading from Bitcoin Core 0.15, Omni Core needs to be started with `-reindex-chainstate` flag, to rebuild the chainstate data structures in a compatible format.
+Upgrading to a higher Bitcoin Core version is generally supported, but when downgrading from Bitcoin Core 0.15, ZURBank needs to be started with `-reindex-chainstate` flag, to rebuild the chainstate data structures in a compatible format.
 
-Downgrading to a Bitcoin Core version prior to 0.12 may not be supported due to the obfuscation of the blockchain database. In this case the database also needs to be rebuilt by starting Omni Core with `-reindex-chainstate` flag.
+Downgrading to a Bitcoin Core version prior to 0.12 may not be supported due to the obfuscation of the blockchain database. In this case the database also needs to be rebuilt by starting ZURBank with `-reindex-chainstate` flag.
 
 Downgrading to a Bitcoin Core version prior to 0.10 is not supported due to the new headers-first synchronization.
 
@@ -153,7 +153,7 @@ $ zurbank-cli "omni_funded_sendall" "1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH" \
 Two new RPCs to get and list all wallet balances
 ------------------------------------------------
 
-Omni Core v0.3.1 adds two new RPCs to get all token balances of the wallet and to list all token balances associated with every address of the wallet:
+ZURBank v0.3.1 adds two new RPCs to get all token balances of the wallet and to list all token balances associated with every address of the wallet:
 
 ---
 
@@ -265,7 +265,7 @@ While token namens are by no way unique, or serve as identifier of a token, prov
 Massive performance improvements of zurbankd
 ---------------------------------------------
 
-Due to optimizations of zurbankd, the daemon of Omni Core, which serves as backend for exchanges and other integrators, the time to scan and parse new blocks for Omni Layer transactions was massively improved. On a regular machine, the time to process a full block could have taken up to 1.5 seconds, which was reduced in this release to about 300 ms.
+Due to optimizations of zurbankd, the daemon of ZURBank, which serves as backend for exchanges and other integrators, the time to scan and parse new blocks for Omni Layer transactions was massively improved. On a regular machine, the time to process a full block could have taken up to 1.5 seconds, which was reduced in this release to about 300 ms.
 
 Storage of state during initial scanning
 ----------------------------------------
@@ -290,7 +290,7 @@ Avoid deadlock, when parsing transactions
 
 There was an edge case, which could have resulted in a deadlock, freezing the client, when a new block was processed and RPC queries were executed at the same time. This expressed itself as seemingly random halts of the program, especially in an environment with many frequent RPC queries.
 
-This, and the former improvements, make synchronizing a new Omni Core node, as well as maintaining one, much more frictionless.
+This, and the former improvements, make synchronizing a new ZURBank node, as well as maintaining one, much more frictionless.
 
 Update checkpoints up to block 520000
 -------------------------------------
@@ -300,7 +300,7 @@ Two new consensus state checkpoints were added to this release, to ensure the us
 Internal preperations for native Segregated Witness support
 -----------------------------------------------------------
 
-Omni Core and the Omni Layer support Segregated Witness scripts wrapped as script hash since the beginning, which can provide a significant cost saving.
+ZURBank and the Omni Layer support Segregated Witness scripts wrapped as script hash since the beginning, which can provide a significant cost saving.
 
 However, there is no support for native Segregated Witness scripts, which are idenifiable by their bech32 encoding, yet.
 
@@ -350,8 +350,8 @@ The following list includes relevant pull requests merged into this release:
 - #728 Sign and broadcast funded transactions in one go
 - #741 Remove old reference to renamed file
 - #744 Clarify that zurcoins are meant in funded RPCs
-- #631 Bump version to Omni Core 0.3.1
-- #632 Add release notes for Omni Core 0.3.1
+- #631 Bump version to ZURBank 0.3.1
+- #632 Add release notes for ZURBank 0.3.1
 - #746 Fix typo in release notes
 ```
 

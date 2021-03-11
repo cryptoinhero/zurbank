@@ -80,7 +80,7 @@ BOOST_AUTO_TEST_CASE(valid_class_a)
         txInputs.push_back(createTxOut(50000, "1JcWjikLW5CFV5XVTNSvqssJctYTwEf7Pc"));
 
         std::vector<CTxOut> txOutputs;
-        txOutputs.push_back(createTxOut(6000, "1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P"));
+        txOutputs.push_back(createTxOut(6000, "UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6"));
         txOutputs.push_back(createTxOut(6000, "1CVE9Au1XEm3MkYxeAhUDVqWvaHrP98iUt"));
         txOutputs.push_back(createTxOut(6000, "1CcJFxoEW5PUwesMVxGrq6kAPJ1TJsSVqq"));
         txOutputs.push_back(createTxOut(1747000, "1HRE7U9XNPD8kJBCwm5Q1VAepz25GBXnVk"));
@@ -105,7 +105,7 @@ BOOST_AUTO_TEST_CASE(valid_class_a)
         txOutputs.push_back(createTxOut(6000, "1CVE9Au1XEm3MsiMuLcMKryYWXHeMv9tBn"));
         txOutputs.push_back(createTxOut(6000, "1CcJFxoEW5PUwesMVxGrq6kAPJ1TJsSVqq"));
         txOutputs.push_back(createTxOut(1747000, "1HRE7U9XNPD8kJBCwm5Q1VAepz25GBXnVk"));
-        txOutputs.push_back(createTxOut(6000, "1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P"));
+        txOutputs.push_back(createTxOut(6000, "UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6"));
 
         CTransaction dummyTx = TxClassA(txInputs, txOutputs);
 
@@ -128,13 +128,13 @@ BOOST_AUTO_TEST_CASE(valid_class_a)
         txOutputs.push_back(NonStandardOutput());
         txOutputs.push_back(NonStandardOutput());
         txOutputs.push_back(NonStandardOutput());
-        txOutputs.push_back(createTxOut(6000, "1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P"));
+        txOutputs.push_back(createTxOut(6000, "UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6"));
         txOutputs.push_back(PayToPubKey_Unrelated());
         txOutputs.push_back(PayToPubKey_Unrelated());
         txOutputs.push_back(PayToPubKey_Unrelated());
         txOutputs.push_back(createTxOut(6000, "1CcJFxoEW5PUwesMVxGrq6kAPJ1TJsSVqq"));
-        txOutputs.push_back(createTxOut(6000, "1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P"));
-        txOutputs.push_back(createTxOut(6000, "1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P"));
+        txOutputs.push_back(createTxOut(6000, "UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6"));
+        txOutputs.push_back(createTxOut(6000, "UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6"));
         txOutputs.push_back(OpReturn_Unrelated());
         txOutputs.push_back(OpReturn_Unrelated());
         txOutputs.push_back(createTxOut(6000, "1CVE9Au1XEm3MkYxeAhUDVqWvaHrP98iUt"));
@@ -155,7 +155,7 @@ BOOST_AUTO_TEST_CASE(valid_class_a)
         txInputs.push_back(createTxOut(87000, "1HRE7U9XNPD8kJBCwm5Q1VAepz25GBXnVk"));
 
         std::vector<CTxOut> txOutputs;
-        txOutputs.push_back(createTxOut(6000, "1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P"));
+        txOutputs.push_back(createTxOut(6000, "UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6"));
         txOutputs.push_back(createTxOut(6000, "1HKTxLaqcbH5GcqpAbStfFwH2zvho6q8ZD"));
         txOutputs.push_back(createTxOut(6000, "1HEBH9TXCR3NkKaNd5ZLugxzmc3Feqkbns"));
         txOutputs.push_back(createTxOut(7000, "1CcJFxoEW5PUwesMVxGrq6kAPJ1TJsSVqq"));
@@ -181,7 +181,7 @@ BOOST_AUTO_TEST_CASE(valid_class_a)
         txInputs.push_back(createTxOut(200000, "1HRE7U9XNPD8kJBCwm5Q1VAepz25GBXnVk"));
 
         std::vector<CTxOut> txOutputs;
-        txOutputs.push_back(createTxOut(6000, "1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P"));
+        txOutputs.push_back(createTxOut(6000, "UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6"));
         txOutputs.push_back(createTxOut(6000, "1HKTxLaqcbH5GcqpAbStfFwH2zvho6q8ZD"));
         txOutputs.push_back(createTxOut(6000, "1HQkdXiA2mWmoQkrknyxrHTfeBoKhthq23"));
         txOutputs.push_back(createTxOut(6001, "1CcJFxoEW5PUwesMVxGrq6kAPJ1TJsSVqq"));
@@ -203,7 +203,7 @@ BOOST_AUTO_TEST_CASE(valid_class_a)
         txInputs.push_back(createTxOut(70000, "1e1jLtDvEetgwJ6jB3DuCf27sXcjA8qQ2"));
 
         std::vector<CTxOut> txOutputs;
-        txOutputs.push_back(createTxOut(9001, "1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P"));
+        txOutputs.push_back(createTxOut(9001, "UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6"));
         txOutputs.push_back(createTxOut(9001, "1e1jLtDvEetgwJ6jB3DuCf27sXcjA8qQ2"));
         txOutputs.push_back(createTxOut(9001, "1e1jLtDvEethgGWJCWWZPVBdZWNM3zVYP"));
 
@@ -222,7 +222,7 @@ BOOST_AUTO_TEST_CASE(valid_class_a)
         txInputs.push_back(createTxOut(1815000, "3Kpeeo8MVoYnx7PeNb5FUus8bkJsZFPbw7"));
 
         std::vector<CTxOut> txOutputs;
-        txOutputs.push_back(createTxOut(6000, "1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P"));
+        txOutputs.push_back(createTxOut(6000, "UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6"));
         txOutputs.push_back(createTxOut(6001, "344VVXmhPVTYnaNYNj3xgkcy3wasEEZtur"));
         txOutputs.push_back(createTxOut(6002, "34CxDzguRHnxA6fwccVBfC3wCZfvwmHAxV"));
         txOutputs.push_back(createTxOut(6003, "3J7F31dxvHXWqTse4rjzS7XayWJnr5fZqW"));
@@ -247,7 +247,7 @@ BOOST_AUTO_TEST_CASE(invalid_class_a)
         txInputs.push_back(createTxOut(1815000, "1HRE7U9XNPD8kJBCwm5Q1VAepz25GBXnVk"));
 
         std::vector<CTxOut> txOutputs;
-        txOutputs.push_back(createTxOut(6000, "1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P"));
+        txOutputs.push_back(createTxOut(6000, "UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6"));
         txOutputs.push_back(createTxOut(6000, "1CcJFxoEW5PUwesMVxGrq6kAPJ1TJsSVqq"));
         txOutputs.push_back(createTxOut(6000, "1CVE9Au1XEm3MkYxeAhUDVqWvaHrP98iUt"));
         txOutputs.push_back(createTxOut(6000, "1CVE9Au1XEm3MkYxeAhUDVqWvaHrP98iUt"));
@@ -266,7 +266,7 @@ BOOST_AUTO_TEST_CASE(invalid_class_a)
         txInputs.push_back(createTxOut(1815000, "1HRE7U9XNPD8kJBCwm5Q1VAepz25GBXnVk"));
 
         std::vector<CTxOut> txOutputs;
-        txOutputs.push_back(createTxOut(6000, "1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P"));
+        txOutputs.push_back(createTxOut(6000, "UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6"));
         txOutputs.push_back(createTxOut(6000, "1CVE9Au1XEm3NVXNDCAksgfgSGGc1xs4Wi"));
         txOutputs.push_back(createTxOut(6000, "1CcJFxoEW5PUwesMVxGrq6kAPJ1TJsSVqq"));
         txOutputs.push_back(createTxOut(1747000, "1HRE7U9XNPD8kJBCwm5Q1VAepz25GBXnVk"));
@@ -284,7 +284,7 @@ BOOST_AUTO_TEST_CASE(invalid_class_a)
         txInputs.push_back(createTxOut(1815000, "1HRE7U9XNPD8kJBCwm5Q1VAepz25GBXnVk"));
 
         std::vector<CTxOut> txOutputs;
-        txOutputs.push_back(createTxOut(6000, "1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P"));
+        txOutputs.push_back(createTxOut(6000, "UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6"));
         txOutputs.push_back(createTxOut(6000, "1HKTxLaqcbH5GcqpAbStfFwH2zvho6q8ZD"));
         txOutputs.push_back(createTxOut(6000, "1HQkdXiA2mWmoQkrknyxrHTfeBoKhthq23"));
         txOutputs.push_back(createTxOut(6000, "1CcJFxoEW5PUwesMVxGrq6kAPJ1TJsSVqq"));

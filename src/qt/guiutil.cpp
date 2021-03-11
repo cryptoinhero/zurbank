@@ -610,10 +610,10 @@ boost::filesystem::path static StartupShortcutPath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Omni Core.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "ZURBank.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Omni Core (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Omni Core (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "ZURBank (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("ZURBank (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -754,9 +754,9 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
-            optionFile << "Name=Omni Core\n";
+            optionFile << "Name=ZURBank\n";
         else
-            optionFile << strprintf("Name=Omni Core (%s)\n", chain);
+            optionFile << strprintf("Name=ZURBank (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", GetBoolArg("-testnet", false), GetBoolArg("-regtest", false));
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";

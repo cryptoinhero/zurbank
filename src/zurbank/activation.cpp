@@ -130,7 +130,7 @@ void ClearActivations()
 }
 
 /**
- * Determines whether the sender is an authorized source for Omni Core feature activation.
+ * Determines whether the sender is an authorized source for ZURBank feature activation.
  *
  * The option "-omniactivationallowsender=source" can be used to whitelist additional sources,
  * and the option "-omniactivationignoresender=source" can be used to ignore a source.

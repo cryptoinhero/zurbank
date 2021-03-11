@@ -6,7 +6,7 @@ namespace ZurBank
     //! Shows an user dialog with general warnings and potential risks
     bool AskUserToAcknowledgeRisks();
 
-    //! Setup and initialization related to Omni Core Qt
+    //! Setup and initialization related to ZURBank Qt
     bool Initialize();
 }
 

@@ -77,7 +77,7 @@ void AddAlert(const std::string& sender, uint16_t alertType, uint32_t alertExpir
 }
 
 /**
- * Determines whether the sender is an authorized source for Omni Core alerts.
+ * Determines whether the sender is an authorized source for ZURBank alerts.
  *
  * The option "-omnialertallowsender=source" can be used to whitelist additional sources,
  * and the option "-omnialertignoresender=source" can be used to ignore a source.

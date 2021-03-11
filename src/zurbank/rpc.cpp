@@ -361,8 +361,8 @@ UniValue omni_getfeeshare(const UniValue& params, bool fHelp)
             "  ...\n"
             "]\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getfeeshare", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\" 1")
-            + HelpExampleRpc("omni_getfeeshare", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\", 1")
+            + HelpExampleCli("omni_getfeeshare", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\" 1")
+            + HelpExampleRpc("omni_getfeeshare", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\", 1")
         );
 
     std::string address;
@@ -760,8 +760,8 @@ UniValue omni_getbalance(const UniValue& params, bool fHelp)
             "  \"frozen\" : \"n.nnnnnnnn\"     (string) the amount frozen by the issuer (applies to managed properties only)\n"
             "}\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getbalance", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\" 1")
-            + HelpExampleRpc("omni_getbalance", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\", 1")
+            + HelpExampleCli("omni_getbalance", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\" 1")
+            + HelpExampleRpc("omni_getbalance", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\", 1")
         );
 
     std::string address = ParseAddress(params[0]);
@@ -853,8 +853,8 @@ UniValue omni_getallbalancesforaddress(const UniValue& params, bool fHelp)
             "  ...\n"
             "]\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getallbalancesforaddress", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\"")
-            + HelpExampleRpc("omni_getallbalancesforaddress", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\"")
+            + HelpExampleCli("omni_getallbalancesforaddress", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\"")
+            + HelpExampleRpc("omni_getallbalancesforaddress", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\"")
         );
 
     std::string address = ParseAddress(params[0]);

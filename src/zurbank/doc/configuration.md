@@ -1,7 +1,7 @@
 Configuration
 =============
 
-Omni Core can be configured by providing one or more optional command-line arguments:
+ZURBank can be configured by providing one or more optional command-line arguments:
 ```bash
 $ zurbankd -setting=value -setting=value
 ```
@@ -31,7 +31,7 @@ omnidebug=pending
 
 ## Optional settings
 
-To run and use Omni Core, no explicit configuration is necessary.
+To run and use ZURBank, no explicit configuration is necessary.
 
 More information about the general configuration and Bitcoin Core specific options are available in the [Bitcoin wiki](https://en.zurcoin.it/wiki/Running_Bitcoin).
 

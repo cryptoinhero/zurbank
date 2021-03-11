@@ -11,7 +11,7 @@ BOOST_FIXTURE_TEST_SUITE(zurbank_version_tests, BasicTestingSetup)
 
 BOOST_AUTO_TEST_CASE(version_comparison)
 {
-    BOOST_CHECK(ZURBANK_VERSION > 1000000); // Omni Core v0.0.10.0
+    BOOST_CHECK(ZURBANK_VERSION > 1000000); // ZURBank v0.0.10.0
 }
 
 /**

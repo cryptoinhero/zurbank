@@ -1,9 +1,9 @@
-Omni Core v0.2.0
+ZURBank v0.2.0
 ===================
 
 v0.2.0 is a release with minor changes and improvements based on Bitcoin Core 0.13.2.
 
-This version is built on top of v0.0.12, which is a major release and consensus critical in terms of the Omni Layer protocol rules. If you are using an older version of Omni Core than v0.0.12, an upgrade is mandatory, and highly recommended. Prior releases will not be compatible with new behavior in this release.
+This version is built on top of v0.0.12, which is a major release and consensus critical in terms of the Omni Layer protocol rules. If you are using an older version of ZURBank than v0.0.12, an upgrade is mandatory, and highly recommended. Prior releases will not be compatible with new behavior in this release.
 
 Please report bugs using the issue tracker on GitHub:
 
@@ -12,7 +12,7 @@ Please report bugs using the issue tracker on GitHub:
 Table of contents
 =================
 
-- [Omni Core v0.2.0](#omni-core-v020)
+- [ZURBank v0.2.0](#omni-core-v020)
 - [Upgrading and downgrading](#upgrading-and-downgrading)
   - [How to upgrade](#how-to-upgrade)
   - [Downgrading](#downgrading)
@@ -41,19 +41,19 @@ Upgrading and downgrading
 How to upgrade
 --------------
 
-If you are running Bitcoin Core or an older version of Omni Core, shut it down. Wait until it has completely shut down, then copy the new version of `zurbankd`, `zurbank-cli` and `zurbank-qt`. On Microsoft Windows the setup routine can be used to automate these steps.
+If you are running Bitcoin Core or an older version of ZURBank, shut it down. Wait until it has completely shut down, then copy the new version of `zurbankd`, `zurbank-cli` and `zurbank-qt`. On Microsoft Windows the setup routine can be used to automate these steps.
 
-During the first startup historical Omni transactions are reprocessed and Omni Core will not be usable for approximately 15 minutes up to two hours. The progress of the initial scan is reported on the console, the GUI and written to the `debug.log`. The scan may be interrupted, but can not be resumed, and then needs to start from the beginning.
+During the first startup historical Omni transactions are reprocessed and ZURBank will not be usable for approximately 15 minutes up to two hours. The progress of the initial scan is reported on the console, the GUI and written to the `debug.log`. The scan may be interrupted, but can not be resumed, and then needs to start from the beginning.
 
 Downgrading
 -----------
 
-Downgrading to an Omni Core version prior 0.0.12 is generally not supported as older versions will not provide accurate information due to the changes in consensus rules. Downgrading to Omni Core 0.0.12 can require a reindex of the blockchain, and is not recommended.
+Downgrading to an ZURBank version prior 0.0.12 is generally not supported as older versions will not provide accurate information due to the changes in consensus rules. Downgrading to ZURBank 0.0.12 can require a reindex of the blockchain, and is not recommended.
 
 Compatibility with Bitcoin Core
 -------------------------------
 
-Omni Core is based on Bitcoin Core 0.13.2 and can be used as replacement for Bitcoin Core. Switching between Omni Core and Bitcoin Core is fully supported at any time.
+ZURBank is based on Bitcoin Core 0.13.2 and can be used as replacement for Bitcoin Core. Switching between ZURBank and Bitcoin Core is fully supported at any time.
 
 Downgrading to a Bitcoin Core version prior 0.12 may not be supported due to the obfuscation of the blockchain database.
 
@@ -65,7 +65,7 @@ Imported changes and notes
 Upgrade to Bitcoin Core 0.13.2
 ------------------------------
 
-The underlying base of Omni Core was upgraded from Bitcoin Core 0.10.4 to Bitcoin Core 0.13.2.
+The underlying base of ZURBank was upgraded from Bitcoin Core 0.10.4 to Bitcoin Core 0.13.2.
 
 Please see the following release notes for further details:
 
@@ -81,16 +81,16 @@ Please see the following release notes for further details:
 Important transaction fee behavior changes
 ------------------------------------------
 
-Earlier versions of Omni Core (prior to 0.2.0) used Bitcoin Core 0.10.x as a base. Omni Core 0.2.0 however is based on a much newer version of Bitcoin Core (0.13.2) and thus inherits various changes and improvements to the handling of fees that have been added to Bitcoin Core over time.
+Earlier versions of ZURBank (prior to 0.2.0) used Bitcoin Core 0.10.x as a base. ZURBank 0.2.0 however is based on a much newer version of Bitcoin Core (0.13.2) and thus inherits various changes and improvements to the handling of fees that have been added to Bitcoin Core over time.
 
-It is highly recommended that users of Omni Core consider these fee changes and their chosen fee settings when upgrading to Omni Core 0.2.0, and test thoroughly to ensure that fee behavior is desirable and as expected.
+It is highly recommended that users of ZURBank consider these fee changes and their chosen fee settings when upgrading to ZURBank 0.2.0, and test thoroughly to ensure that fee behavior is desirable and as expected.
 
-Consideration of the modified behavior for the `-paytxfee` setting is especially important. Earlier versions of Bitcoin Core (and thus earlier versions of Omni Core prior to 0.2.0) would round the size of the transaction upwards to the nearest kilobyte when calculating the fee (for example a 250 byte transaction would be rounded up to 1 kB). This issue has been resolved in newer versions of Bitcoin Core, and so Omni Core 0.2.0 will no longer perform this rounding when calculating the fee. A comparison of the behaviors can be shown in the following, where an example `paytxfee` value of 0.001 ZUR/kB has been set:
+Consideration of the modified behavior for the `-paytxfee` setting is especially important. Earlier versions of Bitcoin Core (and thus earlier versions of ZURBank prior to 0.2.0) would round the size of the transaction upwards to the nearest kilobyte when calculating the fee (for example a 250 byte transaction would be rounded up to 1 kB). This issue has been resolved in newer versions of Bitcoin Core, and so ZURBank 0.2.0 will no longer perform this rounding when calculating the fee. A comparison of the behaviors can be shown in the following, where an example `paytxfee` value of 0.001 ZUR/kB has been set:
 
-- Omni Core prior to 0.2.0: A transaction with a size of 250 bytes will be rounded up to 1 kB, and so a fee of 0.001 ZUR will be used
-- Omni Core 0.2.0: A transaction with a size of 250 bytes will not be rounded, and so a fee of 0.00025 ZUR will be used
+- ZURBank prior to 0.2.0: A transaction with a size of 250 bytes will be rounded up to 1 kB, and so a fee of 0.001 ZUR will be used
+- ZURBank 0.2.0: A transaction with a size of 250 bytes will not be rounded, and so a fee of 0.00025 ZUR will be used
 
-It is also worth noting that the fee estimation algorithms were updated, and thus the fees chosen when using `-txconfirmtarget` (along with the output of the `estimatefee` RPC) will likely be different in Omni Core 0.2.0 when compared to prior versions.
+It is also worth noting that the fee estimation algorithms were updated, and thus the fees chosen when using `-txconfirmtarget` (along with the output of the `estimatefee` RPC) will likely be different in ZURBank 0.2.0 when compared to prior versions.
 
 API changes
 -----------
@@ -100,12 +100,12 @@ The behavior of the RPC [omni_gettradehistoryforaddress](https://github.com/zurc
 New project versioning scheme
 -----------------------------
 
-Starting with this version of Omni Core, the versioning scheme becomes more intuitive, as it uses MAJOR.MINOR.PATCH from now on, whereby MAJOR indicates consensus affecting changes or other non-backwards-compatible changes, MINOR indicates new functionality in a backwards-compatible manner, and PATCH is used to indicate backwards-compatible bug fixes.
+Starting with this version of ZURBank, the versioning scheme becomes more intuitive, as it uses MAJOR.MINOR.PATCH from now on, whereby MAJOR indicates consensus affecting changes or other non-backwards-compatible changes, MINOR indicates new functionality in a backwards-compatible manner, and PATCH is used to indicate backwards-compatible bug fixes.
 
 New project branch structure
 ----------------------------
 
-The latest stable version of Omni Core can be found in the [master](https://github.com/zurcoin/zurbank/tree/master) branch on GitHub, while the version under development can be found in the [develop](https://github.com/zurcoin/zurbank/tree/develop) branch. This provides a cleaner seperation of source code.
+The latest stable version of ZURBank can be found in the [master](https://github.com/zurcoin/zurbank/tree/master) branch on GitHub, while the version under development can be found in the [develop](https://github.com/zurcoin/zurbank/tree/develop) branch. This provides a cleaner seperation of source code.
 
 
 Consensus affecting changes
@@ -113,14 +113,14 @@ Consensus affecting changes
 
 All changes of the consensus rules are enabled by activation transactions.
 
-Please note, while Omni Core 0.2.0 contains support for several new rules and features they are not enabled immediately and will be activated via the feature activation mechanism described above.
+Please note, while ZURBank 0.2.0 contains support for several new rules and features they are not enabled immediately and will be activated via the feature activation mechanism described above.
 
 It follows an overview and a description of the consensus rule changes:
 
 Fee distribution system on the Distributed Exchange
 ---------------------------------------------------
 
-Omni Core 0.2.0 contains a fee caching and distribution system. This system collects small amounts of tokens in a cache until a distribution threshold is reached.  Once this distribution threshold (trigger) is reached for a property, the fees in the cache will be distributed proportionally to holders of the Omni (#1) and Test-Omni (#2) tokens based on the percentage of the total Omni tokens owned.
+ZURBank 0.2.0 contains a fee caching and distribution system. This system collects small amounts of tokens in a cache until a distribution threshold is reached.  Once this distribution threshold (trigger) is reached for a property, the fees in the cache will be distributed proportionally to holders of the Omni (#1) and Test-Omni (#2) tokens based on the percentage of the total Omni tokens owned.
 
 Once activated fees will be collected from trading of non-Omni pairs on the Distributed Exchange (there is no fee for trading Omni pairs).  The party removing liquidity from the market will incur a 0.05% fee which will be transferred to the fee cache, and subsequently distributed to holders of the Omni token.
 
@@ -141,7 +141,7 @@ Tokens of property X then may be distributed to holders of property Y.
 
 There is a significantly increased fee (0.00001000 per recipient) for using version 1 of the STO transaction.  The fee remains the same (0.00000001) per recipient for using version 0 of the STO transaction.
 
-Sending an STO transaction via Omni Core that distributes tokens to holders of the same property will automatically be sent as version 0, and sending a cross-property STO will automatically be sent as version 1.
+Sending an STO transaction via ZURBank that distributes tokens to holders of the same property will automatically be sent as version 0, and sending a cross-property STO will automatically be sent as version 1.
 
 The transaction format of new Send To Owners version is as follows:
 
@@ -161,19 +161,19 @@ Notable changes
 Avoid selection of uneconomic UTXO during transaction creation
 --------------------------------------------------------------
 
-In earlier version of Omni Core (prior to 0.2.0), when creating transactions with the Qt UI or the JSON-RPC API (for example with `omni_send`), then the coin selection algorithm may have selected unspent outputs, which are not economic to spend. This may have caused the creation of larger and more expensive transactions than necessary.
+In earlier version of ZURBank (prior to 0.2.0), when creating transactions with the Qt UI or the JSON-RPC API (for example with `omni_send`), then the coin selection algorithm may have selected unspent outputs, which are not economic to spend. This may have caused the creation of larger and more expensive transactions than necessary.
 
-In Omni Core 0.2.0 this is addressed by excluding inputs during the transaction creation, which are more expensive to spend than they are worth. Please note the exclusion is directly related to the fee related configuration options of Omni Core, such as `-paytxfee` or `-txconfirmtarget`.
+In ZURBank 0.2.0 this is addressed by excluding inputs during the transaction creation, which are more expensive to spend than they are worth. Please note the exclusion is directly related to the fee related configuration options of ZURBank, such as `-paytxfee` or `-txconfirmtarget`.
 
 Performance improvements during initial parsing
 -----------------------------------------------
 
-Due to various improvements and optimizations, the initial parsing process, when running Omni Core the first time, or when starting Omni Core with `-startclean` flag, is faster by a factor of up to 10x. The improvements also have a positive impact on the time, when processing a new block.
+Due to various improvements and optimizations, the initial parsing process, when running ZURBank the first time, or when starting ZURBank with `-startclean` flag, is faster by a factor of up to 10x. The improvements also have a positive impact on the time, when processing a new block.
 
 New checkpoints and seed blocks up to block 460,000
 ---------------------------------------------------
 
-To further speed up the inital parsing process, blocks without Omni transactions are skipped up until block 460,000. To avoid relying on a hardcoded list of seed blocks, Omni Core can be started with `-omniseedblockfilter=0`.
+To further speed up the inital parsing process, blocks without Omni transactions are skipped up until block 460,000. To avoid relying on a hardcoded list of seed blocks, ZURBank can be started with `-omniseedblockfilter=0`.
 
 Easy access to specific consensus hashes when parsing
 -----------------------------------------------------
@@ -195,7 +195,7 @@ Which will then cause a consensus hash to be generated for the corresponding blo
 Various bug fixes and improvements
 ----------------------------------
 
-Various smaller improvements were added Omni Core 0.2.0, such as:
+Various smaller improvements were added ZURBank 0.2.0, such as:
 
 - Fix incorrect value from getTotalTokens when fees are cached
 - Remove forwarding of setgenerate to generate
@@ -204,7 +204,7 @@ Various smaller improvements were added Omni Core 0.2.0, such as:
 - Set minimum fee distribution threshold and protect against empty distributions
 - Check for fee distribution when total number of tokens is changed
 - Fix missing include of test utils header
-- Fix two Omni Core related build warnings
+- Fix two ZURBank related build warnings
 - Automatically remove stale pending transactions
 - Relax data type checks of omni_createrawtx_change
 - Fix possible lock contention in omni_getactivedexsells
@@ -229,7 +229,7 @@ The following list includes relevant pull requests merged into this release:
 - #451 Fix missing include of test utils header
 - #450 Port code base to Bitcoin Core 0.13.2
 - #453 Update splash screen to be similar to 0.0.11
-- #454 Fix two Omni Core related build warnings
+- #454 Fix two ZURBank related build warnings
 - #458 Add checkpoint for block 450,000
 - #457 Add seed blocks for 440,000 to 450,000
 - #456 Provide easy access to specific consensus hashes when parsing
@@ -245,10 +245,10 @@ The following list includes relevant pull requests merged into this release:
 - #472 Lock fetching and processing inputs while parsing
 - #473 Avoid selecting uneconomic UTXO during transaction creation
 - #474 Run RPC tests with explicitly defined datadir and minimum logging
-- #460 Bump version to Omni Core 0.2.0 and add release notes
+- #460 Bump version to ZURBank 0.2.0 and add release notes
 ```
 
 Credits
 =======
 
-Thanks to everyone who contributed to this release, and especially the Bitcoin Core developers for providing the foundation for Omni Core!
+Thanks to everyone who contributed to this release, and especially the Bitcoin Core developers for providing the foundation for ZURBank!

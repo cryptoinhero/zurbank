@@ -1306,8 +1306,8 @@ UniValue omni_sendfreeze(const UniValue& params, bool fHelp)
             "\nResult:\n"
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendfreeze", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\" \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 1 0")
-            + HelpExampleRpc("omni_sendfreeze", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\", \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 1, 0")
+            + HelpExampleCli("omni_sendfreeze", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\" \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 1 0")
+            + HelpExampleRpc("omni_sendfreeze", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\", \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 1, 0")
         );
 
     // obtain parameters & info
@@ -1357,8 +1357,8 @@ UniValue omni_sendunfreeze(const UniValue& params, bool fHelp)
             "\nResult:\n"
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendunfreeze", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\" \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 1 0")
-            + HelpExampleRpc("omni_sendunfreeze", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\", \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 1, 0")
+            + HelpExampleCli("omni_sendunfreeze", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\" \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 1 0")
+            + HelpExampleRpc("omni_sendunfreeze", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\", \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 1, 0")
         );
 
     // obtain parameters & info
@@ -1399,7 +1399,7 @@ UniValue omni_sendactivation(const UniValue& params, bool fHelp)
         throw runtime_error(
             "omni_sendactivation \"fromaddress\" featureid block minclientversion\n"
             "\nActivate a protocol feature.\n"
-            "\nNote: Omni Core ignores activations from unauthorized sources.\n"
+            "\nNote: ZURBank ignores activations from unauthorized sources.\n"
             "\nArguments:\n"
             "1. fromaddress          (string, required) the address to send from\n"
             "2. featureid            (number, required) the identifier of the feature to activate\n"
@@ -1408,8 +1408,8 @@ UniValue omni_sendactivation(const UniValue& params, bool fHelp)
             "\nResult:\n"
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendactivation", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\" 1 370000 999")
-            + HelpExampleRpc("omni_sendactivation", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\", 1, 370000, 999")
+            + HelpExampleCli("omni_sendactivation", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\" 1 370000 999")
+            + HelpExampleRpc("omni_sendactivation", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\", 1, 370000, 999")
         );
 
     // obtain parameters & info
@@ -1444,15 +1444,15 @@ UniValue omni_senddeactivation(const UniValue& params, bool fHelp)
         throw runtime_error(
             "omni_senddeactivation \"fromaddress\" featureid\n"
             "\nDeactivate a protocol feature.  For Emergency Use Only.\n"
-            "\nNote: Omni Core ignores deactivations from unauthorized sources.\n"
+            "\nNote: ZURBank ignores deactivations from unauthorized sources.\n"
             "\nArguments:\n"
             "1. fromaddress          (string, required) the address to send from\n"
             "2. featureid            (number, required) the identifier of the feature to activate\n"
             "\nResult:\n"
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_senddeactivation", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\" 1")
-            + HelpExampleRpc("omni_senddeactivation", "\"1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P\", 1")
+            + HelpExampleCli("omni_senddeactivation", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\" 1")
+            + HelpExampleRpc("omni_senddeactivation", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\", 1")
         );
 
     // obtain parameters & info
@@ -1484,8 +1484,8 @@ UniValue omni_sendalert(const UniValue& params, bool fHelp)
     if (fHelp || params.size() != 4)
         throw runtime_error(
             "omni_sendalert \"fromaddress\" alerttype expiryvalue typecheck versioncheck \"message\"\n"
-            "\nCreates and broadcasts an Omni Core alert.\n"
-            "\nNote: Omni Core ignores alerts from unauthorized sources.\n"
+            "\nCreates and broadcasts an ZURBank alert.\n"
+            "\nNote: ZURBank ignores alerts from unauthorized sources.\n"
             "\nArguments:\n"
             "1. fromaddress          (string, required) the address to send from\n"
             "2. alerttype            (number, required) the alert type\n"

@@ -8,7 +8,7 @@
 ## To use this script in regtest mode, temporarily disable Dev Omni and recompile by adding:  ##
 ##    return 0;                                                                               ##
 ## as the first line of the function calculate_and_update_devmsc in zurbank.cpp.  This line  ##
-## must be removed and Omni Core recompiled to use on mainnet.                                ##
+## must be removed and ZURBank recompiled to use on mainnet.                                ##
 ################################################################################################
 
 SRCDIR=./src/
@@ -29,7 +29,7 @@ printf "   * Funding the address with some testnet ZUR for fees\n"
 $SRCDIR/zurbank-cli --regtest sendtoaddress $ADDR 20 >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
 printf "   * Participating in the Exodus crowdsale to obtain some OMNI\n"
-JSON="{\"moneyqMan7uh8FqdCA2BV5yZ8qVrc9ikLP\":10,\""$ADDR"\":4}"
+JSON="{\"pxELuroPRgD7Di8hQikT4fqdK7xoYKdrZy\":10,\""$ADDR"\":4}"
 $SRCDIR/zurbank-cli --regtest sendmany OMNIAccount $JSON >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
 printf "   * Creating an indivisible test property\n"

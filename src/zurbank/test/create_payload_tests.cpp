@@ -407,7 +407,7 @@ BOOST_AUTO_TEST_CASE(payload_freeze_tokens)
     std::vector<unsigned char> vch = CreatePayload_FreezeTokens(
         static_cast<uint32_t>(4),                                   // property: SP #4
         static_cast<int64_t>(1000),                                 // amount to freeze (unused)
-        std::string("1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P"));         // reference address
+        std::string("UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6"));         // reference address
 
     BOOST_CHECK_EQUAL(HexStr(vch),
         "000000b90000000400000000000003e800946cb2e08075bcbaf157e47bcb67eb2b2339d242");
@@ -419,7 +419,7 @@ BOOST_AUTO_TEST_CASE(payload_unfreeze_tokens)
     std::vector<unsigned char> vch = CreatePayload_UnfreezeTokens(
         static_cast<uint32_t>(4),                                   // property: SP #4
         static_cast<int64_t>(1000),                                 // amount to freeze (unused)
-        std::string("1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P"));         // reference address
+        std::string("UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6"));         // reference address
 
     BOOST_CHECK_EQUAL(HexStr(vch),
         "000000ba0000000400000000000003e800946cb2e08075bcbaf157e47bcb67eb2b2339d242");
@@ -427,7 +427,7 @@ BOOST_AUTO_TEST_CASE(payload_unfreeze_tokens)
 
 BOOST_AUTO_TEST_CASE(payload_feature_deactivation)
 {
-    // Omni Core feature activation [type 65533, version 65535]
+    // ZURBank feature activation [type 65533, version 65535]
     std::vector<unsigned char> vch = CreatePayload_DeactivateFeature(
         static_cast<uint16_t>(1));        // feature identifier: 1 (OP_RETURN)
 
@@ -436,7 +436,7 @@ BOOST_AUTO_TEST_CASE(payload_feature_deactivation)
 
 BOOST_AUTO_TEST_CASE(payload_feature_activation)
 {
-    // Omni Core feature activation [type 65534, version 65535]
+    // ZURBank feature activation [type 65534, version 65535]
     std::vector<unsigned char> vch = CreatePayload_ActivateFeature(
         static_cast<uint16_t>(1),        // feature identifier: 1 (OP_RETURN)
         static_cast<uint32_t>(370000),   // activation block
@@ -447,7 +447,7 @@ BOOST_AUTO_TEST_CASE(payload_feature_activation)
 
 BOOST_AUTO_TEST_CASE(payload_zurbank_alert_block)
 {
-    // Omni Core client notification [type 65535, version 65535]
+    // ZURBank client notification [type 65535, version 65535]
     std::vector<unsigned char> vch = CreatePayload_ZurBankAlert(
         static_cast<int32_t>(1),            // alert target: by block number
         static_cast<uint64_t>(300000),      // expiry value: 300000
@@ -458,7 +458,7 @@ BOOST_AUTO_TEST_CASE(payload_zurbank_alert_block)
 
 BOOST_AUTO_TEST_CASE(payload_zurbank_alert_blockexpiry)
 {
-    // Omni Core client notification [type 65535, version 65535]
+    // ZURBank client notification [type 65535, version 65535]
     std::vector<unsigned char> vch = CreatePayload_ZurBankAlert(
         static_cast<int32_t>(2),            // alert target: by block time
         static_cast<uint64_t>(1439528630),  // expiry value: 1439528630
@@ -469,7 +469,7 @@ BOOST_AUTO_TEST_CASE(payload_zurbank_alert_blockexpiry)
 
 BOOST_AUTO_TEST_CASE(payload_zurbank_alert_minclient)
 {
-    // Omni Core client notification [type 65535, version 65535]
+    // ZURBank client notification [type 65535, version 65535]
     std::vector<unsigned char> vch = CreatePayload_ZurBankAlert(
         static_cast<int32_t>(3),            // alert target: by client version
         static_cast<uint64_t>(900100),      // expiry value: v0.0.9.1

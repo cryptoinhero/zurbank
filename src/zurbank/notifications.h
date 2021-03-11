@@ -27,7 +27,7 @@ struct AlertData
     std::string alert_message;
 };
 
-/** Determines whether the sender is an authorized source for Omni Core alerts. */
+/** Determines whether the sender is an authorized source for ZURBank alerts. */
 bool CheckAlertAuthorization(const std::string& sender);
 
 /** Deletes previously broadcast alerts from the sender. */

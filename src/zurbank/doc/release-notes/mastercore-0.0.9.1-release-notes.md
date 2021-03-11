@@ -1,4 +1,4 @@
-Omni Core version 0.0.9.1-rel is available from:
+ZURBank version 0.0.9.1-rel is available from:
 
   https://github.com/mastercoin-MSC/mastercore/releases/tag/v0.0.9.1
 
@@ -14,7 +14,7 @@ IMPORTANT
 - This is the first experimental release of Omni Layer support in the QT UI, please be vigilant with testing and do not risk large amounts of Bitcoin and Omni Layer tokens.
 - The transaction index is no longer defaulted to enabled.  You will need to ensure you have "txindex=1" (without the quotes) in your configuration file.
 - If you are upgrading from a version earlier than 0.0.9-rel you must start with the --startclean parameter at least once to refresh your persistence files.
-- The first time Omni Core is run the startup process may take an hour or more as existing Omni Layer transactions are parsed.  This is normal and should only be required the first time Omni Core is run.
+- The first time ZURBank is run the startup process may take an hour or more as existing Omni Layer transactions are parsed.  This is normal and should only be required the first time ZURBank is run.
 
 Upgrading and downgrading
 ==========================
@@ -56,7 +56,7 @@ UI
 - Update send page behaviour and layout per feedback
 - Fix column resizing on balances tab
 - Right align amounts in balances tab
-- Various rebranding to Omni Core
+- Various rebranding to ZURBank
 - Rewritten Omni transaction history tab
 - Add protection against long labels growing the UI size to ridiculous proportions
 - Update signalling to all Omni pages to ensure up to date info

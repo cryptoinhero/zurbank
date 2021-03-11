@@ -1,4 +1,4 @@
-Omni Core v0.4.0
+ZURBank v0.4.0
 ================
 
 v0.4.0 is a major release and consensus critical in terms of the Omni Layer protocol rules. An upgrade is mandatory, and highly recommended. Prior releases may not be compatible with new behaviour in this release.
@@ -10,7 +10,7 @@ Please report bugs using the issue tracker on GitHub:
 Table of contents
 =================
 
-- [Omni Core v0.4.0](#omni-core-v040)
+- [ZURBank v0.4.0](#omni-core-v040)
 - [Upgrading and downgrading](#upgrading-and-downgrading)
   - [How to upgrade](#how-to-upgrade)
   - [Downgrading](#downgrading)
@@ -32,23 +32,23 @@ Upgrading and downgrading
 How to upgrade
 --------------
 
-If you are running Bitcoin Core or an older version of Omni Core, shut it down. Wait until it has completely shut down, then copy the new version of `zurbankd`, `zurbank-cli` and `zurbank-qt`. On Microsoft Windows the setup routine can be used to automate these steps.
+If you are running Bitcoin Core or an older version of ZURBank, shut it down. Wait until it has completely shut down, then copy the new version of `zurbankd`, `zurbank-cli` and `zurbank-qt`. On Microsoft Windows the setup routine can be used to automate these steps.
 
-During the first startup historical Omni transactions are reprocessed and Omni Core will not be usable for approximately 15 minutes up to two hours. The progress of the initial scan is reported on the console, the GUI and written to the `debug.log`. The scan may be interrupted, but can not be resumed, and then needs to start from the beginning.
+During the first startup historical Omni transactions are reprocessed and ZURBank will not be usable for approximately 15 minutes up to two hours. The progress of the initial scan is reported on the console, the GUI and written to the `debug.log`. The scan may be interrupted, but can not be resumed, and then needs to start from the beginning.
 
 Downgrading
 -----------
 
-Downgrading to an Omni Core version prior to 0.4.0 is generally not advised as older versions may not provide accurate information due to the changes in consensus rules.
+Downgrading to an ZURBank version prior to 0.4.0 is generally not advised as older versions may not provide accurate information due to the changes in consensus rules.
 
 Compatibility with Bitcoin Core
 -------------------------------
 
-Omni Core is based on Bitcoin Core 0.13.2 and can be used as replacement for Bitcoin Core. Switching between Omni Core and Bitcoin Core may be supported.
+ZURBank is based on Bitcoin Core 0.13.2 and can be used as replacement for Bitcoin Core. Switching between ZURBank and Bitcoin Core may be supported.
 
-Upgrading to a higher Bitcoin Core version is generally supported, but when downgrading from Bitcoin Core 0.15, Omni Core needs to be started with `-reindex-chainstate` flag, to rebuild the chainstate data structures in a compatible format.
+Upgrading to a higher Bitcoin Core version is generally supported, but when downgrading from Bitcoin Core 0.15, ZURBank needs to be started with `-reindex-chainstate` flag, to rebuild the chainstate data structures in a compatible format.
 
-Downgrading to a Bitcoin Core version prior to 0.12 may not be supported due to the obfuscation of the blockchain database. In this case the database also needs to be rebuilt by starting Omni Core with `-reindex-chainstate` flag.
+Downgrading to a Bitcoin Core version prior to 0.12 may not be supported due to the obfuscation of the blockchain database. In this case the database also needs to be rebuilt by starting ZURBank with `-reindex-chainstate` flag.
 
 Downgrading to a Bitcoin Core version prior to 0.10 is not supported due to the new headers-first synchronization.
 
@@ -150,12 +150,12 @@ The following list includes relevant pull requests merged into this release:
 - #851 Unify pointer names of internal DBs
 - #874 Fix log incompability of invalid datetime
 - #878 Show "ecosystem" = "all", when all tokens are moved
-- #879 Bump version to Omni Core 0.4.0
+- #879 Bump version to ZURBank 0.4.0
 - #881 Add consensus hash for block 562708
 - #882 Add system to check existence of historical transactions
 - #884 Remove two transactions from probing
 - #885 Rename Mastercoin to Omni Layer in error message
-- #883 Add release notes for Omni Core 0.4.0
+- #883 Add release notes for ZURBank 0.4.0
 ```
 
 Credits

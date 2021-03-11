@@ -529,7 +529,7 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
 // show/hide watch-only labels
 void OverviewPage::updateWatchOnlyLabels(bool showWatchOnly)
 {
-    // Omni Core does not currently fully support watch only
+    // ZURBank does not currently fully support watch only
 }
 
 void OverviewPage::setClientModel(ClientModel *model)

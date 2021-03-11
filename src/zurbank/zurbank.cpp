@@ -1,7 +1,7 @@
 /**
  * @file zurbank.cpp
  *
- * This file contains the core of Omni Core.
+ * This file contains the core of ZURBank.
  */
 
 #include "zurbank/zurbank.h"
@@ -88,14 +88,14 @@ using namespace mastercore;
 CCriticalSection cs_tally;
 
 //! Exodus address (changes based on network)
-static std::string exodus_address = "1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P";
+static std::string exodus_address = "UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6";
 
 //! Mainnet Exodus address
-static const std::string exodus_mainnet = "1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P";
+static const std::string exodus_mainnet = "UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6";
 //! Testnet Exodus address
-static const std::string exodus_testnet = "mpexoDuSkGGqvqrkrjiFng38QPkJQVFyqv";
+static const std::string exodus_testnet = "qALrKLGjQnqAf8S3u6B9oFVs4dwmGg83Z5";
 //! Testnet Exodus crowdsale address
-static const std::string getmoney_testnet = "moneyqMan7uh8FqdCA2BV5yZ8qVrc9ikLP";
+static const std::string getmoney_testnet = "pxELuroPRgD7Di8hQikT4fqdK7xoYKdrZy";
 
 static int nWaterlineBlock = 0;
 
@@ -112,7 +112,7 @@ int64_t exodus_prev = 0;
 //! Path for file based persistence
 boost::filesystem::path pathStateFiles;
 
-//! Flag to indicate whether Omni Core was initialized
+//! Flag to indicate whether ZURBank was initialized
 static int mastercoreInitialized = 0;
 
 //! Flag to indicate whether there was a block reorganisatzion
@@ -1642,7 +1642,7 @@ void RewindDBsAndState(int nHeight, int nBlockPrev = 0, bool fInitialParse = fal
 }
 
 /**
- * Global handler to initialize Omni Core.
+ * Global handler to initialize ZURBank.
  *
  * @return An exit code, indicating success or failure
  */
@@ -1655,9 +1655,9 @@ int mastercore_init()
         return 0;
     }
 
-    PrintToConsole("Initializing Omni Core v%s [%s]\n", ZurBankVersion(), Params().NetworkIDString());
+    PrintToConsole("Initializing ZURBank v%s [%s]\n", ZurBankVersion(), Params().NetworkIDString());
 
-    PrintToLog("\nInitializing Omni Core v%s [%s]\n", ZurBankVersion(), Params().NetworkIDString());
+    PrintToLog("\nInitializing ZURBank v%s [%s]\n", ZurBankVersion(), Params().NetworkIDString());
     PrintToLog("Startup time: %s\n", DateTimeStrFormat("%Y-%m-%d %H:%M:%S", GetTime()));
 
     InitDebugLogLevels();
@@ -1805,13 +1805,13 @@ int mastercore_init()
     int64_t exodus_balance = GetTokenBalance(exodus_address, OMNI_PROPERTY_MSC, BALANCE);
     PrintToLog("Exodus balance after initialization: %s\n", FormatDivisibleMP(exodus_balance));
 
-    PrintToConsole("Omni Core initialization completed\n");
+    PrintToConsole("ZURBank initialization completed\n");
 
     return 0;
 }
 
 /**
- * Global handler to shut down Omni Core.
+ * Global handler to shut down ZURBank.
  *
  * In particular, the LevelDB databases of the global state objects are closed
  * properly.
@@ -1853,10 +1853,10 @@ int mastercore_shutdown()
 
     mastercoreInitialized = 0;
 
-    PrintToLog("\nOmni Core shutdown completed\n");
+    PrintToLog("\nZURBank shutdown completed\n");
     PrintToLog("Shutdown time: %s\n", DateTimeStrFormat("%Y-%m-%d %H:%M:%S", GetTime()));
 
-    PrintToConsole("Omni Core shutdown completed\n");
+    PrintToConsole("ZURBank shutdown completed\n");
 
     return 0;
 }
@@ -2056,10 +2056,10 @@ int mastercore_handler_disc_end(int nBlockNow, CBlockIndex const * pBlockIndex)
  * Returns the Exodus address.
  *
  * Main network:
- *   1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P
+ *   UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6
  *
  * Test network:
- *   mpexoDuSkGGqvqrkrjiFng38QPkJQVFyqv
+ *   qALrKLGjQnqAf8S3u6B9oFVs4dwmGg83Z5
  *
  * @return The Exodus address
  */
@@ -2078,11 +2078,11 @@ const CBitcoinAddress ExodusAddress()
  * Returns the Exodus crowdsale address.
  *
  * Main network:
- *   1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P
+ *   UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6
  *
  * Test network:
- *   mpexoDuSkGGqvqrkrjiFng38QPkJQVFyqv (for blocks <  270775)
- *   moneyqMan7uh8FqdCA2BV5yZ8qVrc9ikLP (for blocks >= 270775)
+ *   qALrKLGjQnqAf8S3u6B9oFVs4dwmGg83Z5 (for blocks <  270775)
+ *   pxELuroPRgD7Di8hQikT4fqdK7xoYKdrZy (for blocks >= 270775)
  *
  * @return The Exodus fundraiser address
  */

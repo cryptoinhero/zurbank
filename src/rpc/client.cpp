@@ -107,7 +107,7 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "getmempoolancestors", 1 },
     { "getmempooldescendants", 1 },
 
-    /* Omni Core - data retrieval calls */
+    /* ZURBank - data retrieval calls */
     { "omni_gettradehistoryforaddress", 1 },
     { "omni_gettradehistoryforaddress", 2 },
     { "omni_gettradehistoryforpair", 0 },
@@ -141,7 +141,7 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "omni_getwalletbalances", 0 },
     { "omni_getwalletaddressbalances", 0 },
 
-    /* Omni Core - transaction calls */
+    /* ZURBank - transaction calls */
     { "omni_send", 2 },
     { "omni_sendsto", 1 },
     { "omni_sendsto", 4 },
@@ -188,7 +188,7 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "omni_funded_send", 2 },
     { "omni_funded_sendall", 2 },
 
-    /* Omni Core - raw transaction calls */
+    /* ZURBank - raw transaction calls */
     { "omni_decodetransaction", 1 },
     { "omni_decodetransaction", 2 },
     { "omni_createrawtx_reference", 2 },
@@ -197,7 +197,7 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "omni_createrawtx_change", 3 },
     { "omni_createrawtx_change", 4 },
 
-    /* Omni Core - payload creation */
+    /* ZURBank - payload creation */
     { "omni_createpayload_simplesend", 0 },
     { "omni_createpayload_sendall", 0 },
     { "omni_createpayload_dexsell", 0 },
@@ -235,7 +235,7 @@ static const CRPCConvertParam vRPCConvertParams[] =
     { "omni_createpayload_freeze", 1 },
     { "omni_createpayload_unfreeze", 1 },
 
-    /* Omni Core - backwards compatibility */
+    /* ZURBank - backwards compatibility */
     { "getcrowdsale_MP", 0 },
     { "getcrowdsale_MP", 1 },
     { "getgrants_MP", 0 },

@@ -37,7 +37,7 @@ static inline void RegisterAllCoreRPCCommands(CRPCTable &tableRPC)
     RegisterMiningRPCCommands(tableRPC);
     RegisterRawTransactionRPCCommands(tableRPC);
 
-    /* Omni Core RPCs: */
+    /* ZURBank RPCs: */
     RegisterOmniDataRetrievalRPCCommands(tableRPC);
     RegisterOmniTransactionCreationRPCCommands(tableRPC);
     RegisterOmniPayloadCreationRPCCommands(tableRPC);

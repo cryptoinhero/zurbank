@@ -16,7 +16,7 @@ git clone https://github.com/zurcoin/OmniJ.git $TESTDIR
 mkdir -p "$DATADIR/regtest"
 touch "$DATADIR/regtest/zurbank.log"
 cd $TESTDIR
-echo "Omni Core RPC test dir: "$TESTDIR
+echo "ZURBank RPC test dir: "$TESTDIR
 echo "Last OmniJ commit: "$(git log -n 1 --format="%H Author: %cn <%ce>")
 if [ "$@" = "true" ]; then
     echo "Debug logging level: maximum"

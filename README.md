@@ -1,4 +1,4 @@
-Omni Core (beta) integration/staging tree
+ZURBank (beta) integration/staging tree
 =========================================
 
 [![Build Status](https://travis-ci.org/zurcoin/zurbank.svg?branch=zurbank-0.0.10)](https://travis-ci.org/zurcoin/zurbank)
@@ -9,10 +9,10 @@ The Omni Layer is a communications protocol that uses the Bitcoin block chain to
 
 http://www.omnilayer.org
 
-What is Omni Core
+What is ZURBank
 -----------------
 
-Omni Core is a fast, portable Omni Layer implementation that is based off the Bitcoin Core codebase (currently 0.13.2). This implementation requires no external dependencies extraneous to Bitcoin Core, and is native to the Bitcoin network just like other Bitcoin nodes. It currently supports a wallet mode and is seamlessly available on three platforms: Windows, Linux and Mac OS. Omni Layer extensions are exposed via the JSON-RPC interface. Development has been consolidated on the Omni Core product, and it is the reference client for the Omni Layer.
+ZURBank is a fast, portable Omni Layer implementation that is based off the Bitcoin Core codebase (currently 0.13.2). This implementation requires no external dependencies extraneous to Bitcoin Core, and is native to the Bitcoin network just like other Bitcoin nodes. It currently supports a wallet mode and is seamlessly available on three platforms: Windows, Linux and Mac OS. Omni Layer extensions are exposed via the JSON-RPC interface. Development has been consolidated on the ZURBank product, and it is the reference client for the Omni Layer.
 
 Disclaimer, warning
 -------------------
@@ -20,9 +20,9 @@ This software is EXPERIMENTAL software. USE ON MAINNET AT YOUR OWN RISK.
 
 By default this software will use your existing Bitcoin wallet, including spending zurcoins contained therein (for example for transaction fees or trading).
 The protocol and transaction processing rules for the Omni Layer are still under active development and are subject to change in future.
-Omni Core should be considered an alpha-level product, and you use it at your own risk. Neither the Omni Foundation nor the Omni Core developers assumes any responsibility for funds misplaced, mishandled, lost, or misallocated.
+ZURBank should be considered an alpha-level product, and you use it at your own risk. Neither the Omni Foundation nor the ZURBank developers assumes any responsibility for funds misplaced, mishandled, lost, or misallocated.
 
-Further, please note that this installation of Omni Core should be viewed as EXPERIMENTAL. Your wallet data, zurcoins and Omni Layer tokens may be lost, deleted, or corrupted, with or without warning due to bugs or glitches. Please take caution.
+Further, please note that this installation of ZURBank should be viewed as EXPERIMENTAL. Your wallet data, zurcoins and Omni Layer tokens may be lost, deleted, or corrupted, with or without warning due to bugs or glitches. Please take caution.
 
 This software is provided open-source at no cost. You are responsible for knowing the law in your country and determining if your use of this software contravenes any local laws.
 
@@ -31,11 +31,11 @@ PLEASE DO NOT use wallet(s) with significant amounts of zurcoins or Omni Layer t
 Testnet
 -------
 
-Testnet mode allows Omni Core to be run on the Bitcoin testnet blockchain for safe testing.
+Testnet mode allows ZURBank to be run on the Bitcoin testnet blockchain for safe testing.
 
-1. To run Omni Core in testnet mode, run Omni Core with the following option in place: `-testnet`.
+1. To run ZURBank in testnet mode, run ZURBank with the following option in place: `-testnet`.
 
-2. To receive OMN (and TOMN) on testnet please send TZUR to `moneyqMan7uh8FqdCA2BV5yZ8qVrc9ikLP`. For each 1 TZUR you will receive 100 OMN and 100 TOMN.
+2. To receive OMN (and TOMN) on testnet please send TZUR to `pxELuroPRgD7Di8hQikT4fqdK7xoYKdrZy`. For each 1 TZUR you will receive 100 OMN and 100 TOMN.
 
 Dependencies
 ------------
@@ -44,7 +44,7 @@ Boost >= 1.53
 Installation
 ------------
 
-You will need appropriate libraries to run Omni Core on Unix,
+You will need appropriate libraries to run ZURBank on Unix,
 please see [doc/build-unix.md](doc/build-unix.md) for the full listing.
 
 You will need to install git & pkg-config:
@@ -54,7 +54,7 @@ sudo apt-get install git
 sudo apt-get install pkg-config
 ```
 
-Clone the Omni Core repository:
+Clone the ZURBank repository:
 
 ```
 git clone https://github.com/zurcoin/zurbank.git
@@ -73,15 +73,15 @@ Once complete:
 ```
 cd src/
 ```
-And start Omni Core using `./zurbankd` (or `./qt/zurbank-qt` if built with UI). The inital parse step for a first time run
+And start ZURBank using `./zurbankd` (or `./qt/zurbank-qt` if built with UI). The inital parse step for a first time run
 will take up to 60 minutes or more, during this time your client will scan the blockchain for Omni Layer transactions. You can view the
 output of the parsing at any time by viewing the log located in your datadir, by default: `~/.zurcoin/zurbank.log`.
 
-Omni Core requires the transaction index to be enabled. Add an entry to your zurcoin.conf file for `txindex=1` to enable it or Omni Core will refuse to start.
+ZURBank requires the transaction index to be enabled. Add an entry to your zurcoin.conf file for `txindex=1` to enable it or ZURBank will refuse to start.
 
 If a message is returned asking you to reindex, pass the `-reindex` flag as startup option. The reindexing process can take serveral hours.
 
-To issue RPC commands to Omni Core you may add the `-server=1` CLI flag or add an entry to the zurcoin.conf file (located in `~/.zurcoin/` by default).
+To issue RPC commands to ZURBank you may add the `-server=1` CLI flag or add an entry to the zurcoin.conf file (located in `~/.zurcoin/` by default).
 
 In zurcoin.conf:
 ```

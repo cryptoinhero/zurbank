@@ -144,10 +144,10 @@ int64_t GetAvailableTokenBalance(const std::string& address, uint32_t propertyId
 int64_t GetReservedTokenBalance(const std::string& address, uint32_t propertyId);
 int64_t GetFrozenTokenBalance(const std::string& address, uint32_t propertyId);
 
-/** Global handler to initialize Omni Core. */
+/** Global handler to initialize ZURBank. */
 int mastercore_init();
 
-/** Global handler to shut down Omni Core. */
+/** Global handler to shut down ZURBank. */
 int mastercore_shutdown();
 
 /** Block and transaction handlers. */

@@ -116,7 +116,7 @@ bool fLogIPs = DEFAULT_LOGIPS;
 std::atomic<bool> fReopenDebugLog(false);
 CTranslationInterface translationInterface;
 
-/** Flag to indicate, whether the Omni Core log file should be reopened. */
+/** Flag to indicate, whether the ZURBank log file should be reopened. */
 std::atomic<bool> fReopenZurBankLog(false);
 
 /** Init OpenSSL library multithreading support */

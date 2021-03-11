@@ -1,4 +1,4 @@
-Omni Core v0.0.10
+ZURBank v0.0.10
 =================
 
 v0.0.10 is a major release and consensus critical in terms of the Omni Layer protocol rules. An upgrade is mandatory, and highly recommended. Prior releases will not be compatible with new behavior in this release.
@@ -10,7 +10,7 @@ Please report bugs using the issue tracker on GitHub:
 Table of contents
 =================
 
-- [Omni Core v0.0.10](#omni-core-v0010)
+- [ZURBank v0.0.10](#omni-core-v0010)
 - [Upgrading and downgrading](#upgrading-and-downgrading)
   - [How to upgrade](#how-to-upgrade)
   - [Downgrading](#downgrading)
@@ -20,7 +20,7 @@ Table of contents
   - [Headers-first synchronization](#headers-first-synchronization)
   - [Dust threshold values](#dust-threshold-values)
   - [Transaction fee changes](#transaction-fee-changes)
-  - [Rebranding to Omni Core](#rebranding-to-omni-core)
+  - [Rebranding to ZURBank](#rebranding-to-omni-core)
   - [Incompatible API changes](#incompatible-api-changes)
   - [Feature and consensus rule activations](#feature-and-consensus-rule-activations)
 - [Consensus affecting changes](#consensus-affecting-changes)
@@ -38,7 +38,7 @@ Table of contents
   - [Built-in consensus checks](#built-in-consensus-checks)
   - [Checkpoints and faster initial transaction scanning](#checkpoints-and-faster-initial-transaction-scanning)
   - [Disable-wallet mode](#disable-wallet-mode)
-  - [CI and testing of Omni Core](#ci-and-testing-of-omni-core)
+  - [CI and testing of ZURBank](#ci-and-testing-of-omni-core)
 - [Change log](#change-log)
 - [Credits](#credits)
 
@@ -48,19 +48,19 @@ Upgrading and downgrading
 How to upgrade
 --------------
 
-If you are running Bitcoin Core or an older version of Omni Core, shut it down. Wait until it has completely shut down, then copy the new version of `zurbankd`, `zurbank-cli` and `zurbank-qt`. On Microsoft Windows the setup routine can be used to automate these steps.
+If you are running Bitcoin Core or an older version of ZURBank, shut it down. Wait until it has completely shut down, then copy the new version of `zurbankd`, `zurbank-cli` and `zurbank-qt`. On Microsoft Windows the setup routine can be used to automate these steps.
 
-During the first startup historical Omni transactions are reprocessed and Omni Core will not be usable for approximately 15 minutes up to two hours. The progress of the initial scan is reported on the console, the GUI and written to the `debug.log`. The scan may be interrupted, but can not be resumed, and then needs to start from the beginning.
+During the first startup historical Omni transactions are reprocessed and ZURBank will not be usable for approximately 15 minutes up to two hours. The progress of the initial scan is reported on the console, the GUI and written to the `debug.log`. The scan may be interrupted, but can not be resumed, and then needs to start from the beginning.
 
 Downgrading
 -----------
 
-Downgrading to an Omni Core version prior 0.0.10 is generally not supported as older versions will not provide accurate information due to the changes in consensus rules.
+Downgrading to an ZURBank version prior 0.0.10 is generally not supported as older versions will not provide accurate information due to the changes in consensus rules.
 
 Compatibility with Bitcoin Core
 -------------------------------
 
-Omni Core is based on Bitcoin Core 0.10.4 and can be used as replacement for Bitcoin Core. Switching between Omni Core and Bitcoin Core is fully supported at any time.
+ZURBank is based on Bitcoin Core 0.10.4 and can be used as replacement for Bitcoin Core. Switching between ZURBank and Bitcoin Core is fully supported at any time.
 
 Downgrading to a Bitcoin Core version prior 0.10 is not supported due to the new headers-first synchronization.
 
@@ -70,7 +70,7 @@ Imported changes and notes
 Upgrade to Bitcoin Core 0.10.4
 ------------------------------
 
-The underlying base of Omni Core was upgraded from Bitcoin Core 0.9.5 to Bitcoin Core 0.10.4.
+The underlying base of ZURBank was upgraded from Bitcoin Core 0.9.5 to Bitcoin Core 0.10.4.
 
 Please see the following release notes for further details:
 
@@ -94,7 +94,7 @@ The default `minrelaytxfee` was raised from `0.00001` to `0.00005` in Bitcoin Co
 
 The minimum relay fee influences the "dust threshold", and has an impact on the output values of Omni transactions, which are chosen to be as low as possible. As per default, Omni transactions created with Master Core had output values between `0.00000546` ZUR and `0.00000882` ZUR, whereby the new output values are between `0.0000273` ZUR and `0.0000441` ZUR.
 
-To continue to create transactions with lower values, start Omni Core with `-minrelaytxfee=0.00001` or add the following to your `zurcoin.conf`:
+To continue to create transactions with lower values, start ZURBank with `-minrelaytxfee=0.00001` or add the following to your `zurcoin.conf`:
 ```
 minrelaytxfee=0.00001
 ```
@@ -122,10 +122,10 @@ New RPC commands for fee estimation:
 Please note, the fee estimation is not necessarily accurate.
 
 
-Rebranding to Omni Core
+Rebranding to ZURBank
 -----------------------
 
-Master Core was re-branded to Omni Core on all levels:
+Master Core was re-branded to ZURBank on all levels:
 
 - `mastercored`, `mastercore-cli`, `mastercore-qt`, `test_mastercore` and `test_mastercore-qt` were renamed to `zurbankd`, `zurbank-cli`, `zurbank-qt`, `test_zurbank` and `test_zurbank-qt`
 - the debug log file `mastercore.log` was renamed  to `zurbank.log`
@@ -143,7 +143,7 @@ The values associated with `"action"` were renamed from `"New"`, `"Update"`, `"C
 Feature and consensus rule activations
 --------------------------------------
 
-Omni Core 0.0.10 introduces feature activations, a new concept that allows the Omni team to decouple the release process from the process of making new features live.
+ZURBank 0.0.10 introduces feature activations, a new concept that allows the Omni team to decouple the release process from the process of making new features live.
 
 Prior to 0.0.10, the block height that a new feature would be made live was hard coded, placing substantial limits on both the frequency of releases and the flexibility in introducing new features. The feature activations system allows to separate the release process and activation of features by allowing the Omni team to activate features with a special Omni transaction instead of with a hard coded block height within a specific release.
 
@@ -155,7 +155,7 @@ Prior to all activations, additional notifications are published via different c
 - [the mailing list for announcements](https://groups.google.com/a/mastercoin.org/d/forum/announcements)
 - http://blog.omni.foundation
 
-As per default Omni Core accepts activation messages from the following source:
+As per default ZURBank accepts activation messages from the following source:
 ```
 {
   "address": "3Fc5gWzEQh1YGeqVXH6E4GDEGgbZJREJQ3",
@@ -179,7 +179,7 @@ The transaction format of activation messages is as follows:
 | Transaction type           | 16-bit unsigned | 65534                              |
 | Feature identifier         | 16-bit unsigned | 1 (Class C activation)             |
 | Activation block           | 32-bit unsigned | 385000                             |
-| Min. client version        | 32-bit unsigned | 1000000 (Omni Core 0.0.10)         |
+| Min. client version        | 32-bit unsigned | 1000000 (ZURBank 0.0.10)         |
 
 Should a particular client version not support a new feature when it is activated, the client will shut down to prevent providing potentially inaccurate data. In this case the client should be upgraded. Whilst this behavior can be overridden with the configuration option `-overrideforcedshutdown`, it is strongly recommended against.
 
@@ -192,14 +192,14 @@ Consensus affecting changes
 
 Starting with this version, all changes of the consensus rules are enabled by activation transactions.
 
-Please note, while Omni Core 0.0.10 contains support for several new rules and features they are not enabled immediately and will be activated via the feature activation mechanism described above.
+Please note, while ZURBank 0.0.10 contains support for several new rules and features they are not enabled immediately and will be activated via the feature activation mechanism described above.
 
 It follows an overview and a description of the consensus rule changes:
 
 Data embedding with OP_RETURN
 -----------------------------
 
-Omni Core 0.0.10 contains support for Class C transactions which move the data encoding from bare-multisig data outputs to an `OP_RETURN` output. `OP_RETURN` outputs carry no output value and can be immediately pruned.
+ZURBank 0.0.10 contains support for Class C transactions which move the data encoding from bare-multisig data outputs to an `OP_RETURN` output. `OP_RETURN` outputs carry no output value and can be immediately pruned.
 
 In addition to migrating data encoding to `OP_RETURN`, the requirement to send an output to the Exodus address has also been removed with Class C. Instead the bytes `0x6f6d6e69` ("omni") are prefixed to the data payload to provide marker identification.
 
@@ -214,7 +214,7 @@ This change is identified by `"featureid": 1` and labeled by the GUI as `"Class 
 Distributed token exchange
 --------------------------
 
-The distributed token exchange, or "MetaDEx", was integrated into Omni Core, to support trading of tokens with automated order matching.
+The distributed token exchange, or "MetaDEx", was integrated into ZURBank, to support trading of tokens with automated order matching.
 
 Four new transaction types were added.
 
@@ -384,14 +384,14 @@ zurbankd -omnidebug=parser -omnidebug=parser_data -omnidebug=vin -omnidebug=scri
 Configuration options
 ---------------------
 
-For a listing of other Omni Core specific configuration options see:
+For a listing of other ZURBank specific configuration options see:
 
 - https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/configuration.md
 
 Various performance improvements
 --------------------------------
 
-Omni Core was improved on several levels to increase performance and responsiveness.
+ZURBank was improved on several levels to increase performance and responsiveness.
 
 Previously RPC requests were blocking, creating a bottleneck for the JSON-RPC API and the whole application. Due to much finer and more targeted locking of critical sections, threads are now only blocked when they need to be, which allows concurrent requests without immediately creating a queue. The number of threads designated to handle RPC requests can be configured with the option `-rpcthreads=<n threads>`, which is set to `4` threads as per default.
 
@@ -402,46 +402,46 @@ Most notably on Microsoft Windows, many updates of the GUI, for example when con
 Built-in consensus checks
 -------------------------
 
-It is mandatory that the state of the system is similar for all participants, and Omni Core 0.0.10 introduces the concept of "consensus hashes", which are a compact representation of the state. This allows to compare the state of the system with other participants, and to compare historical state with known reference states, to ensure consensus.
+It is mandatory that the state of the system is similar for all participants, and ZURBank 0.0.10 introduces the concept of "consensus hashes", which are a compact representation of the state. This allows to compare the state of the system with other participants, and to compare historical state with known reference states, to ensure consensus.
 
 To log consensus hashes, the configuration options `-omnidebug=consensus_hash` and `-omnidebug=consensus_hash_every_block` can be used.
 
 Checkpoints and faster initial transaction scanning
 ---------------------------------------------------
 
-When Omni Core is used the very first time, or when Omni Core hasn't been used for a longer period, then historical blocks are scanned for Omni transactions. With the introduction of "consensus hashes", a significant speed improvement during the initial stage was possible by skipping known blocks without Omni transactions, and by comparing the resulting state with checkpoints. If the state of the client doesn't match the reference state, the client shuts down to prevent providing inaccurate data.
+When ZURBank is used the very first time, or when ZURBank hasn't been used for a longer period, then historical blocks are scanned for Omni transactions. With the introduction of "consensus hashes", a significant speed improvement during the initial stage was possible by skipping known blocks without Omni transactions, and by comparing the resulting state with checkpoints. If the state of the client doesn't match the reference state, the client shuts down to prevent providing inaccurate data.
 
-Omni Core was intentionally not delivered with a snapshot of the most recent state, and transactions are fully verified in any case. One design goal of Omni Core has always been to minimize the role of central parties (in this case: the ones providing a snapshot or checkpoints), and to further minimize the dependency on a hardcoded list of information, the configuration option `-omniseedblockfilter=0` can be used to disable the skipping of blocks without Omni transactions.
+ZURBank was intentionally not delivered with a snapshot of the most recent state, and transactions are fully verified in any case. One design goal of ZURBank has always been to minimize the role of central parties (in this case: the ones providing a snapshot or checkpoints), and to further minimize the dependency on a hardcoded list of information, the configuration option `-omniseedblockfilter=0` can be used to disable the skipping of blocks without Omni transactions.
 
-The configuration option `-overrideforcedshutdown` can be used to prevent Omni Core from shutting down in case of a checkpoint mismatch. Using the latter is generally not recommended, as this exposes the user to data, which isn't considered as valid by other participants.
+The configuration option `-overrideforcedshutdown` can be used to prevent ZURBank from shutting down in case of a checkpoint mismatch. Using the latter is generally not recommended, as this exposes the user to data, which isn't considered as valid by other participants.
 
 Disable-wallet mode
 -------------------
 
-Since this version Omni Core can be build and used without wallet support.
+Since this version ZURBank can be build and used without wallet support.
 
-This can be handy, when using Omni Core as plain data provider, without the need to send transactions. [Data retrieval](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#data-retrieval) and [raw transaction](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#raw-transactions) API calls are enabled in this mode.
+This can be handy, when using ZURBank as plain data provider, without the need to send transactions. [Data retrieval](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#data-retrieval) and [raw transaction](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#raw-transactions) API calls are enabled in this mode.
 
-To compile Omni Core without wallet support (illustrated for Unix):
+To compile ZURBank without wallet support (illustrated for Unix):
 ```
 ./autogen.sh
 ./configure --disable-wallet
 make
 ```
 
-To disable to wallet via configuration options start Omni Core with `-disablewallet`, or add the following to your `zurcoin.conf`:
+To disable to wallet via configuration options start ZURBank with `-disablewallet`, or add the following to your `zurcoin.conf`:
 ```
 disablewallet=1
 ```
 
-CI and testing of Omni Core
+CI and testing of ZURBank
 ---------------------------
 
-As of now, Omni Core 0.10 has nearly 5000 lines of source code for unit tests in addition to the unit tests inherited from Bitcoin Core. Furthermore [OmniJ](https://github.com/zurcoin/OmniJ#omni-integration-testing-with-spock-framework) is used for integration testing.
+As of now, ZURBank 0.10 has nearly 5000 lines of source code for unit tests in addition to the unit tests inherited from Bitcoin Core. Furthermore [OmniJ](https://github.com/zurcoin/OmniJ#omni-integration-testing-with-spock-framework) is used for integration testing.
 
 To run the unit tests locally, start `test_zurbank` or `test_zurbank-qt`. On Unix, the integration tests can be started with `qa/pull-tester/zurbank-rpc-tests.sh`. Please note, the script for the integration tests is not included in the release packages. For other operating systems, or to manually run the integration tests, see the [instructions for OmniJ](https://github.com/zurcoin/OmniJ#omni-integration-testing-with-spock-framework).
 
-Travis CI was integrated into the work flow, to automatically build and test Omni Core on several different platforms and operating systems.
+Travis CI was integrated into the work flow, to automatically build and test ZURBank on several different platforms and operating systems.
 
 Change log
 ==========
@@ -468,7 +468,7 @@ The following list includes relevant pull requests merged into this release:
 - #86 Return all available information via `validateaddress`
 - #98 Indicate "pending" status of outgoing transactions
 - #109 Log every invalid processing of Omni transactions
-- #91 Rebrand project to Omni Core
+- #91 Rebrand project to ZURBank
 - #91 Rename files to `zurbank-qt`, `zurbankd`, `zurbank-cli`, ...
 - #102, #126 Fully support cross-platform, and deterministic, building
 - #113, #118 Unify and improve RPC help descriptions
@@ -484,7 +484,7 @@ The following list includes relevant pull requests merged into this release:
 - #146 Fix trading restrictions for testnet
 - #136 Skip loading unneeded blocks during initial parsing
 - #150 #152 Add MetaDEx guide documentation
-- #149 Update Omni Core API documentation
+- #149 Update ZURBank API documentation
 - #156 Move simple send logic and friends to the other logic methods
 - #159 Implement and switch to Feature-Activation-By-Message
 - #161 Don't spam log about non-sequential seqence numbers
@@ -540,11 +540,11 @@ The following list includes relevant pull requests merged into this release:
 - #274 Add consensus checkpoint for block 380000
 - #276 Update seed blocks for blocks 370,000 to 380,000
 - #278 Replace splashes to remove OmniWallet branding
-- #269 Add release notes for Omni Core 0.0.10
+- #269 Add release notes for ZURBank 0.0.10
 - #162 Bump version to 0.0.10.0-rc1
 - #282 Update base to Bitcoin Core 0.10.4
 - #285 Don't use "N/A" label for transactions with type 0
-- #286 Bump version to Omni Core 0.0.10-rc3
+- #286 Bump version to ZURBank 0.0.10-rc3
 - #288 Expose payload over RPC and add payload size
 - #291 Add error handlers for "omni_getpayload"
 - #292 Add API documentation for "omni_getpayload"
@@ -552,10 +552,10 @@ The following list includes relevant pull requests merged into this release:
 - #303 Force UI update every block with Omni transactions
 - #305 Change default confirm target to 6 blocks
 - #307 Update release notes for 0.0.10
-- #306 Bump version to Omni Core 0.0.10-rel
+- #306 Bump version to ZURBank 0.0.10-rel
 ```
 
 Credits
 =======
 
-Thanks to everyone who contributed to this release, and especially the Bitcoin Core developers for providing the foundation for Omni Core!
+Thanks to everyone who contributed to this release, and especially the Bitcoin Core developers for providing the foundation for ZURBank!

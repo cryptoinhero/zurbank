@@ -54,7 +54,7 @@ extern bool fLogIPs;
 extern std::atomic<bool> fReopenDebugLog;
 extern CTranslationInterface translationInterface;
 
-/** Flag to indicate, whether the Omni Core log file should be reopened. */
+/** Flag to indicate, whether the ZURBank log file should be reopened. */
 extern std::atomic<bool> fReopenZurBankLog;
 
 extern const char * const BITCOIN_CONF_FILENAME;

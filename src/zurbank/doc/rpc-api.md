@@ -1,9 +1,9 @@
 JSON-RPC API
 ============
 
-Omni Core is a fork of Bitcoin Core, with Omni Protocol feature support added as a new layer of functionality on top. As such interacting with the API is done in the same manner (JSON-RPC) as Bitcoin Core, simply with additional RPCs available for utilizing Omni Protocol features.
+ZURBank is a fork of Bitcoin Core, with Omni Protocol feature support added as a new layer of functionality on top. As such interacting with the API is done in the same manner (JSON-RPC) as Bitcoin Core, simply with additional RPCs available for utilizing Omni Protocol features.
 
-As all existing Bitcoin Core functionality is inherent to Omni Core, the RPC port by default remains as `8372` as per Bitcoin Core.  If you wish to run Omni Core in tandem with Bitcoin Core (eg. via a separate datadir) you may utilize the `-rpcport<port>` option to nominate an alternative port number.
+As all existing Bitcoin Core functionality is inherent to ZURBank, the RPC port by default remains as `8372` as per Bitcoin Core.  If you wish to run ZURBank in tandem with Bitcoin Core (eg. via a separate datadir) you may utilize the `-rpcport<port>` option to nominate an alternative port number.
 
 All available commands can be listed with `"help"`, and information about a specific command can be retrieved with `"help <command>"`.
 
@@ -822,7 +822,7 @@ Returns the token balance for a given address and property.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getbalance", "1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P" 1
+$ zurbank-cli "omni_getbalance", "UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6" 1
 ```
 
 ---
@@ -885,7 +885,7 @@ Returns a list of all token balances for a given address.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getallbalancesforaddress" "1EXoDusjGwvnjZUyKkxZ4UHEf77z6A5S4P"
+$ zurbank-cli "omni_getallbalancesforaddress" "UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6"
 ```
 
 ---
@@ -2690,7 +2690,7 @@ $ zurbank-cli "omni_getfeedistributions" 31
 
 ## Configuration
 
-The RPCs for the configuration can be used to alter Omni Core settings.
+The RPCs for the configuration can be used to alter ZURBank settings.
 
 ### omni_setautocommit
 
@@ -2719,7 +2719,7 @@ $ zurbank-cli "omni_setautocommit" false
 
 To ensure backwards compatibility, depreciated RPCs are kept for at least one major version.
 
-The following calls are replaced in Omni Core 0.0.10, and queries with the old command are forwarded.
+The following calls are replaced in ZURBank 0.0.10, and queries with the old command are forwarded.
 
 - `send_MP` by `omni_send`
 - `sendtoowners_MP` by `omni_sendsto`

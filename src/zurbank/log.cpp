@@ -84,7 +84,7 @@ static boost::once_flag debugLogInitFlag = BOOST_ONCE_INIT;
  */
 static FILE* fileout = NULL;
 static boost::mutex* mutexDebugLog = NULL;
-/** Flag to indicate, whether the Omni Core log file should be reopened. */
+/** Flag to indicate, whether the ZURBank log file should be reopened. */
 extern std::atomic<bool> fReopenZurBankLog;
 /**
  * Returns path for debug log file.

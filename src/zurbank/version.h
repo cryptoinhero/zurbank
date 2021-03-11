@@ -6,7 +6,7 @@
 #else
 
 //
-// Omni Core version information are also to be defined in configure.ac.
+// ZURBank version information are also to be defined in configure.ac.
 //
 // During the configuration, this information are used for other places.
 //
@@ -35,14 +35,14 @@
 
 #include <string>
 
-//! Omni Core client version
+//! ZURBank client version
 static const int ZURBANK_VERSION =
                     +100000000000 * ZURBANK_VERSION_MAJOR
                     +    10000000 * ZURBANK_VERSION_MINOR
                     +        1000 * ZURBANK_VERSION_PATCH
                     +           1 * ZURBANK_VERSION_BUILD;
 
-//! Returns formatted Omni Core version, e.g. "1.2.0"
+//! Returns formatted ZURBank version, e.g. "1.2.0"
 const std::string ZurBankVersion();
 
 //! Returns formatted Bitcoin Core version, e.g. "0.10", "0.9.3"

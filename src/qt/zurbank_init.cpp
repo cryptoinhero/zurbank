@@ -27,10 +27,10 @@ static bool getDisclaimerDialogResult()
     "zurcoins contained therein (for example for transaction fees or trading).\n\n"
     "The protocol and transaction processing rules for the Omni Layer are still under "
     "active development and are subject to change in future.\n\n"
-    "Omni Core should be considered an alpha-level product, and you use it at your "
-    "own risk. Neither the Omni Foundation nor the Omni Core developers assumes "
+    "ZURBank should be considered an alpha-level product, and you use it at your "
+    "own risk. Neither the Omni Foundation nor the ZURBank developers assumes "
     "any responsibility for funds misplaced, mishandled, lost, or misallocated.\n\n"
-    "Further, please note that this installation of Omni Core should be viewed as "
+    "Further, please note that this installation of ZURBank should be viewed as "
     "EXPERIMENTAL. Your wallet data, zurcoins and Omni Layer tokens may be lost, "
     "deleted, or corrupted, with or without warning due to bugs or glitches. "
     "Please take caution.\n\n"
@@ -104,7 +104,7 @@ bool AskUserToAcknowledgeRisks()
 }
 
 /**
- * Setup and initialization related to Omni Core Qt
+ * Setup and initialization related to ZURBank Qt
  *
  * @return True if the initialization was successful
  */

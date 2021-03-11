@@ -135,7 +135,7 @@ bool AppInit(int argc, char* argv[])
         fDaemon = GetBoolArg("-daemon", false);
         if (fDaemon)
         {
-            fprintf(stdout, "Omni Core server starting\n");
+            fprintf(stdout, "ZURBank server starting\n");
 
             // Daemonize
             pid_t pid = fork();

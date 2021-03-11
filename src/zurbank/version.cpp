@@ -15,7 +15,7 @@
 #    define ZURBANK_VERSION_SUFFIX ""
 #endif
 
-//! Returns formatted Omni Core version, e.g. "1.2.0" or "1.3.4.1"
+//! Returns formatted ZURBank version, e.g. "1.2.0" or "1.3.4.1"
 const std::string ZurBankVersion()
 {
     if (ZURBANK_VERSION_BUILD) {

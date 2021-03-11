@@ -18,7 +18,7 @@ printf "   * Funding the address with some testnet ZUR for fees\n"
 $SRCDIR/zurbank-cli --regtest sendtoaddress $ADDR 20 >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
 printf "   * Participating in the Exodus crowdsale to obtain some OMNI\n"
-JSON="{\"moneyqMan7uh8FqdCA2BV5yZ8qVrc9ikLP\":10,\""$ADDR"\":4}"
+JSON="{\"pxELuroPRgD7Di8hQikT4fqdK7xoYKdrZy\":10,\""$ADDR"\":4}"
 $SRCDIR/zurbank-cli --regtest sendmany OMNIAccount $JSON >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
 printf "   * Creating test properties\n"
