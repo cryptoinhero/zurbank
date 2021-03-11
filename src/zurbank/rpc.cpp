@@ -30,7 +30,7 @@
 #include "zurbank/sto.h"
 #include "zurbank/tally.h"
 #include "zurbank/tx.h"
-#include "zurbank/utilsbitcoin.h"
+#include "zurbank/utilszurcoin.h"
 #include "zurbank/version.h"
 #include "zurbank/walletfetchtxs.h"
 #include "zurbank/walletutils.h"
@@ -1604,7 +1604,7 @@ UniValue omni_gettradehistoryforaddress(const UniValue& params, bool fHelp)
             "    \"sendingaddress\" : \"address\",                  (string) the Bitcoin address of the trader\n"
             "    \"ismine\" : true|false,                         (boolean) whether the order involes an address in the wallet\n"
             "    \"confirmations\" : nnnnnnnnnn,                  (number) the number of transaction confirmations\n"
-            "    \"fee\" : \"n.nnnnnnnn\",                          (string) the transaction fee in bitcoins\n"
+            "    \"fee\" : \"n.nnnnnnnn\",                          (string) the transaction fee in zurcoins\n"
             "    \"blocktime\" : nnnnnnnnnn,                      (number) the timestamp of the block that contains the transaction\n"
             "    \"valid\" : true|false,                          (boolean) whether the transaction is valid\n"
             "    \"version\" : n,                                 (number) the transaction version\n"
@@ -1733,7 +1733,7 @@ UniValue omni_getactivedexsells(const UniValue& params, bool fHelp)
             "    \"propertyid\" : n,                   (number) the identifier of the tokens for sale\n"
             "    \"seller\" : \"address\",               (string) the Bitcoin address of the seller\n"
             "    \"amountavailable\" : \"n.nnnnnnnn\",   (string) the number of tokens still listed for sale and currently available\n"
-            "    \"bitcoindesired\" : \"n.nnnnnnnn\",    (string) the number of bitcoins desired in exchange\n"
+            "    \"zurcoindesired\" : \"n.nnnnnnnn\",    (string) the number of zurcoins desired in exchange\n"
             "    \"unitprice\" : \"n.nnnnnnnn\" ,        (string) the unit price (BTC/token)\n"
             "    \"timelimit\" : nn,                   (number) the time limit in blocks a buyer has to pay following a successful accept\n"
             "    \"minimumfee\" : \"n.nnnnnnnn\",        (string) the minimum mining fee a buyer has to pay to accept this offer\n"
@@ -1744,7 +1744,7 @@ UniValue omni_getactivedexsells(const UniValue& params, bool fHelp)
             "        \"block\" : nnnnnn,                   (number) the index of the block that contains the \"accept\" order\n"
             "        \"blocksleft\" : nn,                  (number) the number of blocks left to pay\n"
             "        \"amount\" : \"n.nnnnnnnn\"             (string) the amount of tokens accepted and reserved\n"
-            "        \"amounttopay\" : \"n.nnnnnnnn\"        (string) the amount in bitcoins needed finalize the trade\n"
+            "        \"amounttopay\" : \"n.nnnnnnnn\"        (string) the amount in zurcoins needed finalize the trade\n"
             "      },\n"
             "      ...\n"
             "    ]\n"
@@ -1789,20 +1789,20 @@ UniValue omni_getactivedexsells(const UniValue& params, bool fHelp)
         // TODO: no math, and especially no rounding here (!)
         // TODO: no math, and especially no rounding here (!)
 
-        // calculate unit price and updated amount of bitcoin desired
+        // calculate unit price and updated amount of zurcoin desired
         double unitPriceFloat = 0.0;
         if ((sellOfferAmount > 0) && (sellBitcoinDesired > 0)) {
             unitPriceFloat = (double) sellBitcoinDesired / (double) sellOfferAmount; // divide by zero protection
         }
         int64_t unitPrice = rounduint64(unitPriceFloat * COIN);
-        int64_t bitcoinDesired = calculateDesiredBTC(sellOfferAmount, sellBitcoinDesired, amountAvailable);
+        int64_t zurcoinDesired = calculateDesiredBTC(sellOfferAmount, sellBitcoinDesired, amountAvailable);
 
         UniValue responseObj(UniValue::VOBJ);
         responseObj.push_back(Pair("txid", txid));
         responseObj.push_back(Pair("propertyid", (uint64_t) propertyId));
         responseObj.push_back(Pair("seller", seller));
         responseObj.push_back(Pair("amountavailable", FormatDivisibleMP(amountAvailable)));
-        responseObj.push_back(Pair("bitcoindesired", FormatDivisibleMP(bitcoinDesired)));
+        responseObj.push_back(Pair("zurcoindesired", FormatDivisibleMP(zurcoinDesired)));
         responseObj.push_back(Pair("unitprice", FormatDivisibleMP(unitPrice)));
         responseObj.push_back(Pair("timelimit", timeLimit));
         responseObj.push_back(Pair("minimumfee", FormatDivisibleMP(minFee)));
@@ -1947,7 +1947,7 @@ UniValue omni_gettransaction(const UniValue& params, bool fHelp)
             "  \"referenceaddress\" : \"address\",   (string) a Bitcoin address used as reference (if any)\n"
             "  \"ismine\" : true|false,            (boolean) whether the transaction involes an address in the wallet\n"
             "  \"confirmations\" : nnnnnnnnnn,     (number) the number of transaction confirmations\n"
-            "  \"fee\" : \"n.nnnnnnnn\",             (string) the transaction fee in bitcoins\n"
+            "  \"fee\" : \"n.nnnnnnnn\",             (string) the transaction fee in zurcoins\n"
             "  \"blocktime\" : nnnnnnnnnn,         (number) the timestamp of the block that contains the transaction\n"
             "  \"valid\" : true|false,             (boolean) whether the transaction is valid\n"
             "  \"invalidreason\" : \"reason\",     (string) if a transaction is invalid, the reason \n"
@@ -1990,7 +1990,7 @@ UniValue omni_listtransactions(const UniValue& params, bool fHelp)
             "    \"referenceaddress\" : \"address\",   (string) a Bitcoin address used as reference (if any)\n"
             "    \"ismine\" : true|false,            (boolean) whether the transaction involes an address in the wallet\n"
             "    \"confirmations\" : nnnnnnnnnn,     (number) the number of transaction confirmations\n"
-            "    \"fee\" : \"n.nnnnnnnn\",             (string) the transaction fee in bitcoins\n"
+            "    \"fee\" : \"n.nnnnnnnn\",             (string) the transaction fee in zurcoins\n"
             "    \"blocktime\" : nnnnnnnnnn,         (number) the timestamp of the block that contains the transaction\n"
             "    \"valid\" : true|false,             (boolean) whether the transaction is valid\n"
             "    \"version\" : n,                    (number) the transaction version\n"
@@ -2063,7 +2063,7 @@ UniValue omni_listpendingtransactions(const UniValue& params, bool fHelp)
             "    \"sendingaddress\" : \"address\",     (string) the Bitcoin address of the sender\n"
             "    \"referenceaddress\" : \"address\",   (string) a Bitcoin address used as reference (if any)\n"
             "    \"ismine\" : true|false,            (boolean) whether the transaction involes an address in the wallet\n"
-            "    \"fee\" : \"n.nnnnnnnn\",             (string) the transaction fee in bitcoins\n"
+            "    \"fee\" : \"n.nnnnnnnn\",             (string) the transaction fee in zurcoins\n"
             "    \"version\" : n,                    (number) the transaction version\n"
             "    \"type_int\" : n,                   (number) the transaction type as number\n"
             "    \"type\" : \"type\",                  (string) the transaction type as string\n"
@@ -2110,7 +2110,7 @@ UniValue omni_getinfo(const UniValue& params, bool fHelp)
             "  \"zurbankversion_int\" : xxxxxxx,       (number) client version as integer\n"
             "  \"zurbankversion\" : \"x.x.x.x-xxx\",     (string) client version\n"
             "  \"mastercoreversion\" : \"x.x.x.x-xxx\",   (string) client version (DEPRECIATED)\n"
-            "  \"bitcoincoreversion\" : \"x.x.x\",        (string) Bitcoin Core version\n"
+            "  \"zurcoincoreversion\" : \"x.x.x\",        (string) Bitcoin Core version\n"
             "  \"block\" : nnnnnn,                      (number) index of the last processed block\n"
             "  \"blocktime\" : nnnnnnnnnn,              (number) timestamp of the last processed block\n"
             "  \"blocktransactions\" : nnnn,            (number) Omni transactions found in the last processed block\n"
@@ -2132,11 +2132,11 @@ UniValue omni_getinfo(const UniValue& params, bool fHelp)
 
     UniValue infoResponse(UniValue::VOBJ);
 
-    // provide the mastercore and bitcoin version
+    // provide the mastercore and zurcoin version
     infoResponse.push_back(Pair("zurbankversion_int", OMNICORE_VERSION));
     infoResponse.push_back(Pair("zurbankversion", OmniCoreVersion()));
     infoResponse.push_back(Pair("mastercoreversion", OmniCoreVersion()));
-    infoResponse.push_back(Pair("bitcoincoreversion", BitcoinCoreVersion()));
+    infoResponse.push_back(Pair("zurcoincoreversion", BitcoinCoreVersion()));
 
     // provide the current block details
     int block = GetHeight();
@@ -2262,7 +2262,7 @@ UniValue omni_getsto(const UniValue& params, bool fHelp)
             "  \"sendingaddress\" : \"address\",   (string) the Bitcoin address of the sender\n"
             "  \"ismine\" : true|false,          (boolean) whether the transaction involes an address in the wallet\n"
             "  \"confirmations\" : nnnnnnnnnn,   (number) the number of transaction confirmations\n"
-            "  \"fee\" : \"n.nnnnnnnn\",           (string) the transaction fee in bitcoins\n"
+            "  \"fee\" : \"n.nnnnnnnn\",           (string) the transaction fee in zurcoins\n"
             "  \"blocktime\" : nnnnnnnnnn,       (number) the timestamp of the block that contains the transaction\n"
             "  \"valid\" : true|false,           (boolean) whether the transaction is valid\n"
             "  \"version\" : n,                  (number) the transaction version\n"
@@ -2310,7 +2310,7 @@ UniValue omni_gettrade(const UniValue& params, bool fHelp)
             "  \"sendingaddress\" : \"address\",                  (string) the Bitcoin address of the trader\n"
             "  \"ismine\" : true|false,                         (boolean) whether the order involes an address in the wallet\n"
             "  \"confirmations\" : nnnnnnnnnn,                  (number) the number of transaction confirmations\n"
-            "  \"fee\" : \"n.nnnnnnnn\",                          (string) the transaction fee in bitcoins\n"
+            "  \"fee\" : \"n.nnnnnnnn\",                          (string) the transaction fee in zurcoins\n"
             "  \"blocktime\" : nnnnnnnnnn,                      (number) the timestamp of the block that contains the transaction\n"
             "  \"valid\" : true|false,                          (boolean) whether the transaction is valid\n"
             "  \"version\" : n,                                 (number) the transaction version\n"

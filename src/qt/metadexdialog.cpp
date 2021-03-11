@@ -22,7 +22,7 @@
 #include "zurbank/sp.h"
 #include "zurbank/tally.h"
 #include "zurbank/uint256_extensions.h"
-#include "zurbank/utilsbitcoin.h"
+#include "zurbank/utilszurcoin.h"
 #include "zurbank/wallettxbuilder.h"
 #include "zurbank/walletutils.h"
 

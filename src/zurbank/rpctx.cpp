@@ -43,7 +43,7 @@ UniValue omni_funded_send(const UniValue& params, bool fHelp)
 
             "\nCreates and sends a funded simple send transaction.\n"
 
-            "\nAll bitcoins from the sender are consumed and if there are bitcoins missing, they are taken from the specified fee source. Change is sent to the fee source!\n"
+            "\nAll zurcoins from the sender are consumed and if there are zurcoins missing, they are taken from the specified fee source. Change is sent to the fee source!\n"
 
             "\nArguments:\n"
             "1. fromaddress          (string, required) the address to send the tokens from\n"
@@ -92,7 +92,7 @@ UniValue omni_funded_sendall(const UniValue& params, bool fHelp)
 
             "\nCreates and sends a transaction that transfers all available tokens in the given ecosystem to the recipient.\n"
 
-            "\nAll bitcoins from the sender are consumed and if there are bitcoins missing, they are taken from the specified fee source. Change is sent to the fee source!\n"
+            "\nAll zurcoins from the sender are consumed and if there are zurcoins missing, they are taken from the specified fee source. Change is sent to the fee source!\n"
 
             "\nArguments:\n"
             "1. fromaddress          (string, required) the address to the tokens send from\n"
@@ -138,7 +138,7 @@ UniValue omni_sendrawtx(const UniValue& params, bool fHelp)
             "2. rawtransaction       (string, required) the hex-encoded raw transaction\n"
             "3. referenceaddress     (string, optional) a reference address (none by default)\n"
             "4. redeemaddress        (string, optional) an address that can spent the transaction dust (sender by default)\n"
-            "5. referenceamount      (string, optional) a bitcoin amount that is sent to the receiver (minimal by default)\n"
+            "5. referenceamount      (string, optional) a zurcoin amount that is sent to the receiver (minimal by default)\n"
             "\nResult:\n"
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
             "\nExamples:\n"
@@ -183,7 +183,7 @@ UniValue omni_send(const UniValue& params, bool fHelp)
             "3. propertyid           (number, required) the identifier of the tokens to send\n"
             "4. amount               (string, required) the amount to send\n"
             "5. redeemaddress        (string, optional) an address that can spend the transaction dust (sender by default)\n"
-            "6. referenceamount      (string, optional) a bitcoin amount that is sent to the receiver (minimal by default)\n"
+            "6. referenceamount      (string, optional) a zurcoin amount that is sent to the receiver (minimal by default)\n"
 
             "\nResult:\n"
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
@@ -240,7 +240,7 @@ UniValue omni_sendall(const UniValue& params, bool fHelp)
             "2. toaddress            (string, required) the address of the receiver\n"
             "3. ecosystem            (number, required) the ecosystem of the tokens to send (1 for main ecosystem, 2 for test ecosystem)\n"
             "4. redeemaddress        (string, optional) an address that can spend the transaction dust (sender by default)\n"
-            "5. referenceamount      (string, optional) a bitcoin amount that is sent to the receiver (minimal by default)\n"
+            "5. referenceamount      (string, optional) a zurcoin amount that is sent to the receiver (minimal by default)\n"
 
             "\nResult:\n"
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
@@ -294,7 +294,7 @@ UniValue omni_senddexsell(const UniValue& params, bool fHelp)
             "1. fromaddress          (string, required) the address to send from\n"
             "2. propertyidforsale    (number, required) the identifier of the tokens to list for sale (must be 1 for OMN or 2 for TOMN)\n"
             "3. amountforsale        (string, required) the amount of tokens to list for sale\n"
-            "4. amountdesired        (string, required) the amount of bitcoins desired\n"
+            "4. amountdesired        (string, required) the amount of zurcoins desired\n"
             "5. paymentwindow        (number, required) a time limit in blocks a buyer has to pay following a successful accepting order\n"
             "6. minacceptfee         (string, required) a minimum mining fee a buyer has to pay to accept the offer\n"
             "7. action               (number, required) the action to take (1 for new offers, 2 to update\", 3 to cancel)\n"

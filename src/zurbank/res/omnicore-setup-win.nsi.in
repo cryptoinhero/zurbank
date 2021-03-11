@@ -11,7 +11,7 @@ SetCompressor /SOLID lzma
 !define URL http://www.omnilayer.org/
 
 # MUI Symbol Definitions
-!define MUI_ICON "@abs_top_srcdir@/share/pixmaps/bitcoin.ico"
+!define MUI_ICON "@abs_top_srcdir@/share/pixmaps/zurcoin.ico"
 !define MUI_WELCOMEFINISHPAGE_BITMAP "@abs_top_srcdir@/share/pixmaps/nsis-wizard.bmp"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
@@ -86,7 +86,7 @@ Section -Main SEC0000
     SetOutPath $INSTDIR
     WriteRegStr HKCU "${REGKEY}\Components" Main 1
 
-    # Remove old wxwidgets-based-bitcoin executable and locales:
+    # Remove old wxwidgets-based-zurcoin executable and locales:
     Delete /REBOOTOK $INSTDIR\zurbank.exe
     RMDir /r /REBOOTOK $INSTDIR\locale
 SectionEnd
@@ -108,10 +108,10 @@ Section -post SEC0001
     WriteRegStr HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" UninstallString $INSTDIR\uninstall.exe
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoModify 1
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoRepair 1
-    WriteRegStr HKCR "bitcoin" "URL Protocol" ""
-    WriteRegStr HKCR "bitcoin" "" "URL:Bitcoin"
-    WriteRegStr HKCR "bitcoin\DefaultIcon" "" $INSTDIR\zurbank-qt.exe
-    WriteRegStr HKCR "bitcoin\shell\open\command" "" '"$INSTDIR\zurbank-qt.exe" "%1"'
+    WriteRegStr HKCR "zurcoin" "URL Protocol" ""
+    WriteRegStr HKCR "zurcoin" "" "URL:Bitcoin"
+    WriteRegStr HKCR "zurcoin\DefaultIcon" "" $INSTDIR\zurbank-qt.exe
+    WriteRegStr HKCR "zurcoin\shell\open\command" "" '"$INSTDIR\zurbank-qt.exe" "%1"'
 SectionEnd
 
 # Macro for selecting uninstaller sections
@@ -150,7 +150,7 @@ Section -un.post UNSEC0001
     DeleteRegValue HKCU "${REGKEY}" Path
     DeleteRegKey /IfEmpty HKCU "${REGKEY}\Components"
     DeleteRegKey /IfEmpty HKCU "${REGKEY}"
-    DeleteRegKey HKCR "bitcoin"
+    DeleteRegKey HKCR "zurcoin"
     RmDir /REBOOTOK $SMPROGRAMS\$StartMenuGroup
     RmDir /REBOOTOK $INSTDIR
     Push $R0

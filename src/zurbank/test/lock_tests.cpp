@@ -1,6 +1,6 @@
 #include "random.h"
 #include "sync.h"
-#include "test/test_bitcoin.h"
+#include "test/test_zurcoin.h"
 #include "utiltime.h"
 
 #include <boost/bind.hpp>

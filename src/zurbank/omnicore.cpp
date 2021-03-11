@@ -31,7 +31,7 @@
 #include "zurbank/sp.h"
 #include "zurbank/tally.h"
 #include "zurbank/tx.h"
-#include "zurbank/utilsbitcoin.h"
+#include "zurbank/utilszurcoin.h"
 #include "zurbank/utilsui.h"
 #include "zurbank/version.h"
 #include "zurbank/walletcache.h"

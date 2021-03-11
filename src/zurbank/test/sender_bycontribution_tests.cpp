@@ -11,7 +11,7 @@
 #include "random.h"
 #include "script/script.h"
 #include "script/standard.h"
-#include "test/test_bitcoin.h"
+#include "test/test_zurcoin.h"
 
 #include <stdint.h>
 #include <algorithm>

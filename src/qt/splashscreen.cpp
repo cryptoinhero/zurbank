@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/bitcoin-config.h"
+#include "config/zurcoin-config.h"
 #endif
 
 #include "splashscreen.h"
@@ -21,7 +21,7 @@
 #endif
 
 #include "zurbank/version.h"
-#include "zurbank/utilsbitcoin.h"
+#include "zurbank/utilszurcoin.h"
 
 #include <QApplication>
 #include <QCloseEvent>

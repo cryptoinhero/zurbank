@@ -6,15 +6,15 @@ Omni Core can be configured by providing one or more optional command-line argum
 $ zurbankd -setting=value -setting=value
 ```
 
-All settings can alternatively also be configured via the `bitcoin.conf`.
+All settings can alternatively also be configured via the `zurcoin.conf`.
 
 Depending on the operating system, the default locations for the configuration file are:
 
-- Unix systems: `$HOME/.bitcoin/bitcoin.conf`
-- Mac OS X: `$HOME/Library/Application Support/Bitcoin/bitcoin.conf`
-- Microsoft Windows: `%APPDATA%/Bitcoin/bitcoin.conf`
+- Unix systems: `$HOME/.zurcoin/zurcoin.conf`
+- Mac OS X: `$HOME/Library/Application Support/Bitcoin/zurcoin.conf`
+- Microsoft Windows: `%APPDATA%/Bitcoin/zurcoin.conf`
 
-A typical `bitcoin.conf` may include:
+A typical `zurcoin.conf` may include:
 ```
 server=1
 rpcuser=zurbankrpc
@@ -33,7 +33,7 @@ omnidebug=pending
 
 To run and use Omni Core, no explicit configuration is necessary.
 
-More information about the general configuration and Bitcoin Core specific options are available in the [Bitcoin wiki](https://en.bitcoin.it/wiki/Running_Bitcoin).
+More information about the general configuration and Bitcoin Core specific options are available in the [Bitcoin wiki](https://en.zurcoin.it/wiki/Running_Bitcoin).
 
 #### General options:
 

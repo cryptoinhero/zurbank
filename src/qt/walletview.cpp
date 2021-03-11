@@ -7,7 +7,7 @@
 #include "addressbookpage.h"
 #include "askpassphrasedialog.h"
 #include "balancesdialog.h"
-#include "bitcoingui.h"
+#include "zurcoingui.h"
 #include "clientmodel.h"
 #include "guiutil.h"
 #include "optionsmodel.h"
@@ -53,7 +53,7 @@ WalletView::WalletView(const PlatformStyle *platformStyle, QWidget *parent):
 
     // Transactions page, Omni transactions in first tab, BTC only transactions in second tab
     transactionsPage = new QWidget(this);
-    bitcoinTXTab = new QWidget(this);
+    zurcoinTXTab = new QWidget(this);
     QVBoxLayout *vbox = new QVBoxLayout();
     QHBoxLayout *hbox_buttons = new QHBoxLayout();
     transactionView = new TransactionView(platformStyle, this);
@@ -66,13 +66,13 @@ WalletView::WalletView(const PlatformStyle *platformStyle, QWidget *parent):
     hbox_buttons->addStretch();
     hbox_buttons->addWidget(exportButton);
     vbox->addLayout(hbox_buttons);
-    bitcoinTXTab->setLayout(vbox);
+    zurcoinTXTab->setLayout(vbox);
     mpTXTab = new TXHistoryDialog;
     transactionsPage = new QWidget(this);
     QVBoxLayout *txvbox = new QVBoxLayout();
     txTabHolder = new QTabWidget();
     txTabHolder->addTab(mpTXTab,tr("Omni Layer"));
-    txTabHolder->addTab(bitcoinTXTab,tr("Bitcoin"));
+    txTabHolder->addTab(zurcoinTXTab,tr("Bitcoin"));
     txvbox->addWidget(txTabHolder);
     transactionsPage->setLayout(txvbox);
 

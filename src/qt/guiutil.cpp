@@ -4,8 +4,8 @@
 
 #include "guiutil.h"
 
-#include "bitcoinaddressvalidator.h"
-#include "bitcoinunits.h"
+#include "zurcoinaddressvalidator.h"
+#include "zurcoinunits.h"
 #include "qvalidatedlineedit.h"
 #include "walletmodel.h"
 
@@ -150,8 +150,8 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no bitcoin: URI
-    if(!uri.isValid() || uri.scheme() != QString("bitcoin"))
+    // return if URI is not valid or is no zurcoin: URI
+    if(!uri.isValid() || uri.scheme() != QString("zurcoin"))
         return false;
 
     SendCoinsRecipient rv;
@@ -211,13 +211,13 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert bitcoin:// to bitcoin:
+    // Convert zurcoin:// to zurcoin:
     //
-    //    Cannot handle this later, because bitcoin:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because zurcoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("bitcoin://", Qt::CaseInsensitive))
+    if(uri.startsWith("zurcoin://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 10, "bitcoin:");
+        uri.replace(0, 10, "zurcoin:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -225,7 +225,7 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString formatBitcoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("bitcoin:%1").arg(info.address);
+    QString ret = QString("zurcoin:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
@@ -750,7 +750,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         std::string chain = ChainNameFromCommandLine();
-        // Write a bitcoin.desktop file to the autostart directory:
+        // Write a zurcoin.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
@@ -775,7 +775,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl);
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl)
 {
-    // loop through the list of startup items and try to find the bitcoin app
+    // loop through the list of startup items and try to find the zurcoin app
     CFArrayRef listSnapshot = LSSharedFileListCopySnapshot(list, NULL);
     for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
         LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
@@ -807,21 +807,21 @@ LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef
 
 bool GetStartOnSystemStartup()
 {
-    CFURLRef bitcoinAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    CFURLRef zurcoinAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
     LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, bitcoinAppUrl);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, zurcoinAppUrl);
     return !!foundItem; // return boolified object
 }
 
 bool SetStartOnSystemStartup(bool fAutoStart)
 {
-    CFURLRef bitcoinAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
+    CFURLRef zurcoinAppUrl = CFBundleCopyBundleURL(CFBundleGetMainBundle());
     LSSharedFileListRef loginItems = LSSharedFileListCreate(NULL, kLSSharedFileListSessionLoginItems, NULL);
-    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, bitcoinAppUrl);
+    LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, zurcoinAppUrl);
 
     if(fAutoStart && !foundItem) {
-        // add bitcoin app to startup item list
-        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, bitcoinAppUrl, NULL, NULL);
+        // add zurcoin app to startup item list
+        LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, zurcoinAppUrl, NULL, NULL);
     }
     else if(!fAutoStart && foundItem) {
         // remove item

@@ -1,7 +1,7 @@
 #include "zurbank/script.h"
 
 #include "script/script.h"
-#include "test/test_bitcoin.h"
+#include "test/test_zurcoin.h"
 #include "util.h"
 
 #include <boost/test/unit_test.hpp>

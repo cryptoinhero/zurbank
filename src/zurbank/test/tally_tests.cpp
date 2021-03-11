@@ -1,6 +1,6 @@
 #include "zurbank/tally.h"
 
-#include "test/test_bitcoin.h"
+#include "test/test_zurcoin.h"
 
 #include <stdint.h>
 

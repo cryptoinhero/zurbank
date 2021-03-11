@@ -17,7 +17,7 @@
 #include "zurbank/zurbank.h"
 #include "zurbank/sp.h"
 #include "zurbank/pending.h"
-#include "zurbank/utilsbitcoin.h"
+#include "zurbank/utilszurcoin.h"
 #include "zurbank/walletutils.h"
 
 #include <stdint.h>

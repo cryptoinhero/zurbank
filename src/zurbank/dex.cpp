@@ -114,10 +114,10 @@ static int64_t calculateDesiredBTC(const int64_t amountOffered, const int64_t am
 }
 
 /**
- * Determines the amount of bitcoins desired, in case it needs to be recalculated.
+ * Determines the amount of zurcoins desired, in case it needs to be recalculated.
  *
  * TODO: don't expose it!
- * @return The amount of bitcoins desired
+ * @return The amount of zurcoins desired
  */
 int64_t calculateDesiredBTC(const int64_t amountOffered, const int64_t amountDesired, const int64_t amountAvailable)
 {

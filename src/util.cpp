@@ -4,7 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/bitcoin-config.h"
+#include "config/zurcoin-config.h"
 #endif
 
 #include "util.h"
@@ -536,14 +536,14 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good())
-        return; // No bitcoin.conf file is OK
+        return; // No zurcoin.conf file is OK
 
     set<string> setOptions;
     setOptions.insert("*");
 
     for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it)
     {
-        // Don't overwrite existing settings so command line settings override bitcoin.conf
+        // Don't overwrite existing settings so command line settings override zurcoin.conf
         string strKey = string("-") + it->string_key;
         string strValue = it->value[0];
         InterpretNegativeSetting(strKey, strValue);

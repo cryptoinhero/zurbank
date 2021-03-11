@@ -21,7 +21,7 @@
 #include "zurbank/sp.h"
 #include "zurbank/sto.h"
 #include "zurbank/tx.h"
-#include "zurbank/utilsbitcoin.h"
+#include "zurbank/utilszurcoin.h"
 #include "zurbank/walletutils.h"
 
 #include "chainparams.h"
@@ -352,7 +352,7 @@ void populateRPCTypeTradeOffer(CMPTransaction& omniObj, UniValue& txobj)
     txobj.push_back(Pair("propertyid", (uint64_t)propertyId));
     txobj.push_back(Pair("divisible", isPropertyDivisible(propertyId)));
     txobj.push_back(Pair("amount", FormatMP(propertyId, amountOffered)));
-    txobj.push_back(Pair("bitcoindesired", FormatDivisibleMP(amountDesired)));
+    txobj.push_back(Pair("zurcoindesired", FormatDivisibleMP(amountDesired)));
     txobj.push_back(Pair("timelimit",  temp_offer.getBlockTimeLimit()));
     txobj.push_back(Pair("feerequired", FormatDivisibleMP(temp_offer.getMinFee())));
     if (sellSubAction == 1) txobj.push_back(Pair("action", "new"));

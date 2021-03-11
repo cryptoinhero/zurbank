@@ -16,7 +16,7 @@ Table of contents
 - [Upgrading and downgrading](#upgrading-and-downgrading)
   - [How to upgrade](#how-to-upgrade)
   - [Downgrading](#downgrading)
-  - [Compatibility with Bitcoin Core](#compatibility-with-bitcoin-core)
+  - [Compatibility with Bitcoin Core](#compatibility-with-zurcoin-core)
 - [Notable changes](#notable-changes)
   - [Wiki for guiding new users and developers](#wiki-for-guiding-new-users-and-developers)
   - [Support for offline creation of raw Omni transactions](#support-for-offline-creation-of-raw-omni-transactions)
@@ -94,7 +94,7 @@ This can be used to pay for transaction fees, when the sender only has a tiny fr
 
 Creates and sends a funded simple send transaction.
 
-All bitcoins from the sender are consumed and if there are bitcoins missing, they are taken from the specified fee source. Change is sent to the fee source!
+All zurcoins from the sender are consumed and if there are zurcoins missing, they are taken from the specified fee source. Change is sent to the fee source!
 
 **Arguments:**
 
@@ -125,7 +125,7 @@ $ zurbank-cli "omni_funded_send" "1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH" \
 
 Creates and sends a transaction that transfers all available tokens in the given ecosystem to the recipient.
 
-All bitcoins from the sender are consumed and if there are bitcoins missing, they are taken from the specified fee source. Change is sent to the fee source!
+All zurcoins from the sender are consumed and if there are zurcoins missing, they are taken from the specified fee source. Change is sent to the fee source!
 
 **Arguments:**
 
@@ -349,7 +349,7 @@ The following list includes relevant pull requests merged into this release:
 - #727 Fix skipping balances, when using omni_getallbalancesforaddress
 - #728 Sign and broadcast funded transactions in one go
 - #741 Remove old reference to renamed file
-- #744 Clarify that bitcoins are meant in funded RPCs
+- #744 Clarify that zurcoins are meant in funded RPCs
 - #631 Bump version to Omni Core 0.3.1
 - #632 Add release notes for Omni Core 0.3.1
 - #746 Fix typo in release notes

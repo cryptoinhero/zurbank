@@ -55,7 +55,7 @@ public:
     */
     void setClientModel(ClientModel *clientModel);
     /** Set the wallet model.
-        The wallet model represents a bitcoin wallet, and offers access to the list of transactions, address book and sending
+        The wallet model represents a zurcoin wallet, and offers access to the list of transactions, address book and sending
         functionality.
     */
     void setWalletModel(WalletModel *walletModel);
@@ -88,7 +88,7 @@ private:
     MetaDExCancelDialog *cancelTab;
     TransactionView *transactionView;
     TXHistoryDialog *mpTXTab;
-    QWidget *bitcoinTXTab;
+    QWidget *zurcoinTXTab;
 
     QProgressDialog *progressDialog;
     const PlatformStyle *platformStyle;
@@ -111,7 +111,7 @@ public Q_SLOTS:
     void gotoSendCoinsPage(QString addr = "");
     /** Switch specifically to omni tx history tab */
     void gotoOmniHistoryTab();
-    /** Switch specifically to bitcoin tx history tab */
+    /** Switch specifically to zurcoin tx history tab */
     void gotoBitcoinHistoryTab();
     /** Switch to utility page */
     void gotoToolboxPage();

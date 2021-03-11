@@ -2,7 +2,7 @@
 #include "zurbank/version.h"
 
 #include "util.h"
-#include "test/test_bitcoin.h"
+#include "test/test_zurcoin.h"
 #include "tinyformat.h"
 
 #include <boost/test/unit_test.hpp>

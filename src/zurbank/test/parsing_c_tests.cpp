@@ -13,7 +13,7 @@
 #include "primitives/transaction.h"
 #include "script/script.h"
 #include "script/standard.h"
-#include "test/test_bitcoin.h"
+#include "test/test_zurcoin.h"
 #include "utilstrencodings.h"
 
 #include <stdint.h>

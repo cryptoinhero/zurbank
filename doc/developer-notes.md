@@ -118,7 +118,7 @@ to see it.
 
 **testnet and regtest modes**
 
-Run with the -testnet option to run with "play bitcoins" on the test network, if you
+Run with the -testnet option to run with "play zurcoins" on the test network, if you
 are testing multi-machine code that needs to operate across the internet.
 
 If you are testing something that can run on one machine, run with the -regtest option.
@@ -176,7 +176,7 @@ Threads
 
 - ThreadRPCServer : Remote procedure call handler, listens on port 8332 for connections and services them.
 
-- BitcoinMiner : Generates bitcoins (if wallet is enabled).
+- BitcoinMiner : Generates zurcoins (if wallet is enabled).
 
 - Shutdown : Does an orderly shutdown of everything.
 
@@ -423,7 +423,7 @@ Git and github tips
 
         [remote "upstream-pull"]
                 fetch = +refs/pull/*:refs/remotes/upstream-pull/*
-                url = git@github.com:bitcoin/bitcoin.git
+                url = git@github.com:zurcoin/zurcoin.git
 
   This will add an `upstream-pull` remote to your git repository, which can be fetched using `git fetch --all`
   or `git fetch upstream-pull`. Afterwards, you can use `upstream-pull/NUMBER/head` in arguments to `git show`,

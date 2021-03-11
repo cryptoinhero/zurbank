@@ -16,7 +16,7 @@ Table of contents
 - [Upgrading and downgrading](#upgrading-and-downgrading)
   - [How to upgrade](#how-to-upgrade)
   - [Downgrading](#downgrading)
-  - [Compatibility with Bitcoin Core](#compatibility-with-bitcoin-core)
+  - [Compatibility with Bitcoin Core](#compatibility-with-zurcoin-core)
 - [Consensus affecting changes](#consensus-affecting-changes)
     - [Freezing tokens for managed properties](#freezing-tokens-for-managed-properties)
 - [Notable changes](#notable-changes)

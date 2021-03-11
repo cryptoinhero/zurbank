@@ -17,7 +17,7 @@
 #include "zurbank/rules.h"
 #include "zurbank/sp.h"
 #include "zurbank/sto.h"
-#include "zurbank/utilsbitcoin.h"
+#include "zurbank/utilszurcoin.h"
 #include "zurbank/version.h"
 
 #include "amount.h"

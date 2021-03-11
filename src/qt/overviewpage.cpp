@@ -5,7 +5,7 @@
 #include "overviewpage.h"
 #include "ui_overviewpage.h"
 
-#include "bitcoinunits.h"
+#include "zurcoinunits.h"
 #include "clientmodel.h"
 #include "guiconstants.h"
 #include "guiutil.h"
@@ -24,7 +24,7 @@
 #include "zurbank/tx.h"
 #include "zurbank/parsing.h"
 #include "zurbank/pending.h"
-#include "zurbank/utilsbitcoin.h"
+#include "zurbank/utilszurcoin.h"
 #include "zurbank/walletutils.h"
 
 #include "main.h"
@@ -408,7 +408,7 @@ void OverviewPage::UpdatePropertyBalance(unsigned int propertyId, uint64_t avail
     propLabel->setStyleSheet("QLabel { font-weight:bold; }");
     vlayout->addWidget(propLabel);
 
-    if (propertyId == 0) { // override for bitcoin
+    if (propertyId == 0) { // override for zurcoin
         divisible = true;
         tokenStr = " BTC";
     } else {
@@ -419,7 +419,7 @@ void OverviewPage::UpdatePropertyBalance(unsigned int propertyId, uint64_t avail
     // Left Panel
     QVBoxLayout *vlayoutleft = new QVBoxLayout();
     QLabel *balReservedLabel = new QLabel;
-    if(propertyId != 0) { balReservedLabel->setText("Reserved:"); } else { balReservedLabel->setText("Pending:"); propLabel->setText("Bitcoin"); } // override for bitcoin
+    if(propertyId != 0) { balReservedLabel->setText("Reserved:"); } else { balReservedLabel->setText("Pending:"); propLabel->setText("Bitcoin"); } // override for zurcoin
     QLabel *balAvailableLabel = new QLabel("Available:");
     QLabel *balTotalLabel = new QLabel("Total:");
     vlayoutleft->addWidget(balReservedLabel);
@@ -601,7 +601,7 @@ void OverviewPage::updateDisplayUnit()
 
 void OverviewPage::updateAlerts(const QString &warnings)
 {
-    QString alertString = warnings; // get current bitcoin alert/warning directly
+    QString alertString = warnings; // get current zurcoin alert/warning directly
 
     // get alert messages
     std::vector<std::string> omniAlerts = GetOmniCoreAlertMessages();

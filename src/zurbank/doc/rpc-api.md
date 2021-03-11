@@ -121,7 +121,7 @@ Create and broadcast a simple send transaction.
 | `propertyid`        | number  | required | the identifier of the tokens to send                                                         |
 | `amount`            | string  | required | the amount to send                                                                           |
 | `redeemaddress`     | string  | optional | an address that can spend the transaction dust (sender by default)                           |
-| `referenceamount`   | string  | optional | a bitcoin amount that is sent to the receiver (minimal by default)                           |
+| `referenceamount`   | string  | optional | a zurcoin amount that is sent to the receiver (minimal by default)                           |
 
 **Result:**
 ```js
@@ -147,7 +147,7 @@ Place, update or cancel a sell offer on the traditional distributed OMNI/BTC exc
 | `fromaddress`       | string  | required | the address to send from                                                                     |
 | `propertyidforsale` | number  | required | the identifier of the tokens to list for sale (must be `1` for `OMN` or `2`for `TOMN`)       |
 | `amountforsale`     | string  | required | the amount of tokens to list for sale                                                        |
-| `amountdesired`     | string  | required | the amount of bitcoins desired                                                               |
+| `amountdesired`     | string  | required | the amount of zurcoins desired                                                               |
 | `paymentwindow`     | number  | required | a time limit in blocks a buyer has to pay following a successful accepting order             |
 | `minacceptfee`      | string  | required | a minimum mining fee a buyer has to pay to accept the offer                                  |
 | `action`            | number  | required | the action to take (`1` for new offers, `2` to update, `3` to cancel)                        |
@@ -543,7 +543,7 @@ Transfers all available tokens in the given ecosystem to the recipient.
 | `toaddress  `       | string  | required | the address of the receiver                                                                  |
 | `ecosystem`         | number  | required | the ecosystem of the tokens to send (`1` for main ecosystem, `2` for test ecosystem)         |
 | `redeemaddress`     | string  | optional | an address that can spend the transaction dust (sender by default)                           |
-| `referenceamount`   | string  | optional | a bitcoin amount that is sent to the receiver (minimal by default)                           |
+| `referenceamount`   | string  | optional | a zurcoin amount that is sent to the receiver (minimal by default)                           |
 
 **Result:**
 ```js
@@ -676,7 +676,7 @@ Broadcasts a raw Omni Layer transaction.
 | `rawtransaction`    | string  | required | the hex-encoded raw transaction                                                              |
 | `referenceaddress`  | string  | optional | a reference address (none by default)                                                        |
 | `redeemaddress`     | string  | optional | an address that can spend the transaction dust (sender by default)                           |
-| `referenceamount`   | string  | optional | a bitcoin amount that is sent to the receiver (minimal by default)                           |
+| `referenceamount`   | string  | optional | a zurcoin amount that is sent to the receiver (minimal by default)                           |
 
 **Result:**
 ```js
@@ -697,7 +697,7 @@ $ zurbank-cli "omni_sendrawtx" \
 
 Creates and sends a funded simple send transaction.
 
-All bitcoins from the sender are consumed and if there are bitcoins missing, they are taken from the specified fee source. Change is sent to the fee source!
+All zurcoins from the sender are consumed and if there are zurcoins missing, they are taken from the specified fee source. Change is sent to the fee source!
 
 **Arguments:**
 
@@ -728,7 +728,7 @@ $ zurbank-cli "omni_funded_send" "1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH" \
 
 Creates and sends a transaction that transfers all available tokens in the given ecosystem to the recipient.
 
-All bitcoins from the sender are consumed and if there are bitcoins missing, they are taken from the specified fee source. Change is sent to the fee source!
+All zurcoins from the sender are consumed and if there are zurcoins missing, they are taken from the specified fee source. Change is sent to the fee source!
 
 **Arguments:**
 
@@ -773,7 +773,7 @@ Result:
   "zurbankversion_int" : xxxxxxx,      // (number) client version as integer
   "zurbankversion" : "x.x.x.x-xxx",    // (string) client version
   "mastercoreversion" : "x.x.x.x-xxx",  // (string) client version (DEPRECIATED)
-  "bitcoincoreversion" : "x.x.x",       // (string) Bitcoin Core version
+  "zurcoincoreversion" : "x.x.x",       // (string) Bitcoin Core version
   "commitinfo" : "xxxxxxx",             // (string) build commit identifier
   "block" : nnnnnn,                     // (number) index of the last processed block
   "blocktime" : nnnnnnnnnn,             // (number) timestamp of the last processed block
@@ -979,7 +979,7 @@ Get detailed information about an Omni transaction.
   "referenceaddress" : "address",  // (string) a Bitcoin address used as reference (if any)
   "ismine" : true|false,           // (boolean) whether the transaction involes an address in the wallet
   "confirmations" : nnnnnnnnnn,    // (number) the number of transaction confirmations
-  "fee" : "n.nnnnnnnn",            // (string) the transaction fee in bitcoins
+  "fee" : "n.nnnnnnnn",            // (string) the transaction fee in zurcoins
   "blocktime" : nnnnnnnnnn,        // (number) the timestamp of the block that contains the transaction
   "valid" : true|false,            // (boolean) whether the transaction is valid
   "positioninblock" : n,           // (number) the position (index) of the transaction within the block
@@ -1021,7 +1021,7 @@ List wallet transactions, optionally filtered by an address and block boundaries
     "referenceaddress" : "address",  // (string) a Bitcoin address used as reference (if any)
     "ismine" : true|false,           // (boolean) whether the transaction involves an address in the wallet
     "confirmations" : nnnnnnnnnn,    // (number) the number of transaction confirmations
-    "fee" : "n.nnnnnnnn",            // (string) the transaction fee in bitcoins
+    "fee" : "n.nnnnnnnn",            // (string) the transaction fee in zurcoins
     "blocktime" : nnnnnnnnnn,        // (number) the timestamp of the block that contains the transaction
     "valid" : true|false,            // (boolean) whether the transaction is valid
     "positioninblock" : n,           // (number) the position (index) of the transaction within the block
@@ -1117,7 +1117,7 @@ Note: the validity of pending transactions is uncertain, and the state of the me
     "sendingaddress" : "address",    // (string) the Bitcoin address of the sender
     "referenceaddress" : "address",  // (string) a Bitcoin address used as reference (if any)
     "ismine" : true|false,           // (boolean) whether the transaction involes an address in the wallet
-    "fee" : "n.nnnnnnnn",            // (string) the transaction fee in bitcoins
+    "fee" : "n.nnnnnnnn",            // (string) the transaction fee in zurcoins
     "version" : n,                   // (number) the transaction version
     "type_int" : n,                  // (number) the transaction type as number
     "type" : "type",                 // (string) the transaction type as string
@@ -1153,7 +1153,7 @@ Returns currently active offers on the distributed exchange.
     "propertyid" : n,                  // (number) the identifier of the tokens for sale
     "seller" : "address",              // (string) the Bitcoin address of the seller
     "amountavailable" : "n.nnnnnnnn",  // (string) the number of tokens still listed for sale and currently available
-    "bitcoindesired" : "n.nnnnnnnn",   // (string) the number of bitcoins desired in exchange
+    "zurcoindesired" : "n.nnnnnnnn",   // (string) the number of zurcoins desired in exchange
     "unitprice" : "n.nnnnnnnn" ,       // (string) the unit price (BTC/token)
     "timelimit" : nn,                  // (number) the time limit in blocks a buyer has to pay following a successful accept
     "minimumfee" : "n.nnnnnnnn",       // (string) the minimum mining fee a buyer has to pay to accept this offer
@@ -1164,7 +1164,7 @@ Returns currently active offers on the distributed exchange.
         "block" : nnnnnn,                  // (number) the index of the block that contains the "accept" order
         "blocksleft" : nn,                 // (number) the number of blocks left to pay
         "amount" : "n.nnnnnnnn"            // (string) the amount of tokens accepted and reserved
-        "amounttopay" : "n.nnnnnnnn"       // (string) the amount in bitcoins needed finalize the trade
+        "amounttopay" : "n.nnnnnnnn"       // (string) the amount in zurcoins needed finalize the trade
       },
       ...
     ]
@@ -1398,7 +1398,7 @@ Get information and recipients of a send-to-owners transaction.
   "sendingaddress" : "address",  // (string) the Bitcoin address of the sender
   "ismine" : true|false,         // (boolean) whether the transaction involes an address in the wallet
   "confirmations" : nnnnnnnnnn,  // (number) the number of transaction confirmations
-  "fee" : "n.nnnnnnnn",          // (string) the transaction fee in bitcoins
+  "fee" : "n.nnnnnnnn",          // (string) the transaction fee in zurcoins
   "blocktime" : nnnnnnnnnn,      // (number) the timestamp of the block that contains the transaction
   "valid" : true|false,          // (boolean) whether the transaction is valid
   "positioninblock" : n,         // (number) the position (index) of the transaction within the block
@@ -1444,7 +1444,7 @@ Get detailed information and trade matches for orders on the distributed token e
   "sendingaddress" : "address",                 // (string) the Bitcoin address of the trader
   "ismine" : true|false,                        // (boolean) whether the order involes an address in the wallet
   "confirmations" : nnnnnnnnnn,                 // (number) the number of transaction confirmations
-  "fee" : "n.nnnnnnnn",                         // (string) the transaction fee in bitcoins
+  "fee" : "n.nnnnnnnn",                         // (string) the transaction fee in zurcoins
   "blocktime" : nnnnnnnnnn,                     // (number) the timestamp of the block that contains the transaction
   "valid" : true|false,                         // (boolean) whether the transaction is valid
   "positioninblock" : n,                        // (number) the position (index) of the transaction within the block
@@ -1581,7 +1581,7 @@ Retrieves the history of orders on the distributed exchange for the supplied add
     "sendingaddress" : "address",                 // (string) the Bitcoin address of the trader
     "ismine" : true|false,                        // (boolean) whether the order involes an address in the wallet
     "confirmations" : nnnnnnnnnn,                 // (number) the number of transaction confirmations
-    "fee" : "n.nnnnnnnn",                         // (string) the transaction fee in bitcoins
+    "fee" : "n.nnnnnnnn",                         // (string) the transaction fee in zurcoins
     "blocktime" : nnnnnnnnnn,                     // (number) the timestamp of the block that contains the transaction
     "valid" : true|false,                         // (boolean) whether the transaction is valid
     "positioninblock" : n,                        // (number) the position (index) of the transaction within the block
@@ -1776,7 +1776,7 @@ The format of `prevtxs` is as following:
 ```js
 {
   "txid" : "hash",                 // (string) the hex-encoded hash of the transaction
-  "fee" : "n.nnnnnnnn",            // (string) the transaction fee in bitcoins
+  "fee" : "n.nnnnnnnn",            // (string) the transaction fee in zurcoins
   "sendingaddress" : "address",    // (string) the Bitcoin address of the sender
   "referenceaddress" : "address",  // (string) a Bitcoin address used as reference (if any)
   "ismine" : true|false,           // (boolean) whether the transaction involes an address in the wallet
@@ -2039,7 +2039,7 @@ Create a payload to place, update or cancel a sell offer on the traditional dist
 |---------------------|---------|----------|----------------------------------------------------------------------------------------------|
 | `propertyidforsale` | number  | required | the identifier of the tokens to list for sale (must be 1 for OMN or 2 for TOMN)              |
 | `amountforsale`     | string  | required | the amount of tokens to list for sale                                                        |
-| `amountdesired`     | string  | required | the amount of bitcoins desired                                                               |
+| `amountdesired`     | string  | required | the amount of zurcoins desired                                                               |
 | `paymentwindow`     | number  | required | a time limit in blocks a buyer has to pay following a successful accepting order             |
 | `minacceptfee`      | string  | required | a minimum mining fee a buyer has to pay to accept the offer                                  |
 | `action`            | number  | required | the action to take (1 for new offers, 2 to update\", 3 to cancel)                            |

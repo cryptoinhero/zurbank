@@ -13,7 +13,7 @@
 #include "zurbank/rules.h"
 #include "zurbank/sp.h"
 #include "zurbank/tally.h"
-#include "zurbank/utilsbitcoin.h"
+#include "zurbank/utilszurcoin.h"
 
 #include "chain.h"
 #include "main.h"

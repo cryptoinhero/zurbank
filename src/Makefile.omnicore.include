@@ -38,7 +38,7 @@ OMNICORE_H = \
   zurbank/tally.h \
   zurbank/tx.h \
   zurbank/uint256_extensions.h \
-  zurbank/utilsbitcoin.h \
+  zurbank/utilszurcoin.h \
   zurbank/utilsui.h \
   zurbank/version.h \
   zurbank/walletcache.h \
@@ -84,7 +84,7 @@ OMNICORE_CPP = \
   zurbank/sto.cpp \
   zurbank/tally.cpp \
   zurbank/tx.cpp \
-  zurbank/utilsbitcoin.cpp \
+  zurbank/utilszurcoin.cpp \
   zurbank/utilsui.cpp \
   zurbank/version.cpp \
   zurbank/walletcache.cpp \
@@ -92,11 +92,11 @@ OMNICORE_CPP = \
   zurbank/wallettxbuilder.cpp \
   zurbank/walletutils.cpp
 
-libbitcoin_server_a_SOURCES += \
+libzurcoin_server_a_SOURCES += \
   $(OMNICORE_CPP) \
   $(OMNICORE_H)
 
-zurbank/libbitcoin_server_a-version.$(OBJEXT): obj/build.h # build info
+zurbank/libzurcoin_server_a-version.$(OBJEXT): obj/build.h # build info
 
 CLEAN_OMNICORE = zurbank/*.gcda zurbank/*.gcno
 

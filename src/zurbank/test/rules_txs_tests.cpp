@@ -1,7 +1,7 @@
 #include "zurbank/zurbank.h"
 #include "zurbank/rules.h"
 
-#include "test/test_bitcoin.h"
+#include "test/test_zurcoin.h"
 
 #include <stdint.h>
 #include <limits>

@@ -12,7 +12,7 @@
 #include "zurbank/log.h"
 #include "zurbank/zurbank.h"
 #include "zurbank/pending.h"
-#include "zurbank/utilsbitcoin.h"
+#include "zurbank/utilszurcoin.h"
 
 #include "init.h"
 #include "main.h"

@@ -6,7 +6,7 @@
 #include "zurbank/script.h"
 
 #include "primitives/transaction.h"
-#include "test/test_bitcoin.h"
+#include "test/test_zurcoin.h"
 
 #include <boost/test/unit_test.hpp>
 

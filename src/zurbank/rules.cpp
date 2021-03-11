@@ -12,7 +12,7 @@
 #include "zurbank/log.h"
 #include "zurbank/zurbank.h"
 #include "zurbank/notifications.h"
-#include "zurbank/utilsbitcoin.h"
+#include "zurbank/utilszurcoin.h"
 #include "zurbank/version.h"
 
 #include "chainparams.h"

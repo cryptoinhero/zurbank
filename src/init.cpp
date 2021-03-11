@@ -4,7 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/bitcoin-config.h"
+#include "config/zurcoin-config.h"
 #endif
 
 #include "init.h"
@@ -142,7 +142,7 @@ bool ShutdownRequested()
 /**
  * This is a minimally invasive approach to shutdown on LevelDB read errors from the
  * chainstate, while keeping user interface out of the common library, which is shared
- * between bitcoind, and bitcoin-qt and non-server tools.
+ * between zurcoind, and zurcoin-qt and non-server tools.
 */
 class CCoinsViewErrorCatcher : public CCoinsViewBacked
 {
@@ -190,7 +190,7 @@ void Shutdown()
     /// for example if the data directory was found to be locked.
     /// Be sure that anything that writes files or flushes caches only does this if the respective
     /// module was initialized.
-    RenameThread("bitcoin-shutoff");
+    RenameThread("zurcoin-shutoff");
     mempool.AddTransactionsUpdated(1);
 
     StopHTTPRPC();
@@ -616,7 +616,7 @@ void CleanupBlockRevFiles()
 void ThreadImport(std::vector<boost::filesystem::path> vImportFiles)
 {
     const CChainParams& chainparams = Params();
-    RenameThread("bitcoin-loadblk");
+    RenameThread("zurcoin-loadblk");
     CImportingNow imp;
 
     // -reindex
@@ -807,7 +807,7 @@ void InitLogging()
     LogPrintf("Omni Core version %s\n", FormatFullVersion());
 }
 
-/** Initialize bitcoin.
+/** Initialize zurcoin.
  *  @pre Parameters should be parsed and config file should be read.
  */
 bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)

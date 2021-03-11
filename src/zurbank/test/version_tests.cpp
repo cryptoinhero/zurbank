@@ -1,7 +1,7 @@
 #include "zurbank/version.h"
 
-#include "config/bitcoin-config.h"
-#include "test/test_bitcoin.h"
+#include "config/zurcoin-config.h"
+#include "test/test_zurcoin.h"
 
 #include <boost/test/unit_test.hpp>
 

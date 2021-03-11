@@ -4,7 +4,7 @@
 #include "zurbank/dex.h"
 #include "zurbank/zurbank.h"
 #include "zurbank/sp.h"
-#include "zurbank/utilsbitcoin.h"
+#include "zurbank/utilszurcoin.h"
 
 #include "amount.h"
 #include "main.h"

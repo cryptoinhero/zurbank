@@ -10,8 +10,8 @@ TEST_BINARY=test/test_zurbank$(EXEEXT)
 
 EXTRA_DIST += \
 	test/bctest.py \
-	test/bitcoin-util-test.py \
-	test/data/bitcoin-util-test.json \
+	test/zurcoin-util-test.py \
+	test/data/zurcoin-util-test.json \
 	test/data/blanktx.hex \
 	test/data/tt-delin1-out.hex \
 	test/data/tt-delout1-out.hex \
@@ -82,8 +82,8 @@ BITCOIN_TESTS =\
   test/sigopcount_tests.cpp \
   test/skiplist_tests.cpp \
   test/streams_tests.cpp \
-  test/test_bitcoin.cpp \
-  test/test_bitcoin.h \
+  test/test_zurcoin.cpp \
+  test/test_zurcoin.h \
   test/testutil.cpp \
   test/testutil.h \
   test/timedata_tests.cpp \
@@ -140,8 +140,8 @@ zurbank_test_clean : FORCE
 	rm -f $(CLEAN_BITCOIN_TEST) $(test_test_zurbank_OBJECTS) $(TEST_BINARY)
 
 check-local:
-	@echo "Running test/bitcoin-util-test.py..."
-	$(AM_V_at)srcdir=$(srcdir) PYTHONPATH=$(builddir)/test $(PYTHON) $(srcdir)/test/bitcoin-util-test.py
+	@echo "Running test/zurcoin-util-test.py..."
+	$(AM_V_at)srcdir=$(srcdir) PYTHONPATH=$(builddir)/test $(PYTHON) $(srcdir)/test/zurcoin-util-test.py
 	$(AM_V_at)$(MAKE) $(AM_MAKEFLAGS) -C secp256k1 check
 if EMBEDDED_UNIVALUE
 	$(AM_V_at)$(MAKE) $(AM_MAKEFLAGS) -C univalue check

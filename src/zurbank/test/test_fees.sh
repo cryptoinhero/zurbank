@@ -18,7 +18,7 @@ FAIL=0
 clear
 printf "Preparing a test environment...\n"
 printf "   * Starting a fresh regtest daemon\n"
-rm -r ~/.bitcoin/regtest
+rm -r ~/.zurcoin/regtest
 $SRCDIR/zurbankd --regtest --server --daemon --omniactivationallowsender=any >$NUL
 sleep 3
 printf "   * Preparing some mature testnet BTC\n"

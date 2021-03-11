@@ -16,7 +16,7 @@ Table of contents
 - [Upgrading and downgrading](#upgrading-and-downgrading)
   - [How to upgrade](#how-to-upgrade)
   - [Downgrading](#downgrading)
-  - [Compatibility with Bitcoin Core](#compatibility-with-bitcoin-core)
+  - [Compatibility with Bitcoin Core](#compatibility-with-zurcoin-core)
   - [Consensus affecting changes](#consensus-affecting-changes)
     - [Fee distribution system on the Distributed Exchange](#fee-distribution-system-on-the-distributed-exchange)
     - [Send to Owners cross property suport](#send-to-owners-cross-property-support)

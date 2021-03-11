@@ -22,7 +22,7 @@
 #include "zurbank/rpctxobject.h"
 #include "zurbank/sp.h"
 #include "zurbank/tx.h"
-#include "zurbank/utilsbitcoin.h"
+#include "zurbank/utilszurcoin.h"
 #include "zurbank/walletcache.h"
 #include "zurbank/walletfetchtxs.h"
 #include "zurbank/walletutils.h"

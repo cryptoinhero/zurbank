@@ -7,7 +7,7 @@
 #include "zurbank/notifications.h"
 #include "zurbank/zurbank.h"
 #include "zurbank/tx.h"
-#include "zurbank/utilsbitcoin.h"
+#include "zurbank/utilszurcoin.h"
 
 #include "chain.h"
 #include "chainparams.h"

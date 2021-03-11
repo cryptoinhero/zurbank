@@ -61,7 +61,7 @@ public Q_SLOTS:
     void gotoHistoryPage();
     /** Switch directory to Omni tx history tab */
     void gotoOmniHistoryTab();
-    /** Switch directory to bitcoin tx history tab */
+    /** Switch directory to zurcoin tx history tab */
     void gotoBitcoinHistoryTab();
     /** Switch to utility page */
     void gotoToolboxPage();
