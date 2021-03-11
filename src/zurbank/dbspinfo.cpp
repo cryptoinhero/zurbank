@@ -98,7 +98,7 @@ CMPSPInfo::CMPSPInfo(const boost::filesystem::path& path, bool fWipe)
     implied_omni.category = "N/A";
     implied_omni.subcategory = "N/A";
     implied_omni.name = "Zurshares";
-    implied_omni.url = "http://www.zurbank.org";
+    implied_omni.url = "http://www.zurbank.io";
     implied_omni.data = "Zurshares serve as the binding between Zurcoin, smart properties and contracts created on the Zurbank Layer.";
 
     implied_tomni.issuer = ExodusAddress().ToString();
@@ -108,7 +108,7 @@ CMPSPInfo::CMPSPInfo(const boost::filesystem::path& path, bool fWipe)
     implied_tomni.category = "N/A";
     implied_tomni.subcategory = "N/A";
     implied_tomni.name = "Test Zurshares tokens";
-    implied_tomni.url = "http://www.zurbank.org";
+    implied_tomni.url = "http://www.zurbank.io";
     implied_tomni.data = "Test Zurshares serve as the binding between Zurcoin, smart properties and contracts created on the Zurbank Layer.";
 
     init();
