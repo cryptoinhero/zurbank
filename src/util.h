@@ -54,6 +54,9 @@ extern bool fLogIPs;
 extern std::atomic<bool> fReopenDebugLog;
 extern CTranslationInterface translationInterface;
 
+/** Flag to indicate, whether the Omni Core log file should be reopened. */
+extern std::atomic<bool> fReopenOmniCoreLog;
+
 extern const char * const BITCOIN_CONF_FILENAME;
 extern const char * const BITCOIN_PID_FILENAME;
 
@@ -216,7 +219,7 @@ void RenameThread(const char* name);
  */
 template <typename Callable> void TraceThread(const char* name,  Callable func)
 {
-    std::string s = strprintf("zurcoin-%s", name);
+    std::string s = strprintf("bitcoin-%s", name);
     RenameThread(s.c_str());
     try
     {

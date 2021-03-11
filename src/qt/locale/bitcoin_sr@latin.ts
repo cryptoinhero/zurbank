@@ -158,16 +158,16 @@
         <translation>Otvori &amp;URI...</translation>
     </message>
     <message>
-        <source>Send coins to a Zurcoin address</source>
-        <translation>Pošalji novčiće na Zurcoin adresu</translation>
+        <source>Send coins to a Bitcoin address</source>
+        <translation>Pošalji novčiće na Bitcoin adresu</translation>
     </message>
     <message>
         <source>&amp;Verify message...</source>
         <translation>&amp;Proveri poruku...</translation>
     </message>
     <message>
-        <source>Zurcoin</source>
-        <translation>Zurcoin</translation>
+        <source>Bitcoin</source>
+        <translation>Bitcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -410,10 +410,10 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>zurcoin-core</name>
+    <name>bitcoin-core</name>
     <message>
-        <source>Zurcoin Core</source>
-        <translation>Zurcoin Core</translation>
+        <source>Bitcoin Core</source>
+        <translation>Bitcoin Core</translation>
     </message>
     <message>
         <source>Information</source>

@@ -65,15 +65,15 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += zurcoind
+  bin_PROGRAMS += omnicored
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += zurcoin-cli zurcoin-tx
+  bin_PROGRAMS += omnicore-cli bitcoin-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
-# zurcoin core #
+# bitcoin core #
 BITCOIN_CORE_H = \
   addrman.h \
   base58.h \
@@ -162,7 +162,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between zurcoind and zurcoin-qt
+# server: shared between bitcoind and bitcoin-qt
 libbitcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libbitcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_server_a_SOURCES = \
@@ -211,7 +211,7 @@ libbitcoin_zmq_a_SOURCES = \
 endif
 
 
-# wallet: shared between zurcoind and zurcoin-qt, but only linked
+# wallet: shared between bitcoind and bitcoin-qt, but only linked
 # when wallet enabled
 libbitcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
@@ -243,21 +243,7 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/sha256.cpp \
   crypto/sha256.h \
   crypto/sha512.cpp \
-  crypto/sha512.h \
-  crypto/blake.c \
-  crypto/bmw.c \
-  crypto/groestl.c \
-  crypto/jh.c \
-  crypto/keccak.c \
-  crypto/skein.c \
-  crypto/sph_types.h \
-  crypto/sph_blake.h \
-  crypto/sph_groestl.h \
-  crypto/sph_keccak.h \
-  crypto/sph_bmw.h \
-  crypto/sph_jh.h \
-  crypto/sph_skein.h 
-  
+  crypto/sha512.h
 
 # consensus: shared between all executables that validate any consensus rules.
 libbitcoin_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
@@ -294,7 +280,7 @@ libbitcoin_consensus_a_SOURCES = \
   utilstrencodings.h \
   version.h
 
-# common: shared between zurcoind, and zurcoin-qt and non-server tools
+# common: shared between bitcoind, and bitcoin-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_common_a_SOURCES = \
@@ -340,7 +326,7 @@ if GLIBC_BACK_COMPAT
 libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 endif
 
-# cli: shared between zurcoin-cli and zurcoin-qt
+# cli: shared between bitcoin-cli and bitcoin-qt
 libbitcoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_cli_a_SOURCES = \
@@ -350,17 +336,17 @@ libbitcoin_cli_a_SOURCES = \
 nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-# zurcoind binary #
-zurcoind_SOURCES = bitcoind.cpp
-zurcoind_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-zurcoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-zurcoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# bitcoind binary #
+omnicored_SOURCES = bitcoind.cpp
+omnicored_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+omnicored_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+omnicored_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-zurcoind_SOURCES += bitcoind-res.rc
+omnicored_SOURCES += omnicore/res/omnicored-res.rc
 endif
 
-zurcoind_LDADD = \
+omnicored_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -373,38 +359,38 @@ zurcoind_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-zurcoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+omnicored_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
-# zurcoin-cli binary #
-zurcoin_cli_SOURCES = bitcoin-cli.cpp
-zurcoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-zurcoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-zurcoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# bitcoin-cli binary #
+omnicore_cli_SOURCES = bitcoin-cli.cpp
+omnicore_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+omnicore_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+omnicore_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-zurcoin_cli_SOURCES += bitcoin-cli-res.rc
+omnicore_cli_SOURCES += omnicore/res/omnicore-cli-res.rc
 endif
 
-zurcoin_cli_LDADD = \
+omnicore_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO)
 
-zurcoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+omnicore_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# zurcoin-tx binary #
-zurcoin_tx_SOURCES = bitcoin-tx.cpp
-zurcoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-zurcoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-zurcoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# bitcoin-tx binary #
+bitcoin_tx_SOURCES = bitcoin-tx.cpp
+bitcoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+bitcoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+bitcoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-zurcoin_tx_SOURCES += bitcoin-tx-res.rc
+bitcoin_tx_SOURCES += bitcoin-tx-res.rc
 endif
 
-zurcoin_tx_LDADD = \
+bitcoin_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -412,7 +398,7 @@ zurcoin_tx_LDADD = \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-zurcoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+bitcoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
 # bitcoinconsensus library #
@@ -508,3 +494,7 @@ endif
 if ENABLE_QT_TESTS
 include Makefile.qttest.include
 endif
+
+# Omni Core
+include Makefile.omnicore.include
+#

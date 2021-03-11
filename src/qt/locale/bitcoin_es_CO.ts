@@ -126,8 +126,8 @@
         <translation>Abrir &amp;URL...</translation>
     </message>
     <message>
-        <source>Send coins to a Zurcoin address</source>
-        <translation>Enviando monedas a una dirección de Zurcoin</translation>
+        <source>Send coins to a Bitcoin address</source>
+        <translation>Enviando monedas a una dirección de Bitcoin</translation>
     </message>
     <message>
         <source>Change the passphrase used for wallet encryption</source>
@@ -146,8 +146,8 @@
         <translation>&amp;Verificar Mensaje...</translation>
     </message>
     <message>
-        <source>Zurcoin</source>
-        <translation>Zurcoin</translation>
+        <source>Bitcoin</source>
+        <translation>Bitcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -288,10 +288,10 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>zurcoin-core</name>
+    <name>bitcoin-core</name>
     <message>
-        <source>Zurcoin Core</source>
-        <translation>Zurcoin Core</translation>
+        <source>Bitcoin Core</source>
+        <translation>Bitcoin Core</translation>
     </message>
     <message>
         <source>Insufficient funds</source>

@@ -12,7 +12,7 @@
 #include "uint256.h"
 
 static const int SERIALIZE_TRANSACTION_NO_WITNESS = 0x40000000;
-static const int32_t TXCOMMENT_VERSION = 2;
+
 static const int WITNESS_SCALE_FACTOR = 4;
 
 /** An outpoint - a combination of a transaction hash and an index n into its vout */
@@ -342,9 +342,6 @@ inline void SerializeTransaction(TxType& tx, Stream& s, Operation ser_action, in
         }
     }
     READWRITE(*const_cast<uint32_t*>(&tx.nLockTime));
-    if(tx.nVersion >= TXCOMMENT_VERSION) {
-        READWRITE(*const_cast<std::string*>(&tx.strTxComment));        
-     }
 }
 
 /** The basic transaction that is broadcasted on the network and contained in
@@ -376,7 +373,6 @@ public:
     const std::vector<CTxOut> vout;
     CTxWitness wit; // Not const: can change without invalidating the txid cache
     const uint32_t nLockTime;
-    const std::string strTxComment;
 
     /** Construct a CTransaction that qualifies as IsNull() */
     CTransaction();
@@ -446,7 +442,6 @@ struct CMutableTransaction
     std::vector<CTxOut> vout;
     CTxWitness wit;
     uint32_t nLockTime;
-    std::string strTxComment;    
 
     CMutableTransaction();
     CMutableTransaction(const CTransaction& tx);

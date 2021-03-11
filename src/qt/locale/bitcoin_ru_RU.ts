@@ -58,8 +58,8 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <source>Zurcoin</source>
-        <translation>Zurcoin Core</translation>
+        <source>Bitcoin</source>
+        <translation>Bitcoin Core</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -216,14 +216,14 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>zurcoin-core</name>
+    <name>bitcoin-core</name>
     <message>
-        <source>Zurcoin Core</source>
-        <translation>Zurcoin Core</translation>
+        <source>Bitcoin Core</source>
+        <translation>Bitcoin Core</translation>
     </message>
     <message>
         <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
-        <translation>zurcoin-core</translation>
+        <translation>bitcoin-core</translation>
     </message>
     <message>
         <source>Information</source>

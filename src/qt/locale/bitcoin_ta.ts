@@ -90,8 +90,8 @@
         <translation>&amp;செய்தியை சரிசெய்...</translation>
     </message>
     <message>
-        <source>Zurcoin</source>
-        <translation>Zurcoin</translation>
+        <source>Bitcoin</source>
+        <translation>Bitcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -712,10 +712,10 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>zurcoin-core</name>
+    <name>bitcoin-core</name>
     <message>
-        <source>Zurcoin Core</source>
-        <translation>Zurcoin மையம்</translation>
+        <source>Bitcoin Core</source>
+        <translation>Bitcoin மையம்</translation>
     </message>
     <message>
         <source>(default: %u)</source>

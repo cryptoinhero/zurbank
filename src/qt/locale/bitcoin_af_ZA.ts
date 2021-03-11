@@ -78,8 +78,8 @@
         <translation>&amp;Opsies</translation>
     </message>
     <message>
-        <source>Zurcoin</source>
-        <translation>Zurcoin</translation>
+        <source>Bitcoin</source>
+        <translation>Bitcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -316,7 +316,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>zurcoin-core</name>
+    <name>bitcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opsies:</translation>

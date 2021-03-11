@@ -103,7 +103,7 @@
     </message>
     <message>
         <source>Show information about Qt</source>
-        <translation>Erakutsi Zurcoin-i buruzko informazioa</translation>
+        <translation>Erakutsi Bitcoin-i buruzko informazioa</translation>
     </message>
     <message>
         <source>&amp;Options...</source>
@@ -376,7 +376,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>zurcoin-core</name>
+    <name>bitcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Aukerak</translation>

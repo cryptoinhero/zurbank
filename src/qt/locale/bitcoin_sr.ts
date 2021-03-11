@@ -114,8 +114,8 @@
         <translation>Промени &amp;лозинку...</translation>
     </message>
     <message>
-        <source>Send coins to a Zurcoin address</source>
-        <translation>Пошаљите новац на zurcoin адресу</translation>
+        <source>Send coins to a Bitcoin address</source>
+        <translation>Пошаљите новац на bitcoin адресу</translation>
     </message>
     <message>
         <source>Change the passphrase used for wallet encryption</source>
@@ -392,7 +392,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>zurcoin-core</name>
+    <name>bitcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opcije</translation>

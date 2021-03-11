@@ -20,7 +20,7 @@ public:
     State validate(QString &input, int &pos) const;
 };
 
-/** Zurcoin address widget validator, checks for a valid zurcoin address.
+/** Bitcoin address widget validator, checks for a valid bitcoin address.
  */
 class BitcoinAddressCheckValidator : public QValidator
 {

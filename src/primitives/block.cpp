@@ -1,6 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2013-2021 The Zurcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,7 +12,7 @@
 
 uint256 CBlockHeader::GetHash() const
 {
-    return HashQuark(BEGIN(nVersion), END(nNonce));
+    return SerializeHash(*this);
 }
 
 std::string CBlock::ToString() const

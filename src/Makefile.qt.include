@@ -2,10 +2,10 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-bin_PROGRAMS += qt/zurcoin-qt
+bin_PROGRAMS += qt/omnicore-qt
 EXTRA_LIBRARIES += qt/libbitcoinqt.a
 
-# zurcoin qt core #
+# bitcoin qt core #
 QT_TS = \
   qt/locale/bitcoin_af.ts \
   qt/locale/bitcoin_af_ZA.ts \
@@ -110,7 +110,16 @@ QT_FORMS_UI = \
   qt/forms/sendcoinsdialog.ui \
   qt/forms/sendcoinsentry.ui \
   qt/forms/signverifymessagedialog.ui \
-  qt/forms/transactiondescdialog.ui
+  qt/forms/transactiondescdialog.ui \
+  qt/forms/sendmpdialog.ui \
+  qt/forms/lookupaddressdialog.ui \
+  qt/forms/lookupspdialog.ui \
+  qt/forms/lookuptxdialog.ui \
+  qt/forms/txhistorydialog.ui \
+  qt/forms/metadexcanceldialog.ui \
+  qt/forms/metadexdialog.ui \
+  qt/forms/tradehistorydialog.ui \
+  qt/forms/balancesdialog.ui
 
 QT_MOC_CPP = \
   qt/moc_addressbookpage.cpp \
@@ -156,7 +165,16 @@ QT_MOC_CPP = \
   qt/moc_utilitydialog.cpp \
   qt/moc_walletframe.cpp \
   qt/moc_walletmodel.cpp \
-  qt/moc_walletview.cpp
+  qt/moc_walletview.cpp \
+  qt/moc_sendmpdialog.cpp \
+  qt/moc_lookupaddressdialog.cpp \
+  qt/moc_lookupspdialog.cpp \
+  qt/moc_lookuptxdialog.cpp \
+  qt/moc_txhistorydialog.cpp \
+  qt/moc_balancesdialog.cpp \
+  qt/moc_metadexdialog.cpp \
+  qt/moc_metadexcanceldialog.cpp \
+  qt/moc_tradehistorydialog.cpp
 
 BITCOIN_MM = \
   qt/macdockiconhandler.mm \
@@ -229,13 +247,25 @@ BITCOIN_QT_H = \
   qt/walletmodel.h \
   qt/walletmodeltransaction.h \
   qt/walletview.h \
-  qt/winshutdownmonitor.h
+  qt/winshutdownmonitor.h \
+  qt/lookupaddressdialog.h \
+  qt/lookupspdialog.h \
+  qt/lookuptxdialog.h \
+  qt/txhistorydialog.h \
+  qt/balancesdialog.h \
+  qt/omnicore_init.h \
+  qt/metadexdialog.h \
+  qt/metadexcanceldialog.h \
+  qt/tradehistorydialog.h \
+  qt/sendmpdialog.h \
+  qt/omnicore_qtutils.h
 
 RES_ICONS = \
   qt/res/icons/add.png \
   qt/res/icons/address-book.png \
   qt/res/icons/about.png \
   qt/res/icons/about_qt.png \
+  qt/res/icons/balances.png \
   qt/res/icons/bitcoin.ico \
   qt/res/icons/bitcoin_testnet.ico \
   qt/res/icons/bitcoin.png \
@@ -255,6 +285,7 @@ RES_ICONS = \
   qt/res/icons/edit.png \
   qt/res/icons/editcopy.png \
   qt/res/icons/editpaste.png \
+  qt/res/icons/exchange.png \
   qt/res/icons/export.png \
   qt/res/icons/eye.png \
   qt/res/icons/eye_minus.png \
@@ -267,6 +298,17 @@ RES_ICONS = \
   qt/res/icons/key.png \
   qt/res/icons/lock_closed.png \
   qt/res/icons/lock_open.png \
+  qt/res/icons/meta_cancelled.png \
+  qt/res/icons/meta_filled.png \
+  qt/res/icons/meta_open.png \
+  qt/res/icons/meta_partcancelled.png \
+  qt/res/icons/meta_partfilled.png \
+  qt/res/icons/meta_pending.png \
+  qt/res/icons/omni_in.png \
+  qt/res/icons/omni_inout.png \
+  qt/res/icons/omni_invalid.png \
+  qt/res/icons/omni_out.png \
+  qt/res/icons/omni_hourglass.png \
   qt/res/icons/open.png \
   qt/res/icons/overview.png \
   qt/res/icons/quit.png \
@@ -274,6 +316,7 @@ RES_ICONS = \
   qt/res/icons/remove.png \
   qt/res/icons/send.png \
   qt/res/icons/synced.png \
+  qt/res/icons/tools.png \
   qt/res/icons/transaction0.png \
   qt/res/icons/transaction2.png \
   qt/res/icons/transaction_conflicted.png \
@@ -306,7 +349,9 @@ BITCOIN_QT_BASE_CPP = \
   qt/rpcconsole.cpp \
   qt/splashscreen.cpp \
   qt/trafficgraphwidget.cpp \
-  qt/utilitydialog.cpp
+  qt/utilitydialog.cpp \
+  qt/omnicore_init.cpp \
+  qt/omnicore_qtutils.cpp
 
 BITCOIN_QT_WINDOWS_CPP = qt/winshutdownmonitor.cpp
 
@@ -336,7 +381,16 @@ BITCOIN_QT_WALLET_CPP = \
   qt/walletframe.cpp \
   qt/walletmodel.cpp \
   qt/walletmodeltransaction.cpp \
-  qt/walletview.cpp
+  qt/walletview.cpp \
+  qt/sendmpdialog.cpp \
+  qt/lookupaddressdialog.cpp \
+  qt/lookupspdialog.cpp \
+  qt/lookuptxdialog.cpp \
+  qt/txhistorydialog.cpp \
+  qt/balancesdialog.cpp \
+  qt/metadexdialog.cpp \
+  qt/metadexcanceldialog.cpp \
+  qt/tradehistorydialog.cpp
 
 BITCOIN_QT_CPP = $(BITCOIN_QT_BASE_CPP)
 if TARGET_WINDOWS
@@ -346,11 +400,13 @@ if ENABLE_WALLET
 BITCOIN_QT_CPP += $(BITCOIN_QT_WALLET_CPP)
 endif
 
-RES_IMAGES = 
+RES_IMAGES = \
+  qt/res/images/splash.png \
+  qt/res/images/splash_testnet.png
 
 RES_MOVIES = $(wildcard qt/res/movies/spinner-*.png)
 
-BITCOIN_RC = qt/res/bitcoin-qt-res.rc
+BITCOIN_RC = omnicore/res/omnicore-qt-res.rc
 
 BITCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
   -I$(builddir)/qt/forms -DQT_NO_KEYWORDS
@@ -371,37 +427,37 @@ QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:
 # Most files will depend on the forms and moc files as includes. Generate them
 # before anything else.
 $(QT_MOC): $(QT_FORMS_H)
-$(qt_libbitcoinqt_a_OBJECTS) $(qt_zurcoin_qt_OBJECTS) : | $(QT_MOC)
+$(qt_libbitcoinqt_a_OBJECTS) $(qt_omnicore_qt_OBJECTS) : | $(QT_MOC)
 
 #Generating these with a half-written protobuf header leads to wacky results.
 #This makes sure it's done.
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-# zurcoin-qt binary #
-qt_zurcoin_qt_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+# bitcoin-qt binary #
+qt_omnicore_qt_CPPFLAGS  = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
-qt_zurcoin_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+qt_omnicore_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 
-qt_zurcoin_qt_SOURCES = qt/bitcoin.cpp
+qt_omnicore_qt_SOURCES = qt/bitcoin.cpp
 if TARGET_DARWIN
-  qt_zurcoin_qt_SOURCES += $(BITCOIN_MM)
+  qt_omnicore_qt_SOURCES += $(BITCOIN_MM)
 endif
 if TARGET_WINDOWS
-  qt_zurcoin_qt_SOURCES += $(BITCOIN_RC)
+  qt_omnicore_qt_SOURCES += $(BITCOIN_RC)
 endif
-qt_zurcoin_qt_LDADD = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
+qt_omnicore_qt_LDADD = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
 if ENABLE_WALLET
-qt_zurcoin_qt_LDADD += $(LIBBITCOIN_WALLET)
+qt_omnicore_qt_LDADD += $(LIBBITCOIN_WALLET)
 endif
 if ENABLE_ZMQ
-qt_zurcoin_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+qt_omnicore_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
-qt_zurcoin_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CONSENSUS) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
+qt_omnicore_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CONSENSUS) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) \
   $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
-qt_zurcoin_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-qt_zurcoin_qt_LIBTOOLFLAGS = --tag CXX
+qt_omnicore_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+qt_omnicore_qt_LIBTOOLFLAGS = --tag CXX
 
 #locale/foo.ts -> locale/foo.qm
 QT_QM=$(QT_TS:.ts=.qm)
@@ -425,17 +481,17 @@ $(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
 
 $(QT_QRC_CPP): $(QT_QRC) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_MOVIES) $(PROTOBUF_H)
 	@test -f $(RCC)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name zurcoin $< | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name bitcoin $< | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 CLEAN_QT = $(nodist_qt_libbitcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
 
 CLEANFILES += $(CLEAN_QT)
 
-bitcoin_qt_clean: FORCE
-	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_zurcoin_qt_OBJECTS) qt/zurcoin-qt$(EXEEXT) $(LIBBITCOINQT)
+omnicore_qt_clean: FORCE
+	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_omnicore_qt_OBJECTS) qt/bitcoin-qt$(EXEEXT) $(LIBBITCOINQT)
 
-bitcoin_qt : qt/zurcoin-qt$(EXEEXT)
+omnicore_qt : qt/omnicore-qt$(EXEEXT)
 
 ui_%.h: %.ui
 	@test -f $(UIC)

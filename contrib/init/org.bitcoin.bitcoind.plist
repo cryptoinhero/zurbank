@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>org.zurcoin.zurcoind</string>
+	<string>org.bitcoin.bitcoind</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/usr/local/bin/zurcoind</string>
+		<string>/usr/local/bin/bitcoind</string>
 		<string>-daemon</string>
 	</array>
 	<key>RunAtLoad</key>

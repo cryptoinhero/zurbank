@@ -94,8 +94,8 @@
         <translation>Ndrysho frazkalimin e përdorur per enkriptimin e portofolit</translation>
     </message>
     <message>
-        <source>Zurcoin</source>
-        <translation>Zurcoin</translation>
+        <source>Bitcoin</source>
+        <translation>Bitcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -432,14 +432,14 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>zurcoin-core</name>
+    <name>bitcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opsionet:</translation>
     </message>
     <message>
-        <source>Zurcoin Core</source>
-        <translation>Berthama Zurcoin</translation>
+        <source>Bitcoin Core</source>
+        <translation>Berthama Bitcoin</translation>
     </message>
     <message>
         <source>Information</source>

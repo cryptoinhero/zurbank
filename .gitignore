@@ -1,12 +1,16 @@
 *.tar.gz
 
 *.exe
-src/zurcoin
-src/zurcoind
-src/zurcoin-cli
-src/zurcoin-tx
+src/bitcoin
+src/bitcoind
+src/bitcoin-cli
+src/bitcoin-tx
 src/test/test_bitcoin
 src/qt/test/test_bitcoin-qt
+src/omnicored
+src/omnicore-cli
+src/test/test_omnicore
+src/qt/test/test_omnicore-qt
 
 # autoreconf
 Makefile.in
@@ -35,6 +39,9 @@ src/config/stamp-h1
 share/setup.nsi
 share/qt/Info.plist
 
+# Omni Core Windows installer script
+src/omnicore/res/omnicore-setup-win.nsi
+
 src/univalue/gen
 
 src/qt/*.moc
@@ -55,7 +62,7 @@ src/qt/test/moc*.cpp
 *.o
 *.o-*
 *.patch
-.zurcoin
+.bitcoin
 *.a
 *.pb.cc
 *.pb.h
@@ -74,16 +81,24 @@ src/qt/test/moc*.cpp
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-zurcoin-qt
-Zurcoin-Qt.app
+bitcoin-qt
+Bitcoin-Qt.app
+omnicore-qt
+OmniCore-Qt.app
 
 # Unit-tests
 Makefile.test
-zurcoin-qt_test
+bitcoin-qt_test
+omnicore-qt_test
 src/test/buildenv.py
 
 # Resources cpp
 qrc_*.cpp
+# Qt creator
+*.pro.user
+
+# NetBeans
+nbproject/
 
 # Mac specific
 .DS_Store

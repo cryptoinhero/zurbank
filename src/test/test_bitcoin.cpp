@@ -2,7 +2,7 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#define BOOST_TEST_MODULE Zurcoin Test Suite
+#define BOOST_TEST_MODULE Bitcoin Test Suite
 
 #include "test_bitcoin.h"
 
@@ -28,6 +28,7 @@
 
 extern bool fPrintToConsole;
 extern void noui_connect();
+extern int mastercore_shutdown();
 
 BasicTestingSetup::BasicTestingSetup(const std::string& chainName)
 {
@@ -74,6 +75,7 @@ TestingSetup::TestingSetup(const std::string& chainName) : BasicTestingSetup(cha
 TestingSetup::~TestingSetup()
 {
         UnregisterNodeSignals(GetNodeSignals());
+        mastercore_shutdown();
         threadGroup.interrupt_all();
         threadGroup.join_all();
         UnloadBlockIndex();

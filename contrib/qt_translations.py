@@ -5,7 +5,7 @@
 
 # Helpful little script that spits out a comma-separated list of
 # language codes for Qt icons that should be included
-# in binary zurcoin distributions
+# in binary bitcoin distributions
 
 import glob
 import os

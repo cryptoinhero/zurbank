@@ -1,10 +1,10 @@
 
-## <summary>policy for zurcoin</summary>
+## <summary>policy for bitcoin</summary>
 
 
 ########################################
 ## <summary>
-##	Transition to zurcoin.
+##	Transition to bitcoin.
 ## </summary>
 ## <param name="domain">
 ## <summary>
@@ -24,7 +24,7 @@ interface(`bitcoin_domtrans',`
 
 ########################################
 ## <summary>
-##	Execute zurcoin server in the zurcoin domain.
+##	Execute bitcoin server in the bitcoin domain.
 ## </summary>
 ## <param name="domain">
 ##	<summary>
@@ -43,7 +43,7 @@ interface(`bitcoin_initrc_domtrans',`
 
 ########################################
 ## <summary>
-##	Search zurcoin lib directories.
+##	Search bitcoin lib directories.
 ## </summary>
 ## <param name="domain">
 ##	<summary>
@@ -62,7 +62,7 @@ interface(`bitcoin_search_lib',`
 
 ########################################
 ## <summary>
-##	Read zurcoin lib files.
+##	Read bitcoin lib files.
 ## </summary>
 ## <param name="domain">
 ##	<summary>
@@ -81,7 +81,7 @@ interface(`bitcoin_read_lib_files',`
 
 ########################################
 ## <summary>
-##	Manage zurcoin lib files.
+##	Manage bitcoin lib files.
 ## </summary>
 ## <param name="domain">
 ##	<summary>
@@ -100,7 +100,7 @@ interface(`bitcoin_manage_lib_files',`
 
 ########################################
 ## <summary>
-##	Manage zurcoin lib directories.
+##	Manage bitcoin lib directories.
 ## </summary>
 ## <param name="domain">
 ##	<summary>
@@ -121,7 +121,7 @@ interface(`bitcoin_manage_lib_dirs',`
 ########################################
 ## <summary>
 ##	All of the rules required to administrate
-##	an zurcoin environment
+##	an bitcoin environment
 ## </summary>
 ## <param name="domain">
 ##	<summary>

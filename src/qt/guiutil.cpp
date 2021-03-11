@@ -132,7 +132,7 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a Zurcoin address (e.g. %1)").arg(
+    widget->setPlaceholderText(QObject::tr("Enter a Bitcoin address (e.g. %1)").arg(
         QString::fromStdString(DummyAddress(Params()))));
 #endif
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
@@ -150,8 +150,8 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no zurcoin: URI
-    if(!uri.isValid() || uri.scheme() != QString("zurcoin"))
+    // return if URI is not valid or is no bitcoin: URI
+    if(!uri.isValid() || uri.scheme() != QString("bitcoin"))
         return false;
 
     SendCoinsRecipient rv;
@@ -191,7 +191,7 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!BitcoinUnits::parse(BitcoinUnits::ZUR, i->second, &rv.amount))
+                if(!BitcoinUnits::parse(BitcoinUnits::BTC, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -211,13 +211,13 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert zurcoin:// to zurcoin:
+    // Convert bitcoin:// to bitcoin:
     //
-    //    Cannot handle this later, because zurcoin:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because bitcoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("zurcoin://", Qt::CaseInsensitive))
+    if(uri.startsWith("bitcoin://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 10, "zurcoin:");
+        uri.replace(0, 10, "bitcoin:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -225,12 +225,12 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString formatBitcoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("zurcoin:%1").arg(info.address);
+    QString ret = QString("bitcoin:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::ZUR, info.amount, false, BitcoinUnits::separatorNever));
+        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::BTC, info.amount, false, BitcoinUnits::separatorNever));
         paramCount++;
     }
 
@@ -610,15 +610,15 @@ boost::filesystem::path static StartupShortcutPath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Zurcoin.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Omni Core.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Zurcoin (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Zurcoin (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Omni Core (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Omni Core (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for Zurcoin*.lnk
+    // check for Bitcoin*.lnk
     return boost::filesystem::exists(StartupShortcutPath());
 }
 
@@ -710,8 +710,8 @@ boost::filesystem::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "zurcoin.desktop";
-    return GetAutostartDir() / strprintf("zurcoin-%s.lnk", chain);
+        return GetAutostartDir() / "omnicore.desktop";
+    return GetAutostartDir() / strprintf("omnicore-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -750,13 +750,13 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         std::string chain = ChainNameFromCommandLine();
-        // Write a zurcoin.desktop file to the autostart directory:
+        // Write a bitcoin.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
-            optionFile << "Name=Zurcoin\n";
+            optionFile << "Name=Omni Core\n";
         else
-            optionFile << strprintf("Name=Zurcoin (%s)\n", chain);
+            optionFile << strprintf("Name=Omni Core (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", GetBoolArg("-testnet", false), GetBoolArg("-regtest", false));
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -775,7 +775,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl);
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl)
 {
-    // loop through the list of startup items and try to find the zurcoin app
+    // loop through the list of startup items and try to find the bitcoin app
     CFArrayRef listSnapshot = LSSharedFileListCopySnapshot(list, NULL);
     for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
         LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
@@ -820,7 +820,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
     LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, bitcoinAppUrl);
 
     if(fAutoStart && !foundItem) {
-        // add zurcoin app to startup item list
+        // add bitcoin app to startup item list
         LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, bitcoinAppUrl, NULL, NULL);
     }
     else if(!fAutoStart && foundItem) {

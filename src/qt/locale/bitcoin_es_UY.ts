@@ -110,16 +110,16 @@
         <translation>Recibiendo direcciones</translation>
     </message>
     <message>
-        <source>Send coins to a Zurcoin address</source>
-        <translation>Enviar monedas a una dirección Zurcoin</translation>
+        <source>Send coins to a Bitcoin address</source>
+        <translation>Enviar monedas a una dirección Bitcoin</translation>
     </message>
     <message>
         <source>Change the passphrase used for wallet encryption</source>
         <translation>Cambie la clave utilizada para el cifrado del monedero</translation>
     </message>
     <message>
-        <source>Zurcoin</source>
-        <translation>Zurcoin</translation>
+        <source>Bitcoin</source>
+        <translation>Bitcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -439,7 +439,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>zurcoin-core</name>
+    <name>bitcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opciones:</translation>

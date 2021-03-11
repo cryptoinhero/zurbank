@@ -142,8 +142,8 @@
         <translation>Deschide &amp;URI...</translation>
     </message>
     <message>
-        <source>Send coins to a Zurcoin address</source>
-        <translation>Trimite monedele către o adresă Zurcoin</translation>
+        <source>Send coins to a Bitcoin address</source>
+        <translation>Trimite monedele către o adresă Bitcoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -166,8 +166,8 @@
         <translation>&amp;Verifică mesajul...</translation>
     </message>
     <message>
-        <source>Zurcoin</source>
-        <translation>Zurcoin</translation>
+        <source>Bitcoin</source>
+        <translation>Bitcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -194,12 +194,12 @@
         <translation>Criptează cheile private care aparțin portofelului tău.</translation>
     </message>
     <message>
-        <source>Sign messages with your Zurcoin addresses to prove you own them</source>
-        <translation>Semnează mesajele cu adresa ta de Zurcoin pentru a face dovada că îți aparțin.</translation>
+        <source>Sign messages with your Bitcoin addresses to prove you own them</source>
+        <translation>Semnează mesajele cu adresa ta de Bitcoin pentru a face dovada că îți aparțin.</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Zurcoin addresses</source>
-        <translation>Verifică mesajele cu scopul de a asigura faptul că au fost semnate cu adresa de Zurcoin specificată.</translation>
+        <source>Verify messages to ensure they were signed with specified Bitcoin addresses</source>
+        <translation>Verifică mesajele cu scopul de a asigura faptul că au fost semnate cu adresa de Bitcoin specificată.</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -214,12 +214,12 @@
         <translation>&amp;Ajutor</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and zurcoin: URIs)</source>
-        <translation>Cerere plată (generează coduri QR și zurcoin: URIs)</translation>
+        <source>Request payments (generates QR codes and bitcoin: URIs)</source>
+        <translation>Cerere plată (generează coduri QR și bitcoin: URIs)</translation>
     </message>
     <message>
-        <source>Open a zurcoin: URI or payment request</source>
-        <translation>Deschide un zurcoin: URI sau cerere de plată</translation>
+        <source>Open a bitcoin: URI or payment request</source>
+        <translation>Deschide un bitcoin: URI sau cerere de plată</translation>
     </message>
     <message>
         <source>%1 and %2</source>
@@ -744,10 +744,10 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>zurcoin-core</name>
+    <name>bitcoin-core</name>
     <message>
-        <source>Zurcoin Core</source>
-        <translation>Zurcoin Core</translation>
+        <source>Bitcoin Core</source>
+        <translation>Bitcoin Core</translation>
     </message>
     <message>
         <source>Information</source>

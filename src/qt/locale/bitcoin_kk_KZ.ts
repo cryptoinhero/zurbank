@@ -70,7 +70,7 @@
         <translation>Құпия сөзді өзгерту</translation>
     </message>
     <message>
-        <source>Zurcoin</source>
+        <source>Bitcoin</source>
         <translation>Биткоин</translation>
     </message>
     <message>
@@ -320,7 +320,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>zurcoin-core</name>
+    <name>bitcoin-core</name>
     <message>
         <source>Information</source>
         <translation>Информация</translation>

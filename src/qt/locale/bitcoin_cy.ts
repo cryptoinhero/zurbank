@@ -114,8 +114,8 @@
         <translation>Newid y cyfrinymadrodd a ddefnyddiwyd ar gyfer amgryptio'r waled</translation>
     </message>
     <message>
-        <source>Zurcoin</source>
-        <translation>Zurcoin</translation>
+        <source>Bitcoin</source>
+        <translation>Bitcoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -484,14 +484,14 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>zurcoin-core</name>
+    <name>bitcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Opsiynau:</translation>
     </message>
     <message>
-        <source>Zurcoin Core</source>
-        <translation>Craidd Zurcoin</translation>
+        <source>Bitcoin Core</source>
+        <translation>Craidd Bitcoin</translation>
     </message>
     <message>
         <source>Information</source>

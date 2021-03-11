@@ -51,7 +51,7 @@
 using namespace std;
 
 #if defined(NDEBUG)
-# error "Zurcoin cannot be compiled without assertions."
+# error "Omni Core cannot be compiled without assertions."
 #endif
 
 /**
@@ -116,7 +116,7 @@ static void CheckBlockIndex(const Consensus::Params& consensusParams);
 /** Constant stuff for coinbase transactions we create: */
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "Zurcoin Signed Message:\n";
+const string strMessageMagic = "Bitcoin Signed Message:\n";
 
 // Internal stuff
 namespace {
@@ -236,6 +236,20 @@ namespace {
     /** Expiration-time ordered list of (expire time, relay map entry) pairs, protected by cs_main). */
     std::deque<std::pair<int64_t, MapRelay::iterator>> vRelayExpiration;
 } // anon namespace
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// Omni Core notification handlers
+//
+
+// TODO: replace handlers with signals
+int mastercore_handler_disc_begin(int nBlockNow, CBlockIndex const * pBlockIndex);
+int mastercore_handler_disc_end(int nBlockNow, CBlockIndex const * pBlockIndex);
+int mastercore_handler_block_begin(int nBlockNow, CBlockIndex const * pBlockIndex);
+int mastercore_handler_block_end(int nBlockNow, CBlockIndex const * pBlockIndex, unsigned int);
+int mastercore_handler_tx(const CTransaction &tx, int nBlock, unsigned int idx, CBlockIndex const * pBlockIndex);
+void TryToAddToMarkerCache(const CTransaction& tx);
+void RemoveFromMarkerCache(const CTransaction& tx);
 
 //////////////////////////////////////////////////////////////////////////////
 //
@@ -1555,7 +1569,7 @@ bool AcceptToMemoryPoolWorker(CTxMemPool& pool, CValidationState& state, const C
         // Remove conflicting transactions from the mempool
         BOOST_FOREACH(const CTxMemPool::txiter it, allConflicting)
         {
-            LogPrint("mempool", "replacing tx %s with %s for %s ZUR additional fees, %d delta bytes\n",
+            LogPrint("mempool", "replacing tx %s with %s for %s BTC additional fees, %d delta bytes\n",
                     it->GetTx().GetHash().ToString(),
                     hash.ToString(),
                     FormatMoney(nModifiedFees - nConflictingFees),
@@ -1575,6 +1589,7 @@ bool AcceptToMemoryPoolWorker(CTxMemPool& pool, CValidationState& state, const C
     }
 
     SyncWithWallets(tx, NULL, NULL);
+    TryToAddToMarkerCache(tx);
 
     return true;
 }
@@ -1761,7 +1776,8 @@ bool fLargeWorkForkFound = false;
 bool fLargeWorkInvalidChainFound = false;
 CBlockIndex *pindexBestForkTip = NULL, *pindexBestForkBase = NULL;
 
-static void AlertNotify(const std::string& strMessage)
+/* Sends out an alert */
+void AlertNotify(const std::string& strMessage)
 {
     uiInterface.NotifyAlertChanged();
     std::string strCmd = GetArg("-alertnotify", "");
@@ -2063,6 +2079,18 @@ bool CheckInputs(const CTransaction& tx, CValidationState &state, const CCoinsVi
     return true;
 }
 
+/** Abort with a message */
+bool AbortNode(const std::string& strMessage, const std::string& userMessage)
+{
+    strMiscWarning = strMessage;
+    LogPrintf("*** %s\n", strMessage);
+    uiInterface.ThreadSafeMessageBox(
+        userMessage.empty() ? _("Error: A fatal internal error occurred, see debug.log for details") : userMessage,
+        "", CClientUIInterface::MSG_ERROR);
+    StartShutdown();
+    return false;
+}
+
 namespace {
 
 bool UndoWriteToDisk(const CBlockUndo& blockundo, CDiskBlockPos& pos, const uint256& hashBlock, const CMessageHeader::MessageStartChars& messageStart)
@@ -2119,21 +2147,9 @@ bool UndoReadFromDisk(CBlockUndo& blockundo, const CDiskBlockPos& pos, const uin
     return true;
 }
 
-/** Abort with a message */
-bool AbortNode(const std::string& strMessage, const std::string& userMessage="")
-{
-    strMiscWarning = strMessage;
-    LogPrintf("*** %s\n", strMessage);
-    uiInterface.ThreadSafeMessageBox(
-        userMessage.empty() ? _("Error: A fatal internal error occurred, see debug.log for details") : userMessage,
-        "", CClientUIInterface::MSG_ERROR);
-    StartShutdown();
-    return false;
-}
-
 bool AbortNode(CValidationState& state, const std::string& strMessage, const std::string& userMessage="")
 {
-    AbortNode(strMessage, userMessage);
+    ::AbortNode(strMessage, userMessage);
     return state.Error(strMessage);
 }
 
@@ -2268,7 +2284,7 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("zurcoin-scriptch");
+    RenameThread("bitcoin-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -2807,11 +2823,22 @@ bool static DisconnectTip(CValidationState& state, const CChainParams& chainpara
 
     // Update chainActive and related variables.
     UpdateTip(pindexDelete->pprev, chainparams);
+
+    //! Omni Core: begin block disconnect notification
+    LogPrint("handler", "Omni Core handler: block disconnect begin [height: %d, reindex: %d]\n", GetHeight(), (int)fReindex);
+    mastercore_handler_disc_begin(GetHeight(), pindexDelete);
+
     // Let wallets know transactions went from 1-confirmed to
     // 0-confirmed or conflicted:
     BOOST_FOREACH(const CTransaction &tx, block.vtx) {
         SyncWithWallets(tx, pindexDelete->pprev, NULL);
+        TryToAddToMarkerCache(tx);
     }
+
+    //! Omni Core: end of block disconnect notification
+    LogPrint("handler", "Omni Core handler: block disconnect end [height: %d, reindex: %d]\n", GetHeight(), (int)fReindex);
+    mastercore_handler_disc_end(GetHeight(), pindexDelete);
+
     return true;
 }
 
@@ -2861,6 +2888,16 @@ bool static ConnectTip(CValidationState& state, const CChainParams& chainparams,
         return false;
     int64_t nTime5 = GetTimeMicros(); nTimeChainState += nTime5 - nTime4;
     LogPrint("bench", "  - Writing chainstate: %.2fms [%.2fs]\n", (nTime5 - nTime4) * 0.001, nTimeChainState * 0.000001);
+
+    //! Omni Core: transaction position within the block
+    unsigned int nTxIdx = 0;
+    //! Omni Core: number of meta transactions found
+    unsigned int nNumMetaTxs = 0;
+
+    //! Omni Core: begin block connect notification
+    LogPrint("handler", "Omni Core handler: block connect begin [height: %d]\n", GetHeight());
+    mastercore_handler_block_begin(GetHeight(), pindexNew);
+
     // Remove conflicting transactions from the mempool.
     list<CTransaction> txConflicted;
     mempool.removeForBlock(pblock->vtx, pindexNew->nHeight, txConflicted, !IsInitialBlockDownload());
@@ -2870,11 +2907,22 @@ bool static ConnectTip(CValidationState& state, const CChainParams& chainparams,
     // to conflicted:
     BOOST_FOREACH(const CTransaction &tx, txConflicted) {
         SyncWithWallets(tx, pindexNew, NULL);
+        RemoveFromMarkerCache(tx);
     }
+
     // ... and about transactions that got confirmed:
     BOOST_FOREACH(const CTransaction &tx, pblock->vtx) {
         SyncWithWallets(tx, pindexNew, pblock);
+
+        //! Omni Core: new confirmed transaction notification
+        LogPrint("handler", "Omni Core handler: new confirmed transaction [height: %d, idx: %u]\n", GetHeight(), nTxIdx);
+        if (mastercore_handler_tx(tx, GetHeight(), nTxIdx++, pindexNew)) ++nNumMetaTxs;
+        RemoveFromMarkerCache(tx);
     }
+
+    //! Omni Core: end of block connect notification
+    LogPrint("handler", "Omni Core handler: block connect end [new height: %d, found: %u txs]\n", GetHeight(), nNumMetaTxs);
+    mastercore_handler_block_end(GetHeight(), pindexNew, nNumMetaTxs);
 
     int64_t nTime6 = GetTimeMicros(); nTimePostConnect += nTime6 - nTime5; nTimeTotal += nTime6 - nTime1;
     LogPrint("bench", "  - Connect postprocess: %.2fms [%.2fs]\n", (nTime6 - nTime5) * 0.001, nTimePostConnect * 0.000001);
@@ -4148,7 +4196,7 @@ bool CVerifyDB::VerifyDB(const CChainParams& chainparams, CCoinsView *coinsview,
             return error("VerifyDB(): *** ReadBlockFromDisk failed at %d, hash=%s", pindex->nHeight, pindex->GetBlockHash().ToString());
         // check level 1: verify block validity
         if (nCheckLevel >= 1 && !CheckBlock(block, state, chainparams.GetConsensus()))
-            return error("%s: *** found bad block at %d, hash=%s (%s)\n", __func__, 
+            return error("%s: *** found bad block at %d, hash=%s (%s)\n", __func__,
                          pindex->nHeight, pindex->GetBlockHash().ToString(), FormatStateMessage(state));
         // check level 2: verify undo validity
         if (nCheckLevel >= 2 && pindex) {
@@ -4324,7 +4372,7 @@ bool LoadBlockIndex()
     return true;
 }
 
-bool InitBlockIndex(const CChainParams& chainparams) 
+bool InitBlockIndex(const CChainParams& chainparams)
 {
     LOCK(cs_main);
 
@@ -5563,7 +5611,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
                         if (orphanTx.wit.IsNull() && !stateDummy.CorruptionPossible()) {
                             // Do not use rejection cache for witness transactions or
                             // witness-stripped transactions, as they can have been malleated.
-                            // See https://github.com/zurcoin/zurcoin/issues/8279 for details.
+                            // See https://github.com/bitcoin/bitcoin/issues/8279 for details.
                             assert(recentRejects);
                             recentRejects->insert(orphanHash);
                         }
@@ -5605,7 +5653,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
             if (tx.wit.IsNull() && !state.CorruptionPossible()) {
                 // Do not use rejection cache for witness transactions or
                 // witness-stripped transactions, as they can have been malleated.
-                // See https://github.com/zurcoin/zurcoin/issues/8279 for details.
+                // See https://github.com/bitcoin/bitcoin/issues/8279 for details.
                 assert(recentRejects);
                 recentRejects->insert(tx.GetHash());
             }

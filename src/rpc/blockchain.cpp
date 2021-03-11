@@ -298,6 +298,34 @@ UniValue getrawmempool(const UniValue& params, bool fHelp)
     return mempoolToJSON(fVerbose);
 }
 
+UniValue clearmempool(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() > 0)
+        throw runtime_error(
+            "clearmempool\n"
+            "\nClears the memory pool and returns a list of the removed transactions.\n"
+            "\nResult:\n"
+            "[                     (json array of string)\n"
+            "  \"hash\"              (string) The transaction hash\n"
+            "  ,...\n"
+            "]\n"
+            "\nExamples\n"
+            + HelpExampleCli("clearmempool", "")
+            + HelpExampleRpc("clearmempool", "")
+        );
+
+    std::vector<uint256> vtxid;
+    mempool.queryHashes(vtxid);
+
+    UniValue removed(UniValue::VARR);
+    BOOST_FOREACH(const uint256& hash, vtxid)
+        removed.push_back(hash.ToString());
+
+    mempool.clear();
+
+    return removed;
+}
+
 UniValue getmempoolancestors(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2) {
@@ -730,8 +758,8 @@ UniValue gettxout(const UniValue& params, bool fHelp)
             "     \"hex\" : \"hex\",        (string) \n"
             "     \"reqSigs\" : n,          (numeric) Number of required signatures\n"
             "     \"type\" : \"pubkeyhash\", (string) The type, eg pubkeyhash\n"
-            "     \"addresses\" : [          (array of string) array of zurcoin addresses\n"
-            "        \"bitcoinaddress\"     (string) zurcoin address\n"
+            "     \"addresses\" : [          (array of string) array of bitcoin addresses\n"
+            "        \"bitcoinaddress\"     (string) bitcoin address\n"
             "        ,...\n"
             "     ]\n"
             "  },\n"
@@ -1202,6 +1230,7 @@ static const CRPCCommand commands[] =
     { "blockchain",         "getmempoolentry",        &getmempoolentry,        true  },
     { "blockchain",         "getmempoolinfo",         &getmempoolinfo,         true  },
     { "blockchain",         "getrawmempool",          &getrawmempool,          true  },
+    { "blockchain",         "clearmempool",           &clearmempool,           true  },   
     { "blockchain",         "gettxout",               &gettxout,               true  },
     { "blockchain",         "gettxoutsetinfo",        &gettxoutsetinfo,        true  },
     { "blockchain",         "verifychain",            &verifychain,            true  },

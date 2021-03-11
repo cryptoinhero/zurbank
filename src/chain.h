@@ -294,7 +294,7 @@ public:
             *(--pbegin) = pindex->GetBlockTime();
 
         std::sort(pbegin, pend);
-        return pbegin[(pend - pbegin)*2/3];
+        return pbegin[(pend - pbegin)/2];
     }
 
     std::string ToString() const

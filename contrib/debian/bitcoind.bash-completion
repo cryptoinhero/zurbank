@@ -1,2 +1,2 @@
-contrib/zurcoind.bash-completion	zurcoind
-contrib/zurcoin-cli.bash-completion	zurcoin-cli
+contrib/bitcoind.bash-completion	bitcoind
+contrib/bitcoin-cli.bash-completion	bitcoin-cli

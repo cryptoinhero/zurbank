@@ -126,7 +126,7 @@
         <translation>Оношилгоо ба засварын консолыг онгойлго</translation>
     </message>
     <message>
-        <source>Zurcoin</source>
+        <source>Bitcoin</source>
         <translation>Биткойн</translation>
     </message>
     <message>
@@ -536,7 +536,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>zurcoin-core</name>
+    <name>bitcoin-core</name>
     <message>
         <source>Options:</source>
         <translation>Сонголтууд:</translation>

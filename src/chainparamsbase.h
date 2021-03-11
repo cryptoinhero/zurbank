@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between zurcoin-cli and zurcoind)
- * of a given instance of the Zurcoin system.
+ * CBaseChainParams defines the base parameters (shared between bitcoin-cli and bitcoind)
+ * of a given instance of the Bitcoin system.
  */
 class CBaseChainParams
 {
