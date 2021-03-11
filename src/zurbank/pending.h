@@ -1,5 +1,5 @@
-#ifndef OMNICORE_PENDING_H
-#define OMNICORE_PENDING_H
+#ifndef ZURBANK_PENDING_H
+#define ZURBANK_PENDING_H
 
 class uint256;
 struct CMPPending;
@@ -47,4 +47,4 @@ struct CMPPending
 };
 
 
-#endif // OMNICORE_PENDING_H
+#endif // ZURBANK_PENDING_H

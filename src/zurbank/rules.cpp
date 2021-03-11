@@ -38,9 +38,9 @@ std::vector<TransactionRestriction> CConsensusParams::GetRestrictions() const
     const TransactionRestriction vTxRestrictions[] =
     { //  transaction type                    version        allow 0  activation block
       //  ----------------------------------  -------------  -------  ------------------
-        { OMNICORE_MESSAGE_TYPE_ALERT,        0xFFFF,        true,    MSC_ALERT_BLOCK    },
-        { OMNICORE_MESSAGE_TYPE_ACTIVATION,   0xFFFF,        true,    MSC_ALERT_BLOCK    },
-        { OMNICORE_MESSAGE_TYPE_DEACTIVATION, 0xFFFF,        true,    MSC_ALERT_BLOCK    },
+        { ZURBANK_MESSAGE_TYPE_ALERT,        0xFFFF,        true,    MSC_ALERT_BLOCK    },
+        { ZURBANK_MESSAGE_TYPE_ACTIVATION,   0xFFFF,        true,    MSC_ALERT_BLOCK    },
+        { ZURBANK_MESSAGE_TYPE_DEACTIVATION, 0xFFFF,        true,    MSC_ALERT_BLOCK    },
 
         { MSC_TYPE_SIMPLE_SEND,               MP_TX_PKT_V0,  false,   MSC_SEND_BLOCK     },
 
@@ -465,7 +465,7 @@ bool ActivateFeature(uint16_t featureId, int activationBlock, uint32_t minClient
 
     // check feature is recognized and activation is successful
     std::string featureName = GetFeatureName(featureId);
-    bool supported = OMNICORE_VERSION >= minClientVersion;
+    bool supported = ZURBANK_VERSION >= minClientVersion;
     switch (featureId) {
         case FEATURE_CLASS_C:
             MutableConsensusParams().NULLDATA_BLOCK = activationBlock;

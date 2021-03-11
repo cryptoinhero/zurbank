@@ -9,26 +9,26 @@
 #    include "build.h"
 #endif
 
-#ifdef OMNICORE_VERSION_STATUS
-#    define OMNICORE_VERSION_SUFFIX STRINGIZE(OMNICORE_VERSION_STATUS)
+#ifdef ZURBANK_VERSION_STATUS
+#    define ZURBANK_VERSION_SUFFIX STRINGIZE(ZURBANK_VERSION_STATUS)
 #else
-#    define OMNICORE_VERSION_SUFFIX ""
+#    define ZURBANK_VERSION_SUFFIX ""
 #endif
 
 //! Returns formatted Omni Core version, e.g. "1.2.0" or "1.3.4.1"
-const std::string OmniCoreVersion()
+const std::string ZurBankVersion()
 {
-    if (OMNICORE_VERSION_BUILD) {
+    if (ZURBANK_VERSION_BUILD) {
         return strprintf("%d.%d.%d.%d",
-                OMNICORE_VERSION_MAJOR,
-                OMNICORE_VERSION_MINOR,
-                OMNICORE_VERSION_PATCH,
-                OMNICORE_VERSION_BUILD);
+                ZURBANK_VERSION_MAJOR,
+                ZURBANK_VERSION_MINOR,
+                ZURBANK_VERSION_PATCH,
+                ZURBANK_VERSION_BUILD);
     } else {
         return strprintf("%d.%d.%d",
-                OMNICORE_VERSION_MAJOR,
-                OMNICORE_VERSION_MINOR,
-                OMNICORE_VERSION_PATCH);
+                ZURBANK_VERSION_MAJOR,
+                ZURBANK_VERSION_MINOR,
+                ZURBANK_VERSION_PATCH);
     }
 }
 

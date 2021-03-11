@@ -1,5 +1,5 @@
-#ifndef OMNICORE_WALLETFETCHTXS_H
-#define OMNICORE_WALLETFETCHTXS_H
+#ifndef ZURBANK_WALLETFETCHTXS_H
+#define ZURBANK_WALLETFETCHTXS_H
 
 class uint256;
 
@@ -12,4 +12,4 @@ namespace mastercore
 std::map<std::string, uint256> FetchWalletOmniTransactions(unsigned int count, int startBlock = 0, int endBlock = 999999);
 }
 
-#endif // OMNICORE_WALLETFETCHTXS_H
+#endif // ZURBANK_WALLETFETCHTXS_H

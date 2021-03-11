@@ -117,7 +117,7 @@ std::atomic<bool> fReopenDebugLog(false);
 CTranslationInterface translationInterface;
 
 /** Flag to indicate, whether the Omni Core log file should be reopened. */
-std::atomic<bool> fReopenOmniCoreLog(false);
+std::atomic<bool> fReopenZurBankLog(false);
 
 /** Init OpenSSL library multithreading support */
 static CCriticalSection** ppmutexOpenSSL;

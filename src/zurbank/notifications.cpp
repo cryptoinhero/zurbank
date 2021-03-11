@@ -126,7 +126,7 @@ bool CheckAlertAuthorization(const std::string& sender)
 /**
  * Alerts including meta data.
  */
-std::vector<AlertData> GetOmniCoreAlerts()
+std::vector<AlertData> GetZurBankAlerts()
 {
     return currentOmniAlerts;
 }
@@ -134,7 +134,7 @@ std::vector<AlertData> GetOmniCoreAlerts()
 /**
  * Human readable alert messages.
  */
-std::vector<std::string> GetOmniCoreAlertMessages()
+std::vector<std::string> GetZurBankAlertMessages()
 {
     std::vector<std::string> vstr;
     for (std::vector<AlertData>::iterator it = currentOmniAlerts.begin(); it != currentOmniAlerts.end(); it++) {
@@ -172,7 +172,7 @@ bool CheckExpiredAlerts(unsigned int curBlock, uint64_t curTime)
                 }
             break;
             case ALERT_CLIENT_VERSION_EXPIRY:
-                if (OMNICORE_VERSION > alert.alert_expiry) {
+                if (ZURBANK_VERSION > alert.alert_expiry) {
                     PrintToLog("Expiring alert (form: %s type:%d expiry:%d message:%s)\n", alert.alert_sender,
                         alert.alert_type, alert.alert_expiry, alert.alert_message);
                     it = currentOmniAlerts.erase(it);

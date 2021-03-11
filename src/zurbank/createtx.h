@@ -1,5 +1,5 @@
-#ifndef OMNICORE_CREATETX_H
-#define OMNICORE_CREATETX_H
+#ifndef ZURBANK_CREATETX_H
+#define ZURBANK_CREATETX_H
 
 class CCoinsViewCache;
 class CMutableTransaction;
@@ -225,4 +225,4 @@ public:
 void InputsToView(const std::vector<PrevTxsEntry>& prevTxs, CCoinsViewCache& view);
 
 
-#endif // OMNICORE_CREATETX_H
+#endif // ZURBANK_CREATETX_H

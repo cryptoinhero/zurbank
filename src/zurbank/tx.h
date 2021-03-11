@@ -1,5 +1,5 @@
-#ifndef OMNICORE_TX_H
-#define OMNICORE_TX_H
+#ifndef ZURBANK_TX_H
+#define ZURBANK_TX_H
 
 class CMPMetaDEx;
 class CMPOffer;
@@ -308,4 +308,4 @@ public:
 };
 
 
-#endif // OMNICORE_TX_H
+#endif // ZURBANK_TX_H

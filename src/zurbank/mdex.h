@@ -1,5 +1,5 @@
-#ifndef OMNICORE_MDEX_H
-#define OMNICORE_MDEX_H
+#ifndef ZURBANK_MDEX_H
+#define ZURBANK_MDEX_H
 
 #include "zurbank/tx.h"
 
@@ -143,4 +143,4 @@ const CMPMetaDEx* MetaDEx_RetrieveTrade(const uint256& txid);
 }
 
 
-#endif // OMNICORE_MDEX_H
+#endif // ZURBANK_MDEX_H

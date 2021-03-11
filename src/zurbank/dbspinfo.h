@@ -1,5 +1,5 @@
-#ifndef OMNICORE_DBSPINFO_H
-#define OMNICORE_DBSPINFO_H
+#ifndef ZURBANK_DBSPINFO_H
+#define ZURBANK_DBSPINFO_H
 
 #include "zurbank/dbbase.h"
 #include "zurbank/log.h"
@@ -164,4 +164,4 @@ public:
 };
 
 
-#endif // OMNICORE_DBSPINFO_H
+#endif // ZURBANK_DBSPINFO_H

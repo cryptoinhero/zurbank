@@ -1513,7 +1513,7 @@ UniValue omni_sendalert(const UniValue& params, bool fHelp)
     std::string alertMessage = ParseText(params[3]);
 
     // create a payload for the transaction
-    std::vector<unsigned char> payload = CreatePayload_OmniCoreAlert(alertType, expiryValue, alertMessage);
+    std::vector<unsigned char> payload = CreatePayload_ZurBankAlert(alertType, expiryValue, alertMessage);
 
     // request the wallet build the transaction (and if needed commit it)
     uint256 txid;

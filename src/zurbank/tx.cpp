@@ -71,9 +71,9 @@ std::string mastercore::strTransactionType(uint16_t txType)
         case MSC_TYPE_FREEZE_PROPERTY_TOKENS: return "Freeze Property Tokens";
         case MSC_TYPE_UNFREEZE_PROPERTY_TOKENS: return "Unfreeze Property Tokens";
         case MSC_TYPE_NOTIFICATION: return "Notification";
-        case OMNICORE_MESSAGE_TYPE_ALERT: return "ALERT";
-        case OMNICORE_MESSAGE_TYPE_DEACTIVATION: return "Feature Deactivation";
-        case OMNICORE_MESSAGE_TYPE_ACTIVATION: return "Feature Activation";
+        case ZURBANK_MESSAGE_TYPE_ALERT: return "ALERT";
+        case ZURBANK_MESSAGE_TYPE_DEACTIVATION: return "Feature Deactivation";
+        case ZURBANK_MESSAGE_TYPE_ACTIVATION: return "Feature Activation";
 
         default: return "* unknown type *";
     }
@@ -172,13 +172,13 @@ bool CMPTransaction::interpret_Transaction()
         case MSC_TYPE_UNFREEZE_PROPERTY_TOKENS:
             return interpret_UnfreezeTokens();
 
-        case OMNICORE_MESSAGE_TYPE_DEACTIVATION:
+        case ZURBANK_MESSAGE_TYPE_DEACTIVATION:
             return interpret_Deactivation();
 
-        case OMNICORE_MESSAGE_TYPE_ACTIVATION:
+        case ZURBANK_MESSAGE_TYPE_ACTIVATION:
             return interpret_Activation();
 
-        case OMNICORE_MESSAGE_TYPE_ALERT:
+        case ZURBANK_MESSAGE_TYPE_ALERT:
             return interpret_Alert();
     }
 
@@ -934,13 +934,13 @@ int CMPTransaction::interpretPacket()
         case MSC_TYPE_UNFREEZE_PROPERTY_TOKENS:
             return logicMath_UnfreezeTokens();
 
-        case OMNICORE_MESSAGE_TYPE_DEACTIVATION:
+        case ZURBANK_MESSAGE_TYPE_DEACTIVATION:
             return logicMath_Deactivation();
 
-        case OMNICORE_MESSAGE_TYPE_ACTIVATION:
+        case ZURBANK_MESSAGE_TYPE_ACTIVATION:
             return logicMath_Activation();
 
-        case OMNICORE_MESSAGE_TYPE_ALERT:
+        case ZURBANK_MESSAGE_TYPE_ALERT:
             return logicMath_Alert();
     }
 
@@ -2440,7 +2440,7 @@ int CMPTransaction::logicMath_Alert()
         return (PKT_ERROR -51);
     }
 
-    if (alert_type == ALERT_CLIENT_VERSION_EXPIRY && OMNICORE_VERSION < alert_expiry) {
+    if (alert_type == ALERT_CLIENT_VERSION_EXPIRY && ZURBANK_VERSION < alert_expiry) {
         // regular alert keys CANNOT be used to force a client upgrade on mainnet - at least 3 signatures from board/devs are required
         if (sender == "34kwkVRSvFVEoUwcQSgpQ4ZUasuZ54DJLD" || isNonMainNet()) {
             std::string msgText = "Client upgrade is required!  Shutting down due to unsupported consensus state!";

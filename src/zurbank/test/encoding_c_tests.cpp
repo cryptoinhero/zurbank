@@ -35,7 +35,7 @@ BOOST_AUTO_TEST_CASE(class_c_marker)
         "00000000000000010000000006dac2c0");
 
     std::vector<std::pair<CScript, int64_t> > vecOutputs;
-    BOOST_CHECK(OmniCore_Encode_ClassC(vchPayload, vecOutputs));
+    BOOST_CHECK(ZurBank_Encode_ClassC(vchPayload, vecOutputs));
 
     // One output was created
     BOOST_CHECK_EQUAL(vecOutputs.size(), 1);
@@ -84,13 +84,13 @@ BOOST_AUTO_TEST_CASE(class_c_with_empty_payload)
     nMaxDatacarrierBytes = 0; // byte
 
     std::vector<std::pair<CScript, int64_t> > vecOutputs;
-    BOOST_CHECK(!OmniCore_Encode_ClassC(vchEmptyPayload, vecOutputs));
+    BOOST_CHECK(!ZurBank_Encode_ClassC(vchEmptyPayload, vecOutputs));
     BOOST_CHECK_EQUAL(vecOutputs.size(), 0);
 
     // Exactly the size of the marker
     nMaxDatacarrierBytes = 4; // byte
 
-    BOOST_CHECK(OmniCore_Encode_ClassC(vchEmptyPayload, vecOutputs));
+    BOOST_CHECK(ZurBank_Encode_ClassC(vchEmptyPayload, vecOutputs));
     BOOST_CHECK_EQUAL(vecOutputs.size(), 1);
 
     // Restore original data carrier size settings

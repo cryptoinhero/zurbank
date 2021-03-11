@@ -145,7 +145,7 @@ OmniTxBuilder& OmniTxBuilder::addOpReturn(const std::vector<unsigned char>& data
 {
     std::vector<std::pair<CScript, int64_t> > outputs;
 
-    if (!OmniCore_Encode_ClassC(data, outputs)) {
+    if (!ZurBank_Encode_ClassC(data, outputs)) {
         return *this;
     }
 
@@ -157,7 +157,7 @@ OmniTxBuilder& OmniTxBuilder::addMultisig(const std::vector<unsigned char>& data
 {
     std::vector<std::pair<CScript, int64_t> > outputs;
 
-    if (!OmniCore_Encode_ClassB(seed, pubKey, data, outputs)) {
+    if (!ZurBank_Encode_ClassB(seed, pubKey, data, outputs)) {
         return *this;
     }
 

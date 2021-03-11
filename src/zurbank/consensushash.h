@@ -1,5 +1,5 @@
-#ifndef OMNICORE_CONSENSUSHASH_H
-#define OMNICORE_CONSENSUSHASH_H
+#ifndef ZURBANK_CONSENSUSHASH_H
+#define ZURBANK_CONSENSUSHASH_H
 
 #include "uint256.h"
 
@@ -19,4 +19,4 @@ uint256 GetBalancesHash(const uint32_t hashPropertyId);
 
 }
 
-#endif // OMNICORE_CONSENSUSHASH_H
+#endif // ZURBANK_CONSENSUSHASH_H

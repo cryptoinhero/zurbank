@@ -604,7 +604,7 @@ void OverviewPage::updateAlerts(const QString &warnings)
     QString alertString = warnings; // get current zurcoin alert/warning directly
 
     // get alert messages
-    std::vector<std::string> omniAlerts = GetOmniCoreAlertMessages();
+    std::vector<std::string> omniAlerts = GetZurBankAlertMessages();
     for (std::vector<std::string>::iterator it = omniAlerts.begin(); it != omniAlerts.end(); it++) {
         if (!alertString.isEmpty()) alertString += "\n";
         alertString += QString::fromStdString(*it);

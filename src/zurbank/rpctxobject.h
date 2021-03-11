@@ -1,5 +1,5 @@
-#ifndef OMNICORE_RPCTXOBJECT_H
-#define OMNICORE_RPCTXOBJECT_H
+#ifndef ZURBANK_RPCTXOBJECT_H
+#define ZURBANK_RPCTXOBJECT_H
 
 #include <univalue.h>
 
@@ -45,4 +45,4 @@ int populateRPCSendAllSubSends(const uint256& txid, UniValue& subSends);
 
 bool showRefForTx(uint32_t txType);
 
-#endif // OMNICORE_RPCTXOBJECT_H
+#endif // ZURBANK_RPCTXOBJECT_H

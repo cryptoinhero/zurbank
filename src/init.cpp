@@ -275,7 +275,7 @@ void HandleSIGTERM(int)
 void HandleSIGHUP(int)
 {
     fReopenDebugLog = true;
-    fReopenOmniCoreLog = true;
+    fReopenZurBankLog = true;
 }
 
 bool static Bind(const CService &addr, unsigned int flags) {

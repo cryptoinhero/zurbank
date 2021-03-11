@@ -1,5 +1,5 @@
-#ifndef OMNICORE_RULES_H
-#define OMNICORE_RULES_H
+#ifndef ZURBANK_RULES_H
+#define ZURBANK_RULES_H
 
 #include "uint256.h"
 
@@ -229,4 +229,4 @@ bool VerifyCheckpoint(int block, const uint256& blockHash);
 bool VerifyTransactionExistence(int block);
 }
 
-#endif // OMNICORE_RULES_H
+#endif // ZURBANK_RULES_H

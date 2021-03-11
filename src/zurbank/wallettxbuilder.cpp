@@ -79,10 +79,10 @@ int WalletTxBuilder(
             if (!AddressToPubKey(sAddress, redeemingPubKey)) {
                 return MP_REDEMP_BAD_VALIDATION;
             }
-            if (!OmniCore_Encode_ClassB(senderAddress,redeemingPubKey,payload,vecSend)) { return MP_ENCODING_ERROR; }
+            if (!ZurBank_Encode_ClassB(senderAddress,redeemingPubKey,payload,vecSend)) { return MP_ENCODING_ERROR; }
         break; }
         case OMNI_CLASS_C:
-            if(!OmniCore_Encode_ClassC(payload,vecSend)) { return MP_ENCODING_ERROR; }
+            if(!ZurBank_Encode_ClassC(payload,vecSend)) { return MP_ENCODING_ERROR; }
         break;
     }
 
@@ -198,7 +198,7 @@ int CreateFundedTransaction(
     
     // add payload output
     std::vector<std::pair<CScript, int64_t> > vecSend;
-    if (!OmniCore_Encode_ClassC(payload, vecSend)) {
+    if (!ZurBank_Encode_ClassC(payload, vecSend)) {
         return MP_ENCODING_ERROR;
     }
 

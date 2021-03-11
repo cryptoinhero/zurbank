@@ -1,5 +1,5 @@
-#ifndef OMNICORE_DBSTOLIST_H
-#define OMNICORE_DBSTOLIST_H
+#ifndef ZURBANK_DBSTOLIST_H
+#define ZURBANK_DBSTOLIST_H
 
 #include "zurbank/dbbase.h"
 
@@ -42,4 +42,4 @@ namespace mastercore
     extern CMPSTOList* pDbStoList;
 }
 
-#endif // OMNICORE_DBSTOLIST_H
+#endif // ZURBANK_DBSTOLIST_H

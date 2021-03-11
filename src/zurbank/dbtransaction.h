@@ -1,5 +1,5 @@
-#ifndef OMNICORE_DBTRANSACTION_H
-#define OMNICORE_DBTRANSACTION_H
+#ifndef ZURBANK_DBTRANSACTION_H
+#define ZURBANK_DBTRANSACTION_H
 
 #include "zurbank/dbbase.h"
 
@@ -40,5 +40,5 @@ namespace mastercore
     extern COmniTransactionDB* pDbTransaction;
 }
 
-#endif // OMNICORE_DBTRANSACTION_H
+#endif // ZURBANK_DBTRANSACTION_H
 

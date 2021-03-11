@@ -1,5 +1,5 @@
-#ifndef OMNICORE_RPCPAYLOAD_H
-#define OMNICORE_RPCPAYLOAD_H
+#ifndef ZURBANK_RPCPAYLOAD_H
+#define ZURBANK_RPCPAYLOAD_H
 
 #include <univalue.h>
 
@@ -20,4 +20,4 @@ UniValue omni_createpayload_canceltradesbyprice(const UniValue& params, bool fHe
 UniValue omni_createpayload_canceltradesbypair(const UniValue& params, bool fHelp);
 UniValue omni_createpayload_cancelalltrades(const UniValue& params, bool fHelp);
 
-#endif // OMNICORE_RPCPAYLOAD_H
+#endif // ZURBANK_RPCPAYLOAD_H

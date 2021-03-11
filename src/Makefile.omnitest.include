@@ -1,7 +1,7 @@
-OMNICORE_TEST_H = \
+ZURBANK_TEST_H = \
   zurbank/test/utils_tx.h
 
-OMNICORE_TEST_CPP = \
+ZURBANK_TEST_CPP = \
   zurbank/test/alert_tests.cpp \
   zurbank/test/change_issuer_tests.cpp \
   zurbank/test/checkpoint_tests.cpp \
@@ -36,9 +36,9 @@ OMNICORE_TEST_CPP = \
   zurbank/test/version_tests.cpp
 
 BITCOIN_TESTS += \
-  $(OMNICORE_TEST_CPP) \
-  $(OMNICORE_TEST_H)
+  $(ZURBANK_TEST_CPP) \
+  $(ZURBANK_TEST_H)
 
-CLEAN_OMNICORE_TEST = zurbank/test/*.gcda zurbank/test/*.gcno
+CLEAN_ZURBANK_TEST = zurbank/test/*.gcda zurbank/test/*.gcno
 
-CLEANFILES += $(CLEAN_OMNICORE_TEST)
+CLEANFILES += $(CLEAN_ZURBANK_TEST)

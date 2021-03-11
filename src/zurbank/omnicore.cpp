@@ -1655,9 +1655,9 @@ int mastercore_init()
         return 0;
     }
 
-    PrintToConsole("Initializing Omni Core v%s [%s]\n", OmniCoreVersion(), Params().NetworkIDString());
+    PrintToConsole("Initializing Omni Core v%s [%s]\n", ZurBankVersion(), Params().NetworkIDString());
 
-    PrintToLog("\nInitializing Omni Core v%s [%s]\n", OmniCoreVersion(), Params().NetworkIDString());
+    PrintToLog("\nInitializing Omni Core v%s [%s]\n", ZurBankVersion(), Params().NetworkIDString());
     PrintToLog("Startup time: %s\n", DateTimeStrFormat("%Y-%m-%d %H:%M:%S", GetTime()));
 
     InitDebugLogLevels();

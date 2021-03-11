@@ -1,4 +1,4 @@
-OMNICORE_H = \
+ZURBANK_H = \
   zurbank/activation.h \
   zurbank/consensushash.h \
   zurbank/convert.h \
@@ -46,7 +46,7 @@ OMNICORE_H = \
   zurbank/wallettxbuilder.h \
   zurbank/walletutils.h
 
-OMNICORE_CPP = \
+ZURBANK_CPP = \
   zurbank/activation.cpp \
   zurbank/consensushash.cpp \
   zurbank/convert.cpp \
@@ -93,14 +93,14 @@ OMNICORE_CPP = \
   zurbank/walletutils.cpp
 
 libzurcoin_server_a_SOURCES += \
-  $(OMNICORE_CPP) \
-  $(OMNICORE_H)
+  $(ZURBANK_CPP) \
+  $(ZURBANK_H)
 
 zurbank/libzurcoin_server_a-version.$(OBJEXT): obj/build.h # build info
 
-CLEAN_OMNICORE = zurbank/*.gcda zurbank/*.gcno
+CLEAN_ZURBANK = zurbank/*.gcda zurbank/*.gcno
 
-CLEANFILES += $(CLEAN_OMNICORE)
+CLEANFILES += $(CLEAN_ZURBANK)
 
 if ENABLE_TESTS
 include Makefile.omnitest.include

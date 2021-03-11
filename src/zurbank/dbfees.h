@@ -1,5 +1,5 @@
-#ifndef OMNICORE_FEES_H
-#define OMNICORE_FEES_H
+#ifndef ZURBANK_FEES_H
+#define ZURBANK_FEES_H
 
 #include "zurbank/dbbase.h"
 #include "zurbank/log.h"
@@ -84,4 +84,4 @@ namespace mastercore
     extern COmniFeeHistory* pDbFeeHistory;
 }
 
-#endif // OMNICORE_FEES_H
+#endif // ZURBANK_FEES_H

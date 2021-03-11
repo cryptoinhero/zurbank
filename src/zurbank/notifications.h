@@ -1,5 +1,5 @@
-#ifndef OMNICORE_NOTIFICATIONS_H
-#define OMNICORE_NOTIFICATIONS_H
+#ifndef ZURBANK_NOTIFICATIONS_H
+#define ZURBANK_NOTIFICATIONS_H
 
 #include <stdint.h>
 #include <string>
@@ -39,12 +39,12 @@ void ClearAlerts();
 void AddAlert(const std::string& sender, uint16_t alertType, uint32_t alertExpiry, const std::string& alertMessage);
 
 /** Alert string including meta data. */
-std::vector<AlertData> GetOmniCoreAlerts();
+std::vector<AlertData> GetZurBankAlerts();
 /** Human readable alert messages. */
-std::vector<std::string> GetOmniCoreAlertMessages();
+std::vector<std::string> GetZurBankAlertMessages();
 
 /** Expires any alerts that need expiring. */
 bool CheckExpiredAlerts(unsigned int curBlock, uint64_t curTime);
 }
 
-#endif // OMNICORE_NOTIFICATIONS_H
+#endif // ZURBANK_NOTIFICATIONS_H

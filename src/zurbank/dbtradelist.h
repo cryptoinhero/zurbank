@@ -1,5 +1,5 @@
-#ifndef OMNICORE_DBTRADELIST_H
-#define OMNICORE_DBTRADELIST_H
+#ifndef ZURBANK_DBTRADELIST_H
+#define ZURBANK_DBTRADELIST_H
 
 #include "zurbank/dbbase.h"
 
@@ -40,4 +40,4 @@ namespace mastercore
     extern CMPTradeList* pDbTradeList;
 }
 
-#endif // OMNICORE_DBTRADELIST_H
+#endif // ZURBANK_DBTRADELIST_H

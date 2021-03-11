@@ -1,5 +1,5 @@
-#ifndef OMNICORE_RPCMBSTRING_H
-#define OMNICORE_RPCMBSTRING_H
+#ifndef ZURBANK_RPCMBSTRING_H
+#define ZURBANK_RPCMBSTRING_H
 
 #include <stdint.h>
 #include <string>
@@ -10,4 +10,4 @@ namespace mastercore
 std::string SanitizeInvalidUTF8(const std::string& s);
 }
 
-#endif // OMNICORE_RPCMBSTRING_H
+#endif // ZURBANK_RPCMBSTRING_H

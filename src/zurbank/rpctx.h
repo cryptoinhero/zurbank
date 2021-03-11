@@ -1,5 +1,5 @@
-#ifndef OMNICORE_RPCTX
-#define OMNICORE_RPCTX
+#ifndef ZURBANK_RPCTX
+#define ZURBANK_RPCTX
 
 #include <univalue.h>
 
@@ -24,4 +24,4 @@ UniValue omni_sendchangeissuer(const UniValue& params, bool fHelp);
 UniValue omni_sendactivation(const UniValue& params, bool fHelp);
 UniValue omni_sendalert(const UniValue& params, bool fHelp);
 
-#endif // OMNICORE_RPCTX
+#endif // ZURBANK_RPCTX

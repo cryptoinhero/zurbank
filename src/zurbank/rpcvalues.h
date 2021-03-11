@@ -1,5 +1,5 @@
-#ifndef OMNICORE_RPCVALUES_H
-#define OMNICORE_RPCVALUES_H
+#ifndef ZURBANK_RPCVALUES_H
+#define ZURBANK_RPCVALUES_H
 
 class CPubKey;
 class CTransaction;
@@ -37,4 +37,4 @@ uint32_t ParseOutputIndex(const UniValue& value);
 std::vector<PrevTxsEntry> ParsePrevTxs(const UniValue& value);
 
 
-#endif // OMNICORE_RPCVALUES_H
+#endif // ZURBANK_RPCVALUES_H

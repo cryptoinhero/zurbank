@@ -2133,9 +2133,9 @@ UniValue omni_getinfo(const UniValue& params, bool fHelp)
     UniValue infoResponse(UniValue::VOBJ);
 
     // provide the mastercore and zurcoin version
-    infoResponse.push_back(Pair("zurbankversion_int", OMNICORE_VERSION));
-    infoResponse.push_back(Pair("zurbankversion", OmniCoreVersion()));
-    infoResponse.push_back(Pair("mastercoreversion", OmniCoreVersion()));
+    infoResponse.push_back(Pair("zurbankversion_int", ZURBANK_VERSION));
+    infoResponse.push_back(Pair("zurbankversion", ZurBankVersion()));
+    infoResponse.push_back(Pair("mastercoreversion", ZurBankVersion()));
     infoResponse.push_back(Pair("zurcoincoreversion", BitcoinCoreVersion()));
 
     // provide the current block details
@@ -2158,7 +2158,7 @@ UniValue omni_getinfo(const UniValue& params, bool fHelp)
 
     // handle alerts
     UniValue alerts(UniValue::VARR);
-    std::vector<AlertData> omniAlerts = GetOmniCoreAlerts();
+    std::vector<AlertData> omniAlerts = GetZurBankAlerts();
     for (std::vector<AlertData>::iterator it = omniAlerts.begin(); it != omniAlerts.end(); it++) {
         AlertData alert = *it;
         UniValue alertResponse(UniValue::VOBJ);

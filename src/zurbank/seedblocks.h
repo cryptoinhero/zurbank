@@ -1,7 +1,7 @@
-#ifndef OMNICORE_SEEDBLOCKS_H
-#define OMNICORE_SEEDBLOCKS_H
+#ifndef ZURBANK_SEEDBLOCKS_H
+#define ZURBANK_SEEDBLOCKS_H
 
 bool SkipBlock(int nBlock);
 
 
-#endif // OMNICORE_SEEDBLOCKS_H
+#endif // ZURBANK_SEEDBLOCKS_H

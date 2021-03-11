@@ -1,5 +1,5 @@
-#ifndef OMNICORE_DEX_H
-#define OMNICORE_DEX_H
+#ifndef ZURBANK_DEX_H
+#define ZURBANK_DEX_H
 
 #include "zurbank/log.h"
 #include "zurbank/zurbank.h"
@@ -245,4 +245,4 @@ unsigned int eraseExpiredAccepts(int block);
 }
 
 
-#endif // OMNICORE_DEX_H
+#endif // ZURBANK_DEX_H

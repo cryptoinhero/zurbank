@@ -1,5 +1,5 @@
-#ifndef OMNICORE_ERRORS_H
-#define OMNICORE_ERRORS_H
+#ifndef ZURBANK_ERRORS_H
+#define ZURBANK_ERRORS_H
 
 #include <string>
 
@@ -345,4 +345,4 @@ inline std::string error_str(int ec) {
 }
 
 
-#endif // OMNICORE_ERRORS_H
+#endif // ZURBANK_ERRORS_H

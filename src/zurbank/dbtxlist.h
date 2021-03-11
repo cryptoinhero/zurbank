@@ -1,5 +1,5 @@
-#ifndef OMNICORE_DBTXLIST_H
-#define OMNICORE_DBTXLIST_H
+#ifndef ZURBANK_DBTXLIST_H
+#define ZURBANK_DBTXLIST_H
 
 #include "zurbank/dbbase.h"
 
@@ -65,4 +65,4 @@ namespace mastercore
 }
 
 
-#endif // OMNICORE_DBTXLIST_H
+#endif // ZURBANK_DBTXLIST_H

@@ -1,5 +1,5 @@
-#ifndef OMNICORE_BITCOIN_H
-#define	OMNICORE_BITCOIN_H
+#ifndef ZURBANK_BITCOIN_H
+#define	ZURBANK_BITCOIN_H
 
 class CBlockIndex;
 class uint256;
@@ -22,4 +22,4 @@ bool UnitTest();
 bool isNonMainNet();
 }
 
-#endif // OMNICORE_BITCOIN_H
+#endif // ZURBANK_BITCOIN_H

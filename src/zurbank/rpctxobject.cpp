@@ -230,7 +230,7 @@ void populateRPCTypeInfo(CMPTransaction& mp_obj, UniValue& txobj, uint32_t txTyp
         case MSC_TYPE_UNFREEZE_PROPERTY_TOKENS:
             populateRPCTypeUnfreezeTokens(mp_obj, txobj);
             break;
-        case OMNICORE_MESSAGE_TYPE_ACTIVATION:
+        case ZURBANK_MESSAGE_TYPE_ACTIVATION:
             populateRPCTypeActivation(mp_obj, txobj);
             break;
     }
@@ -261,7 +261,7 @@ bool showRefForTx(uint32_t txType)
         case MSC_TYPE_DISABLE_FREEZING: return false;
         case MSC_TYPE_FREEZE_PROPERTY_TOKENS: return true;
         case MSC_TYPE_UNFREEZE_PROPERTY_TOKENS: return true;
-        case OMNICORE_MESSAGE_TYPE_ACTIVATION: return false;
+        case ZURBANK_MESSAGE_TYPE_ACTIVATION: return false;
     }
     return true; // default to true, shouldn't be needed but just in case
 }

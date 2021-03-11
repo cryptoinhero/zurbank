@@ -1,5 +1,5 @@
-#ifndef OMNICORE_WALLETTXBUILDER_H
-#define OMNICORE_WALLETTXBUILDER_H
+#ifndef ZURBANK_WALLETTXBUILDER_H
+#define ZURBANK_WALLETTXBUILDER_H
 
 class uint256;
 
@@ -32,4 +32,4 @@ int CreateFundedTransaction(
         uint256& retTxid);
 
 
-#endif // OMNICORE_WALLETTXBUILDER_H
+#endif // ZURBANK_WALLETTXBUILDER_H

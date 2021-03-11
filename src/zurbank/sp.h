@@ -1,5 +1,5 @@
-#ifndef OMNICORE_SP_H
-#define OMNICORE_SP_H
+#ifndef ZURBANK_SP_H
+#define ZURBANK_SP_H
 
 #include "zurbank/dbbase.h"
 #include "zurbank/dbspinfo.h"
@@ -101,4 +101,4 @@ unsigned int eraseExpiredCrowdsale(const CBlockIndex* pBlockIndex);
 }
 
 
-#endif // OMNICORE_SP_H
+#endif // ZURBANK_SP_H

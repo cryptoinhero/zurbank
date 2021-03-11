@@ -1,5 +1,5 @@
-#ifndef OMNICORE_RPCRAWTX_H
-#define OMNICORE_RPCRAWTX_H
+#ifndef ZURBANK_RPCRAWTX_H
+#define ZURBANK_RPCRAWTX_H
 
 #include <univalue.h>
 
@@ -11,4 +11,4 @@ UniValue omni_createrawtx_reference(const UniValue& params, bool fHelp);
 UniValue omni_createrawtx_change(const UniValue& params, bool fHelp);
 
 
-#endif // OMNICORE_RPCRAWTX_H
+#endif // ZURBANK_RPCRAWTX_H

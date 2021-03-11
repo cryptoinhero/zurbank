@@ -1,7 +1,7 @@
-#ifndef OMNICORE_QT_INIT_H
-#define OMNICORE_QT_INIT_H
+#ifndef ZURBANK_QT_INIT_H
+#define ZURBANK_QT_INIT_H
 
-namespace OmniCore
+namespace ZurBank
 {
     //! Shows an user dialog with general warnings and potential risks
     bool AskUserToAcknowledgeRisks();
@@ -10,4 +10,4 @@ namespace OmniCore
     bool Initialize();
 }
 
-#endif // OMNICORE_QT_INIT_H
+#endif // ZURBANK_QT_INIT_H

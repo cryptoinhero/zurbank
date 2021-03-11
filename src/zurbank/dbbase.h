@@ -1,5 +1,5 @@
-#ifndef OMNICORE_DBBASE_H
-#define OMNICORE_DBBASE_H
+#ifndef ZURBANK_DBBASE_H
+#define ZURBANK_DBBASE_H
 
 #include "leveldb/db.h"
 
@@ -94,4 +94,4 @@ public:
 };
 
 
-#endif // OMNICORE_DBBASE_H
+#endif // ZURBANK_DBBASE_H

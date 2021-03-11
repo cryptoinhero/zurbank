@@ -510,7 +510,7 @@ void CMPTxList::LoadAlerts(int blockHeight)
         std::vector<std::string> vstr;
         boost::split(vstr, itData, boost::is_any_of(":"), boost::token_compress_on);
         if (4 != vstr.size()) continue; // unexpected number of tokens
-        if (atoi(vstr[2]) != OMNICORE_MESSAGE_TYPE_ALERT || atoi(vstr[0]) != 1) continue; // not a valid alert
+        if (atoi(vstr[2]) != ZURBANK_MESSAGE_TYPE_ALERT || atoi(vstr[0]) != 1) continue; // not a valid alert
         uint256 txid = uint256S(it->key().ToString());
         loadOrder.push_back(std::make_pair(atoi(vstr[1]), txid));
     }
@@ -540,7 +540,7 @@ void CMPTxList::LoadAlerts(int blockHeight)
             PrintToLog("ERROR: While loading alert %s: failed interpret_Transaction.\n", txid.GetHex());
             continue;
         }
-        if (OMNICORE_MESSAGE_TYPE_ALERT != mp_obj.getType()) {
+        if (ZURBANK_MESSAGE_TYPE_ALERT != mp_obj.getType()) {
             PrintToLog("ERROR: While loading alert %s: levelDB type mismatch, not an alert.\n", txid.GetHex());
             continue;
         }
@@ -586,7 +586,7 @@ void CMPTxList::LoadActivations(int blockHeight)
         std::vector<std::string> vstr;
         boost::split(vstr, itData, boost::is_any_of(":"), boost::token_compress_on);
         if (4 != vstr.size()) continue; // unexpected number of tokens
-        if (atoi(vstr[2]) != OMNICORE_MESSAGE_TYPE_ACTIVATION || atoi(vstr[0]) != 1) continue; // we only care about valid activations
+        if (atoi(vstr[2]) != ZURBANK_MESSAGE_TYPE_ACTIVATION || atoi(vstr[0]) != 1) continue; // we only care about valid activations
         uint256 txid = uint256S(it->key().ToString());
         loadOrder.push_back(std::make_pair(atoi(vstr[1]), txid));
     }
@@ -625,7 +625,7 @@ void CMPTxList::LoadActivations(int blockHeight)
             PrintToLog("ERROR: While loading activation transaction %s: failed interpret_Transaction.\n", hash.GetHex());
             continue;
         }
-        if (OMNICORE_MESSAGE_TYPE_ACTIVATION != mp_obj.getType()) {
+        if (ZURBANK_MESSAGE_TYPE_ACTIVATION != mp_obj.getType()) {
             PrintToLog("ERROR: While loading activation transaction %s: levelDB type mismatch, not an activation.\n", hash.GetHex());
             continue;
         }

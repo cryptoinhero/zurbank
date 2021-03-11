@@ -1,5 +1,5 @@
-#ifndef OMNICORE_UTILSUI_H
-#define OMNICORE_UTILSUI_H
+#ifndef ZURBANK_UTILSUI_H
+#define ZURBANK_UTILSUI_H
 
 #include <atomic>
 
@@ -7,4 +7,4 @@
 extern std::atomic<bool> fQtMode;
 
 
-#endif // OMNICORE_UTILSUI_H
+#endif // ZURBANK_UTILSUI_H
