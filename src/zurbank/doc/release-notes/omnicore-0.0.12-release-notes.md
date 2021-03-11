@@ -7,7 +7,7 @@ v0.0.12 is a major release and consensus critical in terms of the Omni Layer pro
 
 Please report bugs using the issue tracker on GitHub:
 
-  https://github.com/OmniLayer/zurbank/issues
+  https://github.com/zurcoin/zurbank/issues
 
 Table of contents
 =================
@@ -67,7 +67,7 @@ Once activated fees will be collected from trading of non-Omni pairs on the Dist
 - Placing a trade where liquidity is added to the market (i.e. the trade does not immediately execute an existing trade) incurs no fee
 - Placing a trade where liquidity is removed from the market (i.e. the trade immediately executes an existing trade) the liquidity taker incurs a 0.05% fee
 
-See also [fee system JSON-RPC API documentation](https://github.com/OmniLayer/zurbank/blob/master/src/zurbank/doc/rpc-api.md#fee-system).
+See also [fee system JSON-RPC API documentation](https://github.com/zurcoin/zurbank/blob/master/src/zurbank/doc/rpc-api.md#fee-system).
 
 This change is identified by `"featureid": 9` and labeled by the GUI as `"Fee system (inc 0.05% fee from trades of non-Omni pairs)"`.
 

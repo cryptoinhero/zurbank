@@ -530,7 +530,7 @@ bool mastercore::update_tally_map(const std::string& who, uint32_t propertyId, i
  * which are being awarded to the Exodus address slowly over the years.
  *
  * @see The "Dev MSC" specification:
- * https://github.com/OmniLayer/spec#development-mastercoins-dev-msc-previously-reward-mastercoins
+ * https://github.com/zurcoin/spec#development-mastercoins-dev-msc-previously-reward-mastercoins
  *
  * Note:
  * If timestamps are out of order, then previously vested "Dev MSC" are not voided.

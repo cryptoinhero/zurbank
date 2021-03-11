@@ -82,7 +82,7 @@ void LookupTXDialog::searchTX()
 
             default:
                 strText += "of an unknown type.  If you are seeing this message please raise a bug report "
-                           "with the transaction hash at github.com/OmniLayer/zurbank/issues.";
+                           "with the transaction hash at github.com/zurcoin/zurbank/issues.";
             break;
         }
         QString strQText = QString::fromStdString(strText);

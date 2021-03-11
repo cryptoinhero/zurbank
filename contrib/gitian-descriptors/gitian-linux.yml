@@ -28,7 +28,7 @@ packages:
 - "ca-certificates"
 - "python"
 remotes:
-- "url": "https://github.com/OmniLayer/zurbank.git"
+- "url": "https://github.com/zurcoin/zurbank.git"
   "dir": "zurbank"
 files: []
 script: |

@@ -7,7 +7,7 @@ This version is built on top of v0.0.12, which is a major release and consensus 
 
 Please report bugs using the issue tracker on GitHub:
 
-  https://github.com/OmniLayer/zurbank/issues
+  https://github.com/zurcoin/zurbank/issues
 
 Table of contents
 =================
@@ -95,7 +95,7 @@ It is also worth noting that the fee estimation algorithms were updated, and thu
 API changes
 -----------
 
-The behavior of the RPC [omni_gettradehistoryforaddress](https://github.com/OmniLayer/zurbank/blob/master/src/zurbank/doc/rpc-api.md#omni_gettradehistoryforaddress) was amended to return newest transactions first instead of oldest.
+The behavior of the RPC [omni_gettradehistoryforaddress](https://github.com/zurcoin/zurbank/blob/master/src/zurbank/doc/rpc-api.md#omni_gettradehistoryforaddress) was amended to return newest transactions first instead of oldest.
 
 New project versioning scheme
 -----------------------------
@@ -105,7 +105,7 @@ Starting with this version of Omni Core, the versioning scheme becomes more intu
 New project branch structure
 ----------------------------
 
-The latest stable version of Omni Core can be found in the [master](https://github.com/OmniLayer/zurbank/tree/master) branch on GitHub, while the version under development can be found in the [develop](https://github.com/OmniLayer/zurbank/tree/develop) branch. This provides a cleaner seperation of source code.
+The latest stable version of Omni Core can be found in the [master](https://github.com/zurcoin/zurbank/tree/master) branch on GitHub, while the version under development can be found in the [develop](https://github.com/zurcoin/zurbank/tree/develop) branch. This provides a cleaner seperation of source code.
 
 
 Consensus affecting changes
@@ -128,7 +128,7 @@ Once activated fees will be collected from trading of non-Omni pairs on the Dist
 - Placing a trade where liquidity is added to the market (i.e. the trade does not immediately execute an existing trade) incurs no fee
 - Placing a trade where liquidity is removed from the market (i.e. the trade immediately executes an existing trade) the liquidity taker incurs a 0.05% fee
 
-See also [fee system JSON-RPC API documentation](https://github.com/OmniLayer/zurbank/blob/master/src/zurbank/doc/rpc-api.md#fee-system).
+See also [fee system JSON-RPC API documentation](https://github.com/zurcoin/zurbank/blob/master/src/zurbank/doc/rpc-api.md#fee-system).
 
 This change is identified by `"featureid": 9` and labeled by the GUI as `"Fee system (inc 0.05% fee from trades of non-Omni pairs)"`.
 

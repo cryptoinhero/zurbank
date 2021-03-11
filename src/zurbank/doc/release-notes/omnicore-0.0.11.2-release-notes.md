@@ -9,7 +9,7 @@ This version is built on top of v0.0.11, which is a major release and consensus 
 
 Please report bugs using the issue tracker on GitHub:
 
-  https://github.com/OmniLayer/zurbank/issues
+  https://github.com/zurcoin/zurbank/issues
 
 Table of contents
 =================
@@ -83,7 +83,7 @@ Once activated fees will be collected from trading of non-Omni pairs on the Dist
 - Placing a trade where liquidity is added to the market (i.e. the trade does not immediately execute an existing trade) incurs no fee
 - Placing a trade where liquidity is removed from the market (i.e. the trade immediately executes an existing trade) the liquidity taker incurs a 0.05% fee
 
-See also [fee system JSON-RPC API documentation](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#fee-system).
+See also [fee system JSON-RPC API documentation](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#fee-system).
 
 This change is identified by `"featureid": 9` and labeled by the GUI as `"Fee system (inc 0.05% fee from trades of non-Omni pairs)"`.
 
@@ -120,16 +120,16 @@ Omni Core 0.0.11 adds support for payload creation via the RPC interface.
 
 The calls are similar to the send transactions (e.g. `omni_send`), without the requirement for an address or any of the balance checks.
 
-This allows integrators to build transactions via the [raw transactions interface](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#raw-transactions).
+This allows integrators to build transactions via the [raw transactions interface](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#raw-transactions).
 
 Other API extensions
 --------------------
 
-An optional parameter `height` can be provided, when using [omni_decodetransaction](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_decodetransaction), which is used to determine the parsing rules. If no `height` is provided, the chain height is used as default.
+An optional parameter `height` can be provided, when using [omni_decodetransaction](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_decodetransaction), which is used to determine the parsing rules. If no `height` is provided, the chain height is used as default.
 
-When retrieving feature activation transactions with [omni_gettransaction](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_gettransaction), then additional fields are included in the result: `"featureid"`, `"activationblock"` and `"minimumversion"`.
+When retrieving feature activation transactions with [omni_gettransaction](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_gettransaction), then additional fields are included in the result: `"featureid"`, `"activationblock"` and `"minimumversion"`.
 
-The Omni Core client version is now also exposed under the new key `"zurbankversion"`, as well as inter via `"zurbankversion_int"`, when using [omni_getinfo](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_getinfo). The old key `"mastercoreversion"` remains for compatibility in this version.
+The Omni Core client version is now also exposed under the new key `"zurbankversion"`, as well as inter via `"zurbankversion_int"`, when using [omni_getinfo](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_getinfo). The old key `"mastercoreversion"` remains for compatibility in this version.
 
 The field `"positioninblock"` was added to RPCs retrieving or listing Omni transactions to provide visibility into the order of an Omni transaction within a block.
 

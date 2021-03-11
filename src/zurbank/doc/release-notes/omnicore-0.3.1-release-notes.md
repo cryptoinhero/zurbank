@@ -7,7 +7,7 @@ An upgrade is highly recommended, but not required, if you are using Omni Core 0
 
 Please report bugs using the issue tracker on GitHub:
 
-  https://github.com/OmniLayer/zurbank/issues
+  https://github.com/zurcoin/zurbank/issues
 
 Table of contents
 =================
@@ -72,14 +72,14 @@ Wiki for guiding new users and developers
 
 To help and guide new users and developers, a wiki was created. The wiki includes pointers to other resources such as the JSON-RPC documentation, an overview of startup and configuration options or build instructions. It also includes guides and answers to frequently asked questions:
 
-https://github.com/OmniLayer/zurbank/wiki
+https://github.com/zurcoin/zurbank/wiki
 
 Support for offline creation of raw Omni transactions
 -----------------------------------------------------
 
 The raw transaction interface can be used to manually craft Omni Layer transactions. With this release, it is no longer necessary to use a fully synchronized client and an offline client can be used.
 
-An overview of the JSON-RPC commands can be found [here](https://github.com/OmniLayer/zurbank/blob/master/src/zurbank/doc/rpc-api.md#raw-transactions) and a guide for the manual creation of a Simple Send transaction is [available](https://github.com/OmniLayer/zurbank/wiki/Use-the-raw-transaction-API-to-create-a-Simple-Send-transaction) in the new wiki.
+An overview of the JSON-RPC commands can be found [here](https://github.com/zurcoin/zurbank/blob/master/src/zurbank/doc/rpc-api.md#raw-transactions) and a guide for the manual creation of a Simple Send transaction is [available](https://github.com/zurcoin/zurbank/wiki/Use-the-raw-transaction-API-to-create-a-Simple-Send-transaction) in the new wiki.
 
 API to fund Omni Layer transactions from other sources
 ------------------------------------------------------

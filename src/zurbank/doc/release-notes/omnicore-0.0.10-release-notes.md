@@ -5,7 +5,7 @@ v0.0.10 is a major release and consensus critical in terms of the Omni Layer pro
 
 Please report bugs using the issue tracker on GitHub:
 
-  https://github.com/OmniLayer/zurbank/issues
+  https://github.com/zurcoin/zurbank/issues
 
 Table of contents
 =================
@@ -74,11 +74,11 @@ The underlying base of Omni Core was upgraded from Bitcoin Core 0.9.5 to Bitcoin
 
 Please see the following release notes for further details:
 
-- [Release notes for Bitcoin Core 0.10.0](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/doc/release-notes/release-notes-0.10.0.md)
-- [Release notes for Bitcoin Core 0.10.1](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/doc/release-notes/release-notes-0.10.1.md)
-- [Release notes for Bitcoin Core 0.10.2](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/doc/release-notes/release-notes-0.10.2.md)
-- [Release notes for Bitcoin Core 0.10.3](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/doc/release-notes/release-notes-0.10.3.md)
-- [Release notes for Bitcoin Core 0.10.4](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/doc/release-notes.md)
+- [Release notes for Bitcoin Core 0.10.0](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/doc/release-notes/release-notes-0.10.0.md)
+- [Release notes for Bitcoin Core 0.10.1](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/doc/release-notes/release-notes-0.10.1.md)
+- [Release notes for Bitcoin Core 0.10.2](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/doc/release-notes/release-notes-0.10.2.md)
+- [Release notes for Bitcoin Core 0.10.3](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/doc/release-notes/release-notes-0.10.3.md)
+- [Release notes for Bitcoin Core 0.10.4](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/doc/release-notes.md)
 
 Headers-first synchronization
 -----------------------------
@@ -185,7 +185,7 @@ Should a particular client version not support a new feature when it is activate
 
 Senders of activation messages can be whitelisted or blacklisted with the configuration options `-omnialertallowsender=<sender>` and `-omnialertignoresender=<sender>`. Please be aware that overriding activations may cause the client to provide inaccurate data that does not reflect the rest of the network.
 
-The GUI displays warnings for pending activations and daemon users can view pending and completed activations via the [omni_getactivations](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_getactivations) JSON-RPC API call.
+The GUI displays warnings for pending activations and daemon users can view pending and completed activations via the [omni_getactivations](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_getactivations) JSON-RPC API call.
 
 Consensus affecting changes
 ===========================
@@ -267,7 +267,7 @@ Transaction type 28 can be used to cancel all open orders for all currencies in 
 
 Transactions for the distributed token exchange are enabled on testnet, in regtest mode and when trading tokens in the test ecosystem. Transactions targeting the main ecosystem are supported after the feature activation.
 
-See also: [omni_sendtrade](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_sendtrade), [omni_sendcanceltradesbyprice](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_sendcanceltradesbyprice), [omni_sendcanceltradesbypair](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_sendcanceltradesbypair), [omni_sendcancelalltrades](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_sendcancelalltrades), [omni_gettrade](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_gettrade), [omni_getorderbook](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_getorderbook), [omni_gettradehistoryforpair](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_gettradehistoryforpair), [omni_gettradehistoryforaddress](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_gettradehistoryforaddress) JSON-RPC API calls
+See also: [omni_sendtrade](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_sendtrade), [omni_sendcanceltradesbyprice](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_sendcanceltradesbyprice), [omni_sendcanceltradesbypair](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_sendcanceltradesbypair), [omni_sendcancelalltrades](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_sendcancelalltrades), [omni_gettrade](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_gettrade), [omni_getorderbook](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_getorderbook), [omni_gettradehistoryforpair](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_gettradehistoryforpair), [omni_gettradehistoryforaddress](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_gettradehistoryforaddress) JSON-RPC API calls
 
 This change is identified by `"featureid": 2` and labeled by the GUI as `"Distributed Meta Token Exchange"`.
 
@@ -306,7 +306,7 @@ The transaction format is as follows:
 
 "Send-all" transactions are enabled on testnet, in regtest mode and when transferring tokens in the test ecosystem. Transactions targeting the main ecosystem are supported after the feature activation.
 
-See also: [omni_sendall](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_sendall) JSON-RPC API call
+See also: [omni_sendall](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_sendall) JSON-RPC API call
 
 This change is identified by `"featureid": 6` and labeled by the GUI as `"Send All transactions"`.
 
@@ -331,7 +331,7 @@ Several new API calls are available to retrieve information about unconfirmed or
 
 Please see the JSON-RPC API documentation for more details:
 
-- https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md
+- https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md
 
 Debug logging categories
 ------------------------
@@ -386,7 +386,7 @@ Configuration options
 
 For a listing of other Omni Core specific configuration options see:
 
-- https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/configuration.md
+- https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/configuration.md
 
 Various performance improvements
 --------------------------------
@@ -395,7 +395,7 @@ Omni Core was improved on several levels to increase performance and responsiven
 
 Previously RPC requests were blocking, creating a bottleneck for the JSON-RPC API and the whole application. Due to much finer and more targeted locking of critical sections, threads are now only blocked when they need to be, which allows concurrent requests without immediately creating a queue. The number of threads designated to handle RPC requests can be configured with the option `-rpcthreads=<n threads>`, which is set to `4` threads as per default.
 
-The serialization of token related database entries was previously JSON based, and the time to retrieve information about transactions, tokens or crowdsales, for example with [omni_gettransaction](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_gettransaction), [omni_getproperty](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_getproperty), [omni_getcrowdsale](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_getcrowdsale) or [omni_getactivecrowdsales](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_getactivecrowdsales), was primarily delayed by slow conversions of the data stored in the database. Entries are now stored in their raw byte representation, which allows much faster deserialization of the data. Benchmarks have shown this update provides a speed improvement of about 8x or more for these calls.
+The serialization of token related database entries was previously JSON based, and the time to retrieve information about transactions, tokens or crowdsales, for example with [omni_gettransaction](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_gettransaction), [omni_getproperty](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_getproperty), [omni_getcrowdsale](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_getcrowdsale) or [omni_getactivecrowdsales](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_getactivecrowdsales), was primarily delayed by slow conversions of the data stored in the database. Entries are now stored in their raw byte representation, which allows much faster deserialization of the data. Benchmarks have shown this update provides a speed improvement of about 8x or more for these calls.
 
 Most notably on Microsoft Windows, many updates of the GUI, for example when connecting a new block, created the impression of a non-responsive user interface, because the client couldn't keep up with the updates. This was optimized such that no queue of update events is created in the first place, and new update requests are dropped, in case there are already events which haven't been handled.
 
@@ -420,7 +420,7 @@ Disable-wallet mode
 
 Since this version Omni Core can be build and used without wallet support.
 
-This can be handy, when using Omni Core as plain data provider, without the need to send transactions. [Data retrieval](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#data-retrieval) and [raw transaction](https://github.com/OmniLayer/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#raw-transactions) API calls are enabled in this mode.
+This can be handy, when using Omni Core as plain data provider, without the need to send transactions. [Data retrieval](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#data-retrieval) and [raw transaction](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#raw-transactions) API calls are enabled in this mode.
 
 To compile Omni Core without wallet support (illustrated for Unix):
 ```
@@ -437,9 +437,9 @@ disablewallet=1
 CI and testing of Omni Core
 ---------------------------
 
-As of now, Omni Core 0.10 has nearly 5000 lines of source code for unit tests in addition to the unit tests inherited from Bitcoin Core. Furthermore [OmniJ](https://github.com/OmniLayer/OmniJ#omni-integration-testing-with-spock-framework) is used for integration testing.
+As of now, Omni Core 0.10 has nearly 5000 lines of source code for unit tests in addition to the unit tests inherited from Bitcoin Core. Furthermore [OmniJ](https://github.com/zurcoin/OmniJ#omni-integration-testing-with-spock-framework) is used for integration testing.
 
-To run the unit tests locally, start `test_zurbank` or `test_zurbank-qt`. On Unix, the integration tests can be started with `qa/pull-tester/zurbank-rpc-tests.sh`. Please note, the script for the integration tests is not included in the release packages. For other operating systems, or to manually run the integration tests, see the [instructions for OmniJ](https://github.com/OmniLayer/OmniJ#omni-integration-testing-with-spock-framework).
+To run the unit tests locally, start `test_zurbank` or `test_zurbank-qt`. On Unix, the integration tests can be started with `qa/pull-tester/zurbank-rpc-tests.sh`. Please note, the script for the integration tests is not included in the release packages. For other operating systems, or to manually run the integration tests, see the [instructions for OmniJ](https://github.com/zurcoin/OmniJ#omni-integration-testing-with-spock-framework).
 
 Travis CI was integrated into the work flow, to automatically build and test Omni Core on several different platforms and operating systems.
 

@@ -7,7 +7,7 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/OmniLayer/zurbank-detached-sigs.git"
+- "url": "https://github.com/zurcoin/zurbank-detached-sigs.git"
   "dir": "signature"
 files:
 - "zurbank-osx-unsigned.tar.gz"

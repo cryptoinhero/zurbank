@@ -12,7 +12,7 @@ DATADIR="$TESTDIR/.bitcoin"
 # Start clean
 rm -rf "$TESTDIR"
 
-git clone https://github.com/OmniLayer/OmniJ.git $TESTDIR
+git clone https://github.com/zurcoin/OmniJ.git $TESTDIR
 mkdir -p "$DATADIR/regtest"
 touch "$DATADIR/regtest/zurbank.log"
 cd $TESTDIR

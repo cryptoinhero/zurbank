@@ -28,7 +28,7 @@ packages:
 - "python-setuptools"
 - "fonts-tuffy"
 remotes:
-- "url": "https://github.com/OmniLayer/zurbank.git"
+- "url": "https://github.com/zurcoin/zurbank.git"
   "dir": "zurbank"
 files:
 - "MacOSX10.11.sdk.tar.gz"

@@ -7,7 +7,7 @@ v0.5.0 is a major release and consensus critical in terms of the Omni Layer prot
 
 Please report bugs using the issue tracker on GitHub:
 
-  https://github.com/OmniLayer/zurbank/issues
+  https://github.com/zurcoin/zurbank/issues
 
 
 Table of contents

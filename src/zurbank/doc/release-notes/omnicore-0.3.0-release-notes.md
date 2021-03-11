@@ -7,7 +7,7 @@ v0.3.0 is a major release and consensus critical in terms of the Omni Layer prot
 
 Please report bugs using the issue tracker on GitHub:
 
-  https://github.com/OmniLayer/zurbank/issues
+  https://github.com/zurcoin/zurbank/issues
 
 Table of contents
 =================
@@ -58,7 +58,7 @@ Omni Core 0.3.0 contains a feature that, if an issuer chooses to enable, permits
 
 Further, feature ID 14 adds a waiting period for a managed issuer to enable the freezing feature.  Once activated a waiting period (currently 4096 blocks) is enforced between the 'enable freezing' transaction and the 'freeze tokens' transaction.
 
-See also [JSON-RPC API documentation](https://github.com/OmniLayer/zurbank/blob/master/src/zurbank/doc/rpc-api.md).
+See also [JSON-RPC API documentation](https://github.com/zurcoin/zurbank/blob/master/src/zurbank/doc/rpc-api.md).
 
 Notable changes
 ===============

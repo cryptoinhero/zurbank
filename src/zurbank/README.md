@@ -1,7 +1,7 @@
 Omni Core (beta) integration/staging tree
 =========================================
 
-[![Build Status](https://travis-ci.org/OmniLayer/zurbank.svg?branch=zurbank-0.0.10)](https://travis-ci.org/OmniLayer/zurbank)
+[![Build Status](https://travis-ci.org/zurcoin/zurbank.svg?branch=zurbank-0.0.10)](https://travis-ci.org/zurcoin/zurbank)
 
 What is the Omni Layer
 ----------------------
@@ -31,13 +31,13 @@ PLEASE DO NOT use wallet(s) with significant amounts of bitcoins or Omni Layer t
 Related projects
 ----------------
 
-* https://github.com/OmniLayer/OmniJ
+* https://github.com/zurcoin/OmniJ
 
-* https://github.com/OmniLayer/omniwallet
+* https://github.com/zurcoin/omniwallet
 
-* https://github.com/OmniLayer/spec
+* https://github.com/zurcoin/spec
 
 Support
 -------
 
-* Please open a [GitHub issue](https://github.com/OmniLayer/zurbank/issues) to file a bug submission.
+* Please open a [GitHub issue](https://github.com/zurcoin/zurbank/issues) to file a bug submission.

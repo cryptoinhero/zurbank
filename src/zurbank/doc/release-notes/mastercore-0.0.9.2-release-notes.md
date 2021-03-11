@@ -5,7 +5,7 @@ v0.0.9.2 is a minor release and not consensus critical in terms of the Omni Laye
 
 Please report bugs using the issue tracker on GitHub:
 
-  https://github.com/OmniLayer/zurbank/issues
+  https://github.com/zurcoin/zurbank/issues
 
 General
 -------
