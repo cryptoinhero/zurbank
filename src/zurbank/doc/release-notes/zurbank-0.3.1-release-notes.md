@@ -22,12 +22,12 @@ Table of contents
   - [Support for offline creation of raw Zus transactions](#support-for-offline-creation-of-raw-omni-transactions)
   - [API to fund Zus Layer transactions from other sources](#api-to-fund-omni-layer-transactions-from-other-sources)
   - [Two new RPCs to get and list all wallet balances](#two-new-rpcs-to-get-and-list-all-wallet-balances)
-  - [Information about freeze transactions added to "omni_gettransaction"](#information-about-freeze-transactions-added-to-omni_gettransaction)
-  - [Fix behavior of "omni_listtransactions"](#fix-behavior-of-omni_listtransactions)
-  - [Add field "issuerbonustokens" to "omni_getcrowdsale"](#add-field-issuerbonustokens-to-omni_getcrowdsale)
+  - [Information about freeze transactions added to "zus_gettransaction"](#information-about-freeze-transactions-added-to-zus_gettransaction)
+  - [Fix behavior of "zus_listtransactions"](#fix-behavior-of-zus_listtransactions)
+  - [Add field "issuerbonustokens" to "zus_getcrowdsale"](#add-field-issuerbonustokens-to-zus_getcrowdsale)
   - [Show receiving destination, when sending to self](#show-receiving-destination-when-sending-to-self)
   - [Always show frozen balance in balance RPCs](#always-show-frozen-balance-in-balance-rpcs)
-  - [Add "name" field to "omni_getallbalancesforaddress"](#add-name-field-to-omni_getallbalancesforaddress)
+  - [Add "name" field to "zus_getallbalancesforaddress"](#add-name-field-to-zus_getallbalancesforaddress)
   - [Massive performance improvements of zurbankd](#massive-performance-improvements-of-zurbankd)
   - [Storage of state during initial scanning](#storage-of-state-during-initial-scanning)
   - [Properly restore state, when rolling back blocks](#properly-restore-state-when-rolling-back-blocks)
@@ -84,13 +84,13 @@ An overview of the JSON-RPC commands can be found [here](https://github.com/zurc
 API to fund Zus Layer transactions from other sources
 ------------------------------------------------------
 
-This release adds two new RPCs "omni_funded_send" and "omni_funded_sendall", which allow the creation of Zus Layer transactions, which are funded by a different source, other than the original sender.
+This release adds two new RPCs "zus_funded_send" and "zus_funded_sendall", which allow the creation of Zus Layer transactions, which are funded by a different source, other than the original sender.
 
 This can be used to pay for transaction fees, when the sender only has a tiny fraction of coins available, but not enough to cover whole fee of a transaction:
 
 ---
 
-#### omni_funded_send
+#### zus_funded_send
 
 Creates and sends a funded simple send transaction.
 
@@ -114,14 +114,14 @@ All zurcoins from the sender are consumed and if there are zurcoins missing, the
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_funded_send" "1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH" \
+$ zurbank-cli "zus_funded_send" "1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH" \
     "15cWrfuvMxyxGst2FisrQcvcpF48x6sXoH" 1 "100.0" \
     "15Jhzz4omEXEyFKbdcccJwuVPea5LqsKM1"
 ```
 
 ---
 
-#### omni_funded_sendall
+#### zus_funded_sendall
 
 Creates and sends a transaction that transfers all available tokens in the given ecosystem to the recipient.
 
@@ -144,7 +144,7 @@ All zurcoins from the sender are consumed and if there are zurcoins missing, the
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_funded_sendall" "1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH" \
+$ zurbank-cli "zus_funded_sendall" "1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH" \
     "15cWrfuvMxyxGst2FisrQcvcpF48x6sXoH" 1 "15Jhzz4omEXEyFKbdcccJwuVPea5LqsKM1"
 ```
 
@@ -157,7 +157,7 @@ ZURBank v0.3.1 adds two new RPCs to get all token balances of the wallet and to 
 
 ---
 
-#### omni_getwalletbalances
+#### zus_getwalletbalances
 
 Returns a list of the total token balances of the whole wallet.
 
@@ -184,12 +184,12 @@ Returns a list of the total token balances of the whole wallet.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getwalletbalances"
+$ zurbank-cli "zus_getwalletbalances"
 ```
 
 ---
 
-### omni_getwalletaddressbalances
+### zus_getwalletaddressbalances
 
 Returns a list of all token balances for every wallet address.
 
@@ -223,27 +223,27 @@ Returns a list of all token balances for every wallet address.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getwalletaddressbalances"
+$ zurbank-cli "zus_getwalletaddressbalances"
 ```
 
 ---
 
-Information about freeze transactions added to "omni_gettransaction"
+Information about freeze transactions added to "zus_gettransaction"
 --------------------------------------------------------------
 
-The RPC "omni_gettransaction" now has support for the new transaction types for freezing and unfreezing tokens, which were added in the last major release.
+The RPC "zus_gettransaction" now has support for the new transaction types for freezing and unfreezing tokens, which were added in the last major release.
 
-Fix behavior of "omni_listtransactions"
+Fix behavior of "zus_listtransactions"
 ---------------------------------------
 
-Previously, when trying to skip transactions with "omni_listtransactions", the list of transactions wasn't cut properly.
+Previously, when trying to skip transactions with "zus_listtransactions", the list of transactions wasn't cut properly.
 
 This behavior was fixed and proper cutting of the result is done.
 
-Add field "issuerbonustokens" to "omni_getcrowdsale"
+Add field "issuerbonustokens" to "zus_getcrowdsale"
 ----------------------------------------------------
 
-While the field "addedissuertokens" of the RPC "omni_getcrowdsale" shows the amount of issuer bonus tokens not yet emitted, the new field "issuerbonustokens" now also shows the amount of tokens already granted to the issuer as bonus of a crowdsale.
+While the field "addedissuertokens" of the RPC "zus_getcrowdsale" shows the amount of issuer bonus tokens not yet emitted, the new field "issuerbonustokens" now also shows the amount of tokens already granted to the issuer as bonus of a crowdsale.
 
 Show receiving destination, when sending to self
 ------------------------------------------------
@@ -255,12 +255,12 @@ Always show frozen balance in balance RPCs
 
 When queriying balances, previously the field "frozen" was only shown, when there were actually frozen tokens. The field is now always returned, even if there are no frozen tokens, to make an integration easier and more forseeable.
 
-Add "name" field to "omni_getallbalancesforaddress"
+Add "name" field to "zus_getallbalancesforaddress"
 ---------------------------------------------------
 
-This release adds the "name" field to the output of the RPC "omni_getallbalancesforaddress".
+This release adds the "name" field to the output of the RPC "zus_getallbalancesforaddress".
 
-While token namens are by no way unique, or serve as identifier of a token, providing the name nevertheless can improve the user experience, because it may then no longer necessary to use a RPC like "omni_getproperty" to retrieve the name of a token.
+While token namens are by no way unique, or serve as identifier of a token, providing the name nevertheless can improve the user experience, because it may then no longer necessary to use a RPC like "zus_getproperty" to retrieve the name of a token.
 
 Massive performance improvements of zurbankd
 ---------------------------------------------
@@ -321,32 +321,32 @@ The following list includes relevant pull requests merged into this release:
 - #520 Move, group and rename functions and files for better architecture
 - #521 Update version to 0.3.99 to indicate development
 - #567 Fix JSON input conversions, remove checks, when creating raw payloads
-- #568 Add freezing transaction data to omni_gettransaction
+- #568 Add freezing transaction data to zus_gettransaction
 - #576 Add screenshot and wiki to README
 - #581 No longer print Exodus balance after startup
-- #592 Fix cutting of omni_listtransactions
+- #592 Fix cutting of zus_listtransactions
 - #594 Add support for native SW to safe solver
 - #596 Update checkpoints up until block 510000
 - #593 Make parsing more robust by persisting state every 10000 blocks
 - #630 Update checkpoint for block 520000
 - #634 Fix fail safe iteration when forming ECDSA point
 - #649 Fix .gitignore
-- #650 Add field "issuerbonustokens" to "omni_getcrowdsale"
-- #651 Update default value for end block of omni_listtransactions
+- #650 Add field "issuerbonustokens" to "zus_getcrowdsale"
+- #651 Update default value for end block of zus_listtransactions
 - #658 Add API to create funded raw transactions
 - #690 Fix erasing from persistence set
 - #693 Make boost::multi_index comparators const
-- #695 Fix documentation for "omni_sendissuancefixed" RPC
+- #695 Fix documentation for "zus_sendissuancefixed" RPC
 - #697 Move setting properties of send-to-selfs into parsing
 - #711 Avoid deadlock, when parsing transcations
 - #713 Add and update fields for RPC help
 - #715 Skip wallet balance caching, when not in UI mode
 - #722 Always show frozen balance in balance RPCs
 - #724 Add RPC documentation for creating funded transactions
-- #723 Add name field to omni_getallbalancesforaddress
+- #723 Add name field to zus_getallbalancesforaddress
 - #716 Add two new RPCs to retrieve wallet balance information
 - #725 Add table of contents to RPC documentation
-- #727 Fix skipping balances, when using omni_getallbalancesforaddress
+- #727 Fix skipping balances, when using zus_getallbalancesforaddress
 - #728 Sign and broadcast funded transactions in one go
 - #741 Remove old reference to renamed file
 - #744 Clarify that zurcoins are meant in funded RPCs

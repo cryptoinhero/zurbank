@@ -22,18 +22,18 @@ JSON="{\"pxELuroPRgD7Di8hQikT4fqdK7xoYKdrZy\":10,\""$ADDR"\":4}"
 $SRCDIR/zurbank-cli --regtest sendmany OMNIAccount $JSON >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
 printf "   * Creating an indivisible test property\n"
-$SRCDIR/zurbank-cli --regtest omni_sendissuancefixed $ADDR 1 1 0 "Z_TestCat" "Z_TestSubCat" "Z_IndivisTestProperty" "Z_TestURL" "Z_TestData" 10000000 >$NUL
+$SRCDIR/zurbank-cli --regtest zus_sendissuancefixed $ADDR 1 1 0 "Z_TestCat" "Z_TestSubCat" "Z_IndivisTestProperty" "Z_TestURL" "Z_TestData" 10000000 >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
 printf "   * Creating a divisible test property\n"
-$SRCDIR/zurbank-cli --regtest omni_sendissuancefixed $ADDR 1 2 0 "Z_TestCat" "Z_TestSubCat" "Z_DivisTestProperty" "Z_TestURL" "Z_TestData" 10000 >$NUL
+$SRCDIR/zurbank-cli --regtest zus_sendissuancefixed $ADDR 1 2 0 "Z_TestCat" "Z_TestSubCat" "Z_DivisTestProperty" "Z_TestURL" "Z_TestData" 10000 >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
 printf "\nTesting a trade against self that uses Zus (1.1 ZUS for 20 #3)\n"
 printf "   * Executing the trade\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_sendtrade $ADDR 3 20 1 1.1)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_sendtrade $ADDR 3 20 1 1.1)
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
 printf "   * Verifiying the results\n"
 printf "      # Checking the trade was valid..."
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep valid | cut -c15-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep valid | cut -c15-)
 if [ $RESULT == "true," ]
   then
     printf "PASS\n"
@@ -44,11 +44,11 @@ if [ $RESULT == "true," ]
 fi
 printf "\nTesting a trade against self that doesn't use Zus to confirm non-Omni pairs are disabled (4.45 #4 for 20 #3)\n"
 printf "   * Executing the trade\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_sendtrade $ADDR 3 20 4 4.45)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_sendtrade $ADDR 3 20 4 4.45)
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
 printf "   * Verifiying the results\n"
 printf "      # Checking the trade was invalid..."
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep valid | cut -c15-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep valid | cut -c15-)
 if [ $RESULT == "false," ]
   then
     printf "PASS\n"
@@ -60,10 +60,10 @@ fi
 printf "\nActivating trading on all pairs\n"
 printf "   * Sending the activation\n"
 BLOCKS=$($SRCDIR/zurbank-cli --regtest getblockcount)
-TXID=$($SRCDIR/zurbank-cli --regtest omni_sendactivation $ADDR 8 $(($BLOCKS + 8)) 999)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_sendactivation $ADDR 8 $(($BLOCKS + 8)) 999)
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
 printf "     # Checking the activation transaction was valid..."
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep valid | cut -c15-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep valid | cut -c15-)
 if [ $RESULT == "true," ]
   then
     printf "PASS\n"
@@ -75,7 +75,7 @@ fi
 printf "   * Mining 10 blocks to forward past the activation block\n"
 $SRCDIR/zurbank-cli --regtest setgenerate true 10 >$NUL
 printf "     # Checking the activation went live as expected..."
-FEATUREID=$($SRCDIR/zurbank-cli --regtest omni_getactivations | grep -A 10 completed | grep featureid | cut -c27)
+FEATUREID=$($SRCDIR/zurbank-cli --regtest zus_getactivations | grep -A 10 completed | grep featureid | cut -c27)
 if [ $FEATUREID == "8" ]
   then
     printf "PASS\n"
@@ -86,11 +86,11 @@ if [ $FEATUREID == "8" ]
 fi
 printf "\nTesting a trade against self that doesn't use Zus to confirm non-Omni pairs are now enabled (4.45 #4 for 20 #3)\n"
 printf "   * Executing the trade\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_sendtrade $ADDR 3 20 4 4.45)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_sendtrade $ADDR 3 20 4 4.45)
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
 printf "   * Verifiying the results\n"
 printf "      # Checking the trade was valid..."
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep valid | cut -c15-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep valid | cut -c15-)
 if [ $RESULT == "true," ]
   then
     printf "PASS\n"

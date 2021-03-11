@@ -16,7 +16,7 @@ Table of contents
   - [Downgrading](#downgrading)
   - [Compatibility with Bitcoin Core](#compatibility-with-zurcoin-core)
 - [Notable changes](#notable-changes)
-  - [Add new RPC: "omni_listblockstransactions"](#add-new-rpc-omni_listblockstransactions)
+  - [Add new RPC: "zus_listblockstransactions"](#add-new-rpc-zus_listblockstransactions)
   - [Fix RPC edge case of not identifying crowdsale purchase](#fix-rpc-edge-case-of-not-identifying-crowdsale-purchase)
   - [Show "ecosystem" = "all", when all tokens are moved](#show-ecosystem--all-when-all-tokens-are-moved)
   - [Log failures when trying to restore state](#log-failures-when-trying-to-restore-state)
@@ -55,14 +55,14 @@ Downgrading to a Bitcoin Core version prior to 0.10 is not supported due to the 
 Notable changes
 ===============
 
-Add new RPC: "omni_listblockstransactions"
+Add new RPC: "zus_listblockstransactions"
 -----------------------------------------
 
-The new RPC "omni_listblockstransactions" can be used to retrieve an unordered list of Zus transactions within a range of blocks:
+The new RPC "zus_listblockstransactions" can be used to retrieve an unordered list of Zus transactions within a range of blocks:
 
 ---
 
-### omni_listblockstransactions
+### zus_listblockstransactions
 
 Lists all Zus transactions in a given range of blocks.
 
@@ -86,7 +86,7 @@ Note: the list of transactions is unordered and can contain invalid transactions
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_omni_listblocktransactions" 279007 300000
+$ zurbank-cli "zus_zus_listblocktransactions" 279007 300000
 ```
 
 ---
@@ -95,13 +95,13 @@ $ zurbank-cli "omni_omni_listblocktransactions" 279007 300000
 Fix RPC edge case of not identifying crowdsale purchase
 -----------------------------------------
 
-When a "Simple Send" transaction is also a "Crowdsale Purchase", always return "Crowdsale Purchase" for "type", when using "omni_gettransaction".
+When a "Simple Send" transaction is also a "Crowdsale Purchase", always return "Crowdsale Purchase" for "type", when using "zus_gettransaction".
 
 
 Show "ecosystem" = "all", when all tokens are moved
 -----------------------------------------
 
-When moving all tokens with the "Send All" transaction and no specific ecosystem is selected, show "all" for "ecosystem", when getting information about such a transaction with "omni_gettransaction".
+When moving all tokens with the "Send All" transaction and no specific ecosystem is selected, show "all" for "ecosystem", when getting information about such a transaction with "zus_gettransaction".
 
 
 Log failures when trying to restore state
@@ -145,7 +145,7 @@ The following list includes relevant pull requests merged into this release:
 - #769 Don't create two similar outputs, when funding transactions
 - #768 Update version to 0.3.1.99 to indicate development
 - #779 Refine documentation of new funding RPCs
-- #835 Add new RPC: omni_listblockstransactions
+- #835 Add new RPC: zus_listblockstransactions
 - #848 Fix RPC edge case of not identifying crowdsale purchase
 - #851 Unify pointer names of internal DBs
 - #874 Fix log incompability of invalid datetime

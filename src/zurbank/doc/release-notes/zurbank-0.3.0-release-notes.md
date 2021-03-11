@@ -85,7 +85,7 @@ The following list includes relevant pull requests merged into this release:
 - #494 Add checkpoints for blocks 480,000 and 490,000
 - #505 Fix log spam from unconfirmed transactions
 - #507 Persist the parsing result and include the reason for tx invalidation in RPC response
-- #508 Add omni_getbalanceshash RPC
+- #508 Add zus_getbalanceshash RPC
 - #511 Travis CI: move back to the minimal image
 - #512 Reintroduce forced client upgrade
 - #514 Enable freezing for centrally managed tokens

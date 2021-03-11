@@ -18,7 +18,7 @@ printf "   * Funding the address with some testnet ZUR for fees\n"
 $SRCDIR/zurbank-cli --regtest sendtoaddress $ADDR 20 >$NUL
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "   * Sending an alert with client expiry version of 999999999\n"
-$SRCDIR/zurbank-cli --regtest omni_sendalert $ADDR 3 999999999 "Client version out of date test." >$NUL
+$SRCDIR/zurbank-cli --regtest zus_sendalert $ADDR 3 999999999 "Client version out of date test." >$NUL
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "   * The client should now be shutting down, sleeping 5 seconds and then attempting to get block height - this should FAIL.\n"
 sleep 5

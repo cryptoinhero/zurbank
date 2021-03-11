@@ -35,11 +35,11 @@ using std::runtime_error;
 using namespace mastercore;
 
 
-UniValue omni_funded_send(const UniValue& params, bool fHelp)
+UniValue zus_funded_send(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 5)
         throw runtime_error(
-            "omni_funded_send \"fromaddress\" \"toaddress\" propertyid \"amount\" \"feeaddress\"\n"
+            "zus_funded_send \"fromaddress\" \"toaddress\" propertyid \"amount\" \"feeaddress\"\n"
 
             "\nCreates and sends a funded simple send transaction.\n"
 
@@ -56,8 +56,8 @@ UniValue omni_funded_send(const UniValue& params, bool fHelp)
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_funded_send", "\"1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH\" \"15cWrfuvMxyxGst2FisrQcvcpF48x6sXoH\" 1 \"100.0\" \"15Jhzz4omEXEyFKbdcccJwuVPea5LqsKM1\"")
-            + HelpExampleRpc("omni_funded_send", "\"1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH\", \"15cWrfuvMxyxGst2FisrQcvcpF48x6sXoH\", 1, \"100.0\", \"15Jhzz4omEXEyFKbdcccJwuVPea5LqsKM1\"")
+            + HelpExampleCli("zus_funded_send", "\"1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH\" \"15cWrfuvMxyxGst2FisrQcvcpF48x6sXoH\" 1 \"100.0\" \"15Jhzz4omEXEyFKbdcccJwuVPea5LqsKM1\"")
+            + HelpExampleRpc("zus_funded_send", "\"1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH\", \"15cWrfuvMxyxGst2FisrQcvcpF48x6sXoH\", 1, \"100.0\", \"15Jhzz4omEXEyFKbdcccJwuVPea5LqsKM1\"")
         );
 
     // obtain parameters & info
@@ -84,11 +84,11 @@ UniValue omni_funded_send(const UniValue& params, bool fHelp)
     return retTxid.ToString();
 }
 
-UniValue omni_funded_sendall(const UniValue& params, bool fHelp)
+UniValue zus_funded_sendall(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 4)
         throw runtime_error(
-            "omni_funded_sendall \"fromaddress\" \"toaddress\" ecosystem \"feeaddress\"\n"
+            "zus_funded_sendall \"fromaddress\" \"toaddress\" ecosystem \"feeaddress\"\n"
 
             "\nCreates and sends a transaction that transfers all available tokens in the given ecosystem to the recipient.\n"
 
@@ -104,8 +104,8 @@ UniValue omni_funded_sendall(const UniValue& params, bool fHelp)
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_funded_sendall", "\"1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH\" \"15cWrfuvMxyxGst2FisrQcvcpF48x6sXoH\" 1 \"15Jhzz4omEXEyFKbdcccJwuVPea5LqsKM1\"")
-            + HelpExampleRpc("omni_funded_sendall", "\"1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH\", \"15cWrfuvMxyxGst2FisrQcvcpF48x6sXoH\", 1, \"15Jhzz4omEXEyFKbdcccJwuVPea5LqsKM1\"")
+            + HelpExampleCli("zus_funded_sendall", "\"1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH\" \"15cWrfuvMxyxGst2FisrQcvcpF48x6sXoH\" 1 \"15Jhzz4omEXEyFKbdcccJwuVPea5LqsKM1\"")
+            + HelpExampleRpc("zus_funded_sendall", "\"1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH\", \"15cWrfuvMxyxGst2FisrQcvcpF48x6sXoH\", 1, \"15Jhzz4omEXEyFKbdcccJwuVPea5LqsKM1\"")
         );
 
     // obtain parameters & info
@@ -127,11 +127,11 @@ UniValue omni_funded_sendall(const UniValue& params, bool fHelp)
     return retTxid.ToString();
 }
 
-UniValue omni_sendrawtx(const UniValue& params, bool fHelp)
+UniValue zus_sendrawtx(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 5)
         throw runtime_error(
-            "omni_sendrawtx \"fromaddress\" \"rawtransaction\" ( \"referenceaddress\" \"redeemaddress\" \"referenceamount\" )\n"
+            "zus_sendrawtx \"fromaddress\" \"rawtransaction\" ( \"referenceaddress\" \"redeemaddress\" \"referenceamount\" )\n"
             "\nBroadcasts a raw Zus Layer transaction.\n"
             "\nArguments:\n"
             "1. fromaddress          (string, required) the address to send from\n"
@@ -142,8 +142,8 @@ UniValue omni_sendrawtx(const UniValue& params, bool fHelp)
             "\nResult:\n"
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendrawtx", "\"1MCHESTptvd2LnNp7wmr2sGTpRomteAkq8\" \"000000000000000100000000017d7840\" \"1EqTta1Rt8ixAA32DuC29oukbsSWU62qAV\"")
-            + HelpExampleRpc("omni_sendrawtx", "\"1MCHESTptvd2LnNp7wmr2sGTpRomteAkq8\", \"000000000000000100000000017d7840\", \"1EqTta1Rt8ixAA32DuC29oukbsSWU62qAV\"")
+            + HelpExampleCli("zus_sendrawtx", "\"1MCHESTptvd2LnNp7wmr2sGTpRomteAkq8\" \"000000000000000100000000017d7840\" \"1EqTta1Rt8ixAA32DuC29oukbsSWU62qAV\"")
+            + HelpExampleRpc("zus_sendrawtx", "\"1MCHESTptvd2LnNp7wmr2sGTpRomteAkq8\", \"000000000000000100000000017d7840\", \"1EqTta1Rt8ixAA32DuC29oukbsSWU62qAV\"")
         );
 
     std::string fromAddress = ParseAddress(params[0]);
@@ -169,11 +169,11 @@ UniValue omni_sendrawtx(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_send(const UniValue& params, bool fHelp)
+UniValue zus_send(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 4 || params.size() > 6)
         throw runtime_error(
-            "omni_send \"fromaddress\" \"toaddress\" propertyid \"amount\" ( \"redeemaddress\" \"referenceamount\" )\n"
+            "zus_send \"fromaddress\" \"toaddress\" propertyid \"amount\" ( \"redeemaddress\" \"referenceamount\" )\n"
 
             "\nCreate and broadcast a simple send transaction.\n"
 
@@ -189,8 +189,8 @@ UniValue omni_send(const UniValue& params, bool fHelp)
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_send", "\"3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY\" \"37FaKponF7zqoMLUjEiko25pDiuVH5YLEa\" 1 \"100.0\"")
-            + HelpExampleRpc("omni_send", "\"3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY\", \"37FaKponF7zqoMLUjEiko25pDiuVH5YLEa\", 1, \"100.0\"")
+            + HelpExampleCli("zus_send", "\"3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY\" \"37FaKponF7zqoMLUjEiko25pDiuVH5YLEa\" 1 \"100.0\"")
+            + HelpExampleRpc("zus_send", "\"3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY\", \"37FaKponF7zqoMLUjEiko25pDiuVH5YLEa\", 1, \"100.0\"")
         );
 
     // obtain parameters & info
@@ -227,11 +227,11 @@ UniValue omni_send(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_sendall(const UniValue& params, bool fHelp)
+UniValue zus_sendall(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 3 || params.size() > 5)
         throw runtime_error(
-            "omni_sendall \"fromaddress\" \"toaddress\" ecosystem ( \"redeemaddress\" \"referenceamount\" )\n"
+            "zus_sendall \"fromaddress\" \"toaddress\" ecosystem ( \"redeemaddress\" \"referenceamount\" )\n"
 
             "\nTransfers all available tokens in the given ecosystem to the recipient.\n"
 
@@ -246,8 +246,8 @@ UniValue omni_sendall(const UniValue& params, bool fHelp)
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendall", "\"3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY\" \"37FaKponF7zqoMLUjEiko25pDiuVH5YLEa\" 2")
-            + HelpExampleRpc("omni_sendall", "\"3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY\", \"37FaKponF7zqoMLUjEiko25pDiuVH5YLEa\" 2")
+            + HelpExampleCli("zus_sendall", "\"3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY\" \"37FaKponF7zqoMLUjEiko25pDiuVH5YLEa\" 2")
+            + HelpExampleRpc("zus_sendall", "\"3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY\", \"37FaKponF7zqoMLUjEiko25pDiuVH5YLEa\" 2")
         );
 
     // obtain parameters & info
@@ -281,11 +281,11 @@ UniValue omni_sendall(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_senddexsell(const UniValue& params, bool fHelp)
+UniValue zus_senddexsell(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 7)
         throw runtime_error(
-            "omni_senddexsell \"fromaddress\" propertyidforsale \"amountforsale\" \"amountdesired\" paymentwindow minacceptfee action\n"
+            "zus_senddexsell \"fromaddress\" propertyidforsale \"amountforsale\" \"amountdesired\" paymentwindow minacceptfee action\n"
 
             "\nPlace, update or cancel a sell offer on the traditional distributed ZUS/ZUR exchange.\n"
 
@@ -303,8 +303,8 @@ UniValue omni_senddexsell(const UniValue& params, bool fHelp)
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_senddexsell", "\"37FaKponF7zqoMLUjEiko25pDiuVH5YLEa\" 1 \"1.5\" \"0.75\" 25 \"0.0005\" 1")
-            + HelpExampleRpc("omni_senddexsell", "\"37FaKponF7zqoMLUjEiko25pDiuVH5YLEa\", 1, \"1.5\", \"0.75\", 25, \"0.0005\", 1")
+            + HelpExampleCli("zus_senddexsell", "\"37FaKponF7zqoMLUjEiko25pDiuVH5YLEa\" 1 \"1.5\" \"0.75\" 25 \"0.0005\" 1")
+            + HelpExampleRpc("zus_senddexsell", "\"37FaKponF7zqoMLUjEiko25pDiuVH5YLEa\", 1, \"1.5\", \"0.75\", 25, \"0.0005\", 1")
         );
 
     // obtain parameters & info
@@ -370,11 +370,11 @@ UniValue omni_senddexsell(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_senddexaccept(const UniValue& params, bool fHelp)
+UniValue zus_senddexaccept(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 4 || params.size() > 5)
         throw runtime_error(
-            "omni_senddexaccept \"fromaddress\" \"toaddress\" propertyid \"amount\" ( override )\n"
+            "zus_senddexaccept \"fromaddress\" \"toaddress\" propertyid \"amount\" ( override )\n"
 
             "\nCreate and broadcast an accept offer for the specified token and amount.\n"
 
@@ -389,8 +389,8 @@ UniValue omni_senddexaccept(const UniValue& params, bool fHelp)
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_senddexaccept", "\"35URq1NN3xL6GeRKUP6vzaQVcxoJiiJKd8\" \"37FaKponF7zqoMLUjEiko25pDiuVH5YLEa\" 1 \"15.0\"")
-            + HelpExampleRpc("omni_senddexaccept", "\"35URq1NN3xL6GeRKUP6vzaQVcxoJiiJKd8\", \"37FaKponF7zqoMLUjEiko25pDiuVH5YLEa\", 1, \"15.0\"")
+            + HelpExampleCli("zus_senddexaccept", "\"35URq1NN3xL6GeRKUP6vzaQVcxoJiiJKd8\" \"37FaKponF7zqoMLUjEiko25pDiuVH5YLEa\" 1 \"15.0\"")
+            + HelpExampleRpc("zus_senddexaccept", "\"35URq1NN3xL6GeRKUP6vzaQVcxoJiiJKd8\", \"37FaKponF7zqoMLUjEiko25pDiuVH5YLEa\", 1, \"15.0\"")
         );
 
     // obtain parameters & info
@@ -452,11 +452,11 @@ UniValue omni_senddexaccept(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_sendissuancecrowdsale(const UniValue& params, bool fHelp)
+UniValue zus_sendissuancecrowdsale(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 14)
         throw runtime_error(
-            "omni_sendissuancecrowdsale \"fromaddress\" ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\" propertyiddesired tokensperunit deadline ( earlybonus issuerpercentage )\n"
+            "zus_sendissuancecrowdsale \"fromaddress\" ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\" propertyiddesired tokensperunit deadline ( earlybonus issuerpercentage )\n"
 
             "Create new tokens as crowdsale."
 
@@ -480,8 +480,8 @@ UniValue omni_sendissuancecrowdsale(const UniValue& params, bool fHelp)
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendissuancecrowdsale", "\"3JYd75REX3HXn1vAU83YuGfmiPXW7BpYXo\" 2 1 0 \"Companies\" \"Zurcoin Mining\" \"Quantum Miner\" \"\" \"\" 2 \"100\" 1483228800 30 2")
-            + HelpExampleRpc("omni_sendissuancecrowdsale", "\"3JYd75REX3HXn1vAU83YuGfmiPXW7BpYXo\", 2, 1, 0, \"Companies\", \"Zurcoin Mining\", \"Quantum Miner\", \"\", \"\", 2, \"100\", 1483228800, 30, 2")
+            + HelpExampleCli("zus_sendissuancecrowdsale", "\"3JYd75REX3HXn1vAU83YuGfmiPXW7BpYXo\" 2 1 0 \"Companies\" \"Zurcoin Mining\" \"Quantum Miner\" \"\" \"\" 2 \"100\" 1483228800 30 2")
+            + HelpExampleRpc("zus_sendissuancecrowdsale", "\"3JYd75REX3HXn1vAU83YuGfmiPXW7BpYXo\", 2, 1, 0, \"Companies\", \"Zurcoin Mining\", \"Quantum Miner\", \"\", \"\", 2, \"100\", 1483228800, 30, 2")
         );
 
     // obtain parameters & info
@@ -525,11 +525,11 @@ UniValue omni_sendissuancecrowdsale(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_sendissuancefixed(const UniValue& params, bool fHelp)
+UniValue zus_sendissuancefixed(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 10)
         throw runtime_error(
-            "omni_sendissuancefixed \"fromaddress\" ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\" \"amount\"\n"
+            "zus_sendissuancefixed \"fromaddress\" ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\" \"amount\"\n"
 
             "\nCreate new tokens with fixed supply.\n"
 
@@ -549,8 +549,8 @@ UniValue omni_sendissuancefixed(const UniValue& params, bool fHelp)
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendissuancefixed", "\"3Ck2kEGLJtZw9ENj2tameMCtS3HB7uRar3\" 2 1 0 \"Companies\" \"Zurcoin Mining\" \"Quantum Miner\" \"\" \"\" \"1000000\"")
-            + HelpExampleRpc("omni_sendissuancefixed", "\"3Ck2kEGLJtZw9ENj2tameMCtS3HB7uRar3\", 2, 1, 0, \"Companies\", \"Zurcoin Mining\", \"Quantum Miner\", \"\", \"\", \"1000000\"")
+            + HelpExampleCli("zus_sendissuancefixed", "\"3Ck2kEGLJtZw9ENj2tameMCtS3HB7uRar3\" 2 1 0 \"Companies\" \"Zurcoin Mining\" \"Quantum Miner\" \"\" \"\" \"1000000\"")
+            + HelpExampleRpc("zus_sendissuancefixed", "\"3Ck2kEGLJtZw9ENj2tameMCtS3HB7uRar3\", 2, 1, 0, \"Companies\", \"Zurcoin Mining\", \"Quantum Miner\", \"\", \"\", \"1000000\"")
         );
 
     // obtain parameters & info
@@ -588,11 +588,11 @@ UniValue omni_sendissuancefixed(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_sendissuancemanaged(const UniValue& params, bool fHelp)
+UniValue zus_sendissuancemanaged(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 9)
         throw runtime_error(
-            "omni_sendissuancemanaged \"fromaddress\" ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\"\n"
+            "zus_sendissuancemanaged \"fromaddress\" ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\"\n"
 
             "\nCreate new tokens with manageable supply.\n"
 
@@ -611,8 +611,8 @@ UniValue omni_sendissuancemanaged(const UniValue& params, bool fHelp)
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendissuancemanaged", "\"3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH\" 2 1 0 \"Companies\" \"Zurcoin Mining\" \"Quantum Miner\" \"\" \"\"")
-            + HelpExampleRpc("omni_sendissuancemanaged", "\"3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH\", 2, 1, 0, \"Companies\", \"Zurcoin Mining\", \"Quantum Miner\", \"\", \"\"")
+            + HelpExampleCli("zus_sendissuancemanaged", "\"3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH\" 2 1 0 \"Companies\" \"Zurcoin Mining\" \"Quantum Miner\" \"\" \"\"")
+            + HelpExampleRpc("zus_sendissuancemanaged", "\"3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH\", 2, 1, 0, \"Companies\", \"Zurcoin Mining\", \"Quantum Miner\", \"\", \"\"")
         );
 
     // obtain parameters & info
@@ -649,11 +649,11 @@ UniValue omni_sendissuancemanaged(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_sendsto(const UniValue& params, bool fHelp)
+UniValue zus_sendsto(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 3 || params.size() > 5)
         throw runtime_error(
-            "omni_sendsto \"fromaddress\" propertyid \"amount\" ( \"redeemaddress\" distributionproperty )\n"
+            "zus_sendsto \"fromaddress\" propertyid \"amount\" ( \"redeemaddress\" distributionproperty )\n"
 
             "\nCreate and broadcast a send-to-owners transaction.\n"
 
@@ -668,8 +668,8 @@ UniValue omni_sendsto(const UniValue& params, bool fHelp)
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendsto", "\"32Z3tJccZuqQZ4PhJR2hxHC3tjgjA8cbqz\" \"37FaKponF7zqoMLUjEiko25pDiuVH5YLEa\" 3 \"5000\"")
-            + HelpExampleRpc("omni_sendsto", "\"32Z3tJccZuqQZ4PhJR2hxHC3tjgjA8cbqz\", \"37FaKponF7zqoMLUjEiko25pDiuVH5YLEa\", 3, \"5000\"")
+            + HelpExampleCli("zus_sendsto", "\"32Z3tJccZuqQZ4PhJR2hxHC3tjgjA8cbqz\" \"37FaKponF7zqoMLUjEiko25pDiuVH5YLEa\" 3 \"5000\"")
+            + HelpExampleRpc("zus_sendsto", "\"32Z3tJccZuqQZ4PhJR2hxHC3tjgjA8cbqz\", \"37FaKponF7zqoMLUjEiko25pDiuVH5YLEa\", 3, \"5000\"")
         );
 
     // obtain parameters & info
@@ -703,11 +703,11 @@ UniValue omni_sendsto(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_sendgrant(const UniValue& params, bool fHelp)
+UniValue zus_sendgrant(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 4 || params.size() > 5)
         throw runtime_error(
-            "omni_sendgrant \"fromaddress\" \"toaddress\" propertyid \"amount\" ( \"memo\" )\n"
+            "zus_sendgrant \"fromaddress\" \"toaddress\" propertyid \"amount\" ( \"memo\" )\n"
 
             "\nIssue or grant new units of managed tokens.\n"
 
@@ -722,8 +722,8 @@ UniValue omni_sendgrant(const UniValue& params, bool fHelp)
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendgrant", "\"3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH\" \"\" 51 \"7000\"")
-            + HelpExampleRpc("omni_sendgrant", "\"3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH\", \"\", 51, \"7000\"")
+            + HelpExampleCli("zus_sendgrant", "\"3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH\" \"\" 51 \"7000\"")
+            + HelpExampleRpc("zus_sendgrant", "\"3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH\", \"\", 51, \"7000\"")
         );
 
     // obtain parameters & info
@@ -758,11 +758,11 @@ UniValue omni_sendgrant(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_sendrevoke(const UniValue& params, bool fHelp)
+UniValue zus_sendrevoke(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 3 || params.size() > 4)
         throw runtime_error(
-            "omni_sendrevoke \"fromaddress\" propertyid \"amount\" ( \"memo\" )\n"
+            "zus_sendrevoke \"fromaddress\" propertyid \"amount\" ( \"memo\" )\n"
 
             "\nRevoke units of managed tokens.\n"
 
@@ -776,8 +776,8 @@ UniValue omni_sendrevoke(const UniValue& params, bool fHelp)
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendrevoke", "\"3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH\" \"\" 51 \"100\"")
-            + HelpExampleRpc("omni_sendrevoke", "\"3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH\", \"\", 51, \"100\"")
+            + HelpExampleCli("zus_sendrevoke", "\"3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH\" \"\" 51 \"100\"")
+            + HelpExampleRpc("zus_sendrevoke", "\"3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH\", \"\", 51, \"100\"")
         );
 
     // obtain parameters & info
@@ -812,11 +812,11 @@ UniValue omni_sendrevoke(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_sendclosecrowdsale(const UniValue& params, bool fHelp)
+UniValue zus_sendclosecrowdsale(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "omni_sendclosecrowdsale \"fromaddress\" propertyid\n"
+            "zus_sendclosecrowdsale \"fromaddress\" propertyid\n"
 
             "\nManually close a crowdsale.\n"
 
@@ -828,8 +828,8 @@ UniValue omni_sendclosecrowdsale(const UniValue& params, bool fHelp)
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendclosecrowdsale", "\"3JYd75REX3HXn1vAU83YuGfmiPXW7BpYXo\" 70")
-            + HelpExampleRpc("omni_sendclosecrowdsale", "\"3JYd75REX3HXn1vAU83YuGfmiPXW7BpYXo\", 70")
+            + HelpExampleCli("zus_sendclosecrowdsale", "\"3JYd75REX3HXn1vAU83YuGfmiPXW7BpYXo\" 70")
+            + HelpExampleRpc("zus_sendclosecrowdsale", "\"3JYd75REX3HXn1vAU83YuGfmiPXW7BpYXo\", 70")
         );
 
     // obtain parameters & info
@@ -886,7 +886,7 @@ UniValue trade_MP(const UniValue& params, bool fHelp)
             values.push_back(params[2]); // amountForSale
             values.push_back(params[3]); // propertyIdDesired
             values.push_back(params[4]); // amountDesired
-            return omni_sendtrade(values, fHelp);
+            return zus_sendtrade(values, fHelp);
         }
         case CMPTransaction::CANCEL_AT_PRICE:
         {
@@ -895,14 +895,14 @@ UniValue trade_MP(const UniValue& params, bool fHelp)
             values.push_back(params[2]); // amountForSale
             values.push_back(params[3]); // propertyIdDesired
             values.push_back(params[4]); // amountDesired
-            return omni_sendcanceltradesbyprice(values, fHelp);
+            return zus_sendcanceltradesbyprice(values, fHelp);
         }
         case CMPTransaction::CANCEL_ALL_FOR_PAIR:
         {
             values.push_back(params[0]); // fromAddress
             values.push_back(params[1]); // propertyIdForSale
             values.push_back(params[3]); // propertyIdDesired
-            return omni_sendcanceltradesbypair(values, fHelp);
+            return zus_sendcanceltradesbypair(values, fHelp);
         }
         case CMPTransaction::CANCEL_EVERYTHING:
         {
@@ -917,18 +917,18 @@ UniValue trade_MP(const UniValue& params, bool fHelp)
             }
             values.push_back(params[0]); // fromAddress
             values.push_back(ecosystem);
-            return omni_sendcancelalltrades(values, fHelp);
+            return zus_sendcancelalltrades(values, fHelp);
         }
     }
 
     throw JSONRPCError(RPC_TYPE_ERROR, "Invalid action (1,2,3,4 only)");
 }
 
-UniValue omni_sendtrade(const UniValue& params, bool fHelp)
+UniValue zus_sendtrade(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 5)
         throw runtime_error(
-            "omni_sendtrade \"fromaddress\" propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
+            "zus_sendtrade \"fromaddress\" propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
 
             "\nPlace a trade offer on the distributed token exchange.\n"
 
@@ -943,8 +943,8 @@ UniValue omni_sendtrade(const UniValue& params, bool fHelp)
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendtrade", "\"3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR\" 31 \"250.0\" 1 \"10.0\"")
-            + HelpExampleRpc("omni_sendtrade", "\"3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR\", 31, \"250.0\", 1, \"10.0\"")
+            + HelpExampleCli("zus_sendtrade", "\"3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR\" 31 \"250.0\" 1 \"10.0\"")
+            + HelpExampleRpc("zus_sendtrade", "\"3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR\", 31, \"250.0\", 1, \"10.0\"")
         );
 
     // obtain parameters & info
@@ -982,11 +982,11 @@ UniValue omni_sendtrade(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_sendcanceltradesbyprice(const UniValue& params, bool fHelp)
+UniValue zus_sendcanceltradesbyprice(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 5)
         throw runtime_error(
-            "omni_sendcanceltradesbyprice \"fromaddress\" propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
+            "zus_sendcanceltradesbyprice \"fromaddress\" propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
 
             "\nCancel offers on the distributed token exchange with the specified price.\n"
 
@@ -1001,8 +1001,8 @@ UniValue omni_sendcanceltradesbyprice(const UniValue& params, bool fHelp)
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendcanceltradesbyprice", "\"3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR\" 31 \"100.0\" 1 \"5.0\"")
-            + HelpExampleRpc("omni_sendcanceltradesbyprice", "\"3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR\", 31, \"100.0\", 1, \"5.0\"")
+            + HelpExampleCli("zus_sendcanceltradesbyprice", "\"3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR\" 31 \"100.0\" 1 \"5.0\"")
+            + HelpExampleRpc("zus_sendcanceltradesbyprice", "\"3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR\", 31, \"100.0\", 1, \"5.0\"")
         );
 
     // obtain parameters & info
@@ -1040,11 +1040,11 @@ UniValue omni_sendcanceltradesbyprice(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_sendcanceltradesbypair(const UniValue& params, bool fHelp)
+UniValue zus_sendcanceltradesbypair(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 3)
         throw runtime_error(
-            "omni_sendcanceltradesbypair \"fromaddress\" propertyidforsale propertiddesired\n"
+            "zus_sendcanceltradesbypair \"fromaddress\" propertyidforsale propertiddesired\n"
 
             "\nCancel all offers on the distributed token exchange with the given currency pair.\n"
 
@@ -1057,8 +1057,8 @@ UniValue omni_sendcanceltradesbypair(const UniValue& params, bool fHelp)
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendcanceltradesbypair", "\"3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR\" 1 31")
-            + HelpExampleRpc("omni_sendcanceltradesbypair", "\"3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR\", 1, 31")
+            + HelpExampleCli("zus_sendcanceltradesbypair", "\"3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR\" 1 31")
+            + HelpExampleRpc("zus_sendcanceltradesbypair", "\"3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR\", 1, 31")
         );
 
     // obtain parameters & info
@@ -1094,11 +1094,11 @@ UniValue omni_sendcanceltradesbypair(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_sendcancelalltrades(const UniValue& params, bool fHelp)
+UniValue zus_sendcancelalltrades(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "omni_sendcancelalltrades \"fromaddress\" ecosystem\n"
+            "zus_sendcancelalltrades \"fromaddress\" ecosystem\n"
 
             "\nCancel all offers on the distributed token exchange.\n"
 
@@ -1110,8 +1110,8 @@ UniValue omni_sendcancelalltrades(const UniValue& params, bool fHelp)
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendcancelalltrades", "\"3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR\" 1")
-            + HelpExampleRpc("omni_sendcancelalltrades", "\"3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR\", 1")
+            + HelpExampleCli("zus_sendcancelalltrades", "\"3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR\" 1")
+            + HelpExampleRpc("zus_sendcancelalltrades", "\"3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR\", 1")
         );
 
     // obtain parameters & info
@@ -1142,11 +1142,11 @@ UniValue omni_sendcancelalltrades(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_sendchangeissuer(const UniValue& params, bool fHelp)
+UniValue zus_sendchangeissuer(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 3)
         throw runtime_error(
-            "omni_sendchangeissuer \"fromaddress\" \"toaddress\" propertyid\n"
+            "zus_sendchangeissuer \"fromaddress\" \"toaddress\" propertyid\n"
 
             "\nChange the issuer on record of the given tokens.\n"
 
@@ -1159,8 +1159,8 @@ UniValue omni_sendchangeissuer(const UniValue& params, bool fHelp)
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendchangeissuer", "\"1ARjWDkZ7kT9fwjPrjcQyvbXDkEySzKHwu\" \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 3")
-            + HelpExampleRpc("omni_sendchangeissuer", "\"1ARjWDkZ7kT9fwjPrjcQyvbXDkEySzKHwu\", \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 3")
+            + HelpExampleCli("zus_sendchangeissuer", "\"1ARjWDkZ7kT9fwjPrjcQyvbXDkEySzKHwu\" \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 3")
+            + HelpExampleRpc("zus_sendchangeissuer", "\"1ARjWDkZ7kT9fwjPrjcQyvbXDkEySzKHwu\", \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 3")
         );
 
     // obtain parameters & info
@@ -1192,11 +1192,11 @@ UniValue omni_sendchangeissuer(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_sendenablefreezing(const UniValue& params, bool fHelp)
+UniValue zus_sendenablefreezing(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "omni_sendenablefreezing \"fromaddress\" propertyid\n"
+            "zus_sendenablefreezing \"fromaddress\" propertyid\n"
 
             "\nEnables address freezing for a centrally managed property.\n"
 
@@ -1208,8 +1208,8 @@ UniValue omni_sendenablefreezing(const UniValue& params, bool fHelp)
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendenablefreezing", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 3")
-            + HelpExampleRpc("omni_sendenablefreezing", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 3")
+            + HelpExampleCli("zus_sendenablefreezing", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 3")
+            + HelpExampleRpc("zus_sendenablefreezing", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 3")
         );
 
     // obtain parameters & info
@@ -1241,11 +1241,11 @@ UniValue omni_sendenablefreezing(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_senddisablefreezing(const UniValue& params, bool fHelp)
+UniValue zus_senddisablefreezing(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "omni_senddisablefreezing \"fromaddress\" propertyid\n"
+            "zus_senddisablefreezing \"fromaddress\" propertyid\n"
 
             "\nDisables address freezing for a centrally managed property.\n"
             "\nIMPORTANT NOTE:  Disabling freezing for a property will UNFREEZE all frozen addresses for that property!"
@@ -1258,8 +1258,8 @@ UniValue omni_senddisablefreezing(const UniValue& params, bool fHelp)
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_senddisablefreezing", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 3")
-            + HelpExampleRpc("omni_senddisablefreezing", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 3")
+            + HelpExampleCli("zus_senddisablefreezing", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 3")
+            + HelpExampleRpc("zus_senddisablefreezing", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 3")
         );
 
     // obtain parameters & info
@@ -1291,11 +1291,11 @@ UniValue omni_senddisablefreezing(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_sendfreeze(const UniValue& params, bool fHelp)
+UniValue zus_sendfreeze(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 4)
         throw runtime_error(
-            "omni_sendfreeze \"fromaddress\" \"toaddress\" propertyid amount \n"
+            "zus_sendfreeze \"fromaddress\" \"toaddress\" propertyid amount \n"
             "\nFreeze an address for a centrally managed token.\n"
             "\nNote: Only the issuer may freeze tokens, and only if the token is of the managed type with the freezing option enabled.\n"
             "\nArguments:\n"
@@ -1306,8 +1306,8 @@ UniValue omni_sendfreeze(const UniValue& params, bool fHelp)
             "\nResult:\n"
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendfreeze", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\" \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 1 0")
-            + HelpExampleRpc("omni_sendfreeze", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\", \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 1, 0")
+            + HelpExampleCli("zus_sendfreeze", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\" \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 1 0")
+            + HelpExampleRpc("zus_sendfreeze", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\", \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 1, 0")
         );
 
     // obtain parameters & info
@@ -1342,11 +1342,11 @@ UniValue omni_sendfreeze(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_sendunfreeze(const UniValue& params, bool fHelp)
+UniValue zus_sendunfreeze(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 4)
         throw runtime_error(
-            "omni_sendunfreeze \"fromaddress\" \"toaddress\" propertyid amount \n"
+            "zus_sendunfreeze \"fromaddress\" \"toaddress\" propertyid amount \n"
             "\nUnfreezes an address for a centrally managed token.\n"
             "\nNote: Only the issuer may unfreeze tokens.\n"
             "\nArguments:\n"
@@ -1357,8 +1357,8 @@ UniValue omni_sendunfreeze(const UniValue& params, bool fHelp)
             "\nResult:\n"
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendunfreeze", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\" \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 1 0")
-            + HelpExampleRpc("omni_sendunfreeze", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\", \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 1, 0")
+            + HelpExampleCli("zus_sendunfreeze", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\" \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 1 0")
+            + HelpExampleRpc("zus_sendunfreeze", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\", \"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 1, 0")
         );
 
     // obtain parameters & info
@@ -1393,11 +1393,11 @@ UniValue omni_sendunfreeze(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_sendactivation(const UniValue& params, bool fHelp)
+UniValue zus_sendactivation(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 4)
         throw runtime_error(
-            "omni_sendactivation \"fromaddress\" featureid block minclientversion\n"
+            "zus_sendactivation \"fromaddress\" featureid block minclientversion\n"
             "\nActivate a protocol feature.\n"
             "\nNote: ZURBank ignores activations from unauthorized sources.\n"
             "\nArguments:\n"
@@ -1408,8 +1408,8 @@ UniValue omni_sendactivation(const UniValue& params, bool fHelp)
             "\nResult:\n"
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendactivation", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\" 1 370000 999")
-            + HelpExampleRpc("omni_sendactivation", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\", 1, 370000, 999")
+            + HelpExampleCli("zus_sendactivation", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\" 1 370000 999")
+            + HelpExampleRpc("zus_sendactivation", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\", 1, 370000, 999")
         );
 
     // obtain parameters & info
@@ -1438,11 +1438,11 @@ UniValue omni_sendactivation(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_senddeactivation(const UniValue& params, bool fHelp)
+UniValue zus_senddeactivation(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "omni_senddeactivation \"fromaddress\" featureid\n"
+            "zus_senddeactivation \"fromaddress\" featureid\n"
             "\nDeactivate a protocol feature.  For Emergency Use Only.\n"
             "\nNote: ZURBank ignores deactivations from unauthorized sources.\n"
             "\nArguments:\n"
@@ -1451,8 +1451,8 @@ UniValue omni_senddeactivation(const UniValue& params, bool fHelp)
             "\nResult:\n"
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_senddeactivation", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\" 1")
-            + HelpExampleRpc("omni_senddeactivation", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\", 1")
+            + HelpExampleCli("zus_senddeactivation", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\" 1")
+            + HelpExampleRpc("zus_senddeactivation", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\", 1")
         );
 
     // obtain parameters & info
@@ -1479,11 +1479,11 @@ UniValue omni_senddeactivation(const UniValue& params, bool fHelp)
     }
 }
 
-UniValue omni_sendalert(const UniValue& params, bool fHelp)
+UniValue zus_sendalert(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 4)
         throw runtime_error(
-            "omni_sendalert \"fromaddress\" alerttype expiryvalue typecheck versioncheck \"message\"\n"
+            "zus_sendalert \"fromaddress\" alerttype expiryvalue typecheck versioncheck \"message\"\n"
             "\nCreates and broadcasts an ZURBank alert.\n"
             "\nNote: ZURBank ignores alerts from unauthorized sources.\n"
             "\nArguments:\n"
@@ -1494,8 +1494,8 @@ UniValue omni_sendalert(const UniValue& params, bool fHelp)
             "\nResult:\n"
             "\"hash\"                  (string) the hex-encoded transaction hash\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_sendalert", "")
-            + HelpExampleRpc("omni_sendalert", "")
+            + HelpExampleCli("zus_sendalert", "")
+            + HelpExampleRpc("zus_sendalert", "")
         );
 
     // obtain parameters & info
@@ -1536,37 +1536,37 @@ static const CRPCCommand commands[] =
 { //  category                             name                            actor (function)               okSafeMode
   //  ------------------------------------ ------------------------------- ------------------------------ ----------
 #ifdef ENABLE_WALLET
-    { "omni layer (transaction creation)", "omni_sendrawtx",               &omni_sendrawtx,               false },
-    { "omni layer (transaction creation)", "omni_send",                    &omni_send,                    false },
-    { "omni layer (transaction creation)", "omni_senddexsell",             &omni_senddexsell,             false },
-    { "omni layer (transaction creation)", "omni_senddexaccept",           &omni_senddexaccept,           false },
-    { "omni layer (transaction creation)", "omni_sendissuancecrowdsale",   &omni_sendissuancecrowdsale,   false },
-    { "omni layer (transaction creation)", "omni_sendissuancefixed",       &omni_sendissuancefixed,       false },
-    { "omni layer (transaction creation)", "omni_sendissuancemanaged",     &omni_sendissuancemanaged,     false },
-    { "omni layer (transaction creation)", "omni_sendtrade",               &omni_sendtrade,               false },
-    { "omni layer (transaction creation)", "omni_sendcanceltradesbyprice", &omni_sendcanceltradesbyprice, false },
-    { "omni layer (transaction creation)", "omni_sendcanceltradesbypair",  &omni_sendcanceltradesbypair,  false },
-    { "omni layer (transaction creation)", "omni_sendcancelalltrades",     &omni_sendcancelalltrades,     false },
-    { "omni layer (transaction creation)", "omni_sendsto",                 &omni_sendsto,                 false },
-    { "omni layer (transaction creation)", "omni_sendgrant",               &omni_sendgrant,               false },
-    { "omni layer (transaction creation)", "omni_sendrevoke",              &omni_sendrevoke,              false },
-    { "omni layer (transaction creation)", "omni_sendclosecrowdsale",      &omni_sendclosecrowdsale,      false },
-    { "omni layer (transaction creation)", "omni_sendchangeissuer",        &omni_sendchangeissuer,        false },
-    { "omni layer (transaction creation)", "omni_sendall",                 &omni_sendall,                 false },
-    { "omni layer (transaction creation)", "omni_sendenablefreezing",      &omni_sendenablefreezing,      false },
-    { "omni layer (transaction creation)", "omni_senddisablefreezing",     &omni_senddisablefreezing,     false },
-    { "omni layer (transaction creation)", "omni_sendfreeze",              &omni_sendfreeze,              false },
-    { "omni layer (transaction creation)", "omni_sendunfreeze",            &omni_sendunfreeze,            false },
-    { "hidden",                            "omni_senddeactivation",        &omni_senddeactivation,        true  },
-    { "hidden",                            "omni_sendactivation",          &omni_sendactivation,          false },
-    { "hidden",                            "omni_sendalert",               &omni_sendalert,               true  },
-    { "omni layer (transaction creation)", "omni_funded_send",             &omni_funded_send,             false },
-    { "omni layer (transaction creation)", "omni_funded_sendall",          &omni_funded_sendall,          false },
+    { "omni layer (transaction creation)", "zus_sendrawtx",               &zus_sendrawtx,               false },
+    { "omni layer (transaction creation)", "zus_send",                    &zus_send,                    false },
+    { "omni layer (transaction creation)", "zus_senddexsell",             &zus_senddexsell,             false },
+    { "omni layer (transaction creation)", "zus_senddexaccept",           &zus_senddexaccept,           false },
+    { "omni layer (transaction creation)", "zus_sendissuancecrowdsale",   &zus_sendissuancecrowdsale,   false },
+    { "omni layer (transaction creation)", "zus_sendissuancefixed",       &zus_sendissuancefixed,       false },
+    { "omni layer (transaction creation)", "zus_sendissuancemanaged",     &zus_sendissuancemanaged,     false },
+    { "omni layer (transaction creation)", "zus_sendtrade",               &zus_sendtrade,               false },
+    { "omni layer (transaction creation)", "zus_sendcanceltradesbyprice", &zus_sendcanceltradesbyprice, false },
+    { "omni layer (transaction creation)", "zus_sendcanceltradesbypair",  &zus_sendcanceltradesbypair,  false },
+    { "omni layer (transaction creation)", "zus_sendcancelalltrades",     &zus_sendcancelalltrades,     false },
+    { "omni layer (transaction creation)", "zus_sendsto",                 &zus_sendsto,                 false },
+    { "omni layer (transaction creation)", "zus_sendgrant",               &zus_sendgrant,               false },
+    { "omni layer (transaction creation)", "zus_sendrevoke",              &zus_sendrevoke,              false },
+    { "omni layer (transaction creation)", "zus_sendclosecrowdsale",      &zus_sendclosecrowdsale,      false },
+    { "omni layer (transaction creation)", "zus_sendchangeissuer",        &zus_sendchangeissuer,        false },
+    { "omni layer (transaction creation)", "zus_sendall",                 &zus_sendall,                 false },
+    { "omni layer (transaction creation)", "zus_sendenablefreezing",      &zus_sendenablefreezing,      false },
+    { "omni layer (transaction creation)", "zus_senddisablefreezing",     &zus_senddisablefreezing,     false },
+    { "omni layer (transaction creation)", "zus_sendfreeze",              &zus_sendfreeze,              false },
+    { "omni layer (transaction creation)", "zus_sendunfreeze",            &zus_sendunfreeze,            false },
+    { "hidden",                            "zus_senddeactivation",        &zus_senddeactivation,        true  },
+    { "hidden",                            "zus_sendactivation",          &zus_sendactivation,          false },
+    { "hidden",                            "zus_sendalert",               &zus_sendalert,               true  },
+    { "omni layer (transaction creation)", "zus_funded_send",             &zus_funded_send,             false },
+    { "omni layer (transaction creation)", "zus_funded_sendall",          &zus_funded_sendall,          false },
 
     /* depreciated: */
-    { "hidden",                            "sendrawtx_MP",                 &omni_sendrawtx,               false },
-    { "hidden",                            "send_MP",                      &omni_send,                    false },
-    { "hidden",                            "sendtoowners_MP",              &omni_sendsto,                 false },
+    { "hidden",                            "sendrawtx_MP",                 &zus_sendrawtx,               false },
+    { "hidden",                            "send_MP",                      &zus_send,                    false },
+    { "hidden",                            "sendtoowners_MP",              &zus_sendsto,                 false },
     { "hidden",                            "trade_MP",                     &trade_MP,                     false },
 #endif
 };

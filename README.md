@@ -88,7 +88,7 @@ In zurcoin.conf:
 server=1
 ```
 
-After this step completes, check that the installation went smoothly by issuing the following command `./zurbank-cli omni_getinfo` which should return the `zurbankversion` as well as some
+After this step completes, check that the installation went smoothly by issuing the following command `./zurbank-cli zus_getinfo` which should return the `zurbankversion` as well as some
 additional information related to the client.
 
 The documentation for the RPC interface and command-line is located in [src/zurbank/doc/rpc-api.md] (src/zurbank/doc/rpc-api.md).
@@ -96,25 +96,25 @@ The documentation for the RPC interface and command-line is located in [src/zurb
 Current feature set:
 --------------------
 
-* Broadcasting of simple send (tx 0) [doc] (src/zurbank/doc/rpc-api.md#omni_send), and send to owners (tx 3) [doc] (src/zurbank/doc/rpc-api.md#omni_sendsto)
+* Broadcasting of simple send (tx 0) [doc] (src/zurbank/doc/rpc-api.md#zus_send), and send to owners (tx 3) [doc] (src/zurbank/doc/rpc-api.md#zus_sendsto)
 
-* Obtaining a Zus Layer balance [doc] (src/zurbank/doc/rpc-api.md#omni_getbalance)
+* Obtaining a Zus Layer balance [doc] (src/zurbank/doc/rpc-api.md#zus_getbalance)
 
-* Obtaining all balances (including smart property) for an address [doc] (src/zurbank/doc/rpc-api.md#omni_getallbalancesforaddress)
+* Obtaining all balances (including smart property) for an address [doc] (src/zurbank/doc/rpc-api.md#zus_getallbalancesforaddress)
 
-* Obtaining all balances associated with a specific smart property [doc] (src/zurbank/doc/rpc-api.md#omni_getallbalancesforid)
+* Obtaining all balances associated with a specific smart property [doc] (src/zurbank/doc/rpc-api.md#zus_getallbalancesforid)
 
-* Retrieving information about any Zus Layer transaction [doc] (src/zurbank/doc/rpc-api.md#omni_gettransaction)
+* Retrieving information about any Zus Layer transaction [doc] (src/zurbank/doc/rpc-api.md#zus_gettransaction)
 
-* Listing historical transactions of addresses in the wallet [doc] (src/zurbank/doc/rpc-api.md#omni_listtransactions)
+* Listing historical transactions of addresses in the wallet [doc] (src/zurbank/doc/rpc-api.md#zus_listtransactions)
 
-* Retreiving detailed information about a smart property [doc] (src/zurbank/doc/rpc-api.md#omni_getproperty)
+* Retreiving detailed information about a smart property [doc] (src/zurbank/doc/rpc-api.md#zus_getproperty)
 
-* Retreiving active and expired crowdsale information [doc] (src/zurbank/doc/rpc-api.md#omni_getcrowdsale)
+* Retreiving active and expired crowdsale information [doc] (src/zurbank/doc/rpc-api.md#zus_getcrowdsale)
 
-* Sending a specific ZUR amount to a receiver with referenceamount in `omni_send`
+* Sending a specific ZUR amount to a receiver with referenceamount in `zus_send`
 
-* Creating and broadcasting transactions based on raw Zus Layer transactions with `omni_sendrawtx`
+* Creating and broadcasting transactions based on raw Zus Layer transactions with `zus_sendrawtx`
 
 * Functional UI for balances, sending and historical transactions
 

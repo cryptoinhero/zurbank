@@ -304,11 +304,11 @@ RES_ICONS = \
   qt/res/icons/meta_partcancelled.png \
   qt/res/icons/meta_partfilled.png \
   qt/res/icons/meta_pending.png \
-  qt/res/icons/omni_in.png \
-  qt/res/icons/omni_inout.png \
-  qt/res/icons/omni_invalid.png \
-  qt/res/icons/omni_out.png \
-  qt/res/icons/omni_hourglass.png \
+  qt/res/icons/zus_in.png \
+  qt/res/icons/zus_inout.png \
+  qt/res/icons/zus_invalid.png \
+  qt/res/icons/zus_out.png \
+  qt/res/icons/zus_hourglass.png \
   qt/res/icons/open.png \
   qt/res/icons/overview.png \
   qt/res/icons/quit.png \

@@ -482,7 +482,7 @@ BOOST_AUTO_TEST_CASE(valid_ascii)
             SanitizeInvalidUTF8("`abcdefghijklmnopqrstuvwxyz{|}~"));
 }
 
-BOOST_AUTO_TEST_CASE(omni_getproperty_2147483662)
+BOOST_AUTO_TEST_CASE(zus_getproperty_2147483662)
 {
     BOOST_CHECK_EQUAL(
             "{"

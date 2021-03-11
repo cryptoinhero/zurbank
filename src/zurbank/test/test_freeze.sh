@@ -25,16 +25,16 @@ $SRCDIR/zurbank-cli --regtest sendtoaddress $ADDR 8 >$NUL
 $SRCDIR/zurbank-cli --regtest sendtoaddress $ADDR 9 >$NUL
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "   * Creating a test (managed) property and granting 1000 tokens to the test address\n"
-$SRCDIR/zurbank-cli --regtest omni_sendissuancemanaged $ADDR 1 1 0 "TestCat" "TestSubCat" "TestProperty" "TestURL" "TestData" >$NUL
+$SRCDIR/zurbank-cli --regtest zus_sendissuancemanaged $ADDR 1 1 0 "TestCat" "TestSubCat" "TestProperty" "TestURL" "TestData" >$NUL
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
-$SRCDIR/zurbank-cli --regtest omni_sendgrant $ADDR $FADDR 3 1000 >$NUL
+$SRCDIR/zurbank-cli --regtest zus_sendgrant $ADDR $FADDR 3 1000 >$NUL
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "\nRunning the test scenario...\n"
 printf "   * Sending a 'freeze' tranasction for the test address prior to enabling freezing\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_sendfreeze $ADDR $FADDR 3 1234)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_sendfreeze $ADDR $FADDR 3 1234)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'freeze' transaction was INVALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "false," ]
   then
     printf "                                     PASS\n"
@@ -44,7 +44,7 @@ if [ $RESULT == "false," ]
     FAIL=$((FAIL+1))
 fi
 printf "        - Checking that freezing is currently disabled... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_getproperty 3 | grep "freezingenabled" | cut -c21-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_getproperty 3 | grep "freezingenabled" | cut -c21-)
 if [ $RESULT == "false," ]
   then
     printf "                                      PASS\n"
@@ -54,10 +54,10 @@ if [ $RESULT == "false," ]
     FAIL=$((FAIL+1))
 fi
 printf "   * Sending a 'enable freezing' transaction to ENABLE freezing\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_sendenablefreezing $ADDR 3)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_sendenablefreezing $ADDR 3)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'enable freezing' transaction was VALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "true," ]
   then
     printf "                              PASS\n"
@@ -67,7 +67,7 @@ if [ $RESULT == "true," ]
     FAIL=$((FAIL+1))
 fi
 printf "        - Checking that freezing is now enabled... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_getproperty 3 | grep "freezingenabled" | cut -c21-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_getproperty 3 | grep "freezingenabled" | cut -c21-)
 if [ $RESULT == "true," ]
   then
     printf "                                             PASS\n"
@@ -77,10 +77,10 @@ if [ $RESULT == "true," ]
     FAIL=$((FAIL+1))
 fi
 printf "   * Sending another 'freeze' tranasction for the test address\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_sendfreeze $ADDR $FADDR 3 1234)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_sendfreeze $ADDR $FADDR 3 1234)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'freeze' transaction was now VALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "true," ]
   then
     printf "                                   PASS\n"
@@ -90,10 +90,10 @@ if [ $RESULT == "true," ]
     FAIL=$((FAIL+1))
 fi
 printf "   * Testing a send from the test address (should now be frozen)\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_send $FADDR $ADDR 3 50)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_send $FADDR $ADDR 3 50)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'send' transaction was INVALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "false," ]
   then
     printf "                                       PASS\n"
@@ -103,7 +103,7 @@ if [ $RESULT == "false," ]
     FAIL=$((FAIL+1))
 fi
 printf "        - Checking the test address balance has not changed... "
-BALANCE=$($SRCDIR/zurbank-cli --regtest omni_getbalance $FADDR 3 | grep balance | cut -d '"' -f4)
+BALANCE=$($SRCDIR/zurbank-cli --regtest zus_getbalance $FADDR 3 | grep balance | cut -d '"' -f4)
 if [ $BALANCE == "1000" ]
   then
     printf "                                 PASS\n"
@@ -113,10 +113,10 @@ if [ $BALANCE == "1000" ]
     FAIL=$((FAIL+1))
 fi
 printf "   * Sending an 'unfreeze' tranasction for the test address\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_sendunfreeze $ADDR $FADDR 3 1234)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_sendunfreeze $ADDR $FADDR 3 1234)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'unfreeze' transaction was VALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "true," ]
   then
     printf "                                     PASS\n"
@@ -126,10 +126,10 @@ if [ $RESULT == "true," ]
     FAIL=$((FAIL+1))
 fi
 printf "   * Testing a send from the test address (should now be unfrozen)\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_send $FADDR $ADDR 3 50)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_send $FADDR $ADDR 3 50)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'send' transaction was VALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "true," ]
   then
     printf "                                         PASS\n"
@@ -139,7 +139,7 @@ if [ $RESULT == "true," ]
     FAIL=$((FAIL+1))
 fi
 printf "        - Checking the test address balance has reduced by the amount of the send... "
-BALANCE=$($SRCDIR/zurbank-cli --regtest omni_getbalance $FADDR 3 | grep balance | cut -d '"' -f4)
+BALANCE=$($SRCDIR/zurbank-cli --regtest zus_getbalance $FADDR 3 | grep balance | cut -d '"' -f4)
 if [ $BALANCE == "950" ]
   then
     printf "           PASS\n"
@@ -149,10 +149,10 @@ if [ $BALANCE == "950" ]
     FAIL=$((FAIL+1))
 fi
 printf "   * Sending another 'freeze' tranasction for the test address\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_sendfreeze $ADDR $FADDR 3 1234)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_sendfreeze $ADDR $FADDR 3 1234)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'freeze' transaction was now VALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "true," ]
   then
     printf "                                   PASS\n"
@@ -162,10 +162,10 @@ if [ $RESULT == "true," ]
     FAIL=$((FAIL+1))
 fi
 printf "   * Sending a 'disable freezing' transaction to DISABLE freezing\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_senddisablefreezing $ADDR 3)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_senddisablefreezing $ADDR 3)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'disable freezing' transaction was VALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "true," ]
   then
     printf "                             PASS\n"
@@ -175,7 +175,7 @@ if [ $RESULT == "true," ]
     FAIL=$((FAIL+1))
 fi
 printf "        - Checking that freezing is now disabled... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_getproperty 3 | grep "freezingenabled" | cut -c21-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_getproperty 3 | grep "freezingenabled" | cut -c21-)
 if [ $RESULT == "false," ]
   then
     printf "                                            PASS\n"
@@ -185,10 +185,10 @@ if [ $RESULT == "false," ]
     FAIL=$((FAIL+1))
 fi
 printf "   * Testing a send from the test address (unfrozen when freezing was disabled)\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_send $FADDR $ADDR 3 30)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_send $FADDR $ADDR 3 30)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'send' transaction was VALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "true," ]
   then
     printf "                                         PASS\n"
@@ -198,7 +198,7 @@ if [ $RESULT == "true," ]
     FAIL=$((FAIL+1))
 fi
 printf "        - Checking the test address balance has reduced by the amount of the send... "
-BALANCE=$($SRCDIR/zurbank-cli --regtest omni_getbalance $FADDR 3 | grep balance | cut -d '"' -f4)
+BALANCE=$($SRCDIR/zurbank-cli --regtest zus_getbalance $FADDR 3 | grep balance | cut -d '"' -f4)
 if [ $BALANCE == "920" ]
   then
     printf "           PASS\n"
@@ -208,10 +208,10 @@ if [ $BALANCE == "920" ]
     FAIL=$((FAIL+1))
 fi
 printf "   * Sending a 'freeze' tranasction for the test address to test that freezing is now disabled\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_sendfreeze $ADDR $FADDR 3 1234)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_sendfreeze $ADDR $FADDR 3 1234)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'freeze' transaction was INVALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "false," ]
   then
     printf "                                     PASS\n"
@@ -222,10 +222,10 @@ if [ $RESULT == "false," ]
 fi
 printf "   * Sending a feature 14 activation to activate the notice period\n"
 BLOCKS=$($SRCDIR/zurbank-cli --regtest getblockcount)
-TXID=$($SRCDIR/zurbank-cli --regtest omni_sendactivation $ADDR 14 $(($BLOCKS + 8)) 999)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_sendactivation $ADDR 14 $(($BLOCKS + 8)) 999)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the activation transaction was valid... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "true," ]
   then
     printf "                                     PASS\n"
@@ -237,7 +237,7 @@ fi
 printf "   * Mining 10 blocks to forward past the activation block\n"
 $SRCDIR/zurbank-cli --regtest generate 10 >$NUL
 printf "        - Checking the activation went live as expected... "
-FEATUREID=$($SRCDIR/zurbank-cli --regtest omni_getactivations | grep -A 10 completed | grep featureid | cut -c20-21)
+FEATUREID=$($SRCDIR/zurbank-cli --regtest zus_getactivations | grep -A 10 completed | grep featureid | cut -c20-21)
 if [ $FEATUREID == "14" ]
   then
     printf "                                     PASS\n"
@@ -247,10 +247,10 @@ if [ $FEATUREID == "14" ]
     FAIL=$((FAIL+1))
 fi
 printf "   * Sending a 'enable freezing' transaction to ENABLE freezing\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_sendenablefreezing $ADDR 3)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_sendenablefreezing $ADDR 3)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'enable freezing' transaction was VALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "true," ]
   then
     printf "                              PASS\n"
@@ -260,7 +260,7 @@ if [ $RESULT == "true," ]
     FAIL=$((FAIL+1))
 fi
 printf "        - Checking that freezing is still disabled (due to wait period)... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_getproperty 3 | grep "freezingenabled" | cut -c21-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_getproperty 3 | grep "freezingenabled" | cut -c21-)
 if [ $RESULT == "false," ]
   then
     printf "                     PASS\n"
@@ -270,10 +270,10 @@ if [ $RESULT == "false," ]
     FAIL=$((FAIL+1))
 fi
 printf "   * Sending a 'freeze' tranasction for the test address before waiting period expiry\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_sendfreeze $ADDR $FADDR 3 1234)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_sendfreeze $ADDR $FADDR 3 1234)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'freeze' transaction was INVALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "false," ]
   then
     printf "                                     PASS\n"
@@ -285,7 +285,7 @@ fi
 printf "   * Mining 30 blocks to forward past the waiting period\n"
 $SRCDIR/zurbank-cli --regtest generate 10 >$NUL
 printf "        - Checking that freezing is now enabled... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_getproperty 3 | grep "freezingenabled" | cut -c21-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_getproperty 3 | grep "freezingenabled" | cut -c21-)
 if [ $RESULT == "true," ]
   then
     printf "                                             PASS\n"
@@ -295,10 +295,10 @@ if [ $RESULT == "true," ]
     FAIL=$((FAIL+1))
 fi
 printf "   * Sending a 'freeze' tranasction for the test address after waiting period expiry\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_sendfreeze $ADDR $FADDR 3 1234)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_sendfreeze $ADDR $FADDR 3 1234)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'freeze' transaction was VALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "true," ]
   then
     printf "                                       PASS\n"
@@ -308,10 +308,10 @@ if [ $RESULT == "true," ]
     FAIL=$((FAIL+1))
 fi
 printf "   * Testing a Send All from the test address (now frozen))\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_sendall $FADDR $ADDR 1)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_sendall $FADDR $ADDR 1)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'Send All' transaction was INVALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "false," ]
   then
     printf "                                   PASS\n"
@@ -321,7 +321,7 @@ if [ $RESULT == "false," ]
     FAIL=$((FAIL+1))
 fi
 printf "        - Checking the test address balance has not changed... "
-BALANCE=$($SRCDIR/zurbank-cli --regtest omni_getbalance $FADDR 3 | grep balance | cut -d '"' -f4)
+BALANCE=$($SRCDIR/zurbank-cli --regtest zus_getbalance $FADDR 3 | grep balance | cut -d '"' -f4)
 if [ $BALANCE == "920" ]
   then
     printf "                                 PASS\n"
@@ -331,10 +331,10 @@ if [ $BALANCE == "920" ]
     FAIL=$((FAIL+1))
 fi
 printf "   * Sending an 'unfreeze' tranasction for the test address\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_sendunfreeze $ADDR $FADDR 3 1234)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_sendunfreeze $ADDR $FADDR 3 1234)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'unfreeze' transaction was VALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "true," ]
   then
     printf "                                     PASS\n"
@@ -372,10 +372,10 @@ if [ $BLOCKHASH == $NEWBLOCKHASH ]
     PASS=$((PASS+1))
 fi
 printf "   * Testing a send from the test address (should now be frozen again as the block that unfroze the address was dc'd)\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_send $FADDR $ADDR 3 30)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_send $FADDR $ADDR 3 30)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'send' transaction was INVALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "false," ]
   then
     printf "                                       PASS\n"
@@ -385,10 +385,10 @@ if [ $RESULT == "false," ]
     FAIL=$((FAIL+1))
 fi
 printf "   * Sending an 'unfreeze' tranasction for the test address\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_sendunfreeze $ADDR $FADDR 3 1234)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_sendunfreeze $ADDR $FADDR 3 1234)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'unfreeze' transaction was VALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "true," ]
   then
     printf "                                     PASS\n"
@@ -399,10 +399,10 @@ if [ $RESULT == "true," ]
 fi
 $SRCDIR/zurbank-cli --regtest generate 3 >$NUL
 printf "   * Sending an 'freeze' tranasction for the test address\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_sendfreeze $ADDR $FADDR 3 1234)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_sendfreeze $ADDR $FADDR 3 1234)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'freeze' transaction was VALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "true," ]
   then
     printf "                                       PASS\n"
@@ -439,10 +439,10 @@ if [ $BLOCKHASH == $NEWBLOCKHASH ]
     PASS=$((PASS+1))
 fi
 printf "   * Testing a send from the test address (should now be unfrozen again as the block that froze the address was dc'd)\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_send $FADDR $ADDR 3 30)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_send $FADDR $ADDR 3 30)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'send' transaction was VALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "true," ]
   then
     printf "                                         PASS\n"
@@ -452,10 +452,10 @@ if [ $RESULT == "true," ]
     FAIL=$((FAIL+1))
 fi
 printf "   * Sending a 'freeze' tranasction for the test address\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_sendfreeze $ADDR $FADDR 3 1234)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_sendfreeze $ADDR $FADDR 3 1234)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'freeze' transaction was VALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "true," ]
   then
     printf "                                       PASS\n"
@@ -465,10 +465,10 @@ if [ $RESULT == "true," ]
     FAIL=$((FAIL+1))
 fi
 printf "   * Sending a 'disable freezing' transaction to DISABLE freezing\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_senddisablefreezing $ADDR 3)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_senddisablefreezing $ADDR 3)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'disable freezing' transaction was VALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "true," ]
   then
     printf "                             PASS\n"
@@ -478,7 +478,7 @@ if [ $RESULT == "true," ]
     FAIL=$((FAIL+1))
 fi
 printf "        - Checking that freezing is now disabled... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_getproperty 3 | grep "freezingenabled" | cut -c21-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_getproperty 3 | grep "freezingenabled" | cut -c21-)
 if [ $RESULT == "false," ]
   then
     printf "                                            PASS\n"
@@ -515,7 +515,7 @@ if [ $BLOCKHASH == $NEWBLOCKHASH ]
     PASS=$((PASS+1))
 fi
 printf "        - Checking that freezing is now enabled (as the block that disabled it was dc'd)...  "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_getproperty 3 | grep "freezingenabled" | cut -c21-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_getproperty 3 | grep "freezingenabled" | cut -c21-)
 if [ $RESULT == "true," ]
   then
     printf "   PASS\n"
@@ -525,10 +525,10 @@ if [ $RESULT == "true," ]
     FAIL=$((FAIL+1))
 fi
 printf "   * Sending a 'disable freezing' transaction to DISABLE freezing\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_senddisablefreezing $ADDR 3)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_senddisablefreezing $ADDR 3)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'disable freezing' transaction was VALID... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "true," ]
   then
     printf "                             PASS\n"
@@ -538,7 +538,7 @@ if [ $RESULT == "true," ]
     FAIL=$((FAIL+1))
 fi
 printf "        - Checking that freezing is now disabled... "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_getproperty 3 | grep "freezingenabled" | cut -c21-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_getproperty 3 | grep "freezingenabled" | cut -c21-)
 if [ $RESULT == "false," ]
   then
     printf "                                            PASS\n"
@@ -549,10 +549,10 @@ if [ $RESULT == "false," ]
 fi
 $SRCDIR/zurbank-cli --regtest generate 3 >$NUL
 printf "   * Sending a 'enable freezing' transaction to ENABLE freezing\n"
-TXID=$($SRCDIR/zurbank-cli --regtest omni_sendenablefreezing $ADDR 3)
+TXID=$($SRCDIR/zurbank-cli --regtest zus_sendenablefreezing $ADDR 3)
 $SRCDIR/zurbank-cli --regtest generate 1 >$NUL
 printf "        - Checking the 'enable freezing' transaction was VALID...  "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_gettransaction $TXID | grep "valid" | grep -v "invalid" | cut -c12-)
 if [ $RESULT == "true," ]
   then
     printf "                             PASS\n"
@@ -562,7 +562,7 @@ if [ $RESULT == "true," ]
     FAIL=$((FAIL+1))
 fi
 printf "        - Checking that freezing is still disabled (due to waiting period)...       "
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_getproperty 3 | grep "freezingenabled" | cut -c21-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_getproperty 3 | grep "freezingenabled" | cut -c21-)
 if [ $RESULT == "false," ]
   then
     printf "            PASS\n"
@@ -600,7 +600,7 @@ if [ $BLOCKHASH == $NEWBLOCKHASH ]
 fi
 printf "        - Mining past prior activation period and checking that freezing is still disabled...   "
 $SRCDIR/zurbank-cli --regtest generate 20 >$NUL
-RESULT=$($SRCDIR/zurbank-cli --regtest omni_getproperty 3 | grep "freezingenabled" | cut -c21-)
+RESULT=$($SRCDIR/zurbank-cli --regtest zus_getproperty 3 | grep "freezingenabled" | cut -c21-)
 if [ $RESULT == "false," ]
   then
     printf "PASS\n"

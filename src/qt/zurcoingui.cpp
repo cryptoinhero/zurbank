@@ -1095,7 +1095,7 @@ void BitcoinGUI::setOmniPendingStatus(bool pending)
     } else {
         labelOmniPendingIcon->show();
         labelOmniPendingText->show();
-        labelOmniPendingIcon->setPixmap(QIcon(":/icons/omni_hourglass").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
+        labelOmniPendingIcon->setPixmap(QIcon(":/icons/zus_hourglass").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
         labelOmniPendingIcon->setToolTip(tr("You have Zus transactions awaiting confirmation."));
     }
 }

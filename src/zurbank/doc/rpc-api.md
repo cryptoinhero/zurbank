@@ -13,91 +13,91 @@ All available commands can be listed with `"help"`, and information about a spec
 ## Table of contents
 
 - [Transaction creation](#transaction-creation)
-  - [omni_send](#omni_send)
-  - [omni_senddexsell](#omni_senddexsell)
-  - [omni_senddexaccept](#omni_senddexaccept)
-  - [omni_sendissuancecrowdsale](#omni_sendissuancecrowdsale)
-  - [omni_sendissuancefixed](#omni_sendissuancefixed)
-  - [omni_sendissuancemanaged](#omni_sendissuancemanaged)
-  - [omni_sendsto](#omni_sendsto)
-  - [omni_sendgrant](#omni_sendgrant)
-  - [omni_sendrevoke](#omni_sendrevoke)
-  - [omni_sendclosecrowdsale](#omni_sendclosecrowdsale)
-  - [omni_sendtrade](#omni_sendtrade)
-  - [omni_sendcanceltradesbyprice](#omni_sendcanceltradesbyprice)
-  - [omni_sendcanceltradesbypair](#omni_sendcanceltradesbypair)
-  - [omni_sendcancelalltrades](#omni_sendcancelalltrades)
-  - [omni_sendchangeissuer](#omni_sendchangeissuer)
-  - [omni_sendall](#omni_sendall)
-  - [omni_sendenablefreezing](#omni_sendenablefreezing)
-  - [omni_senddisablefreezing](#omni_senddisablefreezing)
-  - [omni_sendfreeze](#omni_sendfreeze)
-  - [omni_sendunfreeze](#omni_sendunfreeze)
-  - [omni_sendrawtx](#omni_sendrawtx)
-  - [omni_funded_send](#omni_funded_send)
-  - [omni_funded_sendall](#omni_funded_sendall)
+  - [zus_send](#zus_send)
+  - [zus_senddexsell](#zus_senddexsell)
+  - [zus_senddexaccept](#zus_senddexaccept)
+  - [zus_sendissuancecrowdsale](#zus_sendissuancecrowdsale)
+  - [zus_sendissuancefixed](#zus_sendissuancefixed)
+  - [zus_sendissuancemanaged](#zus_sendissuancemanaged)
+  - [zus_sendsto](#zus_sendsto)
+  - [zus_sendgrant](#zus_sendgrant)
+  - [zus_sendrevoke](#zus_sendrevoke)
+  - [zus_sendclosecrowdsale](#zus_sendclosecrowdsale)
+  - [zus_sendtrade](#zus_sendtrade)
+  - [zus_sendcanceltradesbyprice](#zus_sendcanceltradesbyprice)
+  - [zus_sendcanceltradesbypair](#zus_sendcanceltradesbypair)
+  - [zus_sendcancelalltrades](#zus_sendcancelalltrades)
+  - [zus_sendchangeissuer](#zus_sendchangeissuer)
+  - [zus_sendall](#zus_sendall)
+  - [zus_sendenablefreezing](#zus_sendenablefreezing)
+  - [zus_senddisablefreezing](#zus_senddisablefreezing)
+  - [zus_sendfreeze](#zus_sendfreeze)
+  - [zus_sendunfreeze](#zus_sendunfreeze)
+  - [zus_sendrawtx](#zus_sendrawtx)
+  - [zus_funded_send](#zus_funded_send)
+  - [zus_funded_sendall](#zus_funded_sendall)
 - [Data retrieval](#data-retrieval)
-  - [omni_getinfo](#omni_getinfo)
-  - [omni_getbalance](#omni_getbalance)
-  - [omni_getallbalancesforid](#omni_getallbalancesforid)
-  - [omni_getallbalancesforaddress](#omni_getallbalancesforaddress)
-  - [omni_getwalletbalances](#omni_getwalletbalances)
-  - [omni_getwalletaddressbalances](#omni_getwalletaddressbalances)
-  - [omni_gettransaction](#omni_gettransaction)
-  - [omni_listtransactions](#omni_listtransactions)
-  - [omni_listblocktransactions](#omni_listblocktransactions)
-  - [omni_listblockstransactions](#omni_listblockstransactions)
-  - [omni_listpendingtransactions](#omni_listpendingtransactions)
-  - [omni_getactivedexsells](#omni_getactivedexsells)
-  - [omni_listproperties](#omni_listproperties)
-  - [omni_getproperty](#omni_getproperty)
-  - [omni_getactivecrowdsales](#omni_getactivecrowdsales)
-  - [omni_getcrowdsale](#omni_getcrowdsale)
-  - [omni_getgrants](#omni_getgrants)
-  - [omni_getsto](#omni_getsto)
-  - [omni_gettrade](#omni_gettrade)
-  - [omni_getorderbook](#omni_getorderbook)
-  - [omni_gettradehistoryforpair](#omni_gettradehistoryforpair)
-  - [omni_gettradehistoryforaddress](#omni_gettradehistoryforaddress)
-  - [omni_getactivations](#omni_getactivations)
-  - [omni_getpayload](#omni_getpayload)
-  - [omni_getseedblocks](#omni_getseedblocks)
-  - [omni_getcurrentconsensushash](#omni_getcurrentconsensushash)
+  - [zus_getinfo](#zus_getinfo)
+  - [zus_getbalance](#zus_getbalance)
+  - [zus_getallbalancesforid](#zus_getallbalancesforid)
+  - [zus_getallbalancesforaddress](#zus_getallbalancesforaddress)
+  - [zus_getwalletbalances](#zus_getwalletbalances)
+  - [zus_getwalletaddressbalances](#zus_getwalletaddressbalances)
+  - [zus_gettransaction](#zus_gettransaction)
+  - [zus_listtransactions](#zus_listtransactions)
+  - [zus_listblocktransactions](#zus_listblocktransactions)
+  - [zus_listblockstransactions](#zus_listblockstransactions)
+  - [zus_listpendingtransactions](#zus_listpendingtransactions)
+  - [zus_getactivedexsells](#zus_getactivedexsells)
+  - [zus_listproperties](#zus_listproperties)
+  - [zus_getproperty](#zus_getproperty)
+  - [zus_getactivecrowdsales](#zus_getactivecrowdsales)
+  - [zus_getcrowdsale](#zus_getcrowdsale)
+  - [zus_getgrants](#zus_getgrants)
+  - [zus_getsto](#zus_getsto)
+  - [zus_gettrade](#zus_gettrade)
+  - [zus_getorderbook](#zus_getorderbook)
+  - [zus_gettradehistoryforpair](#zus_gettradehistoryforpair)
+  - [zus_gettradehistoryforaddress](#zus_gettradehistoryforaddress)
+  - [zus_getactivations](#zus_getactivations)
+  - [zus_getpayload](#zus_getpayload)
+  - [zus_getseedblocks](#zus_getseedblocks)
+  - [zus_getcurrentconsensushash](#zus_getcurrentconsensushash)
 - [Raw transactions](#raw-transactions)
-  - [omni_decodetransaction](#omni_decodetransaction)
-  - [omni_createrawtx_opreturn](#omni_createrawtx_opreturn)
-  - [omni_createrawtx_multisig](#omni_createrawtx_multisig)
-  - [omni_createrawtx_input](#omni_createrawtx_input)
-  - [omni_createrawtx_reference](#omni_createrawtx_reference)
-  - [omni_createrawtx_change](#omni_createrawtx_change)
-  - [omni_createpayload_simplesend](#omni_createpayload_simplesend)
-  - [omni_createpayload_sendall](#omni_createpayload_sendall)
-  - [omni_createpayload_dexsell](#omni_createpayload_dexsell)
-  - [omni_createpayload_dexaccept](#omni_createpayload_dexaccept)
-  - [omni_createpayload_sto](#omni_createpayload_sto)
-  - [omni_createpayload_issuancefixed](#omni_createpayload_issuancefixed)
-  - [omni_createpayload_issuancecrowdsale](#omni_createpayload_issuancecrowdsale)
-  - [omni_createpayload_issuancemanaged](#omni_createpayload_issuancemanaged)
-  - [omni_createpayload_closecrowdsale](#omni_createpayload_closecrowdsale)
-  - [omni_createpayload_grant](#omni_createpayload_grant)
-  - [omni_createpayload_revoke](#omni_createpayload_revoke)
-  - [omni_createpayload_changeissuer](#omni_createpayload_changeissuer)
-  - [omni_createpayload_trade](#omni_createpayload_trade)
-  - [omni_createpayload_canceltradesbyprice](#omni_createpayload_canceltradesbyprice)
-  - [omni_createpayload_canceltradesbypair](#omni_createpayload_canceltradesbypair)
-  - [omni_createpayload_cancelalltrades](#omni_createpayload_cancelalltrades)
-  - [omni_createpayload_enablefreezing](#omni_createpayload_enablefreezing)
-  - [omni_createpayload_disablefreezing](#omni_createpayload_disablefreezing)
-  - [omni_createpayload_freeze](#omni_createpayload_freeze)
-  - [omni_createpayload_unfreeze](#omni_createpayload_unfreeze)
+  - [zus_decodetransaction](#zus_decodetransaction)
+  - [zus_createrawtx_opreturn](#zus_createrawtx_opreturn)
+  - [zus_createrawtx_multisig](#zus_createrawtx_multisig)
+  - [zus_createrawtx_input](#zus_createrawtx_input)
+  - [zus_createrawtx_reference](#zus_createrawtx_reference)
+  - [zus_createrawtx_change](#zus_createrawtx_change)
+  - [zus_createpayload_simplesend](#zus_createpayload_simplesend)
+  - [zus_createpayload_sendall](#zus_createpayload_sendall)
+  - [zus_createpayload_dexsell](#zus_createpayload_dexsell)
+  - [zus_createpayload_dexaccept](#zus_createpayload_dexaccept)
+  - [zus_createpayload_sto](#zus_createpayload_sto)
+  - [zus_createpayload_issuancefixed](#zus_createpayload_issuancefixed)
+  - [zus_createpayload_issuancecrowdsale](#zus_createpayload_issuancecrowdsale)
+  - [zus_createpayload_issuancemanaged](#zus_createpayload_issuancemanaged)
+  - [zus_createpayload_closecrowdsale](#zus_createpayload_closecrowdsale)
+  - [zus_createpayload_grant](#zus_createpayload_grant)
+  - [zus_createpayload_revoke](#zus_createpayload_revoke)
+  - [zus_createpayload_changeissuer](#zus_createpayload_changeissuer)
+  - [zus_createpayload_trade](#zus_createpayload_trade)
+  - [zus_createpayload_canceltradesbyprice](#zus_createpayload_canceltradesbyprice)
+  - [zus_createpayload_canceltradesbypair](#zus_createpayload_canceltradesbypair)
+  - [zus_createpayload_cancelalltrades](#zus_createpayload_cancelalltrades)
+  - [zus_createpayload_enablefreezing](#zus_createpayload_enablefreezing)
+  - [zus_createpayload_disablefreezing](#zus_createpayload_disablefreezing)
+  - [zus_createpayload_freeze](#zus_createpayload_freeze)
+  - [zus_createpayload_unfreeze](#zus_createpayload_unfreeze)
 - [Fee system](#fee-system)
-  - [omni_getfeecache](#omni_getfeecache)
-  - [omni_getfeetrigger](#omni_getfeetrigger)
-  - [omni_getfeeshare](#omni_getfeeshare)
-  - [omni_getfeedistribution](#omni_getfeedistribution)
-  - [omni_getfeedistributions](#omni_getfeedistributions)
+  - [zus_getfeecache](#zus_getfeecache)
+  - [zus_getfeetrigger](#zus_getfeetrigger)
+  - [zus_getfeeshare](#zus_getfeeshare)
+  - [zus_getfeedistribution](#zus_getfeedistribution)
+  - [zus_getfeedistributions](#zus_getfeedistributions)
 - [Configuration](#configuration)
-  - [omni_setautocommit](#omni_setautocommit)
+  - [zus_setautocommit](#zus_setautocommit)
 - [Depreciated API calls](#depreciated-api-calls)
 
 ---
@@ -108,7 +108,7 @@ The RPCs for transaction creation can be used to create and broadcast Zus Protoc
 
 A hash of the broadcasted transaction is returned as result.
 
-### omni_send
+### zus_send
 
 Create and broadcast a simple send transaction.
 
@@ -131,12 +131,12 @@ Create and broadcast a simple send transaction.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_send" "3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY" "37FaKponF7zqoMLUjEiko25pDiuVH5YLEa" 1 "100.0"
+$ zurbank-cli "zus_send" "3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY" "37FaKponF7zqoMLUjEiko25pDiuVH5YLEa" 1 "100.0"
 ```
 
 ---
 
-### omni_senddexsell
+### zus_senddexsell
 
 Place, update or cancel a sell offer on the traditional distributed ZUS/ZUR exchange.
 
@@ -160,12 +160,12 @@ Place, update or cancel a sell offer on the traditional distributed ZUS/ZUR exch
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_senddexsell" "37FaKponF7zqoMLUjEiko25pDiuVH5YLEa" 1 "1.5" "0.75" 25 "0.0005" 1
+$ zurbank-cli "zus_senddexsell" "37FaKponF7zqoMLUjEiko25pDiuVH5YLEa" 1 "1.5" "0.75" 25 "0.0005" 1
 ```
 
 ---
 
-### omni_senddexaccept
+### zus_senddexaccept
 
 Create and broadcast an accept offer for the specified token and amount.
 
@@ -187,13 +187,13 @@ Create and broadcast an accept offer for the specified token and amount.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_senddexaccept" \
+$ zurbank-cli "zus_senddexaccept" \
     "35URq1NN3xL6GeRKUP6vzaQVcxoJiiJKd8" "37FaKponF7zqoMLUjEiko25pDiuVH5YLEa" 1 "15.0"
 ```
 
 ---
 
-### omni_sendissuancecrowdsale
+### zus_sendissuancecrowdsale
 
 Create new tokens as crowdsale.
 
@@ -224,14 +224,14 @@ Create new tokens as crowdsale.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_sendissuancecrowdsale" \
+$ zurbank-cli "zus_sendissuancecrowdsale" \
     "3JYd75REX3HXn1vAU83YuGfmiPXW7BpYXo" 2 1 0 "Companies" "Zurcoin Mining" \
     "Quantum Miner" "" "" 2 "100" 1483228800 30 2
 ```
 
 ---
 
-### omni_sendissuancefixed
+### zus_sendissuancefixed
 
 Create new tokens with fixed supply.
 
@@ -258,14 +258,14 @@ Create new tokens with fixed supply.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_sendissuancefixed" \
+$ zurbank-cli "zus_sendissuancefixed" \
     "3Ck2kEGLJtZw9ENj2tameMCtS3HB7uRar3" 2 1 0 "Companies" "Zurcoin Mining" \
     "Quantum Miner" "" "" "1000000"
 ```
 
 ---
 
-### omni_sendissuancemanaged
+### zus_sendissuancemanaged
 
 Create new tokens with manageable supply.
 
@@ -291,13 +291,13 @@ Create new tokens with manageable supply.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_sendissuancemanaged" \
+$ zurbank-cli "zus_sendissuancemanaged" \
     "3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH" 2 1 0 "Companies" "Zurcoin Mining" "Quantum Miner" "" ""
 ```
 
 ---
 
-### omni_sendsto
+### zus_sendsto
 
 Create and broadcast a send-to-owners transaction.
 
@@ -319,13 +319,13 @@ Create and broadcast a send-to-owners transaction.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_sendsto" \
+$ zurbank-cli "zus_sendsto" \
     "32Z3tJccZuqQZ4PhJR2hxHC3tjgjA8cbqz" "37FaKponF7zqoMLUjEiko25pDiuVH5YLEa" 3 "5000"
 ```
 
 ---
 
-### omni_sendgrant
+### zus_sendgrant
 
 Issue or grant new units of managed tokens.
 
@@ -347,12 +347,12 @@ Issue or grant new units of managed tokens.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_sendgrant" "3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH" "" 51 "7000"
+$ zurbank-cli "zus_sendgrant" "3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH" "" 51 "7000"
 ```
 
 ---
 
-### omni_sendrevoke
+### zus_sendrevoke
 
 Revoke units of managed tokens.
 
@@ -373,12 +373,12 @@ Revoke units of managed tokens.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_sendrevoke" "3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH" "" 51 "100"
+$ zurbank-cli "zus_sendrevoke" "3HsJvhr9qzgRe3ss97b1QHs38rmaLExLcH" "" 51 "100"
 ```
 
 ---
 
-### omni_sendclosecrowdsale
+### zus_sendclosecrowdsale
 
 Manually close a crowdsale.
 
@@ -397,12 +397,12 @@ Manually close a crowdsale.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_sendclosecrowdsale" "3JYd75REX3HXn1vAU83YuGfmiPXW7BpYXo" 70
+$ zurbank-cli "zus_sendclosecrowdsale" "3JYd75REX3HXn1vAU83YuGfmiPXW7BpYXo" 70
 ```
 
 ---
 
-### omni_sendtrade
+### zus_sendtrade
 
 Place a trade offer on the distributed token exchange.
 
@@ -424,12 +424,12 @@ Place a trade offer on the distributed token exchange.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_sendtrade" "3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR" 31 "250.0" 1 "10.0"
+$ zurbank-cli "zus_sendtrade" "3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR" 31 "250.0" 1 "10.0"
 ```
 
 ---
 
-### omni_sendcanceltradesbyprice
+### zus_sendcanceltradesbyprice
 
 Cancel offers on the distributed token exchange with the specified price.
 
@@ -451,12 +451,12 @@ Cancel offers on the distributed token exchange with the specified price.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_sendcanceltradesbyprice" "3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR" 31 "100.0" 1 "5.0"
+$ zurbank-cli "zus_sendcanceltradesbyprice" "3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR" 31 "100.0" 1 "5.0"
 ```
 
 ---
 
-### omni_sendcanceltradesbypair
+### zus_sendcanceltradesbypair
 
 Cancel all offers on the distributed token exchange with the given currency pair.
 
@@ -476,12 +476,12 @@ Cancel all offers on the distributed token exchange with the given currency pair
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_sendcanceltradesbypair" "3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR" 1 31
+$ zurbank-cli "zus_sendcanceltradesbypair" "3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR" 1 31
 ```
 
 ---
 
-### omni_sendcancelalltrades
+### zus_sendcancelalltrades
 
 Cancel all offers on the distributed token exchange.
 
@@ -500,12 +500,12 @@ Cancel all offers on the distributed token exchange.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_sendcancelalltrades" "3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR" 1
+$ zurbank-cli "zus_sendcancelalltrades" "3BydPiSLPP3DR5cf726hDQ89fpqWLxPKLR" 1
 ```
 
 ---
 
-### omni_sendchangeissuer
+### zus_sendchangeissuer
 
 Change the issuer on record of the given tokens.
 
@@ -525,13 +525,13 @@ Change the issuer on record of the given tokens.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_sendchangeissuer" \
+$ zurbank-cli "zus_sendchangeissuer" \
     "1ARjWDkZ7kT9fwjPrjcQyvbXDkEySzKHwu" "3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs" 3
 ```
 
 ---
 
-### omni_sendall
+### zus_sendall
 
 Transfers all available tokens in the given ecosystem to the recipient.
 
@@ -553,12 +553,12 @@ Transfers all available tokens in the given ecosystem to the recipient.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_sendall" "3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY" "37FaKponF7zqoMLUjEiko25pDiuVH5YLEa" 2
+$ zurbank-cli "zus_sendall" "3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY" "37FaKponF7zqoMLUjEiko25pDiuVH5YLEa" 2
 ```
 
 ---
 
-### omni_sendenablefreezing
+### zus_sendenablefreezing
 
 Enables address freezing for a centrally managed property.
 
@@ -577,12 +577,12 @@ Enables address freezing for a centrally managed property.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_sendenablefreezing" "3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY" 2
+$ zurbank-cli "zus_sendenablefreezing" "3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY" 2
 ```
 
 ---
 
-### omni_senddisablefreezing
+### zus_senddisablefreezing
 
 Disables address freezing for a centrally managed property.
 
@@ -603,12 +603,12 @@ IMPORTANT NOTE:  Disabling freezing for a property will UNFREEZE all frozen addr
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_senddisablefreezing" "3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY" 2
+$ zurbank-cli "zus_senddisablefreezing" "3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY" 2
 ```
 
 ---
 
-### omni_sendfreeze
+### zus_sendfreeze
 
 Freeze an address for a centrally managed token.
 
@@ -631,12 +631,12 @@ Note: Only the issuer may freeze tokens, and only if the token is of the managed
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_sendfreeze" "3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY" "3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs" 2 1000
+$ zurbank-cli "zus_sendfreeze" "3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY" "3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs" 2 1000
 ```
 
 ---
 
-### omni_sendunfreeze
+### zus_sendunfreeze
 
 Unfreeze an address for a centrally managed token.
 
@@ -659,12 +659,12 @@ Note: Only the issuer may unfreeze tokens
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_sendunfreeze" "3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY" "3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs" 2 1000
+$ zurbank-cli "zus_sendunfreeze" "3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY" "3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs" 2 1000
 ```
 
 ---
 
-### omni_sendrawtx
+### zus_sendrawtx
 
 Broadcasts a raw Zus Layer transaction.
 
@@ -686,14 +686,14 @@ Broadcasts a raw Zus Layer transaction.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_sendrawtx" \
+$ zurbank-cli "zus_sendrawtx" \
     "1MCHESTptvd2LnNp7wmr2sGTpRomteAkq8" "000000000000000100000000017d7840" \
     "1EqTta1Rt8ixAA32DuC29oukbsSWU62qAV"
 ```
 
 ---
 
-### omni_funded_send
+### zus_funded_send
 
 Creates and sends a funded simple send transaction.
 
@@ -717,14 +717,14 @@ All zurcoins from the sender are consumed and if there are zurcoins missing, the
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_funded_send" "1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH" \
+$ zurbank-cli "zus_funded_send" "1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH" \
     "15cWrfuvMxyxGst2FisrQcvcpF48x6sXoH" 1 "100.0" \
     "15Jhzz4omEXEyFKbdcccJwuVPea5LqsKM1"
 ```
 
 ---
 
-### omni_funded_sendall
+### zus_funded_sendall
 
 Creates and sends a transaction that transfers all available tokens in the given ecosystem to the recipient.
 
@@ -747,7 +747,7 @@ All zurcoins from the sender are consumed and if there are zurcoins missing, the
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_funded_sendall" "1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH" \
+$ zurbank-cli "zus_funded_sendall" "1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH" \
     "15cWrfuvMxyxGst2FisrQcvcpF48x6sXoH" 1 "15Jhzz4omEXEyFKbdcccJwuVPea5LqsKM1"
 ```
 
@@ -758,7 +758,7 @@ $ zurbank-cli "omni_funded_sendall" "1DFa5bT6KMEr6ta29QJouainsjaNBsJQhH" \
 
 The RPCs for data retrieval can be used to get information about the state of the Zus ecosystem.
 
-### omni_getinfo
+### zus_getinfo
 
 Returns various state information of the client and protocol.
 
@@ -794,12 +794,12 @@ Result:
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getinfo"
+$ zurbank-cli "zus_getinfo"
 ```
 
 ---
 
-### omni_getbalance
+### zus_getbalance
 
 Returns the token balance for a given address and property.
 
@@ -822,12 +822,12 @@ Returns the token balance for a given address and property.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getbalance", "UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6" 1
+$ zurbank-cli "zus_getbalance", "UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6" 1
 ```
 
 ---
 
-### omni_getallbalancesforid
+### zus_getallbalancesforid
 
 Returns a list of token balances for a given currency or property identifier.
 
@@ -853,12 +853,12 @@ Returns a list of token balances for a given currency or property identifier.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getallbalancesforid" 1
+$ zurbank-cli "zus_getallbalancesforid" 1
 ```
 
 ---
 
-### omni_getallbalancesforaddress
+### zus_getallbalancesforaddress
 
 Returns a list of all token balances for a given address.
 
@@ -885,12 +885,12 @@ Returns a list of all token balances for a given address.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getallbalancesforaddress" "UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6"
+$ zurbank-cli "zus_getallbalancesforaddress" "UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6"
 ```
 
 ---
 
-### omni_getwalletbalances
+### zus_getwalletbalances
 
 Returns a list of the total token balances of the whole wallet.
 
@@ -917,12 +917,12 @@ Returns a list of the total token balances of the whole wallet.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getwalletbalances"
+$ zurbank-cli "zus_getwalletbalances"
 ```
 
 ---
 
-### omni_getwalletaddressbalances
+### zus_getwalletaddressbalances
 
 Returns a list of all token balances for every wallet address.
 
@@ -956,12 +956,12 @@ Returns a list of all token balances for every wallet address.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getwalletaddressbalances"
+$ zurbank-cli "zus_getwalletaddressbalances"
 ```
 
 ---
 
-### omni_gettransaction
+### zus_gettransaction
 
 Get detailed information about an Zus transaction.
 
@@ -993,12 +993,12 @@ Get detailed information about an Zus transaction.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_gettransaction" "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"
+$ zurbank-cli "zus_gettransaction" "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"
 ```
 
 ---
 
-### omni_listtransactions
+### zus_listtransactions
 
 List wallet transactions, optionally filtered by an address and block boundaries.
 
@@ -1037,12 +1037,12 @@ List wallet transactions, optionally filtered by an address and block boundaries
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_listtransactions"
+$ zurbank-cli "zus_listtransactions"
 ```
 
 ---
 
-### omni_listblocktransactions
+### zus_listblocktransactions
 
 Lists all Zus transactions in a block.
 
@@ -1063,12 +1063,12 @@ Lists all Zus transactions in a block.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_listblocktransactions" 279007
+$ zurbank-cli "zus_listblocktransactions" 279007
 ```
 
 ---
 
-### omni_listblockstransactions
+### zus_listblockstransactions
 
 Lists all Zus transactions in a given range of blocks.
 
@@ -1092,12 +1092,12 @@ Note: the list of transactions is unordered and can contain invalid transactions
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_omni_listblocktransactions" 279007 300000
+$ zurbank-cli "zus_zus_listblocktransactions" 279007 300000
 ```
 
 ---
 
-### omni_listpendingtransactions
+### zus_listpendingtransactions
 
 Returns a list of unconfirmed Zus transactions, pending in the memory pool.
 
@@ -1130,12 +1130,12 @@ Note: the validity of pending transactions is uncertain, and the state of the me
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_listpendingtransactions"
+$ zurbank-cli "zus_listpendingtransactions"
 ```
 
 ---
 
-### omni_getactivedexsells
+### zus_getactivedexsells
 
 Returns currently active offers on the distributed exchange.
 
@@ -1176,12 +1176,12 @@ Returns currently active offers on the distributed exchange.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getactivedexsells"
+$ zurbank-cli "zus_getactivedexsells"
 ```
 
 ---
 
-### omni_listproperties
+### zus_listproperties
 
 Lists all tokens or smart properties.
 
@@ -1208,12 +1208,12 @@ Lists all tokens or smart properties.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_listproperties"
+$ zurbank-cli "zus_listproperties"
 ```
 
 ---
 
-### omni_getproperty
+### zus_getproperty
 
 Returns details for about the tokens or smart property to lookup.
 
@@ -1245,12 +1245,12 @@ Returns details for about the tokens or smart property to lookup.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getproperty" 3
+$ zurbank-cli "zus_getproperty" 3
 ```
 
 ---
 
-### omni_getactivecrowdsales
+### zus_getactivecrowdsales
 
 Lists currently active crowdsales.
 
@@ -1279,12 +1279,12 @@ Lists currently active crowdsales.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getactivecrowdsales"
+$ zurbank-cli "zus_getactivecrowdsales"
 ```
 
 ---
 
-### omni_getcrowdsale
+### zus_getcrowdsale
 
 Returns information about a crowdsale.
 
@@ -1331,12 +1331,12 @@ Returns information about a crowdsale.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getcrowdsale" 3 true
+$ zurbank-cli "zus_getcrowdsale" 3 true
 ```
 
 ---
 
-### omni_getgrants
+### zus_getgrants
 
 Returns information about granted and revoked units of managed tokens.
 
@@ -1375,12 +1375,12 @@ Returns information about granted and revoked units of managed tokens.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getgrants" 31
+$ zurbank-cli "zus_getgrants" 31
 ```
 
 ---
 
-### omni_getsto
+### zus_getsto
 
 Get information and recipients of a send-to-owners transaction.
 
@@ -1422,12 +1422,12 @@ Get information and recipients of a send-to-owners transaction.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getsto" "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d" "*"
+$ zurbank-cli "zus_getsto" "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d" "*"
 ```
 
 ---
 
-### omni_gettrade
+### zus_gettrade
 
 Get detailed information and trade matches for orders on the distributed token exchange.
 
@@ -1476,12 +1476,12 @@ Get detailed information and trade matches for orders on the distributed token e
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_gettrade" "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"
+$ zurbank-cli "zus_gettrade" "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"
 ```
 
 ---
 
-### omni_getorderbook
+### zus_getorderbook
 
 List active offers on the distributed token exchange.
 
@@ -1518,12 +1518,12 @@ List active offers on the distributed token exchange.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getorderbook" 2
+$ zurbank-cli "zus_getorderbook" 2
 ```
 
 ---
 
-### omni_gettradehistoryforpair
+### zus_gettradehistoryforpair
 
 Retrieves the history of trades on the distributed token exchange for the specified market.
 
@@ -1556,12 +1556,12 @@ Retrieves the history of trades on the distributed token exchange for the specif
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_gettradehistoryforpair" 1 12 500
+$ zurbank-cli "zus_gettradehistoryforpair" 1 12 500
 ```
 
 ---
 
-### omni_gettradehistoryforaddress
+### zus_gettradehistoryforaddress
 
 Retrieves the history of orders on the distributed exchange for the supplied address.
 
@@ -1615,12 +1615,12 @@ Retrieves the history of orders on the distributed exchange for the supplied add
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_gettradehistoryforaddress" "1MCHESTptvd2LnNp7wmr2sGTpRomteAkq8"
+$ zurbank-cli "zus_gettradehistoryforaddress" "1MCHESTptvd2LnNp7wmr2sGTpRomteAkq8"
 ```
 
 ---
 
-### omni_getactivations
+### zus_getactivations
 
 Returns pending and completed feature activations.
 
@@ -1651,12 +1651,12 @@ Returns pending and completed feature activations.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getactivations"
+$ zurbank-cli "zus_getactivations"
 ```
 
 ---
 
-### omni_getpayload
+### zus_getpayload
 
 Get the payload for an Zus transaction.
 
@@ -1677,12 +1677,12 @@ Get the payload for an Zus transaction.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getactivations" "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"
+$ zurbank-cli "zus_getactivations" "1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"
 ```
 
 ---
 
-### omni_getseedblocks
+### zus_getseedblocks
 
 Returns a list of blocks containing Zus transactions for use in seed block filtering.
 
@@ -1706,12 +1706,12 @@ WARNING: The Exodus crowdsale is not stored in LevelDB, thus this is currently o
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getseedblocks" 290000 300000
+$ zurbank-cli "zus_getseedblocks" 290000 300000
 ```
 
 ---
 
-### omni_getcurrentconsensushash
+### zus_getcurrentconsensushash
 
 Returns the consensus hash covering the state of the current block.
 
@@ -1731,7 +1731,7 @@ Returns the consensus hash covering the state of the current block.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getcurrentconsensushash"
+$ zurbank-cli "zus_getcurrentconsensushash"
 ```
 
 ---
@@ -1742,7 +1742,7 @@ The RPCs for raw transactions/payloads can be used to decode or create raw Zus t
 
 Raw transactions need to be signed with `"signrawtransaction"` and then broadcasted with `"sendrawtransaction"`.
 
-### omni_decodetransaction
+### zus_decodetransaction
 
 Decodes an Zus transaction.
 
@@ -1790,7 +1790,7 @@ The format of `prevtxs` is as following:
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_decodetransaction" "010000000163af14ce6d477e1c793507e32a5b7696288fa89705c0d02a3f66beb3c \
+$ zurbank-cli "zus_decodetransaction" "010000000163af14ce6d477e1c793507e32a5b7696288fa89705c0d02a3f66beb3c \
     5b8afee0100000000ffffffff02ac020000000000004751210261ea979f6a06f9dafe00fb1263ea0aca959875a7073556a088cdf \
     adcd494b3752102a3fd0a8a067e06941e066f78d930bfc47746f097fcd3f7ab27db8ddf37168b6b52ae22020000000000001976a \
     914946cb2e08075bcbaf157e47bcb67eb2b2339d24288ac00000000" \
@@ -1800,7 +1800,7 @@ $ zurbank-cli "omni_decodetransaction" "010000000163af14ce6d477e1c793507e32a5b76
 
 ---
 
-### omni_createrawtx_opreturn
+### zus_createrawtx_opreturn
 
 Adds a payload with class C (op-return) encoding to the transaction.
 
@@ -1823,12 +1823,12 @@ If the data encoding fails, then the transaction is not modified.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createrawtx_opreturn" "01000000000000000000" "00000000000000020000000006dac2c0"
+$ zurbank-cli "zus_createrawtx_opreturn" "01000000000000000000" "00000000000000020000000006dac2c0"
 ```
 
 ---
 
-### omni_createrawtx_multisig
+### zus_createrawtx_multisig
 
 Adds a payload with class B (bare-multisig) encoding to the transaction.
 
@@ -1853,7 +1853,7 @@ If the data encoding fails, then the transaction is not modified.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createrawtx_multisig" \
+$ zurbank-cli "zus_createrawtx_multisig" \
     "0100000001a7a9402ecd77f3c9f745793c9ec805bfa2e14b89877581c734c774864247e6f50400000000ffffffff01aa0a00000 \
     00000001976a9146d18edfe073d53f84dd491dae1379f8fb0dfe5d488ac00000000" \
     "00000000000000020000000000989680"
@@ -1863,7 +1863,7 @@ $ zurbank-cli "omni_createrawtx_multisig" \
 
 ---
 
-### omni_createrawtx_input
+### zus_createrawtx_input
 
 Adds a transaction input to the transaction.
 
@@ -1885,13 +1885,13 @@ If no raw transaction is provided, a new transaction is created.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createrawtx_input" \
+$ zurbank-cli "zus_createrawtx_input" \
     "01000000000000000000" "b006729017df05eda586df9ad3f8ccfee5be340aadf88155b784d1fc0e8342ee" 0
 ```
 
 ---
 
-### omni_createrawtx_reference
+### zus_createrawtx_reference
 
 Adds a reference output to the transaction.
 
@@ -1915,7 +1915,7 @@ The output value is set to at least the dust threshold.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createrawtx_reference" \
+$ zurbank-cli "zus_createrawtx_reference" \
     "0100000001a7a9402ecd77f3c9f745793c9ec805bfa2e14b89877581c734c774864247e6f50400000000ffffffff03aa0a00000
     00000001976a9146d18edfe073d53f84dd491dae1379f8fb0dfe5d488ac5c0d0000000000004751210252ce4bdd3ce38b4ebbc5a
     6e1343608230da508ff12d23d85b58c964204c4cef3210294cc195fc096f87d0f813a337ae7e5f961b1c8a18f1f8604a909b3a51
@@ -1926,7 +1926,7 @@ $ zurbank-cli "omni_createrawtx_reference" \
 
 ---
 
-### omni_createrawtx_change
+### zus_createrawtx_change
 
 Adds a change output to the transaction.
 
@@ -1968,7 +1968,7 @@ The format of `prevtxs` is as following:
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createrawtx_change" \
+$ zurbank-cli "zus_createrawtx_change" \
     "0100000001b15ee60431ef57ec682790dec5a3c0d83a0c360633ea8308fbf6d5fc10a779670400000000ffffffff025c0d00000 \
     000000047512102f3e471222bb57a7d416c82bf81c627bfcd2bdc47f36e763ae69935bba4601ece21021580b888ff56feb27f17f \
     08802ebed26258c23697d6a462d43fc13b565fda2dd52aeaa0a0000000000001976a914946cb2e08075bcbaf157e47bcb67eb2b2 \
@@ -1980,7 +1980,7 @@ $ zurbank-cli "omni_createrawtx_change" \
 
 ---
 
-### omni_createpayload_simplesend
+### zus_createpayload_simplesend
 
 Create the payload for a simple send transaction.
 
@@ -2001,12 +2001,12 @@ Note: if the server is not synchronized, amounts are considered as divisible, ev
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_simplesend" 1 "100.0"
+$ zurbank-cli "zus_createpayload_simplesend" 1 "100.0"
 ```
 
 ---
 
-### omni_createpayload_sendall
+### zus_createpayload_sendall
 
 Create the payload for a send all transaction.
 
@@ -2024,12 +2024,12 @@ Create the payload for a send all transaction.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_sendall" 2
+$ zurbank-cli "zus_createpayload_sendall" 2
 ```
 
 ---
 
-### omni_createpayload_dexsell
+### zus_createpayload_dexsell
 
 Create a payload to place, update or cancel a sell offer on the traditional distributed ZUS/ZUR exchange.
 
@@ -2052,12 +2052,12 @@ Create a payload to place, update or cancel a sell offer on the traditional dist
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_dexsell" 1 "1.5" "0.75" 25 "0.0005" 1
+$ zurbank-cli "zus_createpayload_dexsell" 1 "1.5" "0.75" 25 "0.0005" 1
 ```
 
 ---
 
-### omni_createpayload_dexaccept
+### zus_createpayload_dexaccept
 
 Create the payload for an accept offer for the specified token and amount.
 
@@ -2078,12 +2078,12 @@ Note: if the server is not synchronized, amounts are considered as divisible, ev
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_dexaccept" 1 "15.0"
+$ zurbank-cli "zus_createpayload_dexaccept" 1 "15.0"
 ```
 
 ---
 
-### omni_createpayload_sto
+### zus_createpayload_sto
 
 Creates the payload for a send-to-owners transaction.
 
@@ -2105,12 +2105,12 @@ Note: if the server is not synchronized, amounts are considered as divisible, ev
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_sto" 3 "5000"
+$ zurbank-cli "zus_createpayload_sto" 3 "5000"
 ```
 
 ---
 
-### omni_createpayload_issuancefixed
+### zus_createpayload_issuancefixed
 
 Creates the payload for a new tokens issuance with fixed supply.
 
@@ -2136,12 +2136,12 @@ Creates the payload for a new tokens issuance with fixed supply.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_issuancefixed" 2 1 0 "Companies" "Zurcoin Mining" "Quantum Miner" "" "" "1000000"
+$ zurbank-cli "zus_createpayload_issuancefixed" 2 1 0 "Companies" "Zurcoin Mining" "Quantum Miner" "" "" "1000000"
 ```
 
 ---
 
-### omni_createpayload_issuancecrowdsale
+### zus_createpayload_issuancecrowdsale
 
 Creates the payload for a new tokens issuance with crowdsale.
 
@@ -2171,12 +2171,12 @@ Creates the payload for a new tokens issuance with crowdsale.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_issuancecrowdsale" 2 1 0 "Companies" "Zurcoin Mining" "Quantum Miner" "" "" 2 "100" 1483228800 30 2
+$ zurbank-cli "zus_createpayload_issuancecrowdsale" 2 1 0 "Companies" "Zurcoin Mining" "Quantum Miner" "" "" 2 "100" 1483228800 30 2
 ```
 
 ---
 
-### omni_createpayload_issuancemanaged
+### zus_createpayload_issuancemanaged
 
 Creates the payload for a new tokens issuance with manageable supply.
 
@@ -2201,12 +2201,12 @@ Creates the payload for a new tokens issuance with manageable supply.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_issuancemanaged" 2 1 0 "Companies" "Zurcoin Mining" "Quantum Miner" "" ""
+$ zurbank-cli "zus_createpayload_issuancemanaged" 2 1 0 "Companies" "Zurcoin Mining" "Quantum Miner" "" ""
 ```
 
 ---
 
-### omni_createpayload_closecrowdsale
+### zus_createpayload_closecrowdsale
 
 Creates the payload to manually close a crowdsale.
 
@@ -2224,12 +2224,12 @@ Creates the payload to manually close a crowdsale.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_closecrowdsale" 70
+$ zurbank-cli "zus_createpayload_closecrowdsale" 70
 ```
 
 ---
 
-### omni_createpayload_grant
+### zus_createpayload_grant
 
 Creates the payload to issue or grant new units of managed tokens.
 
@@ -2251,12 +2251,12 @@ Note: if the server is not synchronized, amounts are considered as divisible, ev
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_grant" 51 "7000"
+$ zurbank-cli "zus_createpayload_grant" 51 "7000"
 ```
 
 ---
 
-### omni_createpayload_revoke
+### zus_createpayload_revoke
 
 Creates the payload to revoke units of managed tokens.
 
@@ -2278,12 +2278,12 @@ Note: if the server is not synchronized, amounts are considered as divisible, ev
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_revoke" 51 "100"
+$ zurbank-cli "zus_createpayload_revoke" 51 "100"
 ```
 
 ---
 
-### omni_createpayload_changeissuer
+### zus_createpayload_changeissuer
 
 Creates the payload to change the issuer on record of the given tokens.
 
@@ -2301,12 +2301,12 @@ Creates the payload to change the issuer on record of the given tokens.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_changeissuer" 3
+$ zurbank-cli "zus_createpayload_changeissuer" 3
 ```
 
 ---
 
-### omni_createpayload_trade
+### zus_createpayload_trade
 
 Creates the payload to place a trade offer on the distributed token exchange.
 
@@ -2329,12 +2329,12 @@ Note: if the server is not synchronized, amounts are considered as divisible, ev
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_trade" 31 "250.0" 1 "10.0"
+$ zurbank-cli "zus_createpayload_trade" 31 "250.0" 1 "10.0"
 ```
 
 ---
 
-### omni_createpayload_canceltradesbyprice
+### zus_createpayload_canceltradesbyprice
 
 Creates the payload to cancel offers on the distributed token exchange with the specified price.
 
@@ -2357,12 +2357,12 @@ Note: if the server is not synchronized, amounts are considered as divisible, ev
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_canceltradesbyprice" 31 "100.0" 1 "5.0"
+$ zurbank-cli "zus_createpayload_canceltradesbyprice" 31 "100.0" 1 "5.0"
 ```
 
 ---
 
-### omni_createpayload_canceltradesbypair
+### zus_createpayload_canceltradesbypair
 
 Creates the payload to cancel all offers on the distributed token exchange with the given currency pair.
 
@@ -2381,12 +2381,12 @@ Creates the payload to cancel all offers on the distributed token exchange with 
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_canceltradesbypair" 1 31
+$ zurbank-cli "zus_createpayload_canceltradesbypair" 1 31
 ```
 
 ---
 
-### omni_createpayload_cancelalltrades
+### zus_createpayload_cancelalltrades
 
 Creates the payload to cancel all offers on the distributed token exchange with the given currency pair.
 
@@ -2404,12 +2404,12 @@ Creates the payload to cancel all offers on the distributed token exchange with 
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_cancelalltrades" 1
+$ zurbank-cli "zus_createpayload_cancelalltrades" 1
 ```
 
 ---
 
-### omni_createpayload_enablefreezing
+### zus_createpayload_enablefreezing
 
 Creates the payload to enable address freezing for a centrally managed property.
 
@@ -2427,12 +2427,12 @@ Creates the payload to enable address freezing for a centrally managed property.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_enablefreezing" 3
+$ zurbank-cli "zus_createpayload_enablefreezing" 3
 ```
 
 ---
 
-### omni_createpayload_disablefreezing
+### zus_createpayload_disablefreezing
 
 Creates the payload to disable address freezing for a centrally managed property.
 
@@ -2452,12 +2452,12 @@ IMPORTANT NOTE:  Disabling freezing for a property will UNFREEZE all frozen addr
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_disablefreezing" 3
+$ zurbank-cli "zus_createpayload_disablefreezing" 3
 ```
 
 ---
 
-### omni_createpayload_freeze
+### zus_createpayload_freeze
 
 Creates the payload to freeze an address for a centrally managed token.
 
@@ -2479,12 +2479,12 @@ Note: if the server is not synchronized, amounts are considered as divisible, ev
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_freeze" "3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs" 31 "100"
+$ zurbank-cli "zus_createpayload_freeze" "3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs" 31 "100"
 ```
 
 ---
 
-### omni_createpayload_unfreeze
+### zus_createpayload_unfreeze
 
 Creates the payload to unfreeze an address for a centrally managed token.
 
@@ -2506,7 +2506,7 @@ Note: if the server is not synchronized, amounts are considered as divisible, ev
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_createpayload_unfreeze" "3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs" 31 "100"
+$ zurbank-cli "zus_createpayload_unfreeze" "3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs" 31 "100"
 ```
 
 ---
@@ -2515,7 +2515,7 @@ $ zurbank-cli "omni_createpayload_unfreeze" "3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs"
 
 The RPCs for the fee system can be used to obtain data about the fee system and fee distributions.
 
-### omni_getfeecache
+### zus_getfeecache
 
 Obtains the current amount of fees cached (pending distribution).
 
@@ -2541,12 +2541,12 @@ If a property ID is supplied the results will be filtered to show this property 
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getfeecache" 31
+$ zurbank-cli "zus_getfeecache" 31
 ```
 
 ---
 
-### omni_getfeetrigger
+### zus_getfeetrigger
 
 Obtains the amount at which cached fees will be distributed.
 
@@ -2572,12 +2572,12 @@ If a property ID is supplied the results will be filtered to show this property 
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getfeetrigger" 31
+$ zurbank-cli "zus_getfeetrigger" 31
 ```
 
 ---
 
-### omni_getfeeshare
+### zus_getfeeshare
 
 Obtains the current percentage share of fees addresses would receive if a distribution were to occur.
 
@@ -2606,12 +2606,12 @@ If an ecosystem is supplied the results will reflect the fee share for that ecos
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getfeeshare" "1CE8bBr1dYZRMnpmyYsFEoexa1YoPz2mfB" 1
+$ zurbank-cli "zus_getfeeshare" "1CE8bBr1dYZRMnpmyYsFEoexa1YoPz2mfB" 1
 ```
 
 ---
 
-### omni_getfeedistribution
+### zus_getfeedistribution
 
 Obtains data for a past distribution of fees.
 
@@ -2643,12 +2643,12 @@ A distribution ID must be supplied to identify the distribution to obtain data f
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getfeedistribution" 1
+$ zurbank-cli "zus_getfeedistribution" 1
 ```
 
 ---
 
-### omni_getfeedistributions
+### zus_getfeedistributions
 
 Obtains data for past distributions of fees for a property.
 
@@ -2683,7 +2683,7 @@ A property ID must be supplied to retrieve past distributions for.
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_getfeedistributions" 31
+$ zurbank-cli "zus_getfeedistributions" 31
 ```
 
 ---
@@ -2692,7 +2692,7 @@ $ zurbank-cli "omni_getfeedistributions" 31
 
 The RPCs for the configuration can be used to alter ZURBank settings.
 
-### omni_setautocommit
+### zus_setautocommit
 
 Sets the global flag that determines whether transactions are automatically committed and broadcasted.
 
@@ -2710,7 +2710,7 @@ true|false  // (boolean) the updated flag status
 **Example:**
 
 ```bash
-$ zurbank-cli "omni_setautocommit" false
+$ zurbank-cli "zus_setautocommit" false
 ```
 
 ---
@@ -2721,20 +2721,20 @@ To ensure backwards compatibility, depreciated RPCs are kept for at least one ma
 
 The following calls are replaced in ZURBank 0.0.10, and queries with the old command are forwarded.
 
-- `send_MP` by `omni_send`
-- `sendtoowners_MP` by `omni_sendsto`
-- `sendrawtx_MP` by `omni_sendrawtx`
-- `getinfo_MP` by `omni_getinfo`
-- `getbalance_MP` by `omni_getbalance`
-- `getallbalancesforid_MP` by `omni_getallbalancesforid`
-- `getallbalancesforaddress_MP` by `omni_getallbalancesforaddress`
-- `gettransaction_MP` by `omni_gettransaction`
-- `listtransactions_MP` by `omni_listtransactions`
-- `listblocktransactions_MP` by `omni_listblocktransactions`
-- `getactivedexsells_MP` by `omni_getactivedexsells`
-- `listproperties_MP` by `omni_listproperties`
-- `getproperty_MP` by `omni_getproperty`
-- `getactivecrowdsales_MP` by `omni_getactivecrowdsales`
-- `getcrowdsale_MP` by `omni_getcrowdsale`
-- `getgrants_MP` by `omni_getgrants`
-- `getsto_MP` by `omni_getsto` or `omni_gettransaction`
+- `send_MP` by `zus_send`
+- `sendtoowners_MP` by `zus_sendsto`
+- `sendrawtx_MP` by `zus_sendrawtx`
+- `getinfo_MP` by `zus_getinfo`
+- `getbalance_MP` by `zus_getbalance`
+- `getallbalancesforid_MP` by `zus_getallbalancesforid`
+- `getallbalancesforaddress_MP` by `zus_getallbalancesforaddress`
+- `gettransaction_MP` by `zus_gettransaction`
+- `listtransactions_MP` by `zus_listtransactions`
+- `listblocktransactions_MP` by `zus_listblocktransactions`
+- `getactivedexsells_MP` by `zus_getactivedexsells`
+- `listproperties_MP` by `zus_listproperties`
+- `getproperty_MP` by `zus_getproperty`
+- `getactivecrowdsales_MP` by `zus_getactivecrowdsales`
+- `getcrowdsale_MP` by `zus_getcrowdsale`
+- `getgrants_MP` by `zus_getgrants`
+- `getsto_MP` by `zus_getsto` or `zus_gettransaction`

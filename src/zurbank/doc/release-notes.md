@@ -20,7 +20,7 @@ Table of contents
   - [Compatibility with Bitcoin Core](#compatibility-with-zurcoin-core)
 - [Notable changes](#notable-changes)
   - [Fix startup issue of ZURBank](#fix-startup-issue-of-omni-core)
-  - [Speed up RPC omni_listpendingtransactions](#speed-up-rpc-omni_listpendingtransactions)
+  - [Speed up RPC zus_listpendingtransactions](#speed-up-rpc-zus_listpendingtransactions)
   - [Rename ZUS and TOMNI to ZUS and TZUS](#rename-omni-and-tzus-to-omn-and-tomn)
 - [Change log](#change-log)
 - [Credits](#credits)
@@ -65,14 +65,14 @@ With this change, historical issuers are persisted and can be accessed for any g
 
 Please note: the internal database of ZURBank is upgraded, which triggers a reparse of Zus Layer transactions the first time this version is started. This can take between 30 minutes and a few hours of processing time, during which ZURBank is unusable!
 
-Speed up RPC "omni_listpendingtransactions"
+Speed up RPC "zus_listpendingtransactions"
 -------------------------------------------
 
 When adding a transaction to the mempool, a quick and unsafe check for any Zus Layer markers is done without checking transaction validity or whether it's malformed, to identify potential Zus Layer transactions.
 
 If the transaction has a potential marker, then it's added to a new cache. If the transaction is removed from the mempool, it's also removed from the cache.
 
-This speeds up the RPC "omni_listpendingtransactions" significantly, which can be used to list pending Zus Layer transactions.
+This speeds up the RPC "zus_listpendingtransactions" significantly, which can be used to list pending Zus Layer transactions.
 
 Rename ZUS and TOMNI to ZUS and TZUS
 -------------------------------------
@@ -84,7 +84,7 @@ To be more algined with other symbols and tickers the following changes in wordi
 - "ZUS", referring to the symbol of Zus tokens, becomes "ZUS"
 - "TOMNI", referring to the symbol of Test Zus tokens, becomes "TZUS"
 
-While this is change is mostly cosmetic - in particular it changes the code documentation, RPC help messages and RPC documentation - it also has an effect of the RPCS "omni_getproperty 1" and "omni_getproperty 2", which now return a text with the updated token and symbol names.
+While this is change is mostly cosmetic - in particular it changes the code documentation, RPC help messages and RPC documentation - it also has an effect of the RPCS "zus_getproperty 1" and "zus_getproperty 2", which now return a text with the updated token and symbol names.
 
 
 Change log
@@ -94,7 +94,7 @@ The following list includes relevant pull requests merged into this release:
 
 ```
 - #907 Update version to 0.4.0.99 to indicate development
-- #910 Add marker cache to speed up omni_listpendingtransactions
+- #910 Add marker cache to speed up zus_listpendingtransactions
 - #925 Store historical issuers and use that data
 - #908 Rename ZUS and TOMNI to ZUS and TZUS
 - #931 Bump version to ZURBank 0.5.0

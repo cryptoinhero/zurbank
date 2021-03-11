@@ -15,11 +15,11 @@
 using std::runtime_error;
 using namespace mastercore;
 
-UniValue omni_createpayload_simplesend(const UniValue& params, bool fHelp)
+UniValue zus_createpayload_simplesend(const UniValue& params, bool fHelp)
 {
    if (fHelp || params.size() != 2)
         throw runtime_error(
-            "omni_createpayload_simplesend propertyid \"amount\"\n"
+            "zus_createpayload_simplesend propertyid \"amount\"\n"
 
             "\nCreate the payload for a simple send transaction.\n"
 
@@ -33,8 +33,8 @@ UniValue omni_createpayload_simplesend(const UniValue& params, bool fHelp)
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_simplesend", "1 \"100.0\"")
-            + HelpExampleRpc("omni_createpayload_simplesend", "1, \"100.0\"")
+            + HelpExampleCli("zus_createpayload_simplesend", "1 \"100.0\"")
+            + HelpExampleRpc("zus_createpayload_simplesend", "1, \"100.0\"")
         );
 
     uint32_t propertyId = ParsePropertyId(params[0]);
@@ -45,11 +45,11 @@ UniValue omni_createpayload_simplesend(const UniValue& params, bool fHelp)
     return HexStr(payload.begin(), payload.end());
 }
 
-UniValue omni_createpayload_sendall(const UniValue& params, bool fHelp)
+UniValue zus_createpayload_sendall(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "omni_createpayload_sendall ecosystem\n"
+            "zus_createpayload_sendall ecosystem\n"
 
             "\nCreate the payload for a send all transaction.\n"
 
@@ -60,8 +60,8 @@ UniValue omni_createpayload_sendall(const UniValue& params, bool fHelp)
             "\"payload\"               (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_sendall", "2")
-            + HelpExampleRpc("omni_createpayload_sendall", "2")
+            + HelpExampleCli("zus_createpayload_sendall", "2")
+            + HelpExampleRpc("zus_createpayload_sendall", "2")
         );
 
     uint8_t ecosystem = ParseEcosystem(params[0]);
@@ -71,11 +71,11 @@ UniValue omni_createpayload_sendall(const UniValue& params, bool fHelp)
     return HexStr(payload.begin(), payload.end());
 }
 
-UniValue omni_createpayload_dexsell(const UniValue& params, bool fHelp)
+UniValue zus_createpayload_dexsell(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 6)
         throw runtime_error(
-            "omni_createpayload_dexsell propertyidforsale \"amountforsale\" \"amountdesired\" paymentwindow minacceptfee action\n"
+            "zus_createpayload_dexsell propertyidforsale \"amountforsale\" \"amountdesired\" paymentwindow minacceptfee action\n"
 
             "\nCreate a payload to place, update or cancel a sell offer on the traditional distributed ZUS/ZUR exchange.\n"
 
@@ -92,8 +92,8 @@ UniValue omni_createpayload_dexsell(const UniValue& params, bool fHelp)
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_dexsell", "1 \"1.5\" \"0.75\" 25 \"0.0005\" 1")
-            + HelpExampleRpc("omni_createpayload_dexsell", "1, \"1.5\", \"0.75\", 25, \"0.0005\", 1")
+            + HelpExampleCli("zus_createpayload_dexsell", "1 \"1.5\" \"0.75\" 25 \"0.0005\" 1")
+            + HelpExampleRpc("zus_createpayload_dexsell", "1, \"1.5\", \"0.75\", 25, \"0.0005\", 1")
         );
 
     uint32_t propertyIdForSale = ParsePropertyId(params[0]);
@@ -116,11 +116,11 @@ UniValue omni_createpayload_dexsell(const UniValue& params, bool fHelp)
     return HexStr(payload.begin(), payload.end());
 }
 
-UniValue omni_createpayload_dexaccept(const UniValue& params, bool fHelp)
+UniValue zus_createpayload_dexaccept(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "omni_createpayload_dexaccept propertyid \"amount\"\n"
+            "zus_createpayload_dexaccept propertyid \"amount\"\n"
 
             "\nCreate the payload for an accept offer for the specified token and amount.\n"
 
@@ -134,8 +134,8 @@ UniValue omni_createpayload_dexaccept(const UniValue& params, bool fHelp)
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_dexaccept", "1 \"15.0\"")
-            + HelpExampleRpc("omni_createpayload_dexaccept", "1, \"15.0\"")
+            + HelpExampleCli("zus_createpayload_dexaccept", "1 \"15.0\"")
+            + HelpExampleRpc("zus_createpayload_dexaccept", "1, \"15.0\"")
         );
 
     uint32_t propertyId = ParsePropertyId(params[0]);
@@ -146,11 +146,11 @@ UniValue omni_createpayload_dexaccept(const UniValue& params, bool fHelp)
     return HexStr(payload.begin(), payload.end());
 }
 
-UniValue omni_createpayload_sto(const UniValue& params, bool fHelp)
+UniValue zus_createpayload_sto(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 3)
         throw runtime_error(
-            "omni_createpayload_sto propertyid \"amount\" ( distributionproperty )\n"
+            "zus_createpayload_sto propertyid \"amount\" ( distributionproperty )\n"
 
             "\nCreates the payload for a send-to-owners transaction.\n"
 
@@ -164,8 +164,8 @@ UniValue omni_createpayload_sto(const UniValue& params, bool fHelp)
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_sto", "3 \"5000\"")
-            + HelpExampleRpc("omni_createpayload_sto", "3, \"5000\"")
+            + HelpExampleCli("zus_createpayload_sto", "3 \"5000\"")
+            + HelpExampleRpc("zus_createpayload_sto", "3, \"5000\"")
         );
 
     uint32_t propertyId = ParsePropertyId(params[0]);
@@ -177,11 +177,11 @@ UniValue omni_createpayload_sto(const UniValue& params, bool fHelp)
     return HexStr(payload.begin(), payload.end());
 }
 
-UniValue omni_createpayload_issuancefixed(const UniValue& params, bool fHelp)
+UniValue zus_createpayload_issuancefixed(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 9)
         throw runtime_error(
-            "omni_createpayload_issuancefixed ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\" \"amount\"\n"
+            "zus_createpayload_issuancefixed ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\" \"amount\"\n"
 
             "\nCreates the payload for a new tokens issuance with fixed supply.\n"
 
@@ -200,8 +200,8 @@ UniValue omni_createpayload_issuancefixed(const UniValue& params, bool fHelp)
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_issuancefixed", "2 1 0 \"Companies\" \"Zurcoin Mining\" \"Quantum Miner\" \"\" \"\" \"1000000\"")
-            + HelpExampleRpc("omni_createpayload_issuancefixed", "2, 1, 0, \"Companies\", \"Zurcoin Mining\", \"Quantum Miner\", \"\", \"\", \"1000000\"")
+            + HelpExampleCli("zus_createpayload_issuancefixed", "2 1 0 \"Companies\" \"Zurcoin Mining\" \"Quantum Miner\" \"\" \"\" \"1000000\"")
+            + HelpExampleRpc("zus_createpayload_issuancefixed", "2, 1, 0, \"Companies\", \"Zurcoin Mining\", \"Quantum Miner\", \"\", \"\", \"1000000\"")
         );
 
     uint8_t ecosystem = ParseEcosystem(params[0]);
@@ -221,11 +221,11 @@ UniValue omni_createpayload_issuancefixed(const UniValue& params, bool fHelp)
     return HexStr(payload.begin(), payload.end());
 }
 
-UniValue omni_createpayload_issuancecrowdsale(const UniValue& params, bool fHelp)
+UniValue zus_createpayload_issuancecrowdsale(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 13)
         throw runtime_error(
-            "omni_createpayload_issuancecrowdsale ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\" propertyiddesired tokensperunit deadline earlybonus issuerpercentage\n"
+            "zus_createpayload_issuancecrowdsale ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\" propertyiddesired tokensperunit deadline earlybonus issuerpercentage\n"
 
             "\nCreates the payload for a new tokens issuance with crowdsale.\n"
 
@@ -248,8 +248,8 @@ UniValue omni_createpayload_issuancecrowdsale(const UniValue& params, bool fHelp
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_issuancecrowdsale", "2 1 0 \"Companies\" \"Zurcoin Mining\" \"Quantum Miner\" \"\" \"\" 2 \"100\" 1483228800 30 2")
-            + HelpExampleRpc("omni_createpayload_issuancecrowdsale", "2, 1, 0, \"Companies\", \"Zurcoin Mining\", \"Quantum Miner\", \"\", \"\", 2, \"100\", 1483228800, 30, 2")
+            + HelpExampleCli("zus_createpayload_issuancecrowdsale", "2 1 0 \"Companies\" \"Zurcoin Mining\" \"Quantum Miner\" \"\" \"\" 2 \"100\" 1483228800 30 2")
+            + HelpExampleRpc("zus_createpayload_issuancecrowdsale", "2, 1, 0, \"Companies\", \"Zurcoin Mining\", \"Quantum Miner\", \"\", \"\", 2, \"100\", 1483228800, 30, 2")
         );
 
     uint8_t ecosystem = ParseEcosystem(params[0]);
@@ -274,11 +274,11 @@ UniValue omni_createpayload_issuancecrowdsale(const UniValue& params, bool fHelp
     return HexStr(payload.begin(), payload.end());
 }
 
-UniValue omni_createpayload_issuancemanaged(const UniValue& params, bool fHelp)
+UniValue zus_createpayload_issuancemanaged(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 8)
         throw runtime_error(
-            "omni_createpayload_issuancemanaged ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\"\n"
+            "zus_createpayload_issuancemanaged ecosystem type previousid \"category\" \"subcategory\" \"name\" \"url\" \"data\"\n"
 
             "\nCreates the payload for a new tokens issuance with manageable supply.\n"
 
@@ -296,8 +296,8 @@ UniValue omni_createpayload_issuancemanaged(const UniValue& params, bool fHelp)
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_issuancemanaged", "2 1 0 \"Companies\" \"Zurcoin Mining\" \"Quantum Miner\" \"\" \"\"")
-            + HelpExampleRpc("omni_createpayload_issuancemanaged", "2, 1, 0, \"Companies\", \"Zurcoin Mining\", \"Quantum Miner\", \"\", \"\"")
+            + HelpExampleCli("zus_createpayload_issuancemanaged", "2 1 0 \"Companies\" \"Zurcoin Mining\" \"Quantum Miner\" \"\" \"\"")
+            + HelpExampleRpc("zus_createpayload_issuancemanaged", "2, 1, 0, \"Companies\", \"Zurcoin Mining\", \"Quantum Miner\", \"\", \"\"")
         );
 
     uint8_t ecosystem = ParseEcosystem(params[0]);
@@ -316,11 +316,11 @@ UniValue omni_createpayload_issuancemanaged(const UniValue& params, bool fHelp)
     return HexStr(payload.begin(), payload.end());
 }
 
-UniValue omni_createpayload_closecrowdsale(const UniValue& params, bool fHelp)
+UniValue zus_createpayload_closecrowdsale(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "omni_createpayload_closecrowdsale propertyid\n"
+            "zus_createpayload_closecrowdsale propertyid\n"
 
             "\nCreates the payload to manually close a crowdsale.\n"
 
@@ -331,8 +331,8 @@ UniValue omni_createpayload_closecrowdsale(const UniValue& params, bool fHelp)
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_closecrowdsale", "70")
-            + HelpExampleRpc("omni_createpayload_closecrowdsale", "70")
+            + HelpExampleCli("zus_createpayload_closecrowdsale", "70")
+            + HelpExampleRpc("zus_createpayload_closecrowdsale", "70")
         );
 
     uint32_t propertyId = ParsePropertyId(params[0]);
@@ -342,11 +342,11 @@ UniValue omni_createpayload_closecrowdsale(const UniValue& params, bool fHelp)
     return HexStr(payload.begin(), payload.end());
 }
 
-UniValue omni_createpayload_grant(const UniValue& params, bool fHelp)
+UniValue zus_createpayload_grant(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 3)
         throw runtime_error(
-            "omni_createpayload_grant propertyid \"amount\" ( \"memo\" )\n"
+            "zus_createpayload_grant propertyid \"amount\" ( \"memo\" )\n"
 
             "\nCreates the payload to issue or grant new units of managed tokens.\n"
 
@@ -361,8 +361,8 @@ UniValue omni_createpayload_grant(const UniValue& params, bool fHelp)
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_grant", "51 \"7000\"")
-            + HelpExampleRpc("omni_createpayload_grant", "51, \"7000\"")
+            + HelpExampleCli("zus_createpayload_grant", "51 \"7000\"")
+            + HelpExampleRpc("zus_createpayload_grant", "51, \"7000\"")
         );
 
     uint32_t propertyId = ParsePropertyId(params[0]);
@@ -374,11 +374,11 @@ UniValue omni_createpayload_grant(const UniValue& params, bool fHelp)
     return HexStr(payload.begin(), payload.end());
 }
 
-UniValue omni_createpayload_revoke(const UniValue& params, bool fHelp)
+UniValue zus_createpayload_revoke(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 3)
         throw runtime_error(
-            "omni_createpayload_revoke propertyid \"amount\" ( \"memo\" )\n"
+            "zus_createpayload_revoke propertyid \"amount\" ( \"memo\" )\n"
 
             "\nCreates the payload to revoke units of managed tokens.\n"
 
@@ -393,8 +393,8 @@ UniValue omni_createpayload_revoke(const UniValue& params, bool fHelp)
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_revoke", "51 \"100\"")
-            + HelpExampleRpc("omni_createpayload_revoke", "51, \"100\"")
+            + HelpExampleCli("zus_createpayload_revoke", "51 \"100\"")
+            + HelpExampleRpc("zus_createpayload_revoke", "51, \"100\"")
         );
 
     uint32_t propertyId = ParsePropertyId(params[0]);
@@ -406,11 +406,11 @@ UniValue omni_createpayload_revoke(const UniValue& params, bool fHelp)
     return HexStr(payload.begin(), payload.end());
 }
 
-UniValue omni_createpayload_changeissuer(const UniValue& params, bool fHelp)
+UniValue zus_createpayload_changeissuer(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "omni_createpayload_changeissuer propertyid\n"
+            "zus_createpayload_changeissuer propertyid\n"
 
             "\nCreats the payload to change the issuer on record of the given tokens.\n"
 
@@ -421,8 +421,8 @@ UniValue omni_createpayload_changeissuer(const UniValue& params, bool fHelp)
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_changeissuer", "3")
-            + HelpExampleRpc("omni_createpayload_changeissuer", "3")
+            + HelpExampleCli("zus_createpayload_changeissuer", "3")
+            + HelpExampleRpc("zus_createpayload_changeissuer", "3")
         );
 
     uint32_t propertyId = ParsePropertyId(params[0]);
@@ -432,11 +432,11 @@ UniValue omni_createpayload_changeissuer(const UniValue& params, bool fHelp)
     return HexStr(payload.begin(), payload.end());
 }
 
-UniValue omni_createpayload_trade(const UniValue& params, bool fHelp)
+UniValue zus_createpayload_trade(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 4)
         throw runtime_error(
-            "omni_createpayload_trade propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
+            "zus_createpayload_trade propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
 
             "\nCreates the payload to place a trade offer on the distributed token exchange.\n"
 
@@ -452,8 +452,8 @@ UniValue omni_createpayload_trade(const UniValue& params, bool fHelp)
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_trade", "31 \"250.0\" 1 \"10.0\"")
-            + HelpExampleRpc("omni_createpayload_trade", "31, \"250.0\", 1, \"10.0\"")
+            + HelpExampleCli("zus_createpayload_trade", "31 \"250.0\" 1 \"10.0\"")
+            + HelpExampleRpc("zus_createpayload_trade", "31, \"250.0\", 1, \"10.0\"")
         );
 
     uint32_t propertyIdForSale = ParsePropertyId(params[0]);
@@ -469,11 +469,11 @@ UniValue omni_createpayload_trade(const UniValue& params, bool fHelp)
     return HexStr(payload.begin(), payload.end());
 }
 
-UniValue omni_createpayload_canceltradesbyprice(const UniValue& params, bool fHelp)
+UniValue zus_createpayload_canceltradesbyprice(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 4)
         throw runtime_error(
-            "omni_createpayload_canceltradesbyprice propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
+            "zus_createpayload_canceltradesbyprice propertyidforsale \"amountforsale\" propertiddesired \"amountdesired\"\n"
 
             "\nCreates the payload to cancel offers on the distributed token exchange with the specified price.\n"
 
@@ -489,8 +489,8 @@ UniValue omni_createpayload_canceltradesbyprice(const UniValue& params, bool fHe
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_canceltradesbyprice", "31 \"100.0\" 1 \"5.0\"")
-            + HelpExampleRpc("omni_createpayload_canceltradesbyprice", "31, \"100.0\", 1, \"5.0\"")
+            + HelpExampleCli("zus_createpayload_canceltradesbyprice", "31 \"100.0\" 1 \"5.0\"")
+            + HelpExampleRpc("zus_createpayload_canceltradesbyprice", "31, \"100.0\", 1, \"5.0\"")
         );
 
     uint32_t propertyIdForSale = ParsePropertyId(params[0]);
@@ -505,11 +505,11 @@ UniValue omni_createpayload_canceltradesbyprice(const UniValue& params, bool fHe
     return HexStr(payload.begin(), payload.end());
 }
 
-UniValue omni_createpayload_canceltradesbypair(const UniValue& params, bool fHelp)
+UniValue zus_createpayload_canceltradesbypair(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "omni_createpayload_canceltradesbypair propertyidforsale propertiddesired\n"
+            "zus_createpayload_canceltradesbypair propertyidforsale propertiddesired\n"
 
             "\nCreates the payload to cancel all offers on the distributed token exchange with the given currency pair.\n"
 
@@ -521,8 +521,8 @@ UniValue omni_createpayload_canceltradesbypair(const UniValue& params, bool fHel
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_canceltradesbypair", "1 31")
-            + HelpExampleRpc("omni_createpayload_canceltradesbypair", "1, 31")
+            + HelpExampleCli("zus_createpayload_canceltradesbypair", "1 31")
+            + HelpExampleRpc("zus_createpayload_canceltradesbypair", "1, 31")
         );
 
     uint32_t propertyIdForSale = ParsePropertyId(params[0]);
@@ -535,11 +535,11 @@ UniValue omni_createpayload_canceltradesbypair(const UniValue& params, bool fHel
     return HexStr(payload.begin(), payload.end());
 }
 
-UniValue omni_createpayload_cancelalltrades(const UniValue& params, bool fHelp)
+UniValue zus_createpayload_cancelalltrades(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "omni_createpayload_cancelalltrades ecosystem\n"
+            "zus_createpayload_cancelalltrades ecosystem\n"
 
             "\nCreates the payload to cancel all offers on the distributed token exchange.\n"
 
@@ -550,8 +550,8 @@ UniValue omni_createpayload_cancelalltrades(const UniValue& params, bool fHelp)
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_cancelalltrades", "1")
-            + HelpExampleRpc("omni_createpayload_cancelalltrades", "1")
+            + HelpExampleCli("zus_createpayload_cancelalltrades", "1")
+            + HelpExampleRpc("zus_createpayload_cancelalltrades", "1")
         );
 
     uint8_t ecosystem = ParseEcosystem(params[0]);
@@ -561,11 +561,11 @@ UniValue omni_createpayload_cancelalltrades(const UniValue& params, bool fHelp)
     return HexStr(payload.begin(), payload.end());
 }
 
-UniValue omni_createpayload_enablefreezing(const UniValue& params, bool fHelp)
+UniValue zus_createpayload_enablefreezing(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "omni_createpayload_enablefreezing propertyid\n"
+            "zus_createpayload_enablefreezing propertyid\n"
 
             "\nCreates the payload to enable address freezing for a centrally managed property.\n"
 
@@ -576,8 +576,8 @@ UniValue omni_createpayload_enablefreezing(const UniValue& params, bool fHelp)
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_enablefreezing", "3")
-            + HelpExampleRpc("omni_createpayload_enablefreezing", "3")
+            + HelpExampleCli("zus_createpayload_enablefreezing", "3")
+            + HelpExampleRpc("zus_createpayload_enablefreezing", "3")
         );
 
     uint32_t propertyId = ParsePropertyId(params[0]);
@@ -587,11 +587,11 @@ UniValue omni_createpayload_enablefreezing(const UniValue& params, bool fHelp)
     return HexStr(payload.begin(), payload.end());
 }
 
-UniValue omni_createpayload_disablefreezing(const UniValue& params, bool fHelp)
+UniValue zus_createpayload_disablefreezing(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "omni_createpayload_disablefreezing propertyid\n"
+            "zus_createpayload_disablefreezing propertyid\n"
 
             "\nCreates the payload to disable address freezing for a centrally managed property.\n"
             "\nIMPORTANT NOTE:  Disabling freezing for a property will UNFREEZE all frozen addresses for that property!"
@@ -603,8 +603,8 @@ UniValue omni_createpayload_disablefreezing(const UniValue& params, bool fHelp)
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_disablefreezing", "3")
-            + HelpExampleRpc("omni_createpayload_disablefreezing", "3")
+            + HelpExampleCli("zus_createpayload_disablefreezing", "3")
+            + HelpExampleRpc("zus_createpayload_disablefreezing", "3")
         );
 
     uint32_t propertyId = ParsePropertyId(params[0]);
@@ -614,11 +614,11 @@ UniValue omni_createpayload_disablefreezing(const UniValue& params, bool fHelp)
     return HexStr(payload.begin(), payload.end());
 }
 
-UniValue omni_createpayload_freeze(const UniValue& params, bool fHelp)
+UniValue zus_createpayload_freeze(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 3)
         throw runtime_error(
-            "omni_createpayload_freeze \"toaddress\" propertyid amount \n"
+            "zus_createpayload_freeze \"toaddress\" propertyid amount \n"
 
             "\nCreates the payload to freeze an address for a centrally managed token.\n"
 
@@ -633,8 +633,8 @@ UniValue omni_createpayload_freeze(const UniValue& params, bool fHelp)
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_freeze", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 1 \"100\"")
-            + HelpExampleRpc("omni_createpayload_freeze", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 1, \"100\"")
+            + HelpExampleCli("zus_createpayload_freeze", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 1 \"100\"")
+            + HelpExampleRpc("zus_createpayload_freeze", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 1, \"100\"")
         );
 
     std::string refAddress = ParseAddress(params[0]);
@@ -646,11 +646,11 @@ UniValue omni_createpayload_freeze(const UniValue& params, bool fHelp)
     return HexStr(payload.begin(), payload.end());
 }
 
-UniValue omni_createpayload_unfreeze(const UniValue& params, bool fHelp)
+UniValue zus_createpayload_unfreeze(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 3)
         throw runtime_error(
-            "omni_createpayload_unfreeze \"toaddress\" propertyid amount \n"
+            "zus_createpayload_unfreeze \"toaddress\" propertyid amount \n"
 
             "\nCreates the payload to unfreeze an address for a centrally managed token.\n"
 
@@ -665,8 +665,8 @@ UniValue omni_createpayload_unfreeze(const UniValue& params, bool fHelp)
             "\"payload\"             (string) the hex-encoded payload\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_createpayload_unfreeze", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 1 \"100\"")
-            + HelpExampleRpc("omni_createpayload_unfreeze", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 1, \"100\"")
+            + HelpExampleCli("zus_createpayload_unfreeze", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\" 1 \"100\"")
+            + HelpExampleRpc("zus_createpayload_unfreeze", "\"3HTHRxu3aSDV4deakjC7VmsiUp7c6dfbvs\", 1, \"100\"")
         );
 
     std::string refAddress = ParseAddress(params[0]);
@@ -681,26 +681,26 @@ UniValue omni_createpayload_unfreeze(const UniValue& params, bool fHelp)
 static const CRPCCommand commands[] =
 { //  category                         name                                      actor (function)                         okSafeMode
   //  -------------------------------- ----------------------------------------- ---------------------------------------- ----------
-    { "omni layer (payload creation)", "omni_createpayload_simplesend",          &omni_createpayload_simplesend,          true },
-    { "omni layer (payload creation)", "omni_createpayload_sendall",             &omni_createpayload_sendall,             true },
-    { "omni layer (payload creation)", "omni_createpayload_dexsell",             &omni_createpayload_dexsell,             true },
-    { "omni layer (payload creation)", "omni_createpayload_dexaccept",           &omni_createpayload_dexaccept,           true },
-    { "omni layer (payload creation)", "omni_createpayload_sto",                 &omni_createpayload_sto,                 true },
-    { "omni layer (payload creation)", "omni_createpayload_grant",               &omni_createpayload_grant,               true },
-    { "omni layer (payload creation)", "omni_createpayload_revoke",              &omni_createpayload_revoke,              true },
-    { "omni layer (payload creation)", "omni_createpayload_changeissuer",        &omni_createpayload_changeissuer,        true },
-    { "omni layer (payload creation)", "omni_createpayload_trade",               &omni_createpayload_trade,               true },
-    { "omni layer (payload creation)", "omni_createpayload_issuancefixed",       &omni_createpayload_issuancefixed,       true },
-    { "omni layer (payload creation)", "omni_createpayload_issuancecrowdsale",   &omni_createpayload_issuancecrowdsale,   true },
-    { "omni layer (payload creation)", "omni_createpayload_issuancemanaged",     &omni_createpayload_issuancemanaged,     true },
-    { "omni layer (payload creation)", "omni_createpayload_closecrowdsale",      &omni_createpayload_closecrowdsale,      true },
-    { "omni layer (payload creation)", "omni_createpayload_canceltradesbyprice", &omni_createpayload_canceltradesbyprice, true },
-    { "omni layer (payload creation)", "omni_createpayload_canceltradesbypair",  &omni_createpayload_canceltradesbypair,  true },
-    { "omni layer (payload creation)", "omni_createpayload_cancelalltrades",     &omni_createpayload_cancelalltrades,     true },
-    { "omni layer (payload creation)", "omni_createpayload_enablefreezing",      &omni_createpayload_enablefreezing,      true },
-    { "omni layer (payload creation)", "omni_createpayload_disablefreezing",     &omni_createpayload_disablefreezing,     true },
-    { "omni layer (payload creation)", "omni_createpayload_freeze",              &omni_createpayload_freeze,              true },
-    { "omni layer (payload creation)", "omni_createpayload_unfreeze",            &omni_createpayload_unfreeze,            true },
+    { "omni layer (payload creation)", "zus_createpayload_simplesend",          &zus_createpayload_simplesend,          true },
+    { "omni layer (payload creation)", "zus_createpayload_sendall",             &zus_createpayload_sendall,             true },
+    { "omni layer (payload creation)", "zus_createpayload_dexsell",             &zus_createpayload_dexsell,             true },
+    { "omni layer (payload creation)", "zus_createpayload_dexaccept",           &zus_createpayload_dexaccept,           true },
+    { "omni layer (payload creation)", "zus_createpayload_sto",                 &zus_createpayload_sto,                 true },
+    { "omni layer (payload creation)", "zus_createpayload_grant",               &zus_createpayload_grant,               true },
+    { "omni layer (payload creation)", "zus_createpayload_revoke",              &zus_createpayload_revoke,              true },
+    { "omni layer (payload creation)", "zus_createpayload_changeissuer",        &zus_createpayload_changeissuer,        true },
+    { "omni layer (payload creation)", "zus_createpayload_trade",               &zus_createpayload_trade,               true },
+    { "omni layer (payload creation)", "zus_createpayload_issuancefixed",       &zus_createpayload_issuancefixed,       true },
+    { "omni layer (payload creation)", "zus_createpayload_issuancecrowdsale",   &zus_createpayload_issuancecrowdsale,   true },
+    { "omni layer (payload creation)", "zus_createpayload_issuancemanaged",     &zus_createpayload_issuancemanaged,     true },
+    { "omni layer (payload creation)", "zus_createpayload_closecrowdsale",      &zus_createpayload_closecrowdsale,      true },
+    { "omni layer (payload creation)", "zus_createpayload_canceltradesbyprice", &zus_createpayload_canceltradesbyprice, true },
+    { "omni layer (payload creation)", "zus_createpayload_canceltradesbypair",  &zus_createpayload_canceltradesbypair,  true },
+    { "omni layer (payload creation)", "zus_createpayload_cancelalltrades",     &zus_createpayload_cancelalltrades,     true },
+    { "omni layer (payload creation)", "zus_createpayload_enablefreezing",      &zus_createpayload_enablefreezing,      true },
+    { "omni layer (payload creation)", "zus_createpayload_disablefreezing",     &zus_createpayload_disablefreezing,     true },
+    { "omni layer (payload creation)", "zus_createpayload_freeze",              &zus_createpayload_freeze,              true },
+    { "omni layer (payload creation)", "zus_createpayload_unfreeze",            &zus_createpayload_unfreeze,            true },
 };
 
 void RegisterOmniPayloadCreationRPCCommands(CRPCTable &tableRPC)

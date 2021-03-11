@@ -116,18 +116,18 @@ Raw payload creation API
 
 ZURBank 0.0.11 adds support for payload creation via the RPC interface.
 
-The calls are similar to the send transactions (e.g. `omni_send`), without the requirement for an address or any of the balance checks.
+The calls are similar to the send transactions (e.g. `zus_send`), without the requirement for an address or any of the balance checks.
 
 This allows integrators to build transactions via the [raw transactions interface](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#raw-transactions).
 
 Other API extensions
 --------------------
 
-An optional parameter `height` can be provided, when using [omni_decodetransaction](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_decodetransaction), which is used to determine the parsing rules. If no `height` is provided, the chain height is used as default.
+An optional parameter `height` can be provided, when using [zus_decodetransaction](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#zus_decodetransaction), which is used to determine the parsing rules. If no `height` is provided, the chain height is used as default.
 
-When retrieving feature activation transactions with [omni_gettransaction](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_gettransaction), then additional fields are included in the result: `"featureid"`, `"activationblock"` and `"minimumversion"`.
+When retrieving feature activation transactions with [zus_gettransaction](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#zus_gettransaction), then additional fields are included in the result: `"featureid"`, `"activationblock"` and `"minimumversion"`.
 
-The ZURBank client version is now also exposed under the new key `"zurbankversion"`, as well as inter via `"zurbankversion_int"`, when using [omni_getinfo](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_getinfo). The old key `"mastercoreversion"` remains for compatibility in this version.
+The ZURBank client version is now also exposed under the new key `"zurbankversion"`, as well as inter via `"zurbankversion_int"`, when using [zus_getinfo](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#zus_getinfo). The old key `"mastercoreversion"` remains for compatibility in this version.
 
 The field `"positioninblock"` was added to RPCs retrieving or listing Zus transactions to provide visibility into the order of an Zus transaction within a block.
 
@@ -157,7 +157,7 @@ Various smaller improvements were added ZURBank 0.0.11, such as:
 - Fix Travis CI builds without cache
 - Fix syntax error in walletdb key parser
 - Fix too-aggressive database clean in block reorganization events
-- Fix issues related to `omni_gettransaction` and `getactivedexsells`
+- Fix issues related to `zus_gettransaction` and `getactivedexsells`
 
 Change log
 ==========
@@ -165,7 +165,7 @@ Change log
 The following list includes relevant pull requests merged into this release:
 ```
 - #226 Upgrade consensus hashing to cover more of the state
-- #316 Support providing height for omni_decodetransaction
+- #316 Support providing height for zus_decodetransaction
 - #317 Expose feature activation fields when decoding transaction
 - #318 Expose ZURBank client version as integer
 - #321 Add consensus hash for block 390000
@@ -179,7 +179,7 @@ The following list includes relevant pull requests merged into this release:
 - #334 Update documentation for getseedblocks, getcurrentconsensushash, setautocommit
 - #335 Disable logging on Windows to speed up CI RPC tests
 - #336 Change the default maximum OP_RETURN size to 80 bytes
-- #341 Add omni_getmetadexhash RPC call to hash state of MetaDEx
+- #341 Add zus_getmetadexhash RPC call to hash state of MetaDEx
 - #343 Remove pre-OP_RETURN legacy code
 - #344 Fix missing client notification for new activations
 - #349 Add positioninblock attribute to RPC output for transactions

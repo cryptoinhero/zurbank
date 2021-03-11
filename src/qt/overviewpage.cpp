@@ -235,11 +235,11 @@ public:
 
         if (omniOverride) {
             if (!valid) {
-                icon = QIcon(":/icons/omni_invalid");
+                icon = QIcon(":/icons/zus_invalid");
             } else {
-                icon = QIcon(":/icons/omni_out");
-                if (!omniOutbound) icon = QIcon(":/icons/omni_in");
-                if (omniSendToSelf) icon = QIcon(":/icons/omni_inout");
+                icon = QIcon(":/icons/zus_out");
+                if (!omniOutbound) icon = QIcon(":/icons/zus_in");
+                if (omniSendToSelf) icon = QIcon(":/icons/zus_inout");
             }
         }
 

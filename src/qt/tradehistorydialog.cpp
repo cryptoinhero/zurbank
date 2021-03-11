@@ -204,12 +204,12 @@ void TradeHistoryDialog::UpdateTradeHistoryTable(bool forceUpdate)
             QTableWidgetItem *amountInCell = new QTableWidgetItem(QString::fromStdString(objTH.amountIn));
             QTableWidgetItem *txidCell = new QTableWidgetItem(QString::fromStdString(txid.GetHex()));
             QTableWidgetItem *iconCell = new QTableWidgetItem;
-            QIcon ic = QIcon(":/icons/omni_meta_pending");
-            if (objTH.status == "Cancelled") ic =QIcon(":/icons/omni_meta_cancelled");
-            if (objTH.status == "Part Cancel") ic = QIcon(":/icons/omni_meta_partcancelled");
-            if (objTH.status == "Filled") ic = QIcon(":/icons/omni_meta_filled");
-            if (objTH.status == "Open") ic = QIcon(":/icons/omni_meta_open");
-            if (objTH.status == "Part Filled") ic = QIcon(":/icons/omni_meta_partfilled");
+            QIcon ic = QIcon(":/icons/zus_meta_pending");
+            if (objTH.status == "Cancelled") ic =QIcon(":/icons/zus_meta_cancelled");
+            if (objTH.status == "Part Cancel") ic = QIcon(":/icons/zus_meta_partcancelled");
+            if (objTH.status == "Filled") ic = QIcon(":/icons/zus_meta_filled");
+            if (objTH.status == "Open") ic = QIcon(":/icons/zus_meta_open");
+            if (objTH.status == "Part Filled") ic = QIcon(":/icons/zus_meta_partfilled");
             if (!objTH.valid) {
                 ic = QIcon(":/icons/transaction_conflicted");
                 objTH.status = "Invalid";

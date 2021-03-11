@@ -185,7 +185,7 @@ Should a particular client version not support a new feature when it is activate
 
 Senders of activation messages can be whitelisted or blacklisted with the configuration options `-omnialertallowsender=<sender>` and `-omnialertignoresender=<sender>`. Please be aware that overriding activations may cause the client to provide inaccurate data that does not reflect the rest of the network.
 
-The GUI displays warnings for pending activations and daemon users can view pending and completed activations via the [omni_getactivations](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_getactivations) JSON-RPC API call.
+The GUI displays warnings for pending activations and daemon users can view pending and completed activations via the [zus_getactivations](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#zus_getactivations) JSON-RPC API call.
 
 Consensus affecting changes
 ===========================
@@ -267,7 +267,7 @@ Transaction type 28 can be used to cancel all open orders for all currencies in 
 
 Transactions for the distributed token exchange are enabled on testnet, in regtest mode and when trading tokens in the test ecosystem. Transactions targeting the main ecosystem are supported after the feature activation.
 
-See also: [omni_sendtrade](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_sendtrade), [omni_sendcanceltradesbyprice](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_sendcanceltradesbyprice), [omni_sendcanceltradesbypair](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_sendcanceltradesbypair), [omni_sendcancelalltrades](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_sendcancelalltrades), [omni_gettrade](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_gettrade), [omni_getorderbook](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_getorderbook), [omni_gettradehistoryforpair](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_gettradehistoryforpair), [omni_gettradehistoryforaddress](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_gettradehistoryforaddress) JSON-RPC API calls
+See also: [zus_sendtrade](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#zus_sendtrade), [zus_sendcanceltradesbyprice](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#zus_sendcanceltradesbyprice), [zus_sendcanceltradesbypair](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#zus_sendcanceltradesbypair), [zus_sendcancelalltrades](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#zus_sendcancelalltrades), [zus_gettrade](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#zus_gettrade), [zus_getorderbook](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#zus_getorderbook), [zus_gettradehistoryforpair](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#zus_gettradehistoryforpair), [zus_gettradehistoryforaddress](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#zus_gettradehistoryforaddress) JSON-RPC API calls
 
 This change is identified by `"featureid": 2` and labeled by the GUI as `"Distributed Meta Token Exchange"`.
 
@@ -306,7 +306,7 @@ The transaction format is as follows:
 
 "Send-all" transactions are enabled on testnet, in regtest mode and when transferring tokens in the test ecosystem. Transactions targeting the main ecosystem are supported after the feature activation.
 
-See also: [omni_sendall](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_sendall) JSON-RPC API call
+See also: [zus_sendall](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#zus_sendall) JSON-RPC API call
 
 This change is identified by `"featureid": 6` and labeled by the GUI as `"Send All transactions"`.
 
@@ -395,7 +395,7 @@ ZURBank was improved on several levels to increase performance and responsivenes
 
 Previously RPC requests were blocking, creating a bottleneck for the JSON-RPC API and the whole application. Due to much finer and more targeted locking of critical sections, threads are now only blocked when they need to be, which allows concurrent requests without immediately creating a queue. The number of threads designated to handle RPC requests can be configured with the option `-rpcthreads=<n threads>`, which is set to `4` threads as per default.
 
-The serialization of token related database entries was previously JSON based, and the time to retrieve information about transactions, tokens or crowdsales, for example with [omni_gettransaction](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_gettransaction), [omni_getproperty](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_getproperty), [omni_getcrowdsale](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_getcrowdsale) or [omni_getactivecrowdsales](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#omni_getactivecrowdsales), was primarily delayed by slow conversions of the data stored in the database. Entries are now stored in their raw byte representation, which allows much faster deserialization of the data. Benchmarks have shown this update provides a speed improvement of about 8x or more for these calls.
+The serialization of token related database entries was previously JSON based, and the time to retrieve information about transactions, tokens or crowdsales, for example with [zus_gettransaction](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#zus_gettransaction), [zus_getproperty](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#zus_getproperty), [zus_getcrowdsale](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#zus_getcrowdsale) or [zus_getactivecrowdsales](https://github.com/zurcoin/zurbank/blob/zurbank-0.0.10/src/zurbank/doc/rpc-api.md#zus_getactivecrowdsales), was primarily delayed by slow conversions of the data stored in the database. Entries are now stored in their raw byte representation, which allows much faster deserialization of the data. Benchmarks have shown this update provides a speed improvement of about 8x or more for these calls.
 
 Most notably on Microsoft Windows, many updates of the GUI, for example when connecting a new block, created the impression of a non-responsive user interface, because the client couldn't keep up with the updates. This was optimized such that no queue of update events is created in the first place, and new update requests are dropped, in case there are already events which haven't been handled.
 
@@ -526,14 +526,14 @@ The following list includes relevant pull requests merged into this release:
 - #239 Fix "raised amount" in RPC result of crowdsales
 - #234 Update documentation of configuration options
 - #233 Use tables and add results to JSON-RPC API documentation
-- #250 Fix missing crowdsale purchase entries in verbose "omni_getcrowdsale"
+- #250 Fix missing crowdsale purchase entries in verbose "zus_getcrowdsale"
 - #253 Update handling of crowdsales and missing bonus amounts
 - #142 Add RPC to decode raw Zus transactions
 - #176 Implement updated alerting & feature activations
 - #252 Restrict ecosystem crossovers for crowdsales
 - #258 Explicitly set transaction and relay fee for RPC tests
 - #260 Add ARM and a no-wallet build as build target for Travis CI
-- #262 Filter empty balances in omni_getall* RPC calls
+- #262 Filter empty balances in zus_getall* RPC calls
 - #263 Update base to Bitcoin Core 0.10.3
 - #77 Support creation of raw transactions with non-wallet inputs
 - #273 Remove "Experimental UI" label GUI splash screen
@@ -546,8 +546,8 @@ The following list includes relevant pull requests merged into this release:
 - #285 Don't use "N/A" label for transactions with type 0
 - #286 Bump version to ZURBank 0.0.10-rc3
 - #288 Expose payload over RPC and add payload size
-- #291 Add error handlers for "omni_getpayload"
-- #292 Add API documentation for "omni_getpayload"
+- #291 Add error handlers for "zus_getpayload"
+- #292 Add API documentation for "zus_getpayload"
 - #295 Fix overflow when trading divisible against divisible
 - #303 Force UI update every block with Zus transactions
 - #305 Change default confirm target to 6 blocks

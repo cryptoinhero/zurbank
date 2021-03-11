@@ -45,8 +45,8 @@ using namespace mastercore;
 /**
  * Function to standardize RPC output for transactions into a JSON object in either basic or extended mode.
  *
- * Use basic mode for generic calls (e.g. omni_gettransaction/omni_listtransaction etc.)
- * Use extended mode for transaction specific calls (e.g. omni_getsto, omni_gettrade etc.)
+ * Use basic mode for generic calls (e.g. zus_gettransaction/zus_listtransaction etc.)
+ * Use extended mode for transaction specific calls (e.g. zus_getsto, zus_gettrade etc.)
  *
  * DEx payments and the extended mode are only available for confirmed transactions.
  */

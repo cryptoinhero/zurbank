@@ -95,7 +95,7 @@ It is also worth noting that the fee estimation algorithms were updated, and thu
 API changes
 -----------
 
-The behavior of the RPC [omni_gettradehistoryforaddress](https://github.com/zurcoin/zurbank/blob/master/src/zurbank/doc/rpc-api.md#omni_gettradehistoryforaddress) was amended to return newest transactions first instead of oldest.
+The behavior of the RPC [zus_gettradehistoryforaddress](https://github.com/zurcoin/zurbank/blob/master/src/zurbank/doc/rpc-api.md#zus_gettradehistoryforaddress) was amended to return newest transactions first instead of oldest.
 
 New project versioning scheme
 -----------------------------
@@ -161,7 +161,7 @@ Notable changes
 Avoid selection of uneconomic UTXO during transaction creation
 --------------------------------------------------------------
 
-In earlier version of ZURBank (prior to 0.2.0), when creating transactions with the Qt UI or the JSON-RPC API (for example with `omni_send`), then the coin selection algorithm may have selected unspent outputs, which are not economic to spend. This may have caused the creation of larger and more expensive transactions than necessary.
+In earlier version of ZURBank (prior to 0.2.0), when creating transactions with the Qt UI or the JSON-RPC API (for example with `zus_send`), then the coin selection algorithm may have selected unspent outputs, which are not economic to spend. This may have caused the creation of larger and more expensive transactions than necessary.
 
 In ZURBank 0.2.0 this is addressed by excluding inputs during the transaction creation, which are more expensive to spend than they are worth. Please note the exclusion is directly related to the fee related configuration options of ZURBank, such as `-paytxfee` or `-txconfirmtarget`.
 
@@ -206,8 +206,8 @@ Various smaller improvements were added ZURBank 0.2.0, such as:
 - Fix missing include of test utils header
 - Fix two ZURBank related build warnings
 - Automatically remove stale pending transactions
-- Relax data type checks of omni_createrawtx_change
-- Fix possible lock contention in omni_getactivedexsells
+- Relax data type checks of zus_createrawtx_change
+- Fix possible lock contention in zus_getactivedexsells
 - Remove managed property check in Change Issuer RPC
 - Hardcode activations up to block 438500
 - Fix a number of bugs in the QT UI
@@ -233,10 +233,10 @@ The following list includes relevant pull requests merged into this release:
 - #458 Add checkpoint for block 450,000
 - #457 Add seed blocks for 440,000 to 450,000
 - #456 Provide easy access to specific consensus hashes when parsing
-- #460 Show newest transactions for omni_gettradehistoryforaddress
+- #460 Show newest transactions for zus_gettradehistoryforaddress
 - #463 Automatically remove stale pending transactions
-- #464 Relax data type checks of omni_createrawtx_change
-- #465 Fix possible lock contention in omni_getactivedexsells
+- #464 Relax data type checks of zus_createrawtx_change
+- #465 Fix possible lock contention in zus_getactivedexsells
 - #466 Add consensus hash for block 460,000
 - #467 Add seed blocks for 450,000 to 460,000
 - #468 Remove managed property check in Change Issuer RPC

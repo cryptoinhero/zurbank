@@ -152,11 +152,11 @@ bool BalanceToJSON(const std::string& address, uint32_t property, UniValue& bala
 }
 
 // Obtains details of a fee distribution
-UniValue omni_getfeedistribution(const UniValue& params, bool fHelp)
+UniValue zus_getfeedistribution(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "omni_getfeedistribution distributionid\n"
+            "zus_getfeedistribution distributionid\n"
             "\nGet the details for a fee distribution.\n"
             "\nArguments:\n"
             "1. distributionid           (number, required) the distribution to obtain details for\n"
@@ -175,8 +175,8 @@ UniValue omni_getfeedistribution(const UniValue& params, bool fHelp)
             "  ]\n"
             "}\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getfeedistribution", "1")
-            + HelpExampleRpc("omni_getfeedistribution", "1")
+            + HelpExampleCli("zus_getfeedistribution", "1")
+            + HelpExampleRpc("zus_getfeedistribution", "1")
         );
 
     int id = params[0].get_int();
@@ -218,11 +218,11 @@ UniValue omni_getfeedistribution(const UniValue& params, bool fHelp)
 
 // Obtains all fee distributions for a property
 // TODO : Split off code to populate a fee distribution object into a seperate function
-UniValue omni_getfeedistributions(const UniValue& params, bool fHelp)
+UniValue zus_getfeedistributions(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "omni_getfeedistributions propertyid\n"
+            "zus_getfeedistributions propertyid\n"
             "\nGet the details of all fee distributions for a property.\n"
             "\nArguments:\n"
             "1. propertyid           (number, required) the property id to retrieve distributions for\n"
@@ -242,8 +242,8 @@ UniValue omni_getfeedistributions(const UniValue& params, bool fHelp)
             "  }\n"
             "]\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getfeedistributions", "1")
-            + HelpExampleRpc("omni_getfeedistributions", "1")
+            + HelpExampleCli("zus_getfeedistributions", "1")
+            + HelpExampleRpc("zus_getfeedistributions", "1")
         );
 
     uint32_t prop = ParsePropertyId(params[0]);
@@ -293,11 +293,11 @@ UniValue omni_getfeedistributions(const UniValue& params, bool fHelp)
 }
 
 // Obtains the trigger value for fee distribution for a/all properties
-UniValue omni_getfeetrigger(const UniValue& params, bool fHelp)
+UniValue zus_getfeetrigger(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
         throw runtime_error(
-            "omni_getfeetrigger ( propertyid )\n"
+            "zus_getfeetrigger ( propertyid )\n"
             "\nReturns the amount of fees required in the cache to trigger distribution.\n"
             "\nArguments:\n"
             "1. propertyid           (number, optional) filter the results on this property id\n"
@@ -310,8 +310,8 @@ UniValue omni_getfeetrigger(const UniValue& params, bool fHelp)
             "  ...\n"
             "]\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getfeetrigger", "3")
-            + HelpExampleRpc("omni_getfeetrigger", "3")
+            + HelpExampleCli("zus_getfeetrigger", "3")
+            + HelpExampleRpc("zus_getfeetrigger", "3")
         );
 
     uint32_t propertyId = 0;
@@ -343,11 +343,11 @@ UniValue omni_getfeetrigger(const UniValue& params, bool fHelp)
 }
 
 // Provides the fee share the wallet (or specific address) will receive from fee distributions
-UniValue omni_getfeeshare(const UniValue& params, bool fHelp)
+UniValue zus_getfeeshare(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() > 2)
         throw runtime_error(
-            "omni_getfeeshare ( address ecosystem )\n"
+            "zus_getfeeshare ( address ecosystem )\n"
             "\nReturns the percentage share of fees distribution applied to the wallet (default) or address (if supplied).\n"
             "\nArguments:\n"
             "1. address              (string, optional) retrieve the fee share for the supplied address\n"
@@ -361,8 +361,8 @@ UniValue omni_getfeeshare(const UniValue& params, bool fHelp)
             "  ...\n"
             "]\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getfeeshare", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\" 1")
-            + HelpExampleRpc("omni_getfeeshare", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\", 1")
+            + HelpExampleCli("zus_getfeeshare", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\" 1")
+            + HelpExampleRpc("zus_getfeeshare", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\", 1")
         );
 
     std::string address;
@@ -414,11 +414,11 @@ UniValue omni_getfeeshare(const UniValue& params, bool fHelp)
 }
 
 // Provides the current values of the fee cache
-UniValue omni_getfeecache(const UniValue& params, bool fHelp)
+UniValue zus_getfeecache(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
         throw runtime_error(
-            "omni_getfeecache ( propertyid )\n"
+            "zus_getfeecache ( propertyid )\n"
             "\nReturns the amount of fees cached for distribution.\n"
             "\nArguments:\n"
             "1. propertyid           (number, optional) filter the results on this property id\n"
@@ -431,8 +431,8 @@ UniValue omni_getfeecache(const UniValue& params, bool fHelp)
             "  ...\n"
             "]\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getfeecache", "31")
-            + HelpExampleRpc("omni_getfeecache", "31")
+            + HelpExampleCli("zus_getfeecache", "31")
+            + HelpExampleRpc("zus_getfeecache", "31")
         );
 
     uint32_t propertyId = 0;
@@ -468,11 +468,11 @@ UniValue omni_getfeecache(const UniValue& params, bool fHelp)
 }
 
 // generate a list of seed blocks based on the data in LevelDB
-UniValue omni_getseedblocks(const UniValue& params, bool fHelp)
+UniValue zus_getseedblocks(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "omni_getseedblocks startblock endblock\n"
+            "zus_getseedblocks startblock endblock\n"
             "\nReturns a list of blocks containing Zus transactions for use in seed block filtering.\n"
             "\nWARNING: The Exodus crowdsale is not stored in LevelDB, thus this is currently only safe to use to generate seed blocks after block 255365."
             "\nArguments:\n"
@@ -484,8 +484,8 @@ UniValue omni_getseedblocks(const UniValue& params, bool fHelp)
             "   ...\n"
             "]\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getseedblocks", "290000 300000")
-            + HelpExampleRpc("omni_getseedblocks", "290000, 300000")
+            + HelpExampleCli("zus_getseedblocks", "290000 300000")
+            + HelpExampleRpc("zus_getseedblocks", "290000, 300000")
         );
 
     int startHeight = params[0].get_int();
@@ -508,11 +508,11 @@ UniValue omni_getseedblocks(const UniValue& params, bool fHelp)
 }
 
 // obtain the payload for a transaction
-UniValue omni_getpayload(const UniValue& params, bool fHelp)
+UniValue zus_getpayload(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "omni_getpayload \"txid\"\n"
+            "zus_getpayload \"txid\"\n"
             "\nGet the payload for an Zus transaction.\n"
             "\nArguments:\n"
             "1. txid                 (string, required) the hash of the transaction to retrieve payload\n"
@@ -522,8 +522,8 @@ UniValue omni_getpayload(const UniValue& params, bool fHelp)
             "  \"payloadsize\" : n                     (number) the size of the payload\n"
             "}\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getpayload", "\"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\"")
-            + HelpExampleRpc("omni_getpayload", "\"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\"")
+            + HelpExampleCli("zus_getpayload", "\"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\"")
+            + HelpExampleRpc("zus_getpayload", "\"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\"")
         );
 
     uint256 txid = ParseHashV(params[0], "txid");
@@ -555,19 +555,19 @@ UniValue omni_getpayload(const UniValue& params, bool fHelp)
 }
 
 // determine whether to automatically commit transactions
-UniValue omni_setautocommit(const UniValue& params, bool fHelp)
+UniValue zus_setautocommit(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "omni_setautocommit flag\n"
+            "zus_setautocommit flag\n"
             "\nSets the global flag that determines whether transactions are automatically committed and broadcast.\n"
             "\nArguments:\n"
             "1. flag                 (boolean, required) the flag\n"
             "\nResult:\n"
             "true|false              (boolean) the updated flag status\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_setautocommit", "false")
-            + HelpExampleRpc("omni_setautocommit", "false")
+            + HelpExampleCli("zus_setautocommit", "false")
+            + HelpExampleRpc("zus_setautocommit", "false")
         );
 
     LOCK(cs_tally);
@@ -744,11 +744,11 @@ UniValue mscrpc(const UniValue& params, bool fHelp)
 }
 
 // display an MP balance via RPC
-UniValue omni_getbalance(const UniValue& params, bool fHelp)
+UniValue zus_getbalance(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "omni_getbalance \"address\" propertyid\n"
+            "zus_getbalance \"address\" propertyid\n"
             "\nReturns the token balance for a given address and property.\n"
             "\nArguments:\n"
             "1. address              (string, required) the address\n"
@@ -760,8 +760,8 @@ UniValue omni_getbalance(const UniValue& params, bool fHelp)
             "  \"frozen\" : \"n.nnnnnnnn\"     (string) the amount frozen by the issuer (applies to managed properties only)\n"
             "}\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getbalance", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\" 1")
-            + HelpExampleRpc("omni_getbalance", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\", 1")
+            + HelpExampleCli("zus_getbalance", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\" 1")
+            + HelpExampleRpc("zus_getbalance", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\", 1")
         );
 
     std::string address = ParseAddress(params[0]);
@@ -775,11 +775,11 @@ UniValue omni_getbalance(const UniValue& params, bool fHelp)
     return balanceObj;
 }
 
-UniValue omni_getallbalancesforid(const UniValue& params, bool fHelp)
+UniValue zus_getallbalancesforid(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "omni_getallbalancesforid propertyid\n"
+            "zus_getallbalancesforid propertyid\n"
             "\nReturns a list of token balances for a given currency or property identifier.\n"
             "\nArguments:\n"
             "1. propertyid           (number, required) the property identifier\n"
@@ -794,8 +794,8 @@ UniValue omni_getallbalancesforid(const UniValue& params, bool fHelp)
             "  ...\n"
             "]\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getallbalancesforid", "1")
-            + HelpExampleRpc("omni_getallbalancesforid", "1")
+            + HelpExampleCli("zus_getallbalancesforid", "1")
+            + HelpExampleRpc("zus_getallbalancesforid", "1")
         );
 
     uint32_t propertyId = ParsePropertyId(params[0]);
@@ -833,11 +833,11 @@ UniValue omni_getallbalancesforid(const UniValue& params, bool fHelp)
     return response;
 }
 
-UniValue omni_getallbalancesforaddress(const UniValue& params, bool fHelp)
+UniValue zus_getallbalancesforaddress(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "omni_getallbalancesforaddress \"address\"\n"
+            "zus_getallbalancesforaddress \"address\"\n"
             "\nReturns a list of all token balances for a given address.\n"
             "\nArguments:\n"
             "1. address              (string, required) the address\n"
@@ -853,8 +853,8 @@ UniValue omni_getallbalancesforaddress(const UniValue& params, bool fHelp)
             "  ...\n"
             "]\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getallbalancesforaddress", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\"")
-            + HelpExampleRpc("omni_getallbalancesforaddress", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\"")
+            + HelpExampleCli("zus_getallbalancesforaddress", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\"")
+            + HelpExampleRpc("zus_getallbalancesforaddress", "\"UrpY6GsjF5WK33TzeiS8mQCPxzMdvbizp6\"")
         );
 
     std::string address = ParseAddress(params[0]);
@@ -913,11 +913,11 @@ static std::set<std::string> getWalletAddresses(bool fIncludeWatchOnly)
     return result;
 }
 
-UniValue omni_getwalletbalances(const UniValue& params, bool fHelp)
+UniValue zus_getwalletbalances(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
         throw runtime_error(
-            "omni_getwalletbalances ( includewatchonly )\n"
+            "zus_getwalletbalances ( includewatchonly )\n"
             "\nReturns a list of the total token balances of the whole wallet.\n"
             "\nArguments:\n"
             "1. includewatchonly     (boolean, optional) include balances of watchonly addresses (default: false)\n"
@@ -933,8 +933,8 @@ UniValue omni_getwalletbalances(const UniValue& params, bool fHelp)
             "  ...\n"
             "]\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getwalletbalances", "")
-            + HelpExampleRpc("omni_getwalletbalances", "")
+            + HelpExampleCli("zus_getwalletbalances", "")
+            + HelpExampleRpc("zus_getwalletbalances", "")
         );
 
     bool fIncludeWatchOnly = false;
@@ -1020,11 +1020,11 @@ UniValue omni_getwalletbalances(const UniValue& params, bool fHelp)
     return response;
 }
 
-UniValue omni_getwalletaddressbalances(const UniValue& params, bool fHelp)
+UniValue zus_getwalletaddressbalances(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
         throw runtime_error(
-            "omni_getwalletaddressbalances ( includewatchonly )\n"
+            "zus_getwalletaddressbalances ( includewatchonly )\n"
             "\nReturns a list of all token balances for every wallet address.\n"
             "\nArguments:\n"
             "1. includewatchonly     (boolean, optional) include balances of watchonly addresses (default: false)\n"
@@ -1047,8 +1047,8 @@ UniValue omni_getwalletaddressbalances(const UniValue& params, bool fHelp)
             "  ...\n"
             "]\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getwalletaddressbalances", "")
-            + HelpExampleRpc("omni_getwalletaddressbalances", "")
+            + HelpExampleCli("zus_getwalletaddressbalances", "")
+            + HelpExampleRpc("zus_getwalletaddressbalances", "")
         );
 
     bool fIncludeWatchOnly = false;
@@ -1105,11 +1105,11 @@ UniValue omni_getwalletaddressbalances(const UniValue& params, bool fHelp)
     return response;
 }
 
-UniValue omni_getproperty(const UniValue& params, bool fHelp)
+UniValue zus_getproperty(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "omni_getproperty propertyid\n"
+            "zus_getproperty propertyid\n"
             "\nReturns details for about the tokens or smart property to lookup.\n"
             "\nArguments:\n"
             "1. propertyid           (number, required) the identifier of the tokens or property\n"
@@ -1129,8 +1129,8 @@ UniValue omni_getproperty(const UniValue& params, bool fHelp)
             "  \"totaltokens\" : \"n.nnnnnnnn\"     (string) the total number of tokens in existence\n"
             "}\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getproperty", "3")
-            + HelpExampleRpc("omni_getproperty", "3")
+            + HelpExampleCli("zus_getproperty", "3")
+            + HelpExampleRpc("zus_getproperty", "3")
         );
 
     uint32_t propertyId = ParsePropertyId(params[0]);
@@ -1165,11 +1165,11 @@ UniValue omni_getproperty(const UniValue& params, bool fHelp)
     return response;
 }
 
-UniValue omni_listproperties(const UniValue& params, bool fHelp)
+UniValue zus_listproperties(const UniValue& params, bool fHelp)
 {
     if (fHelp)
         throw runtime_error(
-            "omni_listproperties\n"
+            "zus_listproperties\n"
             "\nLists all tokens or smart properties.\n"
             "\nResult:\n"
             "[                                (array of JSON objects)\n"
@@ -1185,8 +1185,8 @@ UniValue omni_listproperties(const UniValue& params, bool fHelp)
             "  ...\n"
             "]\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_listproperties", "")
-            + HelpExampleRpc("omni_listproperties", "")
+            + HelpExampleCli("zus_listproperties", "")
+            + HelpExampleRpc("zus_listproperties", "")
         );
 
     UniValue response(UniValue::VARR);
@@ -1220,11 +1220,11 @@ UniValue omni_listproperties(const UniValue& params, bool fHelp)
     return response;
 }
 
-UniValue omni_getcrowdsale(const UniValue& params, bool fHelp)
+UniValue zus_getcrowdsale(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "omni_getcrowdsale propertyid ( verbose )\n"
+            "zus_getcrowdsale propertyid ( verbose )\n"
             "\nReturns information about a crowdsale.\n"
             "\nArguments:\n"
             "1. propertyid           (number, required) the identifier of the crowdsale\n"
@@ -1260,8 +1260,8 @@ UniValue omni_getcrowdsale(const UniValue& params, bool fHelp)
             "  ]\n"
             "}\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getcrowdsale", "3 true")
-            + HelpExampleRpc("omni_getcrowdsale", "3, true")
+            + HelpExampleCli("zus_getcrowdsale", "3 true")
+            + HelpExampleRpc("zus_getcrowdsale", "3, true")
         );
 
     uint32_t propertyId = ParsePropertyId(params[0]);
@@ -1368,11 +1368,11 @@ UniValue omni_getcrowdsale(const UniValue& params, bool fHelp)
     return response;
 }
 
-UniValue omni_getactivecrowdsales(const UniValue& params, bool fHelp)
+UniValue zus_getactivecrowdsales(const UniValue& params, bool fHelp)
 {
     if (fHelp)
         throw runtime_error(
-            "omni_getactivecrowdsales\n"
+            "zus_getactivecrowdsales\n"
             "\nLists currently active crowdsales.\n"
             "\nResult:\n"
             "[                                 (array of JSON objects)\n"
@@ -1390,8 +1390,8 @@ UniValue omni_getactivecrowdsales(const UniValue& params, bool fHelp)
             "  ...\n"
             "]\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getactivecrowdsales", "")
-            + HelpExampleRpc("omni_getactivecrowdsales", "")
+            + HelpExampleCli("zus_getactivecrowdsales", "")
+            + HelpExampleRpc("zus_getactivecrowdsales", "")
         );
 
     UniValue response(UniValue::VARR);
@@ -1436,11 +1436,11 @@ UniValue omni_getactivecrowdsales(const UniValue& params, bool fHelp)
     return response;
 }
 
-UniValue omni_getgrants(const UniValue& params, bool fHelp)
+UniValue zus_getgrants(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "omni_getgrants propertyid\n"
+            "zus_getgrants propertyid\n"
             "\nReturns information about granted and revoked units of managed tokens.\n"
             "\nArguments:\n"
             "1. propertyid           (number, required) the identifier of the managed tokens to lookup\n"
@@ -1464,8 +1464,8 @@ UniValue omni_getgrants(const UniValue& params, bool fHelp)
             "  ]\n"
             "}\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getgrants", "31")
-            + HelpExampleRpc("omni_getgrants", "31")
+            + HelpExampleCli("zus_getgrants", "31")
+            + HelpExampleRpc("zus_getgrants", "31")
         );
 
     uint32_t propertyId = ParsePropertyId(params[0]);
@@ -1518,11 +1518,11 @@ UniValue omni_getgrants(const UniValue& params, bool fHelp)
     return response;
 }
 
-UniValue omni_getorderbook(const UniValue& params, bool fHelp)
+UniValue zus_getorderbook(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "omni_getorderbook propertyid ( propertyid )\n"
+            "zus_getorderbook propertyid ( propertyid )\n"
             "\nList active offers on the distributed token exchange.\n"
             "\nArguments:\n"
             "1. propertyid           (number, required) filter orders by property identifier for sale\n"
@@ -1548,8 +1548,8 @@ UniValue omni_getorderbook(const UniValue& params, bool fHelp)
             "  ...\n"
             "]\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getorderbook", "2")
-            + HelpExampleRpc("omni_getorderbook", "2")
+            + HelpExampleCli("zus_getorderbook", "2")
+            + HelpExampleRpc("zus_getorderbook", "2")
         );
 
     bool filterDesired = (params.size() > 1);
@@ -1587,11 +1587,11 @@ UniValue omni_getorderbook(const UniValue& params, bool fHelp)
     return response;
 }
 
-UniValue omni_gettradehistoryforaddress(const UniValue& params, bool fHelp)
+UniValue zus_gettradehistoryforaddress(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 3)
         throw runtime_error(
-            "omni_gettradehistoryforaddress \"address\" ( count propertyid )\n"
+            "zus_gettradehistoryforaddress \"address\" ( count propertyid )\n"
             "\nRetrieves the history of orders on the distributed exchange for the supplied address.\n"
             "\nArguments:\n"
             "1. address              (string, required) address to retrieve history for\n"
@@ -1635,8 +1635,8 @@ UniValue omni_gettradehistoryforaddress(const UniValue& params, bool fHelp)
             "\nNote:\n"
             "The documentation only covers the output for a trade, but there are also cancel transactions with different properties.\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_gettradehistoryforaddress", "\"1MCHESTptvd2LnNp7wmr2sGTpRomteAkq8\"")
-            + HelpExampleRpc("omni_gettradehistoryforaddress", "\"1MCHESTptvd2LnNp7wmr2sGTpRomteAkq8\"")
+            + HelpExampleCli("zus_gettradehistoryforaddress", "\"1MCHESTptvd2LnNp7wmr2sGTpRomteAkq8\"")
+            + HelpExampleRpc("zus_gettradehistoryforaddress", "\"1MCHESTptvd2LnNp7wmr2sGTpRomteAkq8\"")
         );
 
     std::string address = ParseAddress(params[0]);
@@ -1671,11 +1671,11 @@ UniValue omni_gettradehistoryforaddress(const UniValue& params, bool fHelp)
     return response;
 }
 
-UniValue omni_gettradehistoryforpair(const UniValue& params, bool fHelp)
+UniValue zus_gettradehistoryforpair(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 3)
         throw runtime_error(
-            "omni_gettradehistoryforpair propertyid propertyid ( count )\n"
+            "zus_gettradehistoryforpair propertyid propertyid ( count )\n"
             "\nRetrieves the history of trades on the distributed token exchange for the specified market.\n"
             "\nArguments:\n"
             "1. propertyid           (number, required) the first side of the traded pair\n"
@@ -1697,8 +1697,8 @@ UniValue omni_gettradehistoryforpair(const UniValue& params, bool fHelp)
             "  ...\n"
             "]\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_gettradehistoryforpair", "1 12 500")
-            + HelpExampleRpc("omni_gettradehistoryforpair", "1, 12, 500")
+            + HelpExampleCli("zus_gettradehistoryforpair", "1 12 500")
+            + HelpExampleRpc("zus_gettradehistoryforpair", "1, 12, 500")
         );
 
     // obtain property identifiers for pair & check valid parameters
@@ -1718,11 +1718,11 @@ UniValue omni_gettradehistoryforpair(const UniValue& params, bool fHelp)
     return response;
 }
 
-UniValue omni_getactivedexsells(const UniValue& params, bool fHelp)
+UniValue zus_getactivedexsells(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
         throw runtime_error(
-            "omni_getactivedexsells ( address )\n"
+            "zus_getactivedexsells ( address )\n"
             "\nReturns currently active offers on the distributed exchange.\n"
             "\nArguments:\n"
             "1. address              (string, optional) address filter (default: include any)\n"
@@ -1752,8 +1752,8 @@ UniValue omni_getactivedexsells(const UniValue& params, bool fHelp)
             "  ...\n"
             "]\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getactivedexsells", "")
-            + HelpExampleRpc("omni_getactivedexsells", "")
+            + HelpExampleCli("zus_getactivedexsells", "")
+            + HelpExampleRpc("zus_getactivedexsells", "")
         );
 
     std::string addressFilter;
@@ -1841,11 +1841,11 @@ UniValue omni_getactivedexsells(const UniValue& params, bool fHelp)
     return response;
 }
 
-UniValue omni_listblocktransactions(const UniValue& params, bool fHelp)
+UniValue zus_listblocktransactions(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "omni_listblocktransactions index\n"
+            "zus_listblocktransactions index\n"
             "\nLists all Zus transactions in a block.\n"
             "\nArguments:\n"
             "1. index                (number, required) the block height or block index\n"
@@ -1856,8 +1856,8 @@ UniValue omni_listblocktransactions(const UniValue& params, bool fHelp)
             "]\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_listblocktransactions", "279007")
-            + HelpExampleRpc("omni_listblocktransactions", "279007")
+            + HelpExampleCli("zus_listblocktransactions", "279007")
+            + HelpExampleRpc("zus_listblocktransactions", "279007")
         );
 
     int blockHeight = params[0].get_int();
@@ -1893,11 +1893,11 @@ UniValue omni_listblocktransactions(const UniValue& params, bool fHelp)
     return response;
 }
 
-UniValue omni_listblockstransactions(const UniValue& params, bool fHelp)
+UniValue zus_listblockstransactions(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "omni_listblocktransactions firstblock lastblock\n"
+            "zus_listblocktransactions firstblock lastblock\n"
             "\nLists all Zus transactions in a given range of blocks.\n"
             "\nNote: the list of transactions is unordered and can contain invalid transactions!\n"
             "\nArguments:\n"
@@ -1910,8 +1910,8 @@ UniValue omni_listblockstransactions(const UniValue& params, bool fHelp)
             "]\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_listblocktransactions", "279007 300000")
-            + HelpExampleRpc("omni_listblocktransactions", "279007, 300000")
+            + HelpExampleCli("zus_listblocktransactions", "279007 300000")
+            + HelpExampleRpc("zus_listblocktransactions", "279007, 300000")
         );
 
     int blockFirst = params[0].get_int();
@@ -1932,11 +1932,11 @@ UniValue omni_listblockstransactions(const UniValue& params, bool fHelp)
     return response;
 }
 
-UniValue omni_gettransaction(const UniValue& params, bool fHelp)
+UniValue zus_gettransaction(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "omni_gettransaction \"txid\"\n"
+            "zus_gettransaction \"txid\"\n"
             "\nGet detailed information about an Zus transaction.\n"
             "\nArguments:\n"
             "1. txid                 (string, required) the hash of the transaction to lookup\n"
@@ -1957,8 +1957,8 @@ UniValue omni_gettransaction(const UniValue& params, bool fHelp)
             "  [...]                             (mixed) other transaction type specific properties\n"
             "}\n"
             "\nbExamples:\n"
-            + HelpExampleCli("omni_gettransaction", "\"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\"")
-            + HelpExampleRpc("omni_gettransaction", "\"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\"")
+            + HelpExampleCli("zus_gettransaction", "\"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\"")
+            + HelpExampleRpc("zus_gettransaction", "\"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\"")
         );
 
     uint256 hash = ParseHashV(params[0], "txid");
@@ -1970,11 +1970,11 @@ UniValue omni_gettransaction(const UniValue& params, bool fHelp)
     return txobj;
 }
 
-UniValue omni_listtransactions(const UniValue& params, bool fHelp)
+UniValue zus_listtransactions(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() > 5)
         throw runtime_error(
-            "omni_listtransactions ( \"address\" count skip startblock endblock )\n"
+            "zus_listtransactions ( \"address\" count skip startblock endblock )\n"
             "\nList wallet transactions, optionally filtered by an address and block boundaries.\n"
             "\nArguments:\n"
             "1. address              (string, optional) address filter (default: \"*\")\n"
@@ -2001,8 +2001,8 @@ UniValue omni_listtransactions(const UniValue& params, bool fHelp)
             "  ...\n"
             "]\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_listtransactions", "")
-            + HelpExampleRpc("omni_listtransactions", "")
+            + HelpExampleCli("zus_listtransactions", "")
+            + HelpExampleRpc("zus_listtransactions", "")
         );
 
     // obtains parameters - default all wallet addresses & last 10 transactions
@@ -2044,11 +2044,11 @@ UniValue omni_listtransactions(const UniValue& params, bool fHelp)
     return response;
 }
 
-UniValue omni_listpendingtransactions(const UniValue& params, bool fHelp)
+UniValue zus_listpendingtransactions(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
         throw runtime_error(
-            "omni_listpendingtransactions ( \"address\" )\n"
+            "zus_listpendingtransactions ( \"address\" )\n"
             "\nReturns a list of unconfirmed Zus transactions, pending in the memory pool.\n"
             "\nAn optional filter can be provided to only include transactions which involve the given address.\n"
             "\nNote: the validity of pending transactions is uncertain, and the state of the memory pool may "
@@ -2072,8 +2072,8 @@ UniValue omni_listpendingtransactions(const UniValue& params, bool fHelp)
             "  ...\n"
             "]\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_listpendingtransactions", "")
-            + HelpExampleRpc("omni_listpendingtransactions", "")
+            + HelpExampleCli("zus_listpendingtransactions", "")
+            + HelpExampleRpc("zus_listpendingtransactions", "")
         );
 
     std::string filterAddress;
@@ -2099,11 +2099,11 @@ UniValue omni_listpendingtransactions(const UniValue& params, bool fHelp)
     return result;
 }
 
-UniValue omni_getinfo(const UniValue& params, bool fHelp)
+UniValue zus_getinfo(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
         throw runtime_error(
-            "omni_getinfo\n"
+            "zus_getinfo\n"
             "Returns various state information of the client and protocol.\n"
             "\nResult:\n"
             "{\n"
@@ -2126,8 +2126,8 @@ UniValue omni_getinfo(const UniValue& params, bool fHelp)
             "  ]\n"
             "}\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getinfo", "")
-            + HelpExampleRpc("omni_getinfo", "")
+            + HelpExampleCli("zus_getinfo", "")
+            + HelpExampleRpc("zus_getinfo", "")
         );
 
     UniValue infoResponse(UniValue::VOBJ);
@@ -2183,11 +2183,11 @@ UniValue omni_getinfo(const UniValue& params, bool fHelp)
     return infoResponse;
 }
 
-UniValue omni_getactivations(const UniValue& params, bool fHelp)
+UniValue zus_getactivations(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
         throw runtime_error(
-            "omni_getactivations\n"
+            "zus_getactivations\n"
             "Returns pending and completed feature activations.\n"
             "\nResult:\n"
             "{\n"
@@ -2211,8 +2211,8 @@ UniValue omni_getactivations(const UniValue& params, bool fHelp)
             "  ]\n"
             "}\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getactivations", "")
-            + HelpExampleRpc("omni_getactivations", "")
+            + HelpExampleCli("zus_getactivations", "")
+            + HelpExampleRpc("zus_getactivations", "")
         );
 
     UniValue response(UniValue::VOBJ);
@@ -2247,11 +2247,11 @@ UniValue omni_getactivations(const UniValue& params, bool fHelp)
     return response;
 }
 
-UniValue omni_getsto(const UniValue& params, bool fHelp)
+UniValue zus_getsto(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "omni_getsto \"txid\" \"recipientfilter\"\n"
+            "zus_getsto \"txid\" \"recipientfilter\"\n"
             "\nGet information and recipients of a send-to-owners transaction.\n"
             "\nArguments:\n"
             "1. txid                 (string, required) the hash of the transaction to lookup\n"
@@ -2281,8 +2281,8 @@ UniValue omni_getsto(const UniValue& params, bool fHelp)
             "  ]\n"
             "}\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_getsto", "\"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\" \"*\"")
-            + HelpExampleRpc("omni_getsto", "\"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\", \"*\"")
+            + HelpExampleCli("zus_getsto", "\"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\" \"*\"")
+            + HelpExampleRpc("zus_getsto", "\"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\", \"*\"")
         );
 
     uint256 hash = ParseHashV(params[0], "txid");
@@ -2296,11 +2296,11 @@ UniValue omni_getsto(const UniValue& params, bool fHelp)
     return txobj;
 }
 
-UniValue omni_gettrade(const UniValue& params, bool fHelp)
+UniValue zus_gettrade(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "omni_gettrade \"txid\"\n"
+            "zus_gettrade \"txid\"\n"
             "\nGet detailed information and trade matches for orders on the distributed token exchange.\n"
             "\nArguments:\n"
             "1. txid                 (string, required) the hash of the order to lookup\n"
@@ -2339,8 +2339,8 @@ UniValue omni_gettrade(const UniValue& params, bool fHelp)
             "\nNote:\n"
             "The documentation only covers the output for a trade, but there are also cancel transactions with different properties.\n"
             "\nExamples:\n"
-            + HelpExampleCli("omni_gettrade", "\"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\"")
-            + HelpExampleRpc("omni_gettrade", "\"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\"")
+            + HelpExampleCli("zus_gettrade", "\"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\"")
+            + HelpExampleRpc("zus_gettrade", "\"1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d\"")
         );
 
     uint256 hash = ParseHashV(params[0], "txid");
@@ -2352,11 +2352,11 @@ UniValue omni_gettrade(const UniValue& params, bool fHelp)
     return txobj;
 }
 
-UniValue omni_getcurrentconsensushash(const UniValue& params, bool fHelp)
+UniValue zus_getcurrentconsensushash(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
         throw runtime_error(
-            "omni_getcurrentconsensushash\n"
+            "zus_getcurrentconsensushash\n"
             "\nReturns the consensus hash for all balances for the current block.\n"
             "\nResult:\n"
             "{\n"
@@ -2366,8 +2366,8 @@ UniValue omni_getcurrentconsensushash(const UniValue& params, bool fHelp)
             "}\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_getcurrentconsensushash", "")
-            + HelpExampleRpc("omni_getcurrentconsensushash", "")
+            + HelpExampleCli("zus_getcurrentconsensushash", "")
+            + HelpExampleRpc("zus_getcurrentconsensushash", "")
         );
 
     LOCK(cs_main); // TODO - will this ensure we don't take in a new block in the couple of ms it takes to calculate the consensus hash?
@@ -2387,11 +2387,11 @@ UniValue omni_getcurrentconsensushash(const UniValue& params, bool fHelp)
     return response;
 }
 
-UniValue omni_getmetadexhash(const UniValue& params, bool fHelp)
+UniValue zus_getmetadexhash(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
         throw runtime_error(
-            "omni_getmetadexhash propertyId\n"
+            "zus_getmetadexhash propertyId\n"
             "\nReturns a hash of the current state of the MetaDEx (default) or orderbook.\n"
             "\nArguments:\n"
             "1. propertyid                  (number, optional) hash orderbook (only trades selling propertyid)\n"
@@ -2404,8 +2404,8 @@ UniValue omni_getmetadexhash(const UniValue& params, bool fHelp)
             "}\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_getmetadexhash", "3")
-            + HelpExampleRpc("omni_getmetadexhash", "3")
+            + HelpExampleCli("zus_getmetadexhash", "3")
+            + HelpExampleRpc("zus_getmetadexhash", "3")
         );
 
     LOCK(cs_main);
@@ -2431,11 +2431,11 @@ UniValue omni_getmetadexhash(const UniValue& params, bool fHelp)
     return response;
 }
 
-UniValue omni_getbalanceshash(const UniValue& params, bool fHelp)
+UniValue zus_getbalanceshash(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "omni_getbalanceshash propertyid\n"
+            "zus_getbalanceshash propertyid\n"
             "\nReturns a hash of the balances for the property.\n"
             "\nArguments:\n"
             "1. propertyid                  (number, required) the property to hash balances for\n"
@@ -2448,8 +2448,8 @@ UniValue omni_getbalanceshash(const UniValue& params, bool fHelp)
             "}\n"
 
             "\nExamples:\n"
-            + HelpExampleCli("omni_getbalanceshash", "31")
-            + HelpExampleRpc("omni_getbalanceshash", "31")
+            + HelpExampleCli("zus_getbalanceshash", "31")
+            + HelpExampleRpc("zus_getbalanceshash", "31")
         );
 
     LOCK(cs_main);
@@ -2475,62 +2475,62 @@ UniValue omni_getbalanceshash(const UniValue& params, bool fHelp)
 static const CRPCCommand commands[] =
 { //  category                             name                            actor (function)               okSafeMode
   //  ------------------------------------ ------------------------------- ------------------------------ ----------
-    { "omni layer (data retrieval)", "omni_getinfo",                   &omni_getinfo,                    true  },
-    { "omni layer (data retrieval)", "omni_getactivations",            &omni_getactivations,             true  },
-    { "omni layer (data retrieval)", "omni_getallbalancesforid",       &omni_getallbalancesforid,        false },
-    { "omni layer (data retrieval)", "omni_getbalance",                &omni_getbalance,                 false },
-    { "omni layer (data retrieval)", "omni_gettransaction",            &omni_gettransaction,             false },
-    { "omni layer (data retrieval)", "omni_getproperty",               &omni_getproperty,                false },
-    { "omni layer (data retrieval)", "omni_listproperties",            &omni_listproperties,             false },
-    { "omni layer (data retrieval)", "omni_getcrowdsale",              &omni_getcrowdsale,               false },
-    { "omni layer (data retrieval)", "omni_getgrants",                 &omni_getgrants,                  false },
-    { "omni layer (data retrieval)", "omni_getactivedexsells",         &omni_getactivedexsells,          false },
-    { "omni layer (data retrieval)", "omni_getactivecrowdsales",       &omni_getactivecrowdsales,        false },
-    { "omni layer (data retrieval)", "omni_getorderbook",              &omni_getorderbook,               false },
-    { "omni layer (data retrieval)", "omni_gettrade",                  &omni_gettrade,                   false },
-    { "omni layer (data retrieval)", "omni_getsto",                    &omni_getsto,                     false },
-    { "omni layer (data retrieval)", "omni_listblocktransactions",     &omni_listblocktransactions,      false },
-    { "omni layer (data retrieval)", "omni_listblockstransactions",    &omni_listblockstransactions,     false },
-    { "omni layer (data retrieval)", "omni_listpendingtransactions",   &omni_listpendingtransactions,    false },
-    { "omni layer (data retrieval)", "omni_getallbalancesforaddress",  &omni_getallbalancesforaddress,   false },
-    { "omni layer (data retrieval)", "omni_gettradehistoryforaddress", &omni_gettradehistoryforaddress,  false },
-    { "omni layer (data retrieval)", "omni_gettradehistoryforpair",    &omni_gettradehistoryforpair,     false },
-    { "omni layer (data retrieval)", "omni_getcurrentconsensushash",   &omni_getcurrentconsensushash,    false },
-    { "omni layer (data retrieval)", "omni_getpayload",                &omni_getpayload,                 false },
-    { "omni layer (data retrieval)", "omni_getseedblocks",             &omni_getseedblocks,              false },
-    { "omni layer (data retrieval)", "omni_getmetadexhash",            &omni_getmetadexhash,             false },
-    { "omni layer (data retrieval)", "omni_getfeecache",               &omni_getfeecache,                false },
-    { "omni layer (data retrieval)", "omni_getfeetrigger",             &omni_getfeetrigger,              false },
-    { "omni layer (data retrieval)", "omni_getfeedistribution",        &omni_getfeedistribution,         false },
-    { "omni layer (data retrieval)", "omni_getfeedistributions",       &omni_getfeedistributions,        false },
-    { "omni layer (data retrieval)", "omni_getbalanceshash",           &omni_getbalanceshash,            false },
+    { "omni layer (data retrieval)", "zus_getinfo",                   &zus_getinfo,                    true  },
+    { "omni layer (data retrieval)", "zus_getactivations",            &zus_getactivations,             true  },
+    { "omni layer (data retrieval)", "zus_getallbalancesforid",       &zus_getallbalancesforid,        false },
+    { "omni layer (data retrieval)", "zus_getbalance",                &zus_getbalance,                 false },
+    { "omni layer (data retrieval)", "zus_gettransaction",            &zus_gettransaction,             false },
+    { "omni layer (data retrieval)", "zus_getproperty",               &zus_getproperty,                false },
+    { "omni layer (data retrieval)", "zus_listproperties",            &zus_listproperties,             false },
+    { "omni layer (data retrieval)", "zus_getcrowdsale",              &zus_getcrowdsale,               false },
+    { "omni layer (data retrieval)", "zus_getgrants",                 &zus_getgrants,                  false },
+    { "omni layer (data retrieval)", "zus_getactivedexsells",         &zus_getactivedexsells,          false },
+    { "omni layer (data retrieval)", "zus_getactivecrowdsales",       &zus_getactivecrowdsales,        false },
+    { "omni layer (data retrieval)", "zus_getorderbook",              &zus_getorderbook,               false },
+    { "omni layer (data retrieval)", "zus_gettrade",                  &zus_gettrade,                   false },
+    { "omni layer (data retrieval)", "zus_getsto",                    &zus_getsto,                     false },
+    { "omni layer (data retrieval)", "zus_listblocktransactions",     &zus_listblocktransactions,      false },
+    { "omni layer (data retrieval)", "zus_listblockstransactions",    &zus_listblockstransactions,     false },
+    { "omni layer (data retrieval)", "zus_listpendingtransactions",   &zus_listpendingtransactions,    false },
+    { "omni layer (data retrieval)", "zus_getallbalancesforaddress",  &zus_getallbalancesforaddress,   false },
+    { "omni layer (data retrieval)", "zus_gettradehistoryforaddress", &zus_gettradehistoryforaddress,  false },
+    { "omni layer (data retrieval)", "zus_gettradehistoryforpair",    &zus_gettradehistoryforpair,     false },
+    { "omni layer (data retrieval)", "zus_getcurrentconsensushash",   &zus_getcurrentconsensushash,    false },
+    { "omni layer (data retrieval)", "zus_getpayload",                &zus_getpayload,                 false },
+    { "omni layer (data retrieval)", "zus_getseedblocks",             &zus_getseedblocks,              false },
+    { "omni layer (data retrieval)", "zus_getmetadexhash",            &zus_getmetadexhash,             false },
+    { "omni layer (data retrieval)", "zus_getfeecache",               &zus_getfeecache,                false },
+    { "omni layer (data retrieval)", "zus_getfeetrigger",             &zus_getfeetrigger,              false },
+    { "omni layer (data retrieval)", "zus_getfeedistribution",        &zus_getfeedistribution,         false },
+    { "omni layer (data retrieval)", "zus_getfeedistributions",       &zus_getfeedistributions,        false },
+    { "omni layer (data retrieval)", "zus_getbalanceshash",           &zus_getbalanceshash,            false },
 #ifdef ENABLE_WALLET
-    { "omni layer (data retrieval)", "omni_listtransactions",          &omni_listtransactions,           false },
-    { "omni layer (data retrieval)", "omni_getfeeshare",               &omni_getfeeshare,                false },
-    { "omni layer (configuration)",  "omni_setautocommit",             &omni_setautocommit,              true  },
-    { "omni layer (data retrieval)", "omni_getwalletbalances",         &omni_getwalletbalances,          false },
-    { "omni layer (data retrieval)", "omni_getwalletaddressbalances",  &omni_getwalletaddressbalances,   false },
+    { "omni layer (data retrieval)", "zus_listtransactions",          &zus_listtransactions,           false },
+    { "omni layer (data retrieval)", "zus_getfeeshare",               &zus_getfeeshare,                false },
+    { "omni layer (configuration)",  "zus_setautocommit",             &zus_setautocommit,              true  },
+    { "omni layer (data retrieval)", "zus_getwalletbalances",         &zus_getwalletbalances,          false },
+    { "omni layer (data retrieval)", "zus_getwalletaddressbalances",  &zus_getwalletaddressbalances,   false },
 #endif
     { "hidden",                      "mscrpc",                         &mscrpc,                          true  },
 
     /* depreciated: */
-    { "hidden",                      "getinfo_MP",                     &omni_getinfo,                    true  },
-    { "hidden",                      "getbalance_MP",                  &omni_getbalance,                 false },
-    { "hidden",                      "getallbalancesforaddress_MP",    &omni_getallbalancesforaddress,   false },
-    { "hidden",                      "getallbalancesforid_MP",         &omni_getallbalancesforid,        false },
-    { "hidden",                      "getproperty_MP",                 &omni_getproperty,                false },
-    { "hidden",                      "listproperties_MP",              &omni_listproperties,             false },
-    { "hidden",                      "getcrowdsale_MP",                &omni_getcrowdsale,               false },
-    { "hidden",                      "getgrants_MP",                   &omni_getgrants,                  false },
-    { "hidden",                      "getactivedexsells_MP",           &omni_getactivedexsells,          false },
-    { "hidden",                      "getactivecrowdsales_MP",         &omni_getactivecrowdsales,        false },
-    { "hidden",                      "getsto_MP",                      &omni_getsto,                     false },
-    { "hidden",                      "getorderbook_MP",                &omni_getorderbook,               false },
-    { "hidden",                      "gettrade_MP",                    &omni_gettrade,                   false },
-    { "hidden",                      "gettransaction_MP",              &omni_gettransaction,             false },
-    { "hidden",                      "listblocktransactions_MP",       &omni_listblocktransactions,      false },
+    { "hidden",                      "getinfo_MP",                     &zus_getinfo,                    true  },
+    { "hidden",                      "getbalance_MP",                  &zus_getbalance,                 false },
+    { "hidden",                      "getallbalancesforaddress_MP",    &zus_getallbalancesforaddress,   false },
+    { "hidden",                      "getallbalancesforid_MP",         &zus_getallbalancesforid,        false },
+    { "hidden",                      "getproperty_MP",                 &zus_getproperty,                false },
+    { "hidden",                      "listproperties_MP",              &zus_listproperties,             false },
+    { "hidden",                      "getcrowdsale_MP",                &zus_getcrowdsale,               false },
+    { "hidden",                      "getgrants_MP",                   &zus_getgrants,                  false },
+    { "hidden",                      "getactivedexsells_MP",           &zus_getactivedexsells,          false },
+    { "hidden",                      "getactivecrowdsales_MP",         &zus_getactivecrowdsales,        false },
+    { "hidden",                      "getsto_MP",                      &zus_getsto,                     false },
+    { "hidden",                      "getorderbook_MP",                &zus_getorderbook,               false },
+    { "hidden",                      "gettrade_MP",                    &zus_gettrade,                   false },
+    { "hidden",                      "gettransaction_MP",              &zus_gettransaction,             false },
+    { "hidden",                      "listblocktransactions_MP",       &zus_listblocktransactions,      false },
 #ifdef ENABLE_WALLET
-    { "hidden",                      "listtransactions_MP",            &omni_listtransactions,           false },
+    { "hidden",                      "listtransactions_MP",            &zus_listtransactions,           false },
 #endif
 };
 
