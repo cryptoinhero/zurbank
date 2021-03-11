@@ -168,7 +168,7 @@ std::string mastercore::strMPProperty(uint32_t propertyId)
         str = strprintf("Test token: %d : 0x%08X", 0x7FFFFFFF & propertyId, propertyId);
     } else {
         switch (propertyId) {
-            case OMNI_PROPERTY_BTC: str = "BTC";
+            case OMNI_PROPERTY_ZUR: str = "ZUR";
                 break;
             case OMNI_PROPERTY_MSC: str = "OMN";
                 break;
@@ -321,7 +321,7 @@ bool mastercore::isTestEcosystemProperty(uint32_t propertyId)
 
 bool mastercore::isMainEcosystemProperty(uint32_t propertyId)
 {
-    if ((OMNI_PROPERTY_BTC != propertyId) && !isTestEcosystemProperty(propertyId)) return true;
+    if ((OMNI_PROPERTY_ZUR != propertyId) && !isTestEcosystemProperty(propertyId)) return true;
 
     return false;
 }
@@ -1074,9 +1074,9 @@ static int parseTransaction(bool bRPConly, const CTransaction& wtx, int nBlock, 
                     dataAddressSeq = seq; // record data address seq num for reference matching
                     dataAddressValue = value_data[k]; // record data address amount for reference matching
                     if (msc_debug_parser_data) PrintToLog("Data Address located - data[%d]:%s: %s (%s)\n", k, script_data[k], address_data[k], FormatDivisibleMP(value_data[k]));
-                } else { // invalidate - Class A cannot be more than one data packet - possible collision, treat as default (BTC payment)
+                } else { // invalidate - Class A cannot be more than one data packet - possible collision, treat as default (ZUR payment)
                     strDataAddress.clear(); //empty strScriptData to block further parsing
-                    if (msc_debug_parser_data) PrintToLog("Multiple Data Addresses found (collision?) Class A invalidated, defaulting to BTC payment\n");
+                    if (msc_debug_parser_data) PrintToLog("Multiple Data Addresses found (collision?) Class A invalidated, defaulting to ZUR payment\n");
                     break;
                 }
             }
@@ -1115,7 +1115,7 @@ static int parseTransaction(bool bRPConly, const CTransaction& wtx, int nBlock, 
                                     if (msc_debug_parser_data) PrintToLog("Reference Address located via matching amounts - data[%d]:%s: %s (%s)\n", k, script_data[k], address_data[k], FormatDivisibleMP(value_data[k]));
                                 } else {
                                     strRefAddress.clear();
-                                    if (msc_debug_parser_data) PrintToLog("Reference Address collision, multiple potential candidates. Class A invalidated, defaulting to BTC payment\n");
+                                    if (msc_debug_parser_data) PrintToLog("Reference Address collision, multiple potential candidates. Class A invalidated, defaulting to ZUR payment\n");
                                     break;
                                 }
                             }
@@ -1128,7 +1128,7 @@ static int parseTransaction(bool bRPConly, const CTransaction& wtx, int nBlock, 
             strReference = strRefAddress; // populate expected var strReference with chosen address (if not empty)
         }
         if (strRefAddress.empty()) {
-            strDataAddress.clear(); // last validation step, if strRefAddress is empty, blank strDataAddress so we default to BTC payment
+            strDataAddress.clear(); // last validation step, if strRefAddress is empty, blank strDataAddress so we default to ZUR payment
         }
         if (!strDataAddress.empty()) { // valid Class A packet almost ready
             if (msc_debug_parser_data) PrintToLog("valid Class A:from=%s:to=%s:data=%s\n", strSender, strReference, strScriptData);
@@ -1137,7 +1137,7 @@ static int parseTransaction(bool bRPConly, const CTransaction& wtx, int nBlock, 
         } else {
             if ((!bRPConly || msc_debug_parser_readonly) && msc_debug_parser_dex) {
                 PrintToLog("!! sender: %s , receiver: %s\n", strSender, strReference);
-                PrintToLog("!! this may be the BTC payment for an offer !!\n");
+                PrintToLog("!! this may be the ZUR payment for an offer !!\n");
             }
         }
     }
@@ -1373,7 +1373,7 @@ static bool HandleDExPayments(const CTransaction& tx, int nBlock, const std::str
             std::string strAddress = address.ToString();
             if (msc_debug_parser_dex) PrintToLog("payment #%d %s %s\n", count, strAddress, FormatIndivisibleMP(tx.vout[n].nValue));
 
-            // check everything and pay BTC for the property we are buying here...
+            // check everything and pay ZUR for the property we are buying here...
             if (0 == DEx_payment(tx.GetHash(), n, strAddress, strSender, tx.vout[n].nValue, nBlock)) ++count;
         }
     }
@@ -1979,7 +1979,7 @@ int mastercore_handler_block_end(int nBlockNow, CBlockIndex const * pBlockIndex,
     // for every new received block must do:
     // 1) remove expired entries from the accept list (per spec accept entries are
     //    valid until their blocklimit expiration; because the customer can keep
-    //    paying BTC for the offer in several installments)
+    //    paying ZUR for the offer in several installments)
     // 2) update the amount in the Exodus address
     int64_t devmsc = 0;
     unsigned int how_many_erased = eraseExpiredAccepts(nBlockNow);

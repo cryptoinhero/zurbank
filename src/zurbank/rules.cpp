@@ -46,7 +46,7 @@ std::vector<TransactionRestriction> CConsensusParams::GetRestrictions() const
 
         { MSC_TYPE_TRADE_OFFER,               MP_TX_PKT_V0,  false,   MSC_DEX_BLOCK      },
         { MSC_TYPE_TRADE_OFFER,               MP_TX_PKT_V1,  false,   MSC_DEX_BLOCK      },
-        { MSC_TYPE_ACCEPT_OFFER_BTC,          MP_TX_PKT_V0,  false,   MSC_DEX_BLOCK      },
+        { MSC_TYPE_ACCEPT_OFFER_ZUR,          MP_TX_PKT_V0,  false,   MSC_DEX_BLOCK      },
 
         { MSC_TYPE_CREATE_PROPERTY_FIXED,     MP_TX_PKT_V0,  false,   MSC_SP_BLOCK       },
         { MSC_TYPE_CREATE_PROPERTY_VARIABLE,  MP_TX_PKT_V0,  false,   MSC_SP_BLOCK       },
@@ -662,7 +662,7 @@ bool IsFeatureActivated(uint16_t featureId, int transactionBlock)
  * In the test ecosystem, transactions, which are known to the client are allowed
  * without height restriction.
  *
- * Certain transactions use a property identifier of 0 (= BTC) as wildcard, which
+ * Certain transactions use a property identifier of 0 (= ZUR) as wildcard, which
  * must explicitly be allowed.
  */
 bool IsTransactionTypeAllowed(int txBlock, uint32_t txProperty, uint16_t txType, uint16_t version)
@@ -675,8 +675,8 @@ bool IsTransactionTypeAllowed(int txBlock, uint32_t txProperty, uint16_t txType,
         if (entry.txType != txType || entry.txVersion != version) {
             continue;
         }
-        // a property identifier of 0 (= BTC) may be used as wildcard
-        if (OMNI_PROPERTY_BTC == txProperty && !entry.allowWildcard) {
+        // a property identifier of 0 (= ZUR) may be used as wildcard
+        if (OMNI_PROPERTY_ZUR == txProperty && !entry.allowWildcard) {
             continue;
         }
         // transactions are not restricted in the test ecosystem

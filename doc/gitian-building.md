@@ -443,10 +443,10 @@ Then when building, override the remote URLs that gbuild would otherwise pull fr
 cd /some/root/path/
 git clone https://github.com/zurcoin-core/zurcoin-detached-sigs.git
 
-BTCPATH=/some/root/path/zurcoin
+ZURPATH=/some/root/path/zurcoin
 SIGPATH=/some/root/path/zurcoin-detached-sigs
 
-./bin/gbuild --url zurcoin=${BTCPATH},signature=${SIGPATH} ../zurcoin/contrib/gitian-descriptors/gitian-win-signer.yml
+./bin/gbuild --url zurcoin=${ZURPATH},signature=${SIGPATH} ../zurcoin/contrib/gitian-descriptors/gitian-win-signer.yml
 ```
 
 Signing externally

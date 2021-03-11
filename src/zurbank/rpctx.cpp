@@ -287,7 +287,7 @@ UniValue omni_senddexsell(const UniValue& params, bool fHelp)
         throw runtime_error(
             "omni_senddexsell \"fromaddress\" propertyidforsale \"amountforsale\" \"amountdesired\" paymentwindow minacceptfee action\n"
 
-            "\nPlace, update or cancel a sell offer on the traditional distributed OMNI/BTC exchange.\n"
+            "\nPlace, update or cancel a sell offer on the traditional distributed OMNI/ZUR exchange.\n"
 
             "\nArguments:\n"
 
@@ -319,7 +319,7 @@ UniValue omni_senddexsell(const UniValue& params, bool fHelp)
     // perform conversions
     if (action <= CMPTransaction::UPDATE) { // actions 3 permit zero values, skip check
         amountForSale = ParseAmount(params[2], true); // TMSC/MSC is divisible
-        amountDesired = ParseAmount(params[3], true); // BTC is divisible
+        amountDesired = ParseAmount(params[3], true); // ZUR is divisible
         paymentWindow = ParseDExPaymentWindow(params[4]);
         minAcceptFee = ParseDExFee(params[5]);
     }

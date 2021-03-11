@@ -35,7 +35,7 @@ Testnet mode allows Omni Core to be run on the Bitcoin testnet blockchain for sa
 
 1. To run Omni Core in testnet mode, run Omni Core with the following option in place: `-testnet`.
 
-2. To receive OMN (and TOMN) on testnet please send TBTC to `moneyqMan7uh8FqdCA2BV5yZ8qVrc9ikLP`. For each 1 TBTC you will receive 100 OMN and 100 TOMN.
+2. To receive OMN (and TOMN) on testnet please send TZUR to `moneyqMan7uh8FqdCA2BV5yZ8qVrc9ikLP`. For each 1 TZUR you will receive 100 OMN and 100 TOMN.
 
 Dependencies
 ------------
@@ -112,7 +112,7 @@ Current feature set:
 
 * Retreiving active and expired crowdsale information [doc] (src/zurbank/doc/rpc-api.md#omni_getcrowdsale)
 
-* Sending a specific BTC amount to a receiver with referenceamount in `omni_send`
+* Sending a specific ZUR amount to a receiver with referenceamount in `omni_send`
 
 * Creating and broadcasting transactions based on raw Omni Layer transactions with `omni_sendrawtx`
 

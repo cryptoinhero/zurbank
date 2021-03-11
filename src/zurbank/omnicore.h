@@ -55,7 +55,7 @@ enum TransactionType {
   MSC_TYPE_RATELIMITED_MARK           = 12,
   MSC_TYPE_AUTOMATIC_DISPENSARY       = 15,
   MSC_TYPE_TRADE_OFFER                = 20,
-  MSC_TYPE_ACCEPT_OFFER_BTC           = 22,
+  MSC_TYPE_ACCEPT_OFFER_ZUR           = 22,
   MSC_TYPE_METADEX_TRADE              = 25,
   MSC_TYPE_METADEX_CANCEL_PRICE       = 26,
   MSC_TYPE_METADEX_CANCEL_PAIR        = 27,
@@ -104,7 +104,7 @@ enum TransactionType {
 #define PKT_ERROR_TOKENS      (-82000)
 #define PKT_ERROR_SEND_ALL    (-83000)
 
-#define OMNI_PROPERTY_BTC   0
+#define OMNI_PROPERTY_ZUR   0
 #define OMNI_PROPERTY_MSC   1
 #define OMNI_PROPERTY_TMSC  2
 

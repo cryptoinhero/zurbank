@@ -87,7 +87,7 @@ class TxViewDelegate : public QAbstractItemDelegate
     Q_OBJECT
 public:
     TxViewDelegate(const PlatformStyle *platformStyle, QObject *parent=nullptr):
-        QAbstractItemDelegate(parent), unit(BitcoinUnits::BTC),
+        QAbstractItemDelegate(parent), unit(BitcoinUnits::ZUR),
         platformStyle(platformStyle)
     {
 
@@ -339,7 +339,7 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
     ui->labelWalletStatus->setText("(" + tr("out of sync") + ")");
     ui->labelTransactionsStatus->setText("(" + tr("out of sync") + ")");
 
-    // make sure BTC is always first in the list by adding it first
+    // make sure ZUR is always first in the list by adding it first
     UpdatePropertyBalance(0,0,0);
 
     updateOmni();
@@ -410,7 +410,7 @@ void OverviewPage::UpdatePropertyBalance(unsigned int propertyId, uint64_t avail
 
     if (propertyId == 0) { // override for zurcoin
         divisible = true;
-        tokenStr = " BTC";
+        tokenStr = " ZUR";
     } else {
         divisible = isPropertyDivisible(propertyId);
         tokenStr = getTokenLabel(propertyId);
@@ -580,7 +580,7 @@ void OverviewPage::setWalletModel(WalletModel *model)
         connect(model, SIGNAL(notifyWatchonlyChanged(bool)), this, SLOT(updateWatchOnlyLabels(bool)));
     }
 
-    // update the display unit, to not use the default ("BTC")
+    // update the display unit, to not use the default ("ZUR")
     updateDisplayUnit();
 }
 

@@ -1734,7 +1734,7 @@ UniValue omni_getactivedexsells(const UniValue& params, bool fHelp)
             "    \"seller\" : \"address\",               (string) the Bitcoin address of the seller\n"
             "    \"amountavailable\" : \"n.nnnnnnnn\",   (string) the number of tokens still listed for sale and currently available\n"
             "    \"zurcoindesired\" : \"n.nnnnnnnn\",    (string) the number of zurcoins desired in exchange\n"
-            "    \"unitprice\" : \"n.nnnnnnnn\" ,        (string) the unit price (BTC/token)\n"
+            "    \"unitprice\" : \"n.nnnnnnnn\" ,        (string) the unit price (ZUR/token)\n"
             "    \"timelimit\" : nn,                   (number) the time limit in blocks a buyer has to pay following a successful accept\n"
             "    \"minimumfee\" : \"n.nnnnnnnn\",        (string) the minimum mining fee a buyer has to pay to accept this offer\n"
             "    \"amountaccepted\" : \"n.nnnnnnnn\",    (string) the number of tokens currently reserved for pending \"accept\" orders\n"
@@ -1781,7 +1781,7 @@ UniValue omni_getactivedexsells(const UniValue& params, bool fHelp)
         int64_t minFee = selloffer.getMinFee();
         uint8_t timeLimit = selloffer.getBlockTimeLimit();
         int64_t sellOfferAmount = selloffer.getOfferAmountOriginal(); //badly named - "Original" implies off the wire, but is amended amount
-        int64_t sellBitcoinDesired = selloffer.getBTCDesiredOriginal(); //badly named - "Original" implies off the wire, but is amended amount
+        int64_t sellBitcoinDesired = selloffer.getZURDesiredOriginal(); //badly named - "Original" implies off the wire, but is amended amount
         int64_t amountAvailable = GetTokenBalance(seller, propertyId, SELLOFFER_RESERVE);
         int64_t amountAccepted = GetTokenBalance(seller, propertyId, ACCEPT_RESERVE);
 
@@ -1795,7 +1795,7 @@ UniValue omni_getactivedexsells(const UniValue& params, bool fHelp)
             unitPriceFloat = (double) sellBitcoinDesired / (double) sellOfferAmount; // divide by zero protection
         }
         int64_t unitPrice = rounduint64(unitPriceFloat * COIN);
-        int64_t zurcoinDesired = calculateDesiredBTC(sellOfferAmount, sellBitcoinDesired, amountAvailable);
+        int64_t zurcoinDesired = calculateDesiredZUR(sellOfferAmount, sellBitcoinDesired, amountAvailable);
 
         UniValue responseObj(UniValue::VOBJ);
         responseObj.push_back(Pair("txid", txid));
@@ -1823,12 +1823,12 @@ UniValue omni_getactivedexsells(const UniValue& params, bool fHelp)
                 int blocksLeftToPay = (blockOfAccept + selloffer.getBlockTimeLimit()) - curBlock;
                 int64_t amountAccepted = accept.getAcceptAmountRemaining();
                 // TODO: don't recalculate!
-                int64_t amountToPayInBTC = calculateDesiredBTC(accept.getOfferAmountOriginal(), accept.getBTCDesiredOriginal(), amountAccepted);
+                int64_t amountToPayInZUR = calculateDesiredZUR(accept.getOfferAmountOriginal(), accept.getZURDesiredOriginal(), amountAccepted);
                 matchedAccept.push_back(Pair("buyer", buyer));
                 matchedAccept.push_back(Pair("block", blockOfAccept));
                 matchedAccept.push_back(Pair("blocksleft", blocksLeftToPay));
                 matchedAccept.push_back(Pair("amount", FormatDivisibleMP(amountAccepted)));
-                matchedAccept.push_back(Pair("amounttopay", FormatDivisibleMP(amountToPayInBTC)));
+                matchedAccept.push_back(Pair("amounttopay", FormatDivisibleMP(amountToPayInZUR)));
                 acceptsMatched.push_back(matchedAccept);
             }
         }

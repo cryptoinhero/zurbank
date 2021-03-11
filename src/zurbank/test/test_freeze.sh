@@ -10,13 +10,13 @@ printf "   * Starting a fresh regtest daemon\n"
 rm -r ~/.zurcoin/regtest
 $SRCDIR/zurbankd --regtest --server --daemon --omniactivationallowsender=any --omnidebug=verbose >$NUL
 sleep 10
-printf "   * Preparing some mature testnet BTC\n"
+printf "   * Preparing some mature testnet ZUR\n"
 $SRCDIR/zurbank-cli --regtest generate 105 >$NUL
 printf "   * Obtaining addresses to work with\n"
 ADDR=$($SRCDIR/zurbank-cli --regtest getnewaddress OMNIAccount)
 FADDR=$($SRCDIR/zurbank-cli --regtest getnewaddress)
 printf "   * Master address is %s\n" $ADDR
-printf "   * Funding the addresses with some testnet BTC for fees\n"
+printf "   * Funding the addresses with some testnet ZUR for fees\n"
 JSON="{\""$ADDR"\":5,\""$FADDR"\":4}"
 $SRCDIR/zurbank-cli --regtest sendmany "" $JSON >$NUL
 $SRCDIR/zurbank-cli --regtest sendtoaddress $ADDR 6 >$NUL

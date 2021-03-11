@@ -77,7 +77,7 @@ UniValue omni_createpayload_dexsell(const UniValue& params, bool fHelp)
         throw runtime_error(
             "omni_createpayload_dexsell propertyidforsale \"amountforsale\" \"amountdesired\" paymentwindow minacceptfee action\n"
 
-            "\nCreate a payload to place, update or cancel a sell offer on the traditional distributed OMNI/BTC exchange.\n"
+            "\nCreate a payload to place, update or cancel a sell offer on the traditional distributed OMNI/ZUR exchange.\n"
 
             "\nArguments:\n"
 
@@ -106,7 +106,7 @@ UniValue omni_createpayload_dexsell(const UniValue& params, bool fHelp)
 
     if (action <= CMPTransaction::UPDATE) { // actions 3 permit zero values, skip check
         amountForSale = ParseAmount(params[1], true); // TMSC/MSC is divisible
-        amountDesired = ParseAmount(params[2], true); // BTC is divisible
+        amountDesired = ParseAmount(params[2], true); // ZUR is divisible
         paymentWindow = ParseDExPaymentWindow(params[3]);
         minAcceptFee = ParseDExFee(params[4]);
     }

@@ -138,7 +138,7 @@ $ zurbank-cli "omni_send" "3M9qvHKtgARhqcMtM5cRT9VaiDJ5PSfQGY" "37FaKponF7zqoMLU
 
 ### omni_senddexsell
 
-Place, update or cancel a sell offer on the traditional distributed OMNI/BTC exchange.
+Place, update or cancel a sell offer on the traditional distributed OMNI/ZUR exchange.
 
 **Arguments:**
 
@@ -1154,7 +1154,7 @@ Returns currently active offers on the distributed exchange.
     "seller" : "address",              // (string) the Bitcoin address of the seller
     "amountavailable" : "n.nnnnnnnn",  // (string) the number of tokens still listed for sale and currently available
     "zurcoindesired" : "n.nnnnnnnn",   // (string) the number of zurcoins desired in exchange
-    "unitprice" : "n.nnnnnnnn" ,       // (string) the unit price (BTC/token)
+    "unitprice" : "n.nnnnnnnn" ,       // (string) the unit price (ZUR/token)
     "timelimit" : nn,                  // (number) the time limit in blocks a buyer has to pay following a successful accept
     "minimumfee" : "n.nnnnnnnn",       // (string) the minimum mining fee a buyer has to pay to accept this offer
     "amountaccepted" : "n.nnnnnnnn",   // (string) the number of tokens currently reserved for pending "accept" orders
@@ -2031,7 +2031,7 @@ $ zurbank-cli "omni_createpayload_sendall" 2
 
 ### omni_createpayload_dexsell
 
-Create a payload to place, update or cancel a sell offer on the traditional distributed OMNI/BTC exchange.
+Create a payload to place, update or cancel a sell offer on the traditional distributed OMNI/ZUR exchange.
 
 **Arguments:**
 

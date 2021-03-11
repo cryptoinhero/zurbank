@@ -10,11 +10,11 @@ printf "   * Starting a fresh regtest daemon with open activation sender\n"
 rm -r ~/.zurcoin/regtest
 $SRCDIR/zurbankd --regtest --server --daemon --omniactivationallowsender=any >$NUL
 sleep 3
-printf "   * Preparing some mature testnet BTC\n"
+printf "   * Preparing some mature testnet ZUR\n"
 $SRCDIR/zurbank-cli --regtest setgenerate true 102 >$NUL
 printf "   * Obtaining a master address to work with\n"
 ADDR=$($SRCDIR/zurbank-cli --regtest getnewaddress OMNIAccount)
-printf "   * Funding the address with some testnet BTC for fees\n"
+printf "   * Funding the address with some testnet ZUR for fees\n"
 $SRCDIR/zurbank-cli --regtest sendtoaddress $ADDR 20 >$NUL
 $SRCDIR/zurbank-cli --regtest setgenerate true 1 >$NUL
 printf "   * Participating in the Exodus crowdsale to obtain some OMNI\n"

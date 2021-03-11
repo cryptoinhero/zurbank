@@ -125,7 +125,7 @@ void MetaDExDialog::setClientModel(ClientModel *model)
 
 void MetaDExDialog::setWalletModel(WalletModel *model)
 {
-    // use wallet model to get visibility into BTC balance changes for fees
+    // use wallet model to get visibility into ZUR balance changes for fees
     this->walletModel = model;
     if (model != NULL) {
        connect(model, SIGNAL(balanceChanged(CAmount,CAmount,CAmount,CAmount,CAmount,CAmount)), this, SLOT(UpdateBalances()));
@@ -221,7 +221,7 @@ void MetaDExDialog::UpdateBalance()
         if (CheckFee(currentSetAddress.toStdString(), 28)) {
             ui->lblFeeWarning->setVisible(false);
         } else {
-            ui->lblFeeWarning->setText("WARNING: The address is low on BTC for transaction fees.");
+            ui->lblFeeWarning->setText("WARNING: The address is low on ZUR for transaction fees.");
             ui->lblFeeWarning->setVisible(true);
         }
     }
