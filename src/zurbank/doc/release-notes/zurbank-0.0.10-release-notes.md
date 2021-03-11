@@ -158,7 +158,7 @@ Prior to all activations, additional notifications are published via different c
 As per default ZURBank accepts activation messages from the following source:
 ```
 {
-  "address": "3Fc5gWzEQh1YGeqVXH6E4GDEGgbZJREJQ3",
+  "address": "Uz4STh4EuCkWahwysEbLtVjzV8safoBQG4",
   "redeemScript": "542102d797b8526701a3dfdb52d11f89377e0288b14e29b1414d64de065cd337069c3b21036a4caa95ec1d55f1b75a8b6c7345f22b4efc9e25d38ab058ef7d6f60b3b744f7410499e86235a6a98fc295d7cfe641d37409f2840ad32e0211579cae488bd86cf01daf7ad8f082d968ea4bca77e794fffd1a31583f36f37b1198e51d0651cdbcf3214104b7a3d7f7ccdf211dfd180815b87332b4773cc40bff72a4d0bb60f3a85409d19f99709331c6b11c976fe274a86d789a1cf2b3b0be29fe5fc55c93ad9e08459c4f4104e65b098558d637cfcf3194214637f8838338b141259b698d2a027b069d405b6502ad4a4e9aa75094fa431a6c9af580f5917834a6d4cec946054df33194b2967855ae"
 }
 ```
@@ -205,7 +205,7 @@ In addition to migrating data encoding to `OP_RETURN`, the requirement to send a
 
 This helps to address a common criticism of systems that store data on the Bitcoin blockchain; "UTXO bloat". Since Class C transactions no longer store the data in spendable outputs, there is no need to store them in the UTXO set, and since the outputs are not stored in the UTXO set, Class C transactions do not contribute to its growth.
 
-Due to size and count restrictions of `OP_RETURN` outputs currently enforced by the Bitcoin network, the client will automatically fall back to Class B (bare-multisig) in the event that a transaction is too large to send via Class C (for example a property creation with lots of metadata).
+Due to size and count restrictions of `OP_RETURN` outputs currently enforced by the Zurcoin network, the client will automatically fall back to Class B (bare-multisig) in the event that a transaction is too large to send via Class C (for example a property creation with lots of metadata).
 
 The configuration option `-datacarriersize=<n bytes>` can be used to set the maximal size of `OP_RETURN` payloads, and is set to `40` bytes as per default. A value of `0` can be used to disable Class C encoding completely.
 

@@ -533,7 +533,7 @@
         <translation>Ví</translation>
     </message>
     <message>
-        <source>Connect to the Bitcoin network through a SOCKS5 proxy.</source>
+        <source>Connect to the Zurcoin network through a SOCKS5 proxy.</source>
         <translation>Kết nối đến máy chủ Bitcoin thông qua SOCKS5 proxy.</translation>
     </message>
     <message>

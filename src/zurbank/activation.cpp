@@ -144,7 +144,7 @@ bool CheckActivationAuthorization(const std::string& sender)
 
     // Mainnet - 4 out of 5 signatures required from developers & board members
     /*
-    "address": "3Fc5gWzEQh1YGeqVXH6E4GDEGgbZJREJQ3",
+    "address": "Uz4STh4EuCkWahwysEbLtVjzV8safoBQG4",
     "scriptPubKey": "a91498a2d17e08ac677dc220b92e0b79406f2f441c2487",
     "sigsrequired": 4,
     "addresses": [
@@ -155,12 +155,12 @@ bool CheckActivationAuthorization(const std::string& sender)
       "16oDZYCspsczfgKXVj3xyvsxH21NpEj94F" // Adam Chamely - adam@omni.foundation - Project maintainer, developer
     ],
     */
-    whitelisted.insert("3Fc5gWzEQh1YGeqVXH6E4GDEGgbZJREJQ3");
+    whitelisted.insert("Uz4STh4EuCkWahwysEbLtVjzV8safoBQG4");
 
     // Alternatively: 3 out of 3 signatures required
     /*
     {
-      "address": "33jx18123xJS59hnHwCgsr6zvYPfiCussh",
+      "address": "V74LXaydnaJ6qiwwaVaiHGYhSLDAG9awv1",
       "scriptPubKey": "a914167e39ef2efa6612405c9175c5a37a2af1c8cef287",
       "hex": "5321036a4caa95ec1d55f1b75a8b6c7345f22b4efc9e25d38ab058ef7d6f60b3b744f74104b7a3d7f7ccdf211dfd180815b87332b4773cc40bff72a4d0bb60f3a85409d19f99709331c6b11c976fe274a86d789a1cf2b3b0be29fe5fc55c93ad9e08459c4f4104e65b098558d637cfcf3194214637f8838338b141259b698d2a027b069d405b6502ad4a4e9aa75094fa431a6c9af580f5917834a6d4cec946054df33194b2967853ae",
       "addresses": [
@@ -171,7 +171,7 @@ bool CheckActivationAuthorization(const std::string& sender)
       "sigsrequired": 3,
     }
     */
-    whitelisted.insert("33jx18123xJS59hnHwCgsr6zvYPfiCussh");
+    whitelisted.insert("V74LXaydnaJ6qiwwaVaiHGYhSLDAG9awv1");
 
     // Testnet / Regtest
     // use -omniactivationallowsender for testing
@@ -211,7 +211,7 @@ bool CheckDeactivationAuthorization(const std::string& sender)
 
     // Mainnet - 3 out of 5 signatures required from developers & board members
     /*
-    "address" : "34kwkVRSvFVEoUwcQSgpQ4ZUasuZ54DJLD",
+    "address" : "UyqWDAkKN7c4FdSJyUfjtf5k73vudcy8gQ",
     "script" : "multisig",
     "sigsrequired" : 3,
     "addresses" : [
@@ -222,7 +222,7 @@ bool CheckDeactivationAuthorization(const std::string& sender)
       "16oDZYCspsczfgKXVj3xyvsxH21NpEj94F" // Adam Chamely - adam@omni.foundation - Project maintainer, developer
     ],
     */
-    whitelisted.insert("34kwkVRSvFVEoUwcQSgpQ4ZUasuZ54DJLD");
+    whitelisted.insert("UyqWDAkKN7c4FdSJyUfjtf5k73vudcy8gQ");
 
     // Testnet / Regtest
     // use -omniactivationallowsender for testing

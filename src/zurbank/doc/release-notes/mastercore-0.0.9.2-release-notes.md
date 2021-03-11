@@ -1,7 +1,7 @@
 ZURBank v0.0.9.2
 ==================
 
-v0.0.9.2 is a minor release and not consensus critical in terms of the Zus Layer protocol rules. Due to recent events related to the Bitcoin network, it is recommended to upgrade to this version.
+v0.0.9.2 is a minor release and not consensus critical in terms of the Zus Layer protocol rules. Due to recent events related to the Zurcoin network, it is recommended to upgrade to this version.
 
 Please report bugs using the issue tracker on GitHub:
 
@@ -10,7 +10,7 @@ Please report bugs using the issue tracker on GitHub:
 General
 -------
 
-On 4 July 2015, after the activation of [BIP 66](https://github.com/zurcoin/bips/blob/master/bip-0066.mediawiki), a handful of miners accidently started to create invalid blocks, which may not be detected by outdated clients. This can result in transaction confirmations that aren't valid on the main chain of the Bitcoin network.
+On 4 July 2015, after the activation of [BIP 66](https://github.com/zurcoin/bips/blob/master/bip-0066.mediawiki), a handful of miners accidently started to create invalid blocks, which may not be detected by outdated clients. This can result in transaction confirmations that aren't valid on the main chain of the Zurcoin network.
 
 For further information about this incident, please see:
 

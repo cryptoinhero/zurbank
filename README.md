@@ -12,7 +12,7 @@ http://www.omnilayer.org
 What is ZURBank
 -----------------
 
-ZURBank is a fast, portable Zus Layer implementation that is based off the Bitcoin Core codebase (currently 0.13.2). This implementation requires no external dependencies extraneous to Bitcoin Core, and is native to the Bitcoin network just like other Bitcoin nodes. It currently supports a wallet mode and is seamlessly available on three platforms: Windows, Linux and Mac OS. Zus Layer extensions are exposed via the JSON-RPC interface. Development has been consolidated on the ZURBank product, and it is the reference client for the Zus Layer.
+ZURBank is a fast, portable Zus Layer implementation that is based off the Bitcoin Core codebase (currently 0.13.2). This implementation requires no external dependencies extraneous to Bitcoin Core, and is native to the Zurcoin network just like other Bitcoin nodes. It currently supports a wallet mode and is seamlessly available on three platforms: Windows, Linux and Mac OS. Zus Layer extensions are exposed via the JSON-RPC interface. Development has been consolidated on the ZURBank product, and it is the reference client for the Zus Layer.
 
 Disclaimer, warning
 -------------------

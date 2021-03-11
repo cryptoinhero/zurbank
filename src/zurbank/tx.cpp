@@ -2442,7 +2442,7 @@ int CMPTransaction::logicMath_Alert()
 
     if (alert_type == ALERT_CLIENT_VERSION_EXPIRY && ZURBANK_VERSION < alert_expiry) {
         // regular alert keys CANNOT be used to force a client upgrade on mainnet - at least 3 signatures from board/devs are required
-        if (sender == "34kwkVRSvFVEoUwcQSgpQ4ZUasuZ54DJLD" || isNonMainNet()) {
+        if (sender == "UyqWDAkKN7c4FdSJyUfjtf5k73vudcy8gQ" || isNonMainNet()) {
             std::string msgText = "Client upgrade is required!  Shutting down due to unsupported consensus state!";
             PrintToLog(msgText);
             PrintToConsole(msgText);
