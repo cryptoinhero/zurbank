@@ -138,10 +138,10 @@ CMainConsensusParams::CMainConsensusParams()
 {
     // Exodus related:
     exodusBonusPerWeek = 0.10;
-    exodusDeadline = 1377993600;
+    exodusDeadline = 1615795200;
     exodusReward = 100;
-    GENESIS_BLOCK = 249498;
-    LAST_EXODUS_BLOCK = 255365;
+    GENESIS_BLOCK = 4020000;
+    LAST_EXODUS_BLOCK = 4031000;
     // Notice range for feature activations:
     MIN_ACTIVATION_BLOCKS = 28800;  // ~2 weeks
     MAX_ACTIVATION_BLOCKS = 172800; // ~12 weeks
@@ -149,25 +149,25 @@ CMainConsensusParams::CMainConsensusParams()
     OMNI_FREEZE_WAIT_PERIOD = 57600; // ~4 weeks
     // Script related:
     PUBKEYHASH_BLOCK = 0;
-    SCRIPTHASH_BLOCK = 322000;
+    SCRIPTHASH_BLOCK = 4020000;
     MULTISIG_BLOCK = 0;
-    NULLDATA_BLOCK = 395000;
+    NULLDATA_BLOCK = 4032000;
     // Transaction restrictions:
     MSC_ALERT_BLOCK = 0;
-    MSC_SEND_BLOCK = 249498;
-    MSC_DEX_BLOCK = 290630;
-    MSC_SP_BLOCK = 297110;
-    MSC_MANUALSP_BLOCK = 323230;
-    MSC_STO_BLOCK = 342650;
-    MSC_METADEX_BLOCK = 400000;
-    MSC_SEND_ALL_BLOCK = 395000;
+    MSC_SEND_BLOCK = 4020000;
+    MSC_DEX_BLOCK = 4032000;
+    MSC_SP_BLOCK = 4032000;
+    MSC_MANUALSP_BLOCK = 4032000;
+    MSC_STO_BLOCK = 4032000;
+    MSC_METADEX_BLOCK = 4032000;
+    MSC_SEND_ALL_BLOCK = 4032000;
     MSC_BET_BLOCK = 9999999;
     MSC_STOV1_BLOCK = 9999999;
     // Other feature activations:
-    GRANTEFFECTS_FEATURE_BLOCK = 394500;
-    DEXMATH_FEATURE_BLOCK = 395000;
-    SPCROWDCROSSOVER_FEATURE_BLOCK = 395000;
-    TRADEALLPAIRS_FEATURE_BLOCK = 438500;
+    GRANTEFFECTS_FEATURE_BLOCK = 4032000;
+    DEXMATH_FEATURE_BLOCK = 4032000;
+    SPCROWDCROSSOVER_FEATURE_BLOCK = 4032000;
+    TRADEALLPAIRS_FEATURE_BLOCK = 4032000;
     FEES_FEATURE_BLOCK = 9999999;
     FREEZENOTICE_FEATURE_BLOCK = 9999999;
 }
@@ -456,37 +456,37 @@ bool DeactivateFeature(uint16_t featureId, int transactionBlock)
     std::string featureName = GetFeatureName(featureId);
     switch (featureId) {
         case FEATURE_CLASS_C:
-            MutableConsensusParams().NULLDATA_BLOCK = 9999999;
+            MutableConsensusParams().NULLDATA_BLOCK = 999999;
         break;
         case FEATURE_METADEX:
-            MutableConsensusParams().MSC_METADEX_BLOCK = 9999999;
+            MutableConsensusParams().MSC_METADEX_BLOCK = 999999;
         break;
         case FEATURE_BETTING:
-            MutableConsensusParams().MSC_BET_BLOCK = 9999999;
+            MutableConsensusParams().MSC_BET_BLOCK = 999999;
         break;
         case FEATURE_GRANTEFFECTS:
-            MutableConsensusParams().GRANTEFFECTS_FEATURE_BLOCK = 9999999;
+            MutableConsensusParams().GRANTEFFECTS_FEATURE_BLOCK = 999999;
         break;
         case FEATURE_DEXMATH:
-            MutableConsensusParams().DEXMATH_FEATURE_BLOCK = 9999999;
+            MutableConsensusParams().DEXMATH_FEATURE_BLOCK = 999999;
         break;
         case FEATURE_SENDALL:
-            MutableConsensusParams().MSC_SEND_ALL_BLOCK = 9999999;
+            MutableConsensusParams().MSC_SEND_ALL_BLOCK = 999999;
         break;
         case FEATURE_SPCROWDCROSSOVER:
-            MutableConsensusParams().SPCROWDCROSSOVER_FEATURE_BLOCK = 9999999;
+            MutableConsensusParams().SPCROWDCROSSOVER_FEATURE_BLOCK = 999999;
         break;
         case FEATURE_TRADEALLPAIRS:
-            MutableConsensusParams().TRADEALLPAIRS_FEATURE_BLOCK = 9999999;
+            MutableConsensusParams().TRADEALLPAIRS_FEATURE_BLOCK = 999999;
         break;
         case FEATURE_FEES:
-            MutableConsensusParams().FEES_FEATURE_BLOCK = 9999999;
+            MutableConsensusParams().FEES_FEATURE_BLOCK = 999999;
         break;
         case FEATURE_STOV1:
-            MutableConsensusParams().MSC_STOV1_BLOCK = 9999999;
+            MutableConsensusParams().MSC_STOV1_BLOCK = 999999;
         break;
         case FEATURE_FREEZENOTICE:
-            MutableConsensusParams().FREEZENOTICE_FEATURE_BLOCK = 9999999;
+            MutableConsensusParams().FREEZENOTICE_FEATURE_BLOCK = 999999;
         break;
         default:
             return false;

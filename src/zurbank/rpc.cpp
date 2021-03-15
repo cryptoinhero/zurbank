@@ -1279,7 +1279,7 @@ UniValue zus_getcrowdsale(const UniValue& params, bool fHelp)
     }
 
     const uint256& creationHash = sp.txid;
-    PrintToLog("creationHash transaction id = %s)\n", creationHash.ToString());
+
     CTransaction tx;
     uint256 hashBlock;
     if (!GetTransaction(creationHash, tx, Params().GetConsensus(), hashBlock, true)) {
