@@ -420,7 +420,7 @@ std::string mastercore::getTokenLabel(uint32_t propertyId)
         if (propertyId == 1) {
             tokenStr = " ZUS";
         } else {
-            tokenStr = " TZUS";
+            tokenStr = " TOMNI";
         }
     } else {
         tokenStr = strprintf(" SPT#%d", propertyId);
