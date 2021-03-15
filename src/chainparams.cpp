@@ -124,10 +124,6 @@ public:
         // release ASAP to avoid it where possible.
         // vSeeds.emplace_back("dnsseed.emzy.de"); // Stephan Oeste
         vSeeds.push_back(CDNSSeedData("scrypt.ovh", "explorer.scrypt.ovh"));           
-        vSeeds.push_back(CDNSSeedData("zurcoin.org", "seed.zurcoin.org"));  
-        vSeeds.push_back(CDNSSeedData("zurbank.io", "seed.zurbank.io"));  
-        vSeeds.push_back(CDNSSeedData("zusexplorer.io", "seed.zusexplorer.io"));  
-
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,69);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,9);

@@ -717,7 +717,7 @@ bool CMPTxList::LoadFreezeState(int blockHeight)
         txnsLoaded++;
     }
 
-    if (blockHeight > 4032000 && !isNonMainNet()) {
+    if (blockHeight > 497000 && !isNonMainNet()) {
         assert(txnsLoaded >= 2); // sanity check against a failure to properly load the freeze state
     }
 
