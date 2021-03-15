@@ -551,7 +551,7 @@ static int64_t calculate_and_update_devmsc(unsigned int nTime, int block)
     const double seconds_in_one_year = 31556926;
     const double seconds_passed = nTime - 1377993874; // exodus bootstrap deadline
     const double years = seconds_passed / seconds_in_one_year;
-    const double part_available = (1 - pow(0.5, years)) * 1000;
+    const double part_available = (1 - pow(0.5, years));
     const double available_reward = all_reward * part_available;
 
     devmsc = rounduint64(available_reward);
@@ -1511,7 +1511,7 @@ static int msc_initial_scan(int nFirstBlock)
     int64_t nNow = GetTime();
     unsigned int nTxsTotal = 0;
     unsigned int nTxsFoundTotal = 0;
-    int nBlock = 9999999;
+    int nBlock = 999999;
     const int nLastBlock = GetHeight();
 
     // this function is useless if there are not enough blocks in the blockchain yet!
