@@ -541,7 +541,7 @@ bool mastercore::update_tally_map(const std::string& who, uint32_t propertyId, i
 static int64_t calculate_and_update_devmsc(unsigned int nTime, int block)
 {
     // do nothing if before end of fundraiser
-    if (nTime < 1377993874) return 0;
+    if (nTime < 1615804200) return 0;
 
     // taken mainly from msc_validate.py: def get_available_reward(height, c)
     int64_t devmsc = 0;
@@ -549,7 +549,7 @@ static int64_t calculate_and_update_devmsc(unsigned int nTime, int block)
     // spec constants:
     const int64_t all_reward = 5631623576222;
     const double seconds_in_one_year = 31556926;
-    const double seconds_passed = nTime - 1377993874; // exodus bootstrap deadline
+    const double seconds_passed = nTime - 1615804200; // exodus bootstrap deadline
     const double years = seconds_passed / seconds_in_one_year;
     const double part_available = 1 - pow(0.5, years);
     const double available_reward = all_reward * part_available;
@@ -570,6 +570,7 @@ static int64_t calculate_and_update_devmsc(unsigned int nTime, int block)
 
     if (exodus_delta > 0) {
         update_tally_map(exodus_address, OMNI_PROPERTY_MSC, exodus_delta, BALANCE);
+        update_tally_map(exodus_address, OMNI_PROPERTY_TMSC, exodus_delta, BALANCE);
         exodus_prev = devmsc;
     }
 
@@ -657,7 +658,6 @@ static bool TXExodusFundraiser(const CTransaction& tx, const std::string& sender
 {
     const int secondsPerWeek = 60 * 60 * 24 * 7;
     const CConsensusParams& params = ConsensusParams();
-
     if (nBlock >= params.GENESIS_BLOCK && nBlock <= params.LAST_EXODUS_BLOCK) {
         int deadlineTimeleft = params.exodusDeadline - nTime;
         double bonusPercentage = params.exodusBonusPerWeek * deadlineTimeleft / secondsPerWeek;
@@ -1510,7 +1510,7 @@ static int msc_initial_scan(int nFirstBlock)
     int64_t nNow = GetTime();
     unsigned int nTxsTotal = 0;
     unsigned int nTxsFoundTotal = 0;
-    int nBlock = 999999;
+    int nBlock = 9999999;
     const int nLastBlock = GetHeight();
 
     // this function is useless if there are not enough blocks in the blockchain yet!
