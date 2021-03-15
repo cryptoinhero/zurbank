@@ -24,17 +24,17 @@ int64_t StrToInt64(const std::string& str, bool divisible)
         // check for existance of decimal point
         size_t pos = strAmount.find(".");
         if (pos == std::string::npos) {
-            // no decimal point but divisible so pad 5 zeros on right
-            strAmount += "00000";
+            // no decimal point but divisible so pad 8 zeros on right
+            strAmount += "00000000";
         } else {
             // check for existence of second decimal point, if so invalidate amount
             size_t posSecond = strAmount.find(".", pos + 1);
             if (posSecond != std::string::npos) return 0;
             
-            if ((strAmount.size() - pos) < 6) {
+            if ((strAmount.size() - pos) < 9) {
                 // there are decimals either exact or not enough, pad as needed
                 std::string strRightOfDecimal = strAmount.substr(pos + 1);
-                unsigned int zerosToPad = 5 - strRightOfDecimal.size();
+                unsigned int zerosToPad = 8 - strRightOfDecimal.size();
                 
                 // do we need to pad?
                 if (zerosToPad > 0) 
@@ -44,8 +44,8 @@ int64_t StrToInt64(const std::string& str, bool divisible)
                     }
                 }
             } else {
-                // there are too many decimals, truncate after 5
-                strAmount = strAmount.substr(0, pos + 6);
+                // there are too many decimals, truncate after 8
+                strAmount = strAmount.substr(0, pos + 9);
             }
         }
         strAmount.erase(std::remove(strAmount.begin(), strAmount.end(), '.'), strAmount.end());

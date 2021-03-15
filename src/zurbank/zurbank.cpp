@@ -187,7 +187,7 @@ std::string FormatDivisibleShortMP(int64_t n)
     int64_t n_abs = (n > 0 ? n : -n);
     int64_t quotient = n_abs / COIN;
     int64_t remainder = n_abs % COIN;
-    std::string str = strprintf("%d.%05d", quotient, remainder);
+    std::string str = strprintf("%d.%08d", quotient, remainder);
     // clean up trailing zeros - good for RPC not so much for UI
     str.erase(str.find_last_not_of('0') + 1, std::string::npos);
     if (str.length() > 0) {
@@ -206,7 +206,7 @@ std::string FormatDivisibleMP(int64_t n, bool fSign)
     int64_t n_abs = (n > 0 ? n : -n);
     int64_t quotient = n_abs / COIN;
     int64_t remainder = n_abs % COIN;
-    std::string str = strprintf("%d.%05d", quotient, remainder);
+    std::string str = strprintf("%d.%08d", quotient, remainder);
 
     if (!fSign) return str;
 
@@ -551,7 +551,7 @@ static int64_t calculate_and_update_devmsc(unsigned int nTime, int block)
     const double seconds_in_one_year = 31556926;
     const double seconds_passed = nTime - 1377993874; // exodus bootstrap deadline
     const double years = seconds_passed / seconds_in_one_year;
-    const double part_available = (1 - pow(0.5, years)) * 1000;
+    const double part_available = 1 - pow(0.5, years);
     const double available_reward = all_reward * part_available;
 
     devmsc = rounduint64(available_reward);
@@ -570,7 +570,7 @@ static int64_t calculate_and_update_devmsc(unsigned int nTime, int block)
 
     if (exodus_delta > 0) {
         update_tally_map(exodus_address, OMNI_PROPERTY_MSC, exodus_delta, BALANCE);
-        if (nTime < 1615809000)
+        if (nTime < 1521072000)
             update_tally_map(exodus_address, OMNI_PROPERTY_TMSC, exodus_delta, BALANCE);
         exodus_prev = devmsc;
     }
