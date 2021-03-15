@@ -165,38 +165,38 @@ CMainConsensusParams::CMainConsensusParams()
 {
     // Exodus related:
     exodusBonusPerWeek = 0.10;
-    exodusDeadline = 1377993600;
+    exodusDeadline = 1615795200;
     exodusReward = 100;
-    GENESIS_BLOCK = 249498;
-    LAST_EXODUS_BLOCK = 255365;
+    GENESIS_BLOCK = 4020000;
+    LAST_EXODUS_BLOCK = 4031000;
     // Notice range for feature activations:
-    MIN_ACTIVATION_BLOCKS = 2048;  // ~2 weeks
-    MAX_ACTIVATION_BLOCKS = 12288; // ~12 weeks
+    MIN_ACTIVATION_BLOCKS = 28800;  // ~2 weeks
+    MAX_ACTIVATION_BLOCKS = 172800; // ~12 weeks
     // Waiting period for enabling freezing
-    OMNI_FREEZE_WAIT_PERIOD = 4096; // ~4 weeks
+    OMNI_FREEZE_WAIT_PERIOD = 57600; // ~4 weeks
     // Script related:
     PUBKEYHASH_BLOCK = 0;
-    SCRIPTHASH_BLOCK = 322000;
+    SCRIPTHASH_BLOCK = 4020000;
     MULTISIG_BLOCK = 0;
-    NULLDATA_BLOCK = 395000;
+    NULLDATA_BLOCK = 4032000;
     // Transaction restrictions:
     MSC_ALERT_BLOCK = 0;
-    MSC_SEND_BLOCK = 249498;
-    MSC_DEX_BLOCK = 290630;
-    MSC_SP_BLOCK = 297110;
-    MSC_MANUALSP_BLOCK = 323230;
-    MSC_STO_BLOCK = 342650;
-    MSC_METADEX_BLOCK = 400000;
-    MSC_SEND_ALL_BLOCK = 395000;
-    MSC_BET_BLOCK = 999999;
-    MSC_STOV1_BLOCK = 999999;
+    MSC_SEND_BLOCK = 4020000;
+    MSC_DEX_BLOCK = 4032000;
+    MSC_SP_BLOCK = 4032000;
+    MSC_MANUALSP_BLOCK = 4032000;
+    MSC_STO_BLOCK = 4032000;
+    MSC_METADEX_BLOCK = 4032000;
+    MSC_SEND_ALL_BLOCK = 4032000;
+    MSC_BET_BLOCK = 9999999;
+    MSC_STOV1_BLOCK = 9999999;
     // Other feature activations:
-    GRANTEFFECTS_FEATURE_BLOCK = 394500;
-    DEXMATH_FEATURE_BLOCK = 395000;
-    SPCROWDCROSSOVER_FEATURE_BLOCK = 395000;
-    TRADEALLPAIRS_FEATURE_BLOCK = 438500;
-    FEES_FEATURE_BLOCK = 999999;
-    FREEZENOTICE_FEATURE_BLOCK = 999999;
+    GRANTEFFECTS_FEATURE_BLOCK = 4032000;
+    DEXMATH_FEATURE_BLOCK = 4032000;
+    SPCROWDCROSSOVER_FEATURE_BLOCK = 4032000;
+    TRADEALLPAIRS_FEATURE_BLOCK = 4032000;
+    FEES_FEATURE_BLOCK = 9999999;
+    FREEZENOTICE_FEATURE_BLOCK = 9999999;
 }
 
 /**
@@ -206,7 +206,7 @@ CTestNetConsensusParams::CTestNetConsensusParams()
 {
     // Exodus related:
     exodusBonusPerWeek = 0.00;
-    exodusDeadline = 1377993600;
+    exodusDeadline = 1615795200;
     exodusReward = 100;
     GENESIS_BLOCK = 263000;
     LAST_EXODUS_BLOCK = std::numeric_limits<int>::max();
@@ -247,7 +247,7 @@ CRegTestConsensusParams::CRegTestConsensusParams()
 {
     // Exodus related:
     exodusBonusPerWeek = 0.00;
-    exodusDeadline = 1377993600;
+    exodusDeadline = 1615795200;
     exodusReward = 100;
     GENESIS_BLOCK = 101;
     LAST_EXODUS_BLOCK = std::numeric_limits<int>::max();
