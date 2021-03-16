@@ -355,13 +355,13 @@ std::string CMPMetaDEx::displayUnitPrice() const
          if (isPropertyDivisible(getDesProperty())) tmpDisplayPrice = tmpDisplayPrice * COIN;
      }
 
-     // offers with unit prices under 0.00000001 will be excluded from UI layer - TODO: find a better way to identify sub 0.00000001 prices
+     // offers with unit prices under 0.00001 will be excluded from UI layer - TODO: find a better way to identify sub 0.00000001 prices
      std::string tmpDisplayPriceStr = xToString(tmpDisplayPrice);
-     if (!tmpDisplayPriceStr.empty()) { if (tmpDisplayPriceStr.substr(0,1) == "0") return "0.00000000"; }
+     if (!tmpDisplayPriceStr.empty()) { if (tmpDisplayPriceStr.substr(0,1) == "0") return "0.00000"; }
 
-     // we must always round up here - for example if the actual price required is 0.3333333344444
-     // round: 0.33333333 - price is insufficient and thus won't result in a trade
-     // round: 0.33333334 - price will be sufficient to result in a trade
+     // we must always round up here - for example if the actual price required is 0.3333344444
+     // round: 0.33333 - price is insufficient and thus won't result in a trade
+     // round: 0.33334 - price will be sufficient to result in a trade
      std::string displayValue = FormatDivisibleMP(xToRoundUpInt64(tmpDisplayPrice));
      return displayValue;
 }

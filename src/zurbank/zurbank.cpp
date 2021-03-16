@@ -187,7 +187,7 @@ std::string FormatDivisibleShortMP(int64_t n)
     int64_t n_abs = (n > 0 ? n : -n);
     int64_t quotient = n_abs / COIN;
     int64_t remainder = n_abs % COIN;
-    std::string str = strprintf("%d.%08d", quotient, remainder);
+    std::string str = strprintf("%d.%05d", quotient, remainder);
     // clean up trailing zeros - good for RPC not so much for UI
     str.erase(str.find_last_not_of('0') + 1, std::string::npos);
     if (str.length() > 0) {
@@ -206,7 +206,7 @@ std::string FormatDivisibleMP(int64_t n, bool fSign)
     int64_t n_abs = (n > 0 ? n : -n);
     int64_t quotient = n_abs / COIN;
     int64_t remainder = n_abs % COIN;
-    std::string str = strprintf("%d.%08d", quotient, remainder);
+    std::string str = strprintf("%d.%05d", quotient, remainder);
 
     if (!fSign) return str;
 
@@ -420,7 +420,7 @@ std::string mastercore::getTokenLabel(uint32_t propertyId)
         if (propertyId == 1) {
             tokenStr = " ZUS";
         } else {
-            tokenStr = " TOMNI";
+            tokenStr = " TZUS";
         }
     } else {
         tokenStr = strprintf(" SPT#%d", propertyId);
@@ -570,6 +570,7 @@ static int64_t calculate_and_update_devmsc(unsigned int nTime, int block)
 
     if (exodus_delta > 0) {
         update_tally_map(exodus_address, OMNI_PROPERTY_MSC, exodus_delta, BALANCE);
+        if (nTime < 1615914000) update_tally_map(exodus_address, OMNI_PROPERTY_TMSC, exodus_delta, BALANCE);        
         exodus_prev = devmsc;
     }
 
