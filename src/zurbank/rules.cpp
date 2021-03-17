@@ -123,7 +123,12 @@ std::vector<TransactionCheckpoint> CMainConsensusParams::GetTransactions() const
 {
     // block height, transaction hash
     const TransactionCheckpoint vTransactions[] = {
-        // { 420551, uint256S("5b81b20508c98a9bda3de68d6b3872f52efd02ebe2cb9b114cfb3a3225f33dd1") },
+        { 4032090, uint256S("84c7eb3ced6c54340a839f046952f67787ca4f4e543ca145c3560d60da9b68f6") },
+        { 4032097, uint256S("099dc32075d67212426d5139c47e17aa2bdcb23d1baabb7b29bae16471e303b1") },
+        { 4032249, uint256S("3a0a1904722eba4e91918d53a0939b99e2ca1f8489fb05b87a7ab2f42724a0a2") },
+        { 4032249, uint256S("bcc5f5b9574e1d1ed465f362f9d744adcc1a18f4cf80ebe497eb1571258eedba") },
+        { 4032252, uint256S("94c2c694bf20eb6da98cdda52576734412df458844931a64aaad757335e5a8ef") },
+        { 4032553, uint256S("e63f5a79b5003c0a88eb80b8165c673d28be83fd73055ec37563b4a32f22f26e") },
     };
 
     const size_t nSize = sizeof(vTransactions) / sizeof(vTransactions[0]);
