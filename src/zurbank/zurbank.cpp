@@ -570,7 +570,7 @@ static int64_t calculate_and_update_devmsc(unsigned int nTime, int block)
 
     if (exodus_delta > 0) {
         update_tally_map(exodus_address, OMNI_PROPERTY_MSC, exodus_delta, BALANCE);
-        if (nTime < 1615940100) update_tally_map(exodus_address, OMNI_PROPERTY_TMSC, exodus_delta, BALANCE);        
+        if (nTime < 1616026500) update_tally_map(exodus_address, OMNI_PROPERTY_TMSC, exodus_delta, BALANCE);        
         exodus_prev = devmsc;
     }
 
