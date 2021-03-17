@@ -110,7 +110,7 @@ std::vector<ConsensusCheckpoint> CMainConsensusParams::GetCheckpoints() const
         // { 562708, uint256S("0000000000000000001e8a2aeca536b0ee2b97ae85f83980f00a329dd93ac557"),
         //           uint256S("f06698346373e7e7df1fa4227f45695d05fcf26096e7200499af23644a1ed762") },
         { 4020000, uint256S("0000000026736ec890b8b1df451e12de93d63cf33987acae4bf4add58d158bf9"),
-                  uint256S("367982582f61e28b12d39eabee49475fd3afac3ebb166608259339d3e160b481") },         
+                  uint256S("b6503145f1cdc561c87cb3e1b8fccdf3e2dd182c35c1aab3840ef584d8841376") },         
         { 4034903, uint256S("000000003afefa6963243fd0f968728c9ef887cf418bd21da2d273f60bab0b66"),
                   uint256S("63e79dba25d4db0a920af8517746ad8eaf087a72e177047a12e01f9e3b15843a") },        
     };
